@@ -1,0 +1,62 @@
+{
+    "name": "gammamatrix/playground-stub",
+    "description": "Playground: A tool for building out Laravel applications.",
+    "keywords": [
+        "gammamatrix",
+        "laravel",
+        "playground",
+        "playground-stub"
+    ],
+    "homepage": "https://gammamatrix-playground.readthedocs.io/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeremy Postlethwaite",
+            "email": "jeremy.postlethwaite@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "gammamatrix/playground": "dev-develop|dev-master|dev-feature/*|^73.0@dev|^73.0"
+    },
+    "require-dev": {
+        "gammamatrix/playground-test": "dev-develop|dev-master|dev-feature/*|^73.0@dev|^73.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Playground\\Stub\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Feature\\Playground\\Stub\\": "tests/Feature/",
+            "Tests\\Unit\\Playground\\Stub\\": "tests/Unit/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": {
+            "gammamatrix/*": "source",
+            "*": "dist"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "73.x-dev",
+            "dev-master": "73.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Playground\\Auth\\ServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "format": "vendor/bin/php-cs-fixer fix",
+        "analyse": "vendor/bin/phpstan analyse --verbose --debug --level max"
+    }
+}
