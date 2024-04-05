@@ -4,16 +4,16 @@
  */
 
 declare(strict_types=1);
-namespace Tests\FeaUnitture\Playground\Stub\Console\Commands\SeederMakeCommand;
+namespace Tests\FeaUnitture\Playground\Stub\Console\Commands\TestMakeCommand;
 
 use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\Unit\Playground\Stub\TestCase;
-use Playground\Stub\Console\Commands\SeederMakeCommand;
+use Playground\Stub\Console\Commands\TestMakeCommand;
 
 /**
- * \Tests\Feature\Playground\Stub\Console\Commands\SeederMakeCommand
+ * \Tests\Feature\Playground\Stub\Console\Commands\TestMakeCommand
  */
-#[CoversClass(SeederMakeCommand::class)]
+#[CoversClass(TestMakeCommand::class)]
 class CommandTest extends TestCase
 {
     public function test_command_displays_help(): void
@@ -21,7 +21,7 @@ class CommandTest extends TestCase
         /**
          * @var \Illuminate\Testing\PendingCommand $result
          */
-        $result = $this->artisan('playground:make:seeder --help');
+        $result = $this->artisan('playground:make:test --help');
         $result->assertExitCode(0);
     }
 }

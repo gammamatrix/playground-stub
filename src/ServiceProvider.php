@@ -22,8 +22,6 @@ class ServiceProvider extends AuthServiceProvider
     /**
      * Bootstrap any package services.
      * Register any authentication / authorization services.
-     *
-     * @return void
      */
     public function boot(): void
     {
@@ -76,8 +74,8 @@ class ServiceProvider extends AuthServiceProvider
         // $commands[] = Console\Commands\ResourceMakeCommand::class;
         // $commands[] = Console\Commands\RouteMakeCommand::class;
         // $commands[] = Console\Commands\TemplateMakeCommand::class;
-        // $commands[] = Console\Commands\TestMakeCommand::class;
-        // $commands[] = Console\Commands\SeederMakeCommand::class;
+        $commands[] = Console\Commands\TestMakeCommand::class;
+        $commands[] = Console\Commands\SeederMakeCommand::class;
 
         $this->commands($commands);
 
