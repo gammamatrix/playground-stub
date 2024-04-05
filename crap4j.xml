@@ -1,16 +1,665 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-04 21:27:43</timestamp>
+  <timestamp>2024-04-05 03:23:30</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>5</methodCount>
-    <crapMethodCount>0</crapMethodCount>
-    <crapLoad>0</crapLoad>
-    <totalCrap>16</totalCrap>
-    <crapMethodPercent>0</crapMethodPercent>
+    <methodCount>64</methodCount>
+    <crapMethodCount>12</crapMethodCount>
+    <crapLoad>208</crapLoad>
+    <totalCrap>5476</totalCrap>
+    <crapMethodPercent>18.75</crapMethodPercent>
   </stats>
   <methods>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\Command</className>
+      <methodName>parseClassInput</methodName>
+      <methodSignature>parseClassInput(mixed $input): string</methodSignature>
+      <fullMethod>parseClassInput(mixed $input): string</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\Command</className>
+      <methodName>parseClassConfig</methodName>
+      <methodSignature>parseClassConfig(mixed $input): string</methodSignature>
+      <fullMethod>parseClassConfig(mixed $input): string</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\Command</className>
+      <methodName>get_configuration</methodName>
+      <methodSignature>get_configuration(): array</methodSignature>
+      <fullMethod>get_configuration(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\Command</className>
+      <methodName>get_search</methodName>
+      <methodSignature>get_search(): array</methodSignature>
+      <fullMethod>get_search(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\Command</className>
+      <methodName>getType</methodName>
+      <methodSignature>getType(): string</methodSignature>
+      <fullMethod>getType(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\Command</className>
+      <methodName>buildClass</methodName>
+      <methodSignature>buildClass($name): string</methodSignature>
+      <fullMethod>buildClass($name): string</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\Command</className>
+      <methodName>resolveStubPath</methodName>
+      <methodSignature>resolveStubPath($stub): string</methodSignature>
+      <fullMethod>resolveStubPath($stub): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\Command</className>
+      <methodName>disk</methodName>
+      <methodSignature>disk(): Illuminate\Filesystem\FilesystemAdapter</methodSignature>
+      <fullMethod>disk(): Illuminate\Filesystem\FilesystemAdapter</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\Command</className>
+      <methodName>getDefaultNamespace</methodName>
+      <methodSignature>getDefaultNamespace($rootNamespace)</methodSignature>
+      <fullMethod>getDefaultNamespace($rootNamespace)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\Command</className>
+      <methodName>getNamespace</methodName>
+      <methodSignature>getNamespace($name)</methodSignature>
+      <fullMethod>getNamespace($name)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\Command</className>
+      <methodName>rootNamespace</methodName>
+      <methodSignature>rootNamespace()</methodSignature>
+      <fullMethod>rootNamespace()</fullMethod>
+      <crap>56</crap>
+      <complexity>7</complexity>
+      <coverage>0</coverage>
+      <crapLoad>7</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\Command</className>
+      <methodName>getPath</methodName>
+      <methodSignature>getPath($name): string</methodSignature>
+      <fullMethod>getPath($name): string</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\Command</className>
+      <methodName>search_and_replace</methodName>
+      <methodSignature>search_and_replace(string $stub): self</methodSignature>
+      <fullMethod>search_and_replace(string $stub): self</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\Command</className>
+      <methodName>getArguments</methodName>
+      <methodSignature>getArguments(): array</methodSignature>
+      <fullMethod>getArguments(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\Command</className>
+      <methodName>getOptions</methodName>
+      <methodSignature>getOptions(): array</methodSignature>
+      <fullMethod>getOptions(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\Command</className>
+      <methodName>promptForMissingArgumentsUsing</methodName>
+      <methodSignature>promptForMissingArgumentsUsing(): array</methodSignature>
+      <fullMethod>promptForMissingArgumentsUsing(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\Command</className>
+      <methodName>qualifyClass</methodName>
+      <methodSignature>qualifyClass($name): string</methodSignature>
+      <fullMethod>qualifyClass($name): string</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\BuildingClasses</className>
+      <methodName>buildClass_implements</methodName>
+      <methodSignature>buildClass_implements(): void</methodSignature>
+      <fullMethod>buildClass_implements(): void</fullMethod>
+      <crap>156</crap>
+      <complexity>12</complexity>
+      <coverage>0</coverage>
+      <crapLoad>12</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\BuildingClasses</className>
+      <methodName>buildClass_model_meta</methodName>
+      <methodSignature>buildClass_model_meta(string $column, array $modelConfiguration): ?array</methodSignature>
+      <fullMethod>buildClass_model_meta(string $column, array $modelConfiguration): ?array</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\BuildingClasses</className>
+      <methodName>buildClass_model</methodName>
+      <methodSignature>buildClass_model(string $name): void</methodSignature>
+      <fullMethod>buildClass_model(string $name): void</fullMethod>
+      <crap>650</crap>
+      <complexity>25</complexity>
+      <coverage>0</coverage>
+      <crapLoad>26</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\BuildingClasses</className>
+      <methodName>buildClass_uses_add</methodName>
+      <methodSignature>buildClass_uses_add(string $use, string $use_class): void</methodSignature>
+      <fullMethod>buildClass_uses_add(string $use, string $use_class): void</fullMethod>
+      <crap>56</crap>
+      <complexity>7</complexity>
+      <coverage>0</coverage>
+      <crapLoad>7</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\BuildingClasses</className>
+      <methodName>buildClass_uses</methodName>
+      <methodSignature>buildClass_uses(string $name): void</methodSignature>
+      <fullMethod>buildClass_uses(string $name): void</fullMethod>
+      <crap>132</crap>
+      <complexity>11</complexity>
+      <coverage>0</coverage>
+      <crapLoad>11</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\BuildingClasses</className>
+      <methodName>createTrait</methodName>
+      <methodSignature>createTrait(string $folder, string $class, string $template): void</methodSignature>
+      <fullMethod>createTrait(string $folder, string $class, string $template): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\InteractiveCommands</className>
+      <methodName>interactive</methodName>
+      <methodSignature>interactive(): string</methodSignature>
+      <fullMethod>interactive(): string</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\InteractiveCommands</className>
+      <methodName>interactivePromptInput</methodName>
+      <methodSignature>interactivePromptInput(string $label, string $placeholder, string $default, string $hint): string</methodSignature>
+      <fullMethod>interactivePromptInput(string $label, string $placeholder, string $default, string $hint): string</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\InteractiveCommands</className>
+      <methodName>interactivePromptForName</methodName>
+      <methodSignature>interactivePromptForName(): string</methodSignature>
+      <fullMethod>interactivePromptForName(): string</fullMethod>
+      <crap>702</crap>
+      <complexity>26</complexity>
+      <coverage>0</coverage>
+      <crapLoad>27</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\InteractiveCommands</className>
+      <methodName>interactivePromptForNamespace</methodName>
+      <methodSignature>interactivePromptForNamespace(): string</methodSignature>
+      <fullMethod>interactivePromptForNamespace(): string</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\InteractiveCommands</className>
+      <methodName>interactivePromptForOrganization</methodName>
+      <methodSignature>interactivePromptForOrganization(): string</methodSignature>
+      <fullMethod>interactivePromptForOrganization(): string</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\InteractiveCommands</className>
+      <methodName>interactivePromptForPackage</methodName>
+      <methodSignature>interactivePromptForPackage(): string</methodSignature>
+      <fullMethod>interactivePromptForPackage(): string</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>get_configuration</methodName>
+      <methodSignature>get_configuration(): array</methodSignature>
+      <fullMethod>get_configuration(): array</fullMethod>
+      <crap>0</crap>
+      <complexity>0</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>get_search</methodName>
+      <methodSignature>get_search(): array</methodSignature>
+      <fullMethod>get_search(): array</fullMethod>
+      <crap>0</crap>
+      <complexity>0</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>getModelConfiguration</methodName>
+      <methodSignature>getModelConfiguration(): ?array</methodSignature>
+      <fullMethod>getModelConfiguration(): ?array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>loadOptionsIntoConfiguration</methodName>
+      <methodSignature>loadOptionsIntoConfiguration(mixed $configuration): array</methodSignature>
+      <fullMethod>loadOptionsIntoConfiguration(mixed $configuration): array</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>applyConfigurationToSearch</methodName>
+      <methodSignature>applyConfigurationToSearch(): array</methodSignature>
+      <fullMethod>applyConfigurationToSearch(): array</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>getConfigurationByKeyAsString</methodName>
+      <methodSignature>getConfigurationByKeyAsString(string $key, string $default): string</methodSignature>
+      <fullMethod>getConfigurationByKeyAsString(string $key, string $default): string</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>getConfigurationByKey</methodName>
+      <methodSignature>getConfigurationByKey(string $key, mixed $default): mixed</methodSignature>
+      <fullMethod>getConfigurationByKey(string $key, mixed $default): mixed</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>isConfigurationByKeyEmpty</methodName>
+      <methodSignature>isConfigurationByKeyEmpty(string $key): bool</methodSignature>
+      <fullMethod>isConfigurationByKeyEmpty(string $key): bool</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>setConfigurationByKey</methodName>
+      <methodSignature>setConfigurationByKey(string $key, mixed $value): void</methodSignature>
+      <fullMethod>setConfigurationByKey(string $key, mixed $value): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>getSearchByKey</methodName>
+      <methodSignature>getSearchByKey(string $key, string $default): string</methodSignature>
+      <fullMethod>getSearchByKey(string $key, string $default): string</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>setSearchByKey</methodName>
+      <methodSignature>setSearchByKey(string $key, mixed $value): void</methodSignature>
+      <fullMethod>setSearchByKey(string $key, mixed $value): void</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>reset</methodName>
+      <methodSignature>reset(): void</methodSignature>
+      <fullMethod>reset(): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>resetName</methodName>
+      <methodSignature>resetName(): void</methodSignature>
+      <fullMethod>resetName(): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>resetNamespace</methodName>
+      <methodSignature>resetNamespace(): void</methodSignature>
+      <fullMethod>resetNamespace(): void</fullMethod>
+      <crap>240</crap>
+      <complexity>15</complexity>
+      <coverage>0</coverage>
+      <crapLoad>15</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>resetFile</methodName>
+      <methodSignature>resetFile(): void</methodSignature>
+      <fullMethod>resetFile(): void</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>resetModelFile</methodName>
+      <methodSignature>resetModelFile(): void</methodSignature>
+      <fullMethod>resetModelFile(): void</fullMethod>
+      <crap>1722</crap>
+      <complexity>41</complexity>
+      <coverage>0</coverage>
+      <crapLoad>42</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>resetOptions</methodName>
+      <methodSignature>resetOptions(): void</methodSignature>
+      <fullMethod>resetOptions(): void</fullMethod>
+      <crap>930</crap>
+      <complexity>30</complexity>
+      <coverage>0</coverage>
+      <crapLoad>31</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>prepareOptions</methodName>
+      <methodSignature>prepareOptions(): void</methodSignature>
+      <fullMethod>prepareOptions(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>getConfigurationType</methodName>
+      <methodSignature>getConfigurationType(): string</methodSignature>
+      <fullMethod>getConfigurationType(): string</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>getConfigurationFilename</methodName>
+      <methodSignature>getConfigurationFilename(): string</methodSignature>
+      <fullMethod>getConfigurationFilename(): string</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>getPackageFolder</methodName>
+      <methodSignature>getPackageFolder(): string</methodSignature>
+      <fullMethod>getPackageFolder(): string</fullMethod>
+      <crap>56</crap>
+      <complexity>7</complexity>
+      <coverage>0</coverage>
+      <crapLoad>7</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>getResourcePackageFolder</methodName>
+      <methodSignature>getResourcePackageFolder(): string</methodSignature>
+      <fullMethod>getResourcePackageFolder(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>preloadConfiguration</methodName>
+      <methodSignature>preloadConfiguration(): ?array</methodSignature>
+      <fullMethod>preloadConfiguration(): ?array</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>saveConfiguration</methodName>
+      <methodSignature>saveConfiguration(): array</methodSignature>
+      <fullMethod>saveConfiguration(): array</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>getDestinationPath</methodName>
+      <methodSignature>getDestinationPath(): string</methodSignature>
+      <fullMethod>getDestinationPath(): string</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>folder</methodName>
+      <methodSignature>folder(): string</methodSignature>
+      <fullMethod>folder(): string</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\GeneratorCommand</className>
+      <methodName>handle</methodName>
+      <methodSignature>handle()</methodSignature>
+      <fullMethod>handle()</fullMethod>
+      <crap>210</crap>
+      <complexity>14</complexity>
+      <coverage>0</coverage>
+      <crapLoad>14</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\GeneratorCommand</className>
+      <methodName>qualifyModel</methodName>
+      <methodSignature>qualifyModel(string $model)</methodSignature>
+      <fullMethod>qualifyModel(string $model)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\GeneratorCommand</className>
+      <methodName>getNameInput</methodName>
+      <methodSignature>getNameInput(): ?string</methodSignature>
+      <fullMethod>getNameInput(): ?string</fullMethod>
+      <crap>90</crap>
+      <complexity>9</complexity>
+      <coverage>0</coverage>
+      <crapLoad>9</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\SeederMakeCommand</className>
+      <methodName>getStub</methodName>
+      <methodSignature>getStub()</methodSignature>
+      <fullMethod>getStub()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
     <method>
       <package>Playground\Stub</package>
       <className>Playground\Stub\ServiceProvider</className>
