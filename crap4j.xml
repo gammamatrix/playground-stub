@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-05 03:23:30</timestamp>
+  <timestamp>2024-04-05 05:14:00</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>64</methodCount>
@@ -664,8 +664,8 @@
       <package>Playground\Stub</package>
       <className>Playground\Stub\ServiceProvider</className>
       <methodName>boot</methodName>
-      <methodSignature>boot()</methodSignature>
-      <fullMethod>boot()</fullMethod>
+      <methodSignature>boot(): void</methodSignature>
+      <fullMethod>boot(): void</fullMethod>
       <crap>7</crap>
       <complexity>7</complexity>
       <coverage>100</coverage>
