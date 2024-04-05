@@ -25,7 +25,7 @@ class ServiceProvider extends AuthServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         /**
          * @var array<string, mixed> $config
