@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-05 05:14:00</timestamp>
+  <timestamp>2024-04-05 16:42:06</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>64</methodCount>
-    <crapMethodCount>12</crapMethodCount>
-    <crapLoad>208</crapLoad>
-    <totalCrap>5476</totalCrap>
-    <crapMethodPercent>18.75</crapMethodPercent>
+    <methodCount>74</methodCount>
+    <crapMethodCount>14</crapMethodCount>
+    <crapLoad>228</crapLoad>
+    <totalCrap>5797</totalCrap>
+    <crapMethodPercent>18.92</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -338,7 +338,7 @@
       <fullMethod>get_configuration(): array</fullMethod>
       <crap>0</crap>
       <complexity>0</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -349,7 +349,7 @@
       <fullMethod>get_search(): array</fullMethod>
       <crap>0</crap>
       <complexity>0</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -617,6 +617,28 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\Tests</className>
+      <methodName>buildClass_hasOne</methodName>
+      <methodSignature>buildClass_hasOne(string $type, string $suite): void</methodSignature>
+      <fullMethod>buildClass_hasOne(string $type, string $suite): void</fullMethod>
+      <crap>156</crap>
+      <complexity>12</complexity>
+      <coverage>0</coverage>
+      <crapLoad>12</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\Tests</className>
+      <methodName>buildClass_hasMany</methodName>
+      <methodSignature>buildClass_hasMany(string $type, string $suite): void</methodSignature>
+      <fullMethod>buildClass_hasMany(string $type, string $suite): void</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
       <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\GeneratorCommand</className>
       <methodName>handle</methodName>
@@ -657,6 +679,94 @@
       <fullMethod>getStub()</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\TestMakeCommand</className>
+      <methodName>prepareOptions</methodName>
+      <methodSignature>prepareOptions(): void</methodSignature>
+      <fullMethod>prepareOptions(): void</fullMethod>
+      <crap>72</crap>
+      <complexity>8</complexity>
+      <coverage>0</coverage>
+      <crapLoad>8</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\TestMakeCommand</className>
+      <methodName>getConfigurationFilename</methodName>
+      <methodSignature>getConfigurationFilename(): string</methodSignature>
+      <fullMethod>getConfigurationFilename(): string</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\TestMakeCommand</className>
+      <methodName>qualifyClass</methodName>
+      <methodSignature>qualifyClass($name): string</methodSignature>
+      <fullMethod>qualifyClass($name): string</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\TestMakeCommand</className>
+      <methodName>handle</methodName>
+      <methodSignature>handle()</methodSignature>
+      <fullMethod>handle()</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\TestMakeCommand</className>
+      <methodName>getStub</methodName>
+      <methodSignature>getStub()</methodSignature>
+      <fullMethod>getStub()</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\TestMakeCommand</className>
+      <methodName>getDefaultNamespace</methodName>
+      <methodSignature>getDefaultNamespace($rootNamespace): string</methodSignature>
+      <fullMethod>getDefaultNamespace($rootNamespace): string</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\TestMakeCommand</className>
+      <methodName>getOptions</methodName>
+      <methodSignature>getOptions(): array</methodSignature>
+      <fullMethod>getOptions(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\TestMakeCommand</className>
+      <methodName>folder</methodName>
+      <methodSignature>folder(): string</methodSignature>
+      <fullMethod>folder(): string</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
