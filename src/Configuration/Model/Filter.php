@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 namespace Playground\Stub\Configuration\Model;
 
-use Playground\Stub\Configuration;
+use Playground\Stub\Configuration\Configuration;
 
 /**
  * \Playground\Stub\Configuration\Filter

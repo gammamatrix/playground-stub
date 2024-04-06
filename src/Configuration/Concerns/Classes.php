@@ -11,6 +11,11 @@ namespace Playground\Stub\Configuration\Concerns;
  */
 trait Classes
 {
+    /**
+     * @var array<int|string, string>
+     */
+    protected array $uses = [];
+
     public function addClassTo(
         string $property,
         mixed $fqdn
@@ -109,6 +114,30 @@ trait Classes
 
         if (! in_array($file, $this->{$property})) {
             $this->{$file}[] = $file;
+        }
+
+        return $this;
+    }
+
+    public function addToUse(
+        string $class,
+        string $key = null
+    ): self {
+
+        if (empty($class)) {
+            throw new \RuntimeException(__('playground-stub::stub.Classes.use.required', [
+                'class' => static::class,
+                'use_class' => $class,
+                'key' => $key ?? '',
+            ]));
+        }
+
+        if (is_string($key)) {
+            $this->uses[$key] = $class;
+        } else {
+            if (! in_array($class, array_values($this->uses))) {
+                $this->uses[] = $class;
+            }
         }
 
         return $this;

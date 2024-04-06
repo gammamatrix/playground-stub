@@ -121,7 +121,7 @@ class Model extends Configuration
      */
     protected array $fillable = [];
 
-    // protected ?Model\Filters $filters = null;
+    protected Model\Filters $filters;
 
     /**
      * @var array<string, string>
@@ -137,11 +137,6 @@ class Model extends Configuration
      * @var array<string, mixed>
      */
     protected array $create = [];
-
-    /**
-     * @var array<int, class-string>
-     */
-    protected array $uses = [];
 
     /**
      * @param array<string, mixed> $options
@@ -215,14 +210,6 @@ class Model extends Configuration
         ) {
             foreach ($options['scopes'] as $scope => $meta) {
                 $this->addScope($scope, $meta);
-            }
-        }
-
-        if (! empty($options['uses'])
-            && is_array($options['uses'])
-        ) {
-            foreach ($options['uses'] as $fqdn) {
-                $this->addClassTo('uses', $fqdn);
             }
         }
 
@@ -325,5 +312,13 @@ class Model extends Configuration
         Log::warning('IMPLEMENT: '.__METHOD__);
 
         return $this;
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public function models(): array
+    {
+        return $this->models;
     }
 }

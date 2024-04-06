@@ -74,13 +74,15 @@ abstract class GeneratorCommand extends Command
         }
 
         $this->qualifiedName = $this->qualifyClass($name);
-        $this->configuration['fqdn'] = $this->parseClassConfig($this->qualifiedName);
+        $this->c->setOptions([
+            'fqdn' => $this->parseClassConfig($this->qualifiedName),
+        ]);
 
         // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$name' => $name,
         //     '$this->qualifiedName' => $this->qualifiedName,
-        //     '$this->configuration[class]' => $this->configuration['class'],
+        //     '$this->configuration[class]' => $this->c->class(),
         // ]);
 
         $path = $this->getPath($this->qualifiedName);
@@ -211,19 +213,21 @@ abstract class GeneratorCommand extends Command
         // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$this->folder' => $this->folder,
-        //     '$this->configuration[package]' => $this->configuration['package'],
+        //     '$this->configuration[package]' => $this->c->package(),
         //     '$name' => $name,
         //     'rootNamespace()' => $this->rootNamespace(),
         // ]);
 
-        if (empty($name) && ! empty($this->configuration['name'])
-            && is_string($this->configuration['name'])
+        if (empty($name) && ! empty($this->c->name())
+            && is_string($this->c->name())
         ) {
-            $name = $this->configuration['name'];
+            $name = $this->c->name();
         }
 
-        if (is_string($name) && empty($this->configuration['name'])) {
-            $this->configuration['name'] = $name;
+        if (is_string($name) && empty($this->c->name())) {
+            $this->c->setOptions([
+                'name' => $name,
+            ]);
         }
 
         $this->applyConfigurationToSearch();
@@ -233,7 +237,7 @@ abstract class GeneratorCommand extends Command
         // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$this->folder' => $this->folder,
-        //     '$this->configuration[package]' => $this->configuration['package'],
+        //     '$this->configuration[package]' => $this->c->package(),
         //     '$name' => $name,
         //     'rootNamespace()' => $this->rootNamespace(),
         // ]);

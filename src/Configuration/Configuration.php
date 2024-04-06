@@ -11,10 +11,15 @@ use JsonSerializable;
 /**
  * \Playground\Stub\Configuration
  */
-class Configuration implements JsonSerializable
+abstract class Configuration implements Contracts\Configuration, JsonSerializable
 {
     use Concerns\Classes;
     use Concerns\Properties;
+
+    /**
+     * @var string The component folder.
+     */
+    protected string $folder = '';
 
     /**
      * @var bool Allows for autogenerating sparse configurations.
@@ -34,9 +39,25 @@ class Configuration implements JsonSerializable
         }
     }
 
+    public function apply(): self
+    {
+        foreach ($this->properties() as $property => $value) {
+            if (method_exists($this, $property)) {
+                $this->properties[$property] = $this->{$property}();
+            }
+        }
+
+        return $this;
+    }
+
     public function jsonSerialize(): mixed
     {
         return $this->properties;
+    }
+
+    public function folder(): string
+    {
+        return $this->folder;
     }
 
     public function skeleton(): bool

@@ -1,0 +1,18 @@
+<?php
+/**
+ * {{organization}}
+ *
+ */
+
+namespace {{ namespace }};
+{{ use }}
+/**
+ * \{{ namespace }}\{{ class }}
+ *
+ */
+class {{ class }} extends {{ extends }}{{ implements }}
+{
+    const MODEL = \{{ model_fqdn }}::class;
+
+    protected bool $hasRelationships = {{ hasRelationships }};{{ hasMany_properties }}{{ hasOne_properties }}
+}

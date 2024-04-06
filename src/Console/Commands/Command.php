@@ -10,8 +10,11 @@ use Illuminate\Console\GeneratorCommand as BaseGeneratorCommand;
 use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
+
+// use Playground\Stub\Configuration\Configuration;
 
 // use Symfony\Component\Finder\Finder;
 
@@ -22,16 +25,23 @@ abstract class Command extends BaseGeneratorCommand
     use Concerns\PackageConfiguration;
 
     /**
-     * @var array<string, mixed>
+     * @var class-string<ConfigurationContract>
      */
-    public const CONFIGURATION = [
-        'class' => '',
-        'module' => '',
-        'module_slug' => '',
-        'namespace' => 'App',
-        'organization' => '',
-        'package' => 'app',
-    ];
+    public const CONF = ConfigurationContract::class;
+
+    protected ConfigurationContract $c;
+
+    // /**
+    //  * @var array<string, mixed>
+    //  */
+    // public const CONFIGURATION = [
+    //     'class' => '',
+    //     'module' => '',
+    //     'module_slug' => '',
+    //     'namespace' => 'App',
+    //     'organization' => '',
+    //     'package' => 'app',
+    // ];
 
     /**
      * @var array<string, string>
@@ -71,12 +81,14 @@ abstract class Command extends BaseGeneratorCommand
         return empty($input) || ! is_string($input) ? '' : str_replace(['\\', '\\\\'], '/', ltrim($input, '\\/'));
     }
 
-    /**
-     * @return array<string, mixed>
-     */
-    protected function get_configuration(): array
+    protected function get_configuration(bool $reset = false): ConfigurationContract
     {
-        return static::CONFIGURATION;
+        if ($reset || empty($this->c)) {
+            $c = static::CONF;
+            $this->c = new $c;
+        }
+
+        return $this->c;
     }
 
     /**
@@ -200,10 +212,10 @@ abstract class Command extends BaseGeneratorCommand
         // ]);
         if ($this->hasOption('namespace') && $this->option('namespace')) {
             $rootNamespace = $this->parseClassInput($this->option('namespace'));
-        } elseif (! empty($this->configuration['namespace']
-            && is_string($this->configuration['namespace']))
+        } elseif (! empty($this->c->namespace()
+            && is_string($this->c->namespace()))
         ) {
-            $rootNamespace = $this->parseClassInput($this->configuration['namespace']);
+            $rootNamespace = $this->parseClassInput($this->c->namespace());
         }
 
         if (empty($rootNamespace)) {
@@ -219,19 +231,21 @@ abstract class Command extends BaseGeneratorCommand
 
     protected function getPath($name): string
     {
-        if (empty($this->configuration['package'])) {
-            $this->configuration['package'] = 'app';
+        if (empty($this->c->package())) {
+            $this->c->setOptions([
+                'package' => 'app',
+            ]);
         }
 
         $path = sprintf(
             '%1$s/%2$s.php',
             $this->folder(),
-            is_string($this->configuration['class']) ? $this->configuration['class'] : 'SomeClass'
+            is_string($this->c->class()) ? $this->c->class() : 'SomeClass'
         );
         // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$this->folder' => $this->folder,
-        //     '$this->configuration[package]' => $this->configuration['package'],
+        //     '$this->configuration[package]' => $this->c->package(),
         //     '$name' => $name,
         //     '$path' => $path,
         //     'rootNamespace()' => $this->rootNamespace(),
@@ -244,8 +258,8 @@ abstract class Command extends BaseGeneratorCommand
     // {
     //     $path = static::PATH_DESTINATION;
 
-    //     if (! empty($this->configuration['package'])) {
-    //         $path .= '/'.ltrim($this->configuration['package'], '/');
+    //     if (! empty($this->c->package())) {
+    //         $path .= '/'.ltrim($this->c->package(), '/');
     //     }
 
     //     if (static::PATH_DESTINATION_FOLDER) {
@@ -262,7 +276,7 @@ abstract class Command extends BaseGeneratorCommand
         //     '$this->folder' => $this->folder,
         //     '$this->searches' => $this->searches,
         //     '$this->configuration' => $this->configuration,
-        //     // '$this->configuration[package]' => $this->configuration['package'],
+        //     // '$this->configuration[package]' => $this->c->package(),
         //     'rootNamespace()' => $this->rootNamespace(),
         // ]);
         foreach ($this->searches as $search => $value) {
@@ -350,9 +364,11 @@ abstract class Command extends BaseGeneratorCommand
         //     '$name' => $name,
         // ]);
 
-        if (empty($this->configuration['class'])) {
-            $this->configuration['class'] = class_basename($name);
-            $this->searches['class'] = $this->configuration['class'];
+        if (empty($this->c->class())) {
+            $this->c->setOptions([
+                'class' => class_basename($name),
+            ]);
+            $this->searches['class'] = $this->c->class();
         }
 
         if (Str::startsWith($name, $rootNamespace)) {

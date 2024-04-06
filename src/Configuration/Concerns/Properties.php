@@ -18,13 +18,18 @@ trait Properties
         // "class": "ServiceProvider",
         'class' => '',
         'config' => '',
+        'extends' => '',
         'fqdn' => '',
+        'extends_use' => '',
+        'model' => '',
         'module' => '',
         'module_slug' => '',
         'name' => '',
         'namespace' => '',
         'organization' => '',
         'package' => '',
+        'type' => '',
+        'uses' => [],
     ];
 
     protected string $class = '';
@@ -32,10 +37,13 @@ trait Properties
     // "config": "playground-matrix",
     protected string $config = '';
 
+    protected string $extends = '';
+
+    protected string $extends_use = '';
+
     protected string $fqdn = '';
 
-    // "package": "playground-matrix",
-    protected string $package = '';
+    protected string $model = '';
 
     // "module": "Matrix",
     protected string $module = '';
@@ -51,6 +59,11 @@ trait Properties
 
     // "organization": "GammaMatrix",
     protected string $organization = '';
+
+    // "package": "playground-matrix",
+    protected string $package = '';
+
+    protected string $type = '';
 
     /**
      * @param array<string, mixed> $options
@@ -75,10 +88,28 @@ trait Properties
             $this->organization = $options['organization'];
         }
 
+        if (! empty($options['extends'])
+            && is_string($options['extends'])
+        ) {
+            $this->extends = $options['extends'];
+        }
+
+        if (! empty($options['extends_use'])
+            && is_string($options['extends_use'])
+        ) {
+            $this->extends_use = $options['extends_use'];
+        }
+
         if (! empty($options['fqdn'])
             && is_string($options['fqdn'])
         ) {
             $this->fqdn = $options['fqdn'];
+        }
+
+        if (! empty($options['model'])
+            && is_string($options['model'])
+        ) {
+            $this->model = $options['model'];
         }
 
         if (! empty($options['module'])
@@ -99,10 +130,30 @@ trait Properties
             $this->name = $options['name'];
         }
 
+        if (! empty($options['namespace'])
+            && is_string($options['namespace'])
+        ) {
+            $this->namespace = $options['namespace'];
+        }
+
         if (! empty($options['package'])
             && is_string($options['package'])
         ) {
             $this->package = $options['package'];
+        }
+
+        if (! empty($options['type'])
+            && is_string($options['type'])
+        ) {
+            $this->type = $options['type'];
+        }
+
+        if (! empty($options['uses'])
+            && is_array($options['uses'])
+        ) {
+            foreach ($options['uses'] as $key => $class) {
+                $this->addToUse($class, $key);
+            }
         }
 
         return $this;
@@ -121,6 +172,11 @@ trait Properties
     public function fqdn(): string
     {
         return $this->fqdn;
+    }
+
+    public function model(): string
+    {
+        return $this->model;
     }
 
     public function module(): string
@@ -151,5 +207,36 @@ trait Properties
     public function package(): string
     {
         return $this->package;
+    }
+
+    public function type(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @return array<int|string, string>
+     */
+    public function uses(): array
+    {
+        return $this->uses;
+    }
+
+    public function extends(): string
+    {
+        return $this->extends;
+    }
+
+    public function extends_use(): string
+    {
+        return $this->extends_use;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function properties(): array
+    {
+        return $this->properties;
     }
 }

@@ -8,8 +8,12 @@ namespace Playground\Stub\Console\Commands;
 
 // use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
+use Playground\Stub\Configuration\Test as Configuration;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputOption;
+
+// use Playground\Stub\Configuration\Configuration;
 
 /**
  * \Playground\Stub\Console\Commands\TestMakeCommand
@@ -20,32 +24,42 @@ class TestMakeCommand extends GeneratorCommand
     use Concerns\Tests;
 
     /**
-     * @var array<string, mixed>
+     * @var class-string<Configuration>
      */
-    public const CONFIGURATION = [
-        'organization' => '',
-        'package' => 'app',
-        'fqdn' => '',
-        'namespace' => '',
-        'model' => '',
-        'model_column' => '',
-        'model_label' => '',
-        'module' => '',
-        'module_slug' => '',
-        'name' => '',
-        'folder' => '',
-        'class' => '',
-        'type' => '',
-        'table' => '',
-        'extends' => '\Tests\TestCase',
-        'implements' => [],
-        'properties' => [],
-        'setup' => [],
-        'tests' => [],
-        'HasOne' => [],
-        'HasMany' => [],
-        'uses' => [],
-    ];
+    public const CONF = Configuration::class;
+
+    /**
+     * @var ConfigurationContract&Configuration
+     */
+    protected ConfigurationContract $c;
+
+    // /**
+    //  * @var array<string, mixed>
+    //  */
+    // public const CONFIGURATION = [
+    //     'organization' => '',
+    //     'package' => 'app',
+    //     'fqdn' => '',
+    //     'namespace' => '',
+    //     'model' => '',
+    //     'model_column' => '',
+    //     'model_label' => '',
+    //     'module' => '',
+    //     'module_slug' => '',
+    //     'name' => '',
+    //     'folder' => '',
+    //     'class' => '',
+    //     'type' => '',
+    //     'table' => '',
+    //     'extends' => '\Tests\TestCase',
+    //     'implements' => [],
+    //     'properties' => [],
+    //     'setup' => [],
+    //     'tests' => [],
+    //     'HasOne' => [],
+    //     'HasMany' => [],
+    //     'uses' => [],
+    // ];
 
     /**
      * @var array<string, string>
@@ -98,13 +112,13 @@ class TestMakeCommand extends GeneratorCommand
     public function prepareOptions(): void
     {
         $options = $this->options();
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$options' => $options,
-        //     // '$this->configuration' => $this->configuration,
-        //     '$this->searches' => $this->searches,
-        //     // '$this->model' => $this->model,
-        // ]);
+        dump([
+            '__METHOD__' => __METHOD__,
+            '$options' => $options,
+            // '$this->configuration' => $this->configuration,
+            '$this->searches' => $this->searches,
+            // '$this->model' => $this->model,
+        ]);
 
         $type = $this->getConfigurationType();
 
@@ -116,7 +130,9 @@ class TestMakeCommand extends GeneratorCommand
             'unit',
         ]) ? 'unit' : $suite;
 
-        $this->configuration['folder'] = Str::of($this->suite)->title()->toString();
+        $this->c->setOptions([
+            'folder' => Str::of($this->suite)->title()->toString(),
+        ]);
 
         if (in_array($type, [
             'model',
@@ -126,8 +142,10 @@ class TestMakeCommand extends GeneratorCommand
         ])) {
 
             if (! empty($this->model['fqdn'])) {
-                $this->configuration['model_fqdn'] = $this->model['fqdn'];
-                $this->searches['model_fqdn'] = $this->parseClassInput($this->model['fqdn']);
+                $this->c->setOptions([
+                    'model_fqdn' => $this->model['fqdn'],
+                ]);
+                $this->searches['model_fqdn'] = $this->parseClassInput($this->c->model_fqdn());
             }
 
             if (in_array($this->suite, [
@@ -135,10 +153,14 @@ class TestMakeCommand extends GeneratorCommand
                 'feature',
             ])) {
                 $this->buildClass_uses_add('GammaMatrix\Playground\Test\Feature\Models\ModelCase');
-                $this->configuration['extends'] = 'ModelCase';
+                $this->c->setOptions([
+                    'extends' => 'ModelCase',
+                ]);
             } else {
                 $this->buildClass_uses_add('GammaMatrix\Playground\Test\Unit\Models\ModelCase');
-                $this->configuration['extends'] = 'ModelCase';
+                $this->c->setOptions([
+                    'extends' => 'ModelCase',
+                ]);
             }
 
             $this->buildClass_hasOne($type, $this->suite);
@@ -151,8 +173,8 @@ class TestMakeCommand extends GeneratorCommand
         }
 
         $this->applyConfigurationToSearch();
-        if (is_string($this->configuration['name'])) {
-            $this->buildClass_uses($this->configuration['name']);
+        if (is_string($this->c->name())) {
+            $this->buildClass_uses($this->c->name());
         }
 
         // dump([
@@ -165,9 +187,9 @@ class TestMakeCommand extends GeneratorCommand
 
     protected function getConfigurationFilename(): string
     {
-        return ! is_string($this->configuration['name']) ? '' : sprintf(
+        return ! is_string($this->c->name()) ? '' : sprintf(
             '%1$s/%2$s.json',
-            Str::of($this->configuration['name'])->kebab(),
+            Str::of($this->c->name())->kebab(),
             Str::of($this->getType())->kebab(),
         );
     }
@@ -204,19 +226,23 @@ class TestMakeCommand extends GeneratorCommand
             'playground-resource',
             'playground-model',
         ])) {
-            $this->configuration['class'] = 'ModelTest';
+            $this->c->setOptions([
+                'class' => 'ModelTest',
+            ]);
             // } elseif ($type === 'controller') {
             // } elseif ($type === 'playground-resource-index') {
             // } elseif ($type === 'playground-resource') {
         } else {
-            $this->configuration['class'] = 'InstanceTest';
+            $this->c->setOptions([
+                'class' => 'InstanceTest',
+            ]);
         }
 
-        $this->searches['class'] = $this->configuration['class'];
+        $this->searches['class'] = $this->c->class();
 
         $rootNamespace = $this->rootNamespace();
 
-        return $this->getDefaultNamespace(trim($rootNamespace, '\\')).'\\'.$this->configuration['class'];
+        return $this->getDefaultNamespace(trim($rootNamespace, '\\')).'\\'.$this->c->class();
 
         // dump([
         //     '__METHOD__' => __METHOD__,
@@ -225,7 +251,7 @@ class TestMakeCommand extends GeneratorCommand
         //     '$this->searches' => $this->searches,
         //     '$this->options()' => $this->options(),
         // ]);
-        // return $this->configuration['class'];
+        // return $this->c->class();
     }
 
     /**
@@ -266,7 +292,7 @@ class TestMakeCommand extends GeneratorCommand
     //     // $tests['form-status.blade.php'] = 'test/playground/resource/model/form-status.blade.php.stub';
     //     // // $tests['index'] = 'test/playground/resource/model/index.blade.php.stub';
 
-    //     // // Str::of($this->configuration['name'])->kebab()
+    //     // // Str::of($this->c->name())->kebab()
 
     //     // foreach ($tests as $test => $source) {
 
@@ -333,11 +359,11 @@ class TestMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace): string
     {
-        return ! is_string($this->configuration['name']) ? '' : sprintf(
+        return ! is_string($this->c->name()) ? '' : sprintf(
             'Tests\\%1$s\\%2$s\\%3$s',
             Str::of($this->suite)->studly(),
             $this->parseClassInput($rootNamespace),
-            Str::of($this->configuration['name'])->studly()
+            Str::of($this->c->name())->studly()
         );
     }
 
@@ -357,12 +383,12 @@ class TestMakeCommand extends GeneratorCommand
 
     protected function folder(): string
     {
-        if (empty($this->folder) && is_string($this->configuration['name'])) {
+        if (empty($this->folder) && is_string($this->c->name())) {
             $this->folder = sprintf(
                 '%1$s/%2$s/%3$s',
                 $this->getDestinationPath(),
                 Str::of($this->suite)->studly()->toString(),
-                Str::of($this->configuration['name'])->studly()->toString()
+                Str::of($this->c->name())->studly()->toString()
             );
         }
 

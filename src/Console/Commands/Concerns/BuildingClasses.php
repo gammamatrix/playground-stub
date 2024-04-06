@@ -121,8 +121,8 @@ trait BuildingClasses
             $model = is_string($model) ? $model : '';
         }
 
-        if (empty($model) && ! empty($this->configuration['model'])) {
-            $model = $this->configuration['model'];
+        if (empty($model) && ! empty($this->c->model())) {
+            $model = $this->c->model();
         }
 
         if (empty($model) || ! is_string($model)) {
@@ -202,22 +202,24 @@ trait BuildingClasses
 
     protected function buildClass_uses_add(string $use, string $use_class = ''): void
     {
-        if (empty($this->configuration['uses']) || ! is_array($this->configuration['uses'])) {
-            $this->configuration['uses'] = [];
-        }
-
         if (empty($use_class)) {
-            if ($use && ! in_array($use, $this->configuration['uses'])) {
-                // $this->configuration['uses'][] = ltrim($this->parseClassInput($use), '\\');
-                // $this->configuration['uses'][] = $this->parseClassInput($use);
-                $this->configuration['uses'][] = $this->parseClassConfig($use);
+            if (method_exists($this->c, 'addToUse')) {
+                $this->c->addToUse($this->parseClassConfig($use));
             }
+            // if ($use && ! in_array($use, $this->configuration['uses'])) {
+            //     // $this->configuration['uses'][] = ltrim($this->parseClassInput($use), '\\');
+            //     // $this->configuration['uses'][] = $this->parseClassInput($use);
+            //     $this->configuration['uses'][] = $this->parseClassConfig($use);
+            // }
         } else {
-            if (! array_key_exists($use, $this->configuration['uses'])) {
-                // $this->configuration['uses'][$use_class] = ltrim($this->parseClassConfig($use), '/');
-                // $this->configuration['uses'][$use_class] = $this->parseClassInput($use);
-                $this->configuration['uses'][$use_class] = $this->parseClassConfig($use);
+            if (method_exists($this->c, 'addToUse')) {
+                $this->c->addToUse($this->parseClassConfig($use), $use_class);
             }
+            // if (! array_key_exists($use, $this->configuration['uses'])) {
+            //     $this->configuration['uses'][$use_class] = ltrim($this->parseClassConfig($use), '/');
+            //     $this->configuration['uses'][$use_class] = $this->parseClassInput($use);
+            //     $this->configuration['uses'][$use_class] = $this->parseClassConfig($use);
+            // }
         }
     }
 
@@ -228,31 +230,29 @@ trait BuildingClasses
         $this->searches['use'] = '';
         $this->searches['use_class'] = '';
 
-        if (! empty($this->configuration['extends_use']) && is_string($this->configuration['extends_use'])) {
+        $extends_use = $this->c->extends_use();
+
+        if (! empty($extends_use)) {
             // $this->configuration['uses'][] = ltrim($this->parseClassInput($this->configuration['extends_use']), '\\');
-            $this->buildClass_uses_add($this->configuration['extends_use']);
+            $this->buildClass_uses_add($extends_use);
         }
 
-        if (! empty($this->configuration['uses'])
-            && is_array($this->configuration['uses'])
-        ) {
-            foreach ($this->configuration['uses'] as $key => $value) {
-                if (is_string($key)) {
-                    if ($key) {
-                        $use_class .= sprintf(
-                            '    use %2$s;%1$s',
-                            PHP_EOL,
-                            $key
-                        );
-                    }
-                }
-                if ($value) {
-                    $use .= sprintf(
-                        'use %2$s;%1$s',
+        foreach ($this->c->uses() as $key => $value) {
+            if (is_string($key)) {
+                if ($key) {
+                    $use_class .= sprintf(
+                        '    use %2$s;%1$s',
                         PHP_EOL,
-                        $this->parseClassInput($value)
+                        $key
                     );
                 }
+            }
+            if ($value) {
+                $use .= sprintf(
+                    'use %2$s;%1$s',
+                    PHP_EOL,
+                    $this->parseClassInput($value)
+                );
             }
         }
 
