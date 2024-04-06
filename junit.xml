@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="/app/phpunit.xml.dist" tests="3" assertions="4" errors="0" failures="0" skipped="0" time="0.664038">
-    <testsuite name="Unit" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="0.549913">
-      <testsuite name="Tests\FeaUnitture\Playground\Stub\Console\Commands\SeederMakeCommand\CommandTest" file="/app/tests/Unit/Console/Commands/SeederMakeCommand/CommandTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.517704">
-        <testcase name="test_command_displays_help" file="/app/tests/Unit/Console/Commands/SeederMakeCommand/CommandTest.php" line="19" class="Tests\FeaUnitture\Playground\Stub\Console\Commands\SeederMakeCommand\CommandTest" classname="Tests.FeaUnitture.Playground.Stub.Console.Commands.SeederMakeCommand.CommandTest" assertions="1" time="0.517704"/>
+  <testsuite name="/app/phpunit.xml.dist" tests="3" assertions="4" errors="0" failures="0" skipped="0" time="0.679596">
+    <testsuite name="Unit" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="0.562910">
+      <testsuite name="Tests\FeaUnitture\Playground\Stub\Console\Commands\SeederMakeCommand\CommandTest" file="/app/tests/Unit/Console/Commands/SeederMakeCommand/CommandTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.530167">
+        <testcase name="test_command_displays_help" file="/app/tests/Unit/Console/Commands/SeederMakeCommand/CommandTest.php" line="19" class="Tests\FeaUnitture\Playground\Stub\Console\Commands\SeederMakeCommand\CommandTest" classname="Tests.FeaUnitture.Playground.Stub.Console.Commands.SeederMakeCommand.CommandTest" assertions="1" time="0.530167"/>
       </testsuite>
-      <testsuite name="Tests\FeaUnitture\Playground\Stub\Console\Commands\TestMakeCommand\CommandTest" file="/app/tests/Unit/Console/Commands/TestMakeCommand/CommandTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.032209">
-        <testcase name="test_command_displays_help" file="/app/tests/Unit/Console/Commands/TestMakeCommand/CommandTest.php" line="19" class="Tests\FeaUnitture\Playground\Stub\Console\Commands\TestMakeCommand\CommandTest" classname="Tests.FeaUnitture.Playground.Stub.Console.Commands.TestMakeCommand.CommandTest" assertions="1" time="0.032209"/>
+      <testsuite name="Tests\FeaUnitture\Playground\Stub\Console\Commands\TestMakeCommand\CommandTest" file="/app/tests/Unit/Console/Commands/TestMakeCommand/CommandTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.032742">
+        <testcase name="test_command_displays_help" file="/app/tests/Unit/Console/Commands/TestMakeCommand/CommandTest.php" line="19" class="Tests\FeaUnitture\Playground\Stub\Console\Commands\TestMakeCommand\CommandTest" classname="Tests.FeaUnitture.Playground.Stub.Console.Commands.TestMakeCommand.CommandTest" assertions="1" time="0.032742"/>
       </testsuite>
     </testsuite>
-    <testsuite name="Feature" tests="1" assertions="2" errors="0" failures="0" skipped="0" time="0.114125">
-      <testsuite name="Tests\Feature\Playground\Stub\Console\Commands\About\CommandTest" file="/app/tests/Feature/Console/Commands/About/CommandTest.php" tests="1" assertions="2" errors="0" failures="0" skipped="0" time="0.114125">
-        <testcase name="test_command_about_displays_package_information_and_succeed_with_code_0" file="/app/tests/Feature/Console/Commands/About/CommandTest.php" line="28" class="Tests\Feature\Playground\Stub\Console\Commands\About\CommandTest" classname="Tests.Feature.Playground.Stub.Console.Commands.About.CommandTest" assertions="2" time="0.114125"/>
+    <testsuite name="Feature" tests="1" assertions="2" errors="0" failures="0" skipped="0" time="0.116686">
+      <testsuite name="Tests\Feature\Playground\Stub\Console\Commands\About\CommandTest" file="/app/tests/Feature/Console/Commands/About/CommandTest.php" tests="1" assertions="2" errors="0" failures="0" skipped="0" time="0.116686">
+        <testcase name="test_command_about_displays_package_information_and_succeed_with_code_0" file="/app/tests/Feature/Console/Commands/About/CommandTest.php" line="28" class="Tests\Feature\Playground\Stub\Console\Commands\About\CommandTest" classname="Tests.Feature.Playground.Stub.Console.Commands.About.CommandTest" assertions="2" time="0.116686"/>
       </testsuite>
     </testsuite>
   </testsuite>
