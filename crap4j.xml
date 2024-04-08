@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-06 21:29:00</timestamp>
+  <timestamp>2024-04-08 18:31:24</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>127</methodCount>
     <crapMethodCount>28</crapMethodCount>
-    <crapLoad>453</crapLoad>
-    <totalCrap>10917</totalCrap>
+    <crapLoad>458</crapLoad>
+    <totalCrap>11109.69</totalCrap>
     <crapMethodPercent>22.05</crapMethodPercent>
   </stats>
   <methods>
@@ -688,8 +688,8 @@
       <methodName>resolveStubPath</methodName>
       <methodSignature>resolveStubPath($stub): string</methodSignature>
       <fullMethod>resolveStubPath($stub): string</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
+      <crap>42</crap>
+      <complexity>6</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -961,12 +961,12 @@
       <package>Playground\Stub\Console\Commands\Concerns</package>
       <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
       <methodName>applyConfigurationToSearch</methodName>
-      <methodSignature>applyConfigurationToSearch(): array</methodSignature>
-      <fullMethod>applyConfigurationToSearch(): array</fullMethod>
-      <crap>42</crap>
-      <complexity>6</complexity>
+      <methodSignature>applyConfigurationToSearch(bool $apply): array</methodSignature>
+      <fullMethod>applyConfigurationToSearch(bool $apply): array</fullMethod>
+      <crap>56</crap>
+      <complexity>7</complexity>
       <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
+      <crapLoad>7</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands\Concerns</package>
@@ -1062,10 +1062,10 @@
       <methodName>resetNamespace</methodName>
       <methodSignature>resetNamespace(): void</methodSignature>
       <fullMethod>resetNamespace(): void</fullMethod>
-      <crap>240</crap>
-      <complexity>15</complexity>
+      <crap>506</crap>
+      <complexity>22</complexity>
       <coverage>0</coverage>
-      <crapLoad>15</crapLoad>
+      <crapLoad>22</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands\Concerns</package>
@@ -1249,10 +1249,10 @@
       <methodName>getNameInput</methodName>
       <methodSignature>getNameInput(): ?string</methodSignature>
       <fullMethod>getNameInput(): ?string</fullMethod>
-      <crap>90</crap>
-      <complexity>9</complexity>
+      <crap>72</crap>
+      <complexity>8</complexity>
       <coverage>0</coverage>
-      <crapLoad>9</crapLoad>
+      <crapLoad>8</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
@@ -1271,10 +1271,10 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>72</crap>
+      <crap>14.86</crap>
       <complexity>8</complexity>
-      <coverage>0</coverage>
-      <crapLoad>8</crapLoad>
+      <coverage>52.5</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
@@ -1282,9 +1282,9 @@
       <methodName>getConfigurationFilename</methodName>
       <methodSignature>getConfigurationFilename(): string</methodSignature>
       <fullMethod>getConfigurationFilename(): string</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1293,9 +1293,9 @@
       <methodName>qualifyClass</methodName>
       <methodSignature>qualifyClass($name): string</methodSignature>
       <fullMethod>qualifyClass($name): string</fullMethod>
-      <crap>6</crap>
+      <crap>2.03</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>81.25</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1304,9 +1304,9 @@
       <methodName>handle</methodName>
       <methodSignature>handle()</methodSignature>
       <fullMethod>handle()</fullMethod>
-      <crap>12</crap>
+      <crap>3.33</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>66.67</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1315,9 +1315,9 @@
       <methodName>getStub</methodName>
       <methodSignature>getStub()</methodSignature>
       <fullMethod>getStub()</fullMethod>
-      <crap>30</crap>
+      <crap>5.47</crap>
       <complexity>5</complexity>
-      <coverage>0</coverage>
+      <coverage>73.33</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1326,9 +1326,9 @@
       <methodName>getDefaultNamespace</methodName>
       <methodSignature>getDefaultNamespace($rootNamespace): string</methodSignature>
       <fullMethod>getDefaultNamespace($rootNamespace): string</fullMethod>
-      <crap>6</crap>
-      <complexity>2</complexity>
-      <coverage>0</coverage>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1348,9 +1348,9 @@
       <methodName>folder</methodName>
       <methodSignature>folder(): string</methodSignature>
       <fullMethod>folder(): string</fullMethod>
-      <crap>12</crap>
+      <crap>3</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
