@@ -7,9 +7,9 @@ declare(strict_types=1);
 namespace Playground\Stub\Console\Commands;
 
 use Illuminate\Support\Str;
-use Symfony\Component\Console\Attribute\AsCommand;
 use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
 use Playground\Stub\Configuration\Seeder as Configuration;
+use Symfony\Component\Console\Attribute\AsCommand;
 
 /**
  * \Playground\Stub\Console\Commands\SeederMakeCommand
@@ -79,7 +79,7 @@ class SeederMakeCommand extends GeneratorCommand
     {
         $namespace = 'Database\\Seeders';
 
-        if ($rootNamespace && is_string($rootNamespace) && !in_array(
+        if ($rootNamespace && is_string($rootNamespace) && ! in_array(
             $rootNamespace, [
                 'app',
                 'App',

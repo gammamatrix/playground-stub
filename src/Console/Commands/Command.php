@@ -399,7 +399,7 @@ abstract class Command extends BaseGeneratorCommand
 
         $name = str_replace('/', '\\', $name);
 
-        if ($this->qualifiedNameStudly && !ctype_upper($name)) {
+        if ($this->qualifiedNameStudly && ! ctype_upper($name)) {
             $name = Str::of($name)->studly()->toString();
         }
 
