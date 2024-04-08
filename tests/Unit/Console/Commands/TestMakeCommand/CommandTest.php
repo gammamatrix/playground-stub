@@ -11,7 +11,7 @@ use Tests\Unit\Playground\Stub\TestCase;
 use Playground\Stub\Console\Commands\TestMakeCommand;
 
 /**
- * \Tests\Feature\Playground\Stub\Console\Commands\TestMakeCommand
+ * \Tests\Unit\Playground\Stub\Console\Commands\TestMakeCommand
  */
 #[CoversClass(TestMakeCommand::class)]
 class CommandTest extends TestCase

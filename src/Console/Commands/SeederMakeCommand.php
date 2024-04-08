@@ -8,6 +8,8 @@ namespace Playground\Stub\Console\Commands;
 
 use Illuminate\Support\Str;
 use Symfony\Component\Console\Attribute\AsCommand;
+use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
+use Playground\Stub\Configuration\Seeder as Configuration;
 
 /**
  * \Playground\Stub\Console\Commands\SeederMakeCommand
@@ -15,6 +17,16 @@ use Symfony\Component\Console\Attribute\AsCommand;
 #[AsCommand(name: 'playground:make:seeder')]
 class SeederMakeCommand extends GeneratorCommand
 {
+    /**
+     * @var class-string<Configuration>
+     */
+    public const CONF = Configuration::class;
+
+    /**
+     * @var ConfigurationContract&Configuration
+     */
+    protected ConfigurationContract $c;
+
     /**
      * The console command name.
      *
@@ -49,36 +61,6 @@ class SeederMakeCommand extends GeneratorCommand
     }
 
     // /**
-    //  * Resolve the fully-qualified path to the stub.
-    //  *
-    //  * @param  string  $stub
-    //  * @return string
-    //  */
-    // protected function resolveStubPath($stub)
-    // {
-    //     return is_file($customPath = $this->laravel->basePath(trim($stub, '/')))
-    //         ? $customPath
-    //         : __DIR__.$stub;
-    // }
-
-    // /**
-    //  * Get the destination class path.
-    //  *
-    //  * @param  string  $name
-    //  * @return string
-    //  */
-    // protected function getPath($name)
-    // {
-    //     $name = str_replace('\\', '/', Str::replaceFirst($this->rootNamespace(), '', $name));
-
-    //     if (is_dir($this->laravel->databasePath().'/seeds')) {
-    //         return $this->laravel->databasePath().'/seeds/'.$name.'.php';
-    //     }
-
-    //     return $this->laravel->databasePath().'/seeders/'.$name.'.php';
-    // }
-
-    // /**
     //  * Get the root namespace for the class.
     //  *
     //  * @return string
@@ -87,4 +69,29 @@ class SeederMakeCommand extends GeneratorCommand
     // {
     //     return 'Database\Seeders\\';
     // }
+
+    /**
+     * Get the default namespace for the class.
+     *
+     * @param  string  $rootNamespace
+     */
+    protected function getDefaultNamespace($rootNamespace): string
+    {
+        $namespace = 'Database\\Seeders';
+
+        if ($rootNamespace && is_string($rootNamespace) && !in_array(
+            $rootNamespace, [
+                'app',
+                'App',
+            ]
+        )) {
+            $namespace = Str::of($namespace)
+                ->finish('\\')
+                ->append($this->parseClassInput($rootNamespace))
+                ->toString();
+        }
+
+        return $namespace;
+
+    }
 }

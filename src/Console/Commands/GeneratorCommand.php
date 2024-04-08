@@ -78,11 +78,11 @@ abstract class GeneratorCommand extends Command
             'fqdn' => $this->parseClassConfig($this->qualifiedName),
         ]);
 
-        // dump([
+        // dd([
         //     '__METHOD__' => __METHOD__,
         //     '$name' => $name,
         //     '$this->qualifiedName' => $this->qualifiedName,
-        //     '$this->configuration[class]' => $this->c->class(),
+        //     '$this->c' => $this->c->class(),
         // ]);
 
         $path = $this->getPath($this->qualifiedName);

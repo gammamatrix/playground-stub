@@ -386,6 +386,8 @@ abstract class Command extends BaseGeneratorCommand
         // return parent::promptForMissingArgumentsUsing();
     }
 
+    protected bool $qualifiedNameStudly = true;
+
     /**
      * Parse the class name and format according to the root namespace.
      *
@@ -396,6 +398,10 @@ abstract class Command extends BaseGeneratorCommand
         $name = ltrim($name, '\\/');
 
         $name = str_replace('/', '\\', $name);
+
+        if ($this->qualifiedNameStudly && !ctype_upper($name)) {
+            $name = Str::of($name)->studly()->toString();
+        }
 
         $rootNamespace = $this->rootNamespace();
         // dump([
