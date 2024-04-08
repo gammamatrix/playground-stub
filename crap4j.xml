@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-08 18:31:24</timestamp>
+  <timestamp>2024-04-08 20:16:36</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>127</methodCount>
+    <methodCount>128</methodCount>
     <crapMethodCount>28</crapMethodCount>
     <crapLoad>458</crapLoad>
-    <totalCrap>11109.69</totalCrap>
-    <crapMethodPercent>22.05</crapMethodPercent>
+    <totalCrap>11130.69</totalCrap>
+    <crapMethodPercent>21.88</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -798,8 +798,8 @@
       <methodName>qualifyClass</methodName>
       <methodSignature>qualifyClass($name): string</methodSignature>
       <fullMethod>qualifyClass($name): string</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
+      <crap>30</crap>
+      <complexity>5</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -1260,9 +1260,20 @@
       <methodName>getStub</methodName>
       <methodSignature>getStub()</methodSignature>
       <fullMethod>getStub()</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\SeederMakeCommand</className>
+      <methodName>getDefaultNamespace</methodName>
+      <methodSignature>getDefaultNamespace($rootNamespace): string</methodSignature>
+      <fullMethod>getDefaultNamespace($rootNamespace): string</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>

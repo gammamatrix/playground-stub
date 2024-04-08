@@ -1,5 +1,5 @@
 
-##teamcity[testCount count='4' flowId='1']
+##teamcity[testCount count='5' flowId='1']
 
 ##teamcity[testSuiteStarted name='/app/phpunit.xml.dist' flowId='1']
 
@@ -9,7 +9,7 @@
 
 ##teamcity[testStarted name='test_command_displays_help' locationHint='php_qn:///app/tests/Unit/Console/Commands/SeederMakeCommand/CommandTest.php::\Tests\Unit\Playground\Stub\Console\Commands\SeederMakeCommand\CommandTest::test_command_displays_help' flowId='1']
 
-##teamcity[testFinished name='test_command_displays_help' duration='471' flowId='1']
+##teamcity[testFinished name='test_command_displays_help' duration='465' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Unit\Playground\Stub\Console\Commands\SeederMakeCommand\CommandTest' flowId='1']
 
@@ -17,7 +17,7 @@
 
 ##teamcity[testStarted name='test_command_displays_help' locationHint='php_qn:///app/tests/Unit/Console/Commands/TestMakeCommand/CommandTest.php::\Tests\Unit\Playground\Stub\Console\Commands\TestMakeCommand\CommandTest::test_command_displays_help' flowId='1']
 
-##teamcity[testFinished name='test_command_displays_help' duration='16' flowId='1']
+##teamcity[testFinished name='test_command_displays_help' duration='14' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Unit\Playground\Stub\Console\Commands\TestMakeCommand\CommandTest' flowId='1']
 
@@ -29,15 +29,23 @@
 
 ##teamcity[testStarted name='test_command_about_displays_package_information_and_succeed_with_code_0' locationHint='php_qn:///app/tests/Feature/Console/Commands/About/CommandTest.php::\Tests\Feature\Playground\Stub\Console\Commands\About\CommandTest::test_command_about_displays_package_information_and_succeed_with_code_0' flowId='1']
 
-##teamcity[testFinished name='test_command_about_displays_package_information_and_succeed_with_code_0' duration='100' flowId='1']
+##teamcity[testFinished name='test_command_about_displays_package_information_and_succeed_with_code_0' duration='93' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Stub\Console\Commands\About\CommandTest' flowId='1']
+
+##teamcity[testSuiteStarted name='Tests\Feature\Playground\Stub\Console\Commands\SeederMakeCommand\CommandTest' locationHint='php_qn:///app/tests/Feature/Console/Commands/SeederMakeCommand/CommandTest.php::\Tests\Feature\Playground\Stub\Console\Commands\SeederMakeCommand\CommandTest' flowId='1']
+
+##teamcity[testStarted name='test_command_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/SeederMakeCommand/CommandTest.php::\Tests\Feature\Playground\Stub\Console\Commands\SeederMakeCommand\CommandTest::test_command_skeleton' flowId='1']
+
+##teamcity[testFinished name='test_command_skeleton' duration='64' flowId='1']
+
+##teamcity[testSuiteFinished name='Tests\Feature\Playground\Stub\Console\Commands\SeederMakeCommand\CommandTest' flowId='1']
 
 ##teamcity[testSuiteStarted name='Tests\Feature\Playground\Stub\Console\Commands\TestMakeCommand\CommandTest' locationHint='php_qn:///app/tests/Feature/Console/Commands/TestMakeCommand/CommandTest.php::\Tests\Feature\Playground\Stub\Console\Commands\TestMakeCommand\CommandTest' flowId='1']
 
 ##teamcity[testStarted name='test_command_skeleton' locationHint='php_qn:///app/tests/Feature/Console/Commands/TestMakeCommand/CommandTest.php::\Tests\Feature\Playground\Stub\Console\Commands\TestMakeCommand\CommandTest::test_command_skeleton' flowId='1']
 
-##teamcity[testFinished name='test_command_skeleton' duration='71' flowId='1']
+##teamcity[testFinished name='test_command_skeleton' duration='20' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Stub\Console\Commands\TestMakeCommand\CommandTest' flowId='1']
 
