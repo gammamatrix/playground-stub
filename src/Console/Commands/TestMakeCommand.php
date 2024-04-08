@@ -112,13 +112,14 @@ class TestMakeCommand extends GeneratorCommand
     public function prepareOptions(): void
     {
         $options = $this->options();
-        dump([
-            '__METHOD__' => __METHOD__,
-            '$options' => $options,
-            // '$this->configuration' => $this->configuration,
-            '$this->searches' => $this->searches,
-            // '$this->model' => $this->model,
-        ]);
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$options' => $options,
+        //     // '$this->configuration' => $this->configuration,
+        //     '$this->c' => $this->c,
+        //     '$this->searches' => $this->searches,
+        //     // '$this->model' => $this->model,
+        // ]);
 
         $type = $this->getConfigurationType();
 
@@ -179,7 +180,6 @@ class TestMakeCommand extends GeneratorCommand
 
         // dump([
         //     '__METHOD__' => __METHOD__,
-        //     '$this->configuration' => $this->configuration,
         //     '$this->searches' => $this->searches,
         //     '$this->options()' => $this->options(),
         // ]);
@@ -241,6 +241,11 @@ class TestMakeCommand extends GeneratorCommand
         $this->searches['class'] = $this->c->class();
 
         $rootNamespace = $this->rootNamespace();
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$type' => $type,
+        //     '$rootNamespace' => $rootNamespace,
+        // ]);
 
         return $this->getDefaultNamespace(trim($rootNamespace, '\\')).'\\'.$this->c->class();
 
@@ -359,12 +364,34 @@ class TestMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace): string
     {
-        return ! is_string($this->c->name()) ? '' : sprintf(
-            'Tests\\%1$s\\%2$s\\%3$s',
-            Str::of($this->suite)->studly(),
-            $this->parseClassInput($rootNamespace),
-            Str::of($this->c->name())->studly()
-        );
+        $namespace = Str::of(
+            Str::of($this->suite)->studly()->toString()
+        )->prepend('Tests\\')->toString();
+
+        if ($rootNamespace && is_string($rootNamespace)) {
+            $namespace = Str::of($namespace)
+                ->finish('\\')
+                ->append($this->parseClassInput($rootNamespace))
+                ->toString();
+        }
+
+        $name = $this->c->name();
+        if ($name) {
+            $namespace = Str::of($namespace)
+                ->finish('\\')
+                ->append(Str::of($name)->studly()->toString())
+                ->toString();
+        }
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$rootNamespace' => $rootNamespace,
+        //     '$namespace' => $namespace,
+        //     '$name' => $name,
+        //     '$this->c' => $this->c,
+        // ]);
+
+        return $namespace;
+
     }
 
     /**

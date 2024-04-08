@@ -72,28 +72,31 @@ trait PackageConfiguration
 
     protected function loadOptionsIntoConfiguration(mixed $configuration): void
     {
-        dump([
-            '__METHOD__' => __METHOD__,
-            '$configuration' => $configuration,
-        ]);
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$configuration' => $configuration,
+        // ]);
         if (! is_array($configuration)) {
             $this->components->error('Unable to load the invalid configuration.');
         } else {
             $this->c->setOptions($configuration);
         }
 
-        dump([
-            '__METHOD__' => __METHOD__,
-            // '$this->searches' => $this->searches,
-            '$this->c' => $this->c,
-        ]);
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     // '$this->searches' => $this->searches,
+        //     '$this->c' => $this->c,
+        // ]);
     }
 
     /**
      * @return array<string, string>
      */
-    protected function applyConfigurationToSearch(): array
+    protected function applyConfigurationToSearch(bool $apply = true): array
     {
+        if ($apply) {
+            $this->c->apply();
+        }
         $properties = $this->c->properties();
         foreach ($this->searches as $search => $value) {
             if (array_key_exists($search, $properties)) {
@@ -101,7 +104,8 @@ trait PackageConfiguration
                     if (in_array($search, [
                         'namespace',
                     ])) {
-                        $this->searches[$search] = $this->parseClassInput($this->getDefaultNamespace($properties[$search]));
+                        $this->searches[$search] = $this->parseClassInput($properties[$search]);
+                        // $this->searches[$search] = $this->parseClassInput($this->getDefaultNamespace($properties[$search]));
                     } elseif (in_array($search, [
                         'class',
                         'model_fqdn',
@@ -118,7 +122,9 @@ trait PackageConfiguration
 
         // dump([
         //     '__METHOD__' => __METHOD__,
+        //     '$apply' => $apply,
         //     '$this->searches' => $this->searches,
+        //     '$this->c' => $this->c,
         // ]);
         return $this->searches;
     }
@@ -231,12 +237,13 @@ trait PackageConfiguration
         $this->resetModelFile();
 
         $this->resetOptions();
-        // dd([
+        // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$this->folder' => $this->folder,
-        //     '$this->configuration' => $this->configuration,
-        //     '$this->options()' => $this->options(),
+        //     // '$this->options()' => $this->options(),
         //     // '$this->model' => $this->model,
+        //     '$this->searches' => $this->searches,
+        //     '$this->c' => $this->c,
         // ]);
     }
 
@@ -252,47 +259,107 @@ trait PackageConfiguration
         }
     }
 
+    /**
+     * Reset the namespace
+     *
+     * The namespace will be set to App if the --namespace option is not provided.
+     */
     public function resetNamespace(): void
     {
-        $hasOptionPackage = $this->hasOption('package') && is_string($this->option('package')) && $this->option('package');
-        $hasOptionOrganization = $this->hasOption('organization') && is_string($this->option('organization')) && $this->option('organization');
+        $namespace = '';
+        $organization = '';
+        $package = '';
 
-        if ($this->hasOption('namespace')
+        if ( $this->hasOption('namespace')
             && $this->option('namespace')
+            && is_string($this->option('namespace'))
         ) {
-            $this->c->setOptions([
-                'namespace' => $this->parseClassConfig($this->option('namespace')),
-            ]);
-            $this->searches['namespace'] = $this->parseClassInput($this->getDefaultNamespace($this->c->namespace()));
-            // $this->searches['namespace'] =  $this->c->namespace();
-
-            $package = [];
-
-            foreach (Str::of($this->c->namespace())
-                ->replace('\\', '.')
-                ->replace('/', '.')
-                ->explode('.') as $i => $value
-            ) {
-                if ($i === 0) {
-                    if (! $hasOptionOrganization && is_string($value)) {
-                        $this->c->setOptions([
-                            'organization' => $value,
-                        ]);
-                        $this->searches['organization'] = $this->c->organization();
-                    }
-                } elseif (is_string($value) && $value) {
-                    $package[] = Str::slug($value, '-');
-                }
-            }
-
-            if (! $hasOptionPackage && ! empty($package)) {
-                $this->c->setOptions([
-                    'package' => implode('-', $package),
-                ]);
-                $this->searches['package'] = $this->c->package();
-            }
-
+            $namespace = $this->option('namespace');
         }
+
+        if (empty($namespace)) {
+            $namespace = 'App';
+        }
+
+        $organization = '';
+
+        if ( $this->hasOption('organization')
+            && $this->option('organization')
+            && is_string($this->option('organization'))
+        ) {
+            $organization = $this->option('organization');
+        }
+
+        if ( $this->hasOption('package')
+            && $this->option('package')
+            && is_string($this->option('package'))
+        ) {
+            $package = $this->option('package');
+        }
+
+        $this->c->setOptions([
+            'namespace' => $this->parseClassConfig($this->parseClassInput(
+                $this->getDefaultNamespace(
+                    $namespace
+                )
+            )),
+        ]);
+        $this->searches['namespace'] = $this->parseClassInput(
+            $this->c->namespace()
+        );
+
+        // $this->c->setOptions([
+        //     'namespace' => $this->parseClassConfig($namespace),
+        // ]);
+        // $this->searches['namespace'] = $this->parseClassInput(
+        //     $this->getDefaultNamespace(
+        //         $this->c->namespace()
+        //     )
+        // );
+
+        $namespace_exploded = [];
+
+        foreach (Str::of($this->c->namespace())
+            ->replace('\\', '.')
+            ->replace('/', '.')
+            ->explode('.') as $i => $value
+        ) {
+            if ($i === 0) {
+                if (! $organization && is_string($value) && ! in_array($value, [
+                    'Tests',
+                    'tests',
+                ])) {
+                    $organization = $value;
+                }
+            } elseif (is_string($value) && $value) {
+                $namespace_exploded[] = Str::slug($value, '-');
+            }
+        }
+
+        $this->c->setOptions([
+            'organization' => $organization,
+        ]);
+        $this->searches['organization'] = $this->c->organization();
+
+        if ($organization && ! $package && count($namespace_exploded)) {
+            $package = implode('-', $namespace_exploded);
+        }
+
+        if (empty($package)) {
+            $package = 'app';
+        }
+
+        $this->c->setOptions([
+            'package' => $package,
+        ]);
+        $this->searches['package'] = $this->c->package();
+
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$this->searches' => $this->searches,
+        //     '$this->c' => $this->c,
+        //     '$this->options()' => $this->options(),
+        // ]);
     }
 
     public function resetFile(): void
@@ -574,11 +641,12 @@ trait PackageConfiguration
         //     }
         // }
 
+        // throw new \Exception('WTF');
         // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$this->type' => $this->type,
-        //     '$this->configuration' => $this->configuration,
-        //     // '$this->searches' => $this->searches,
+        //     '$this->c' => $this->c,
+        //     '$this->searches' => $this->searches,
         //     '$hasOptionModule' => $hasOptionModule,
         //     '$hasOptionPackage' => $hasOptionPackage,
         //     '$hasOptionOrganization' => $hasOptionOrganization,

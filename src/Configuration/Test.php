@@ -11,6 +11,8 @@ namespace Playground\Stub\Configuration;
  */
 class Test extends Configuration
 {
+    protected string $extends = '\Tests\TestCase';
+
     protected string $model_fqdn = '';
 
     /**
@@ -37,7 +39,7 @@ class Test extends Configuration
 
         // properties
 
-        'extends' => '',
+        'extends' => '\Tests\TestCase',
 
         'model_fqdn' => '',
 

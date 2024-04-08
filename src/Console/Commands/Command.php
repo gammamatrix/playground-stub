@@ -8,6 +8,7 @@ namespace Playground\Stub\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand as BaseGeneratorCommand;
 use Illuminate\Filesystem\FilesystemAdapter;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
@@ -55,10 +56,10 @@ abstract class Command extends BaseGeneratorCommand
         'package' => 'app',
     ];
 
-    /**
-     * @var string Uses base_path() to get the directory.
-     */
-    public const STUBS = 'vendor/gammamatrix/playground-stub/stubs';
+    // /**
+    //  * @var string Uses base_path() to get the directory.
+    //  */
+    // public const STUBS = 'vendor/gammamatrix/playground-stub/stubs';
 
     /**
      * The qualified name from the input name.
@@ -123,7 +124,10 @@ abstract class Command extends BaseGeneratorCommand
             $this->searches['rootNamespace'] = $this->rootNamespace();
             $this->searches['DummyRootNamespace'] = $this->rootNamespace();
         }
-
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$this->getStub()' => $this->getStub(),
+        // ]);
         $stub = $this->files->get($this->getStub());
         $this->search_and_replace($stub);
 
@@ -137,7 +141,42 @@ abstract class Command extends BaseGeneratorCommand
      */
     protected function resolveStubPath($stub): string
     {
-        return $this->laravel->basePath(sprintf('%1$s/%2$s', static::STUBS, $stub));
+        $path = '';
+        $stub_path = config('playground-stub.paths.stubs');
+        if (! empty($stub_path)
+            && is_string($stub_path)
+        ) {
+            if (! is_dir($stub_path)) {
+                Log::error(__('playground-stub::stub.Command.path.invalid'), [
+                    '$stub_path' => $stub_path,
+                    '$stub' => $stub,
+                ]);
+            } else {
+                $path = sprintf(
+                    '%1$s/%2$s',
+                    Str::of($stub_path)->finish('/')->toString(),
+                    $stub
+                );
+            }
+        }
+
+        if (empty($path)) {
+            $path = sprintf(
+                '%1$s/resources/stubs/%2$s',
+                dirname(dirname(dirname(__DIR__))),
+                $stub
+            );
+        }
+
+        if (! file_exists($path)) {
+            Log::error(__('playground-stub::stub.Command.stub.missing'), [
+                '$stub_path' => $stub_path,
+                '$stub' => $stub,
+                '$path' => $path,
+            ]);
+        }
+
+        return $path;
     }
 
     /**
@@ -206,10 +245,6 @@ abstract class Command extends BaseGeneratorCommand
     protected function rootNamespace()
     {
         $rootNamespace = '';
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$this->hasOption(namespace)' => $this->hasOption('namespace'),
-        // ]);
         if ($this->hasOption('namespace') && $this->option('namespace')) {
             $rootNamespace = $this->parseClassInput($this->option('namespace'));
         } elseif (! empty($this->c->namespace()
@@ -226,6 +261,10 @@ abstract class Command extends BaseGeneratorCommand
             }
         }
 
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$rootNamespace' => $rootNamespace,
+        // ]);
         return $rootNamespace;
     }
 
@@ -318,6 +357,7 @@ abstract class Command extends BaseGeneratorCommand
             ['organization',    null, InputOption::VALUE_OPTIONAL, 'The organization of the '.strtolower($this->type)],
             ['package',         null, InputOption::VALUE_OPTIONAL, 'The package of the '.strtolower($this->type)],
             ['preload',         null,  InputOption::VALUE_NONE,    'Preload the existing configuration file for the '.strtolower($this->type)],
+            ['skeleton',        null, InputOption::VALUE_NONE,     'Create the skeleton for the '.strtolower($this->type).' type'],
             ['class',           null, InputOption::VALUE_OPTIONAL, 'The class name of the '.strtolower($this->type)],
             ['extends',         null, InputOption::VALUE_OPTIONAL, 'The class that gets extended for the '.strtolower($this->type)],
             ['file',            null, InputOption::VALUE_OPTIONAL, 'The configuration file of the '.strtolower($this->type)],

@@ -4,7 +4,7 @@
  */
 
 declare(strict_types=1);
-namespace Tests\FeaUnitture\Playground\Stub\Console\Commands\SeederMakeCommand;
+namespace Tests\Unit\Playground\Stub\Console\Commands\SeederMakeCommand;
 
 use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\Unit\Playground\Stub\TestCase;

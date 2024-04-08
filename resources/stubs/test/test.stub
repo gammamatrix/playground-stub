@@ -1,0 +1,16 @@
+<?php
+/**
+ * {{organization}}
+ *
+ */
+
+namespace {{ namespace }};
+{{ use }}
+/**
+ * \{{ namespace }}\{{ class }}
+ *
+ */
+class {{ class }} extends {{ extends }}{{ implements }}
+{
+{{ use_class }}{{ properties }}{{ setup }}{{ tests }}
+}

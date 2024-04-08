@@ -213,14 +213,11 @@ abstract class GeneratorCommand extends Command
         // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$this->folder' => $this->folder,
-        //     '$this->configuration[package]' => $this->c->package(),
         //     '$name' => $name,
         //     'rootNamespace()' => $this->rootNamespace(),
         // ]);
 
-        if (empty($name) && ! empty($this->c->name())
-            && is_string($this->c->name())
-        ) {
+        if (empty($name) && ! empty($this->c->name())) {
             $name = $this->c->name();
         }
 
@@ -233,14 +230,6 @@ abstract class GeneratorCommand extends Command
         $this->applyConfigurationToSearch();
 
         $this->prepareOptions();
-
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$this->folder' => $this->folder,
-        //     '$this->configuration[package]' => $this->c->package(),
-        //     '$name' => $name,
-        //     'rootNamespace()' => $this->rootNamespace(),
-        // ]);
 
         return is_string($name) ? $name : null;
     }

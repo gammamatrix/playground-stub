@@ -4,11 +4,11 @@
  */
 
 declare(strict_types=1);
-namespace Tests\Unit\Playground\Stub\Console\Commands\TestMakeCommand;
+namespace Tests\Feature\Playground\Stub\Console\Commands\TestMakeCommand;
 
 use PHPUnit\Framework\Attributes\CoversClass;
-use Tests\Unit\Playground\Stub\TestCase;
 use Playground\Stub\Console\Commands\TestMakeCommand;
+use Tests\Unit\Playground\Stub\TestCase;
 
 /**
  * \Tests\Feature\Playground\Stub\Console\Commands\TestMakeCommand
@@ -16,12 +16,12 @@ use Playground\Stub\Console\Commands\TestMakeCommand;
 #[CoversClass(TestMakeCommand::class)]
 class CommandTest extends TestCase
 {
-    public function test_command_displays_help(): void
+    public function test_command_skeleton(): void
     {
         /**
          * @var \Illuminate\Testing\PendingCommand $result
          */
-        $result = $this->artisan('playground:make:test --help');
+        $result = $this->artisan('playground:make:test testing --skeleton --force');
         $result->assertExitCode(0);
     }
 }
