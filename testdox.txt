@@ -1,15 +1,42 @@
 Command (Tests\Feature\Playground\Stub\Console\Commands\About\Command)
  [x] Command about displays package information and succeed with code 0
 
+Command (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Command)
+ [x] Command skeleton
+
 Command (Tests\Feature\Playground\Stub\Console\Commands\SeederMakeCommand\Command)
  [x] Command skeleton
 
 Command (Tests\Feature\Playground\Stub\Console\Commands\TestMakeCommand\Command)
  [x] Command skeleton
 
+Command (Tests\Unit\Playground\Stub\Console\Commands\ModelMakeCommand\Command)
+ [x] Command displays help
+
 Command (Tests\Unit\Playground\Stub\Console\Commands\SeederMakeCommand\Command)
  [x] Command displays help
 
 Command (Tests\Unit\Playground\Stub\Console\Commands\TestMakeCommand\Command)
  [x] Command displays help
+
+Instance (Tests\Unit\Playground\Stub\Configuration\Configuration\Instance)
+ [x] Instance
+ [x] Instance apply without options
+ [x] Folder is empty by default
+ [x] Folder with empty setFolder
+ [x] Folder with path for setFolder
+
+Properties (Tests\Unit\Playground\Stub\Configuration\Configuration\Properties)
+ [x] Properties
+ [x] Properties with all options without apply
+ [x] Properties with all options with apply
+
+Skeleton (Tests\Unit\Playground\Stub\Configuration\Configuration\Skeleton)
+ [x] Skeleton
+ [x] Skeleton withSkeleton
+ [x] Skeleton option as false
+ [x] Skeleton option as true
+ [x] Skeleton parameter as true
+ [x] Skeleton parameter as false overrules option
+ [x] Skeleton parameter as true overrules option
 
