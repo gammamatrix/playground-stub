@@ -114,7 +114,7 @@ class Filters extends Configuration
 
         $meta['handler'] = 'ids';
 
-        $this->ids[] = new Filter($meta);
+        $this->ids[] = new Filter($meta, $this->skeleton());
 
         return $this;
     }

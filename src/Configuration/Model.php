@@ -18,6 +18,8 @@ class Model extends Configuration
     use Concerns\Relationships;
     use Concerns\Sorting;
 
+    // protected string $extends = 'Model';
+
     /**
      * @var array<string, mixed>
      */
@@ -121,7 +123,7 @@ class Model extends Configuration
      */
     protected array $fillable = [];
 
-    protected Model\Filters $filters;
+    protected ?Model\Filters $filters = null;
 
     /**
      * @var array<string, string>
@@ -133,10 +135,7 @@ class Model extends Configuration
      */
     protected array $sortable = [];
 
-    /**
-     * @var array<string, mixed>
-     */
-    protected array $create = [];
+    protected ?Model\Create $create = null;
 
     /**
      * @param array<string, mixed> $options
@@ -199,11 +198,17 @@ class Model extends Configuration
         $this->addRelationships($options);
         $this->addModelProperties($options);
 
-        // if (! empty($options['filters'])
-        //     && is_array($options['filters'])
-        // ) {
-        //     $this->filters = new Models\Filters($options['filters']);
-        // }
+        if (! empty($options['create'])
+            && is_array($options['create'])
+        ) {
+            $this->create = new Model\Create($options['create'], $this->skeleton());
+        }
+
+        if (! empty($options['filters'])
+            && is_array($options['filters'])
+        ) {
+            $this->filters = new Model\Filters($options['filters'], $this->skeleton());
+        }
 
         if (! empty($options['scopes'])
             && is_array($options['scopes'])
@@ -312,6 +317,16 @@ class Model extends Configuration
         Log::warning('IMPLEMENT: '.__METHOD__);
 
         return $this;
+    }
+
+    public function create(): ?Model\Create
+    {
+        return $this->create;
+    }
+
+    public function filters(): ?Model\Filters
+    {
+        return $this->filters;
     }
 
     /**

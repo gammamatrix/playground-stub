@@ -37,6 +37,8 @@ interface Configuration
 
     public function folder(): string;
 
+    public function setFolder(string $folder): self;
+
     /**
      * @return array<string, mixed>
      */
@@ -46,6 +48,8 @@ interface Configuration
      * @param array<string, mixed> $options
      */
     public function setOptions(array $options = []): self;
+
+    public function withSkeleton(): self;
 
     public function skeleton(): bool;
 

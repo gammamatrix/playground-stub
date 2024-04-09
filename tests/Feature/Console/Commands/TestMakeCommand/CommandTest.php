@@ -8,7 +8,7 @@ namespace Tests\Feature\Playground\Stub\Console\Commands\TestMakeCommand;
 
 use PHPUnit\Framework\Attributes\CoversClass;
 use Playground\Stub\Console\Commands\TestMakeCommand;
-use Tests\Unit\Playground\Stub\TestCase;
+use Tests\Feature\Playground\Stub\TestCase;
 
 /**
  * \Tests\Feature\Playground\Stub\Console\Commands\TestMakeCommand

@@ -9,9 +9,9 @@ namespace Playground\Stub\Configuration;
 use JsonSerializable;
 
 /**
- * \Playground\Stub\Configuration
+ * \Playground\Stub\Configuration\Configuration
  */
-abstract class Configuration implements Contracts\Configuration, JsonSerializable
+class Configuration implements Contracts\Configuration, JsonSerializable
 {
     use Concerns\Classes;
     use Concerns\Properties;
@@ -27,11 +27,16 @@ abstract class Configuration implements Contracts\Configuration, JsonSerializabl
     protected bool $skeleton = false;
 
     public function __construct(
-        mixed $options = null
+        mixed $options = null,
+        bool $skeleton = null
     ) {
+        if (is_bool($skeleton)) {
+            $this->skeleton = $skeleton;
+        }
+
         if (is_array($options)) {
 
-            if (array_key_exists('skeleton', $options)) {
+            if (! is_bool($skeleton) && array_key_exists('skeleton', $options)) {
                 $this->skeleton = ! empty($options['skeleton']);
             }
 
@@ -60,8 +65,22 @@ abstract class Configuration implements Contracts\Configuration, JsonSerializabl
         return $this->folder;
     }
 
+    public function setFolder(string $folder = ''): self
+    {
+        $this->folder = $folder;
+
+        return $this;
+    }
+
     public function skeleton(): bool
     {
         return $this->skeleton;
+    }
+
+    public function withSkeleton(): self
+    {
+        $this->skeleton = true;
+
+        return $this;
     }
 }

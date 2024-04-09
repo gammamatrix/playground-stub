@@ -9,6 +9,7 @@ namespace Playground\Stub\Console\Commands;
 use Illuminate\Console\Concerns\CreatesMatchingTest;
 // use Illuminate\Foundation\Console\ModelMakeCommand as BaseModelMakeCommand;
 use Illuminate\Support\Str;
+use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
 use Playground\Stub\Configuration\Model as Configuration;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputInterface;
@@ -23,47 +24,52 @@ use function Laravel\Prompts\multiselect;
 #[AsCommand(name: 'playground:make:model')]
 class ModelMakeCommand extends GeneratorCommand
 {
+    // use Concerns\CreatingModels;
+    use Concerns\Models;
     use CreatesMatchingTest;
-    use Traits\ModelMakeTrait;
-    use Traits\ModelRelationshipsMakeTrait;
-    use Traits\ModelSkeletonCreateMakeTrait;
-    use Traits\ModelSkeletonMakeTrait;
+    // use Traits\ModelRelationshipsMakeTrait;
+    // use Traits\ModelSkeletonMakeTrait;
 
     /**
      * @var class-string<Configuration>
      */
     public const CONF = Configuration::class;
 
-    const CONFIGURATION = [
-        'organization' => '',
-        'package' => 'app',
-        'module' => '',
-        'module_slug' => '',
-        'fqdn' => '',
-        'namespace' => '',
-        'model' => '',
-        'name' => '',
-        'class' => '',
-        'type' => '',
-        'table' => '',
-        'extends' => '',
-        'implements' => [],
-        'factory' => false,
-        'migration' => false,
-        'policy' => false,
-        'seed' => false,
-        'test' => false,
-        'HasOne' => [],
-        'HasMany' => [],
-        'scopes' => [],
-        'attributes' => [],
-        'casts' => [],
-        'fillable' => [],
-        'filters' => [],
-        'models' => [],
-        'sortable' => [],
-        'create' => [],
-    ];
+    /**
+     * @var ConfigurationContract&Configuration
+     */
+    protected ConfigurationContract $c;
+
+    // const CONFIGURATION = [
+    //     'organization' => '',
+    //     'package' => 'app',
+    //     'module' => '',
+    //     'module_slug' => '',
+    //     'fqdn' => '',
+    //     'namespace' => '',
+    //     'model' => '',
+    //     'name' => '',
+    //     'class' => '',
+    //     'type' => '',
+    //     'table' => '',
+    //     'extends' => '',
+    //     'implements' => [],
+    //     'factory' => false,
+    //     'migration' => false,
+    //     'policy' => false,
+    //     'seed' => false,
+    //     'test' => false,
+    //     'HasOne' => [],
+    //     'HasMany' => [],
+    //     'scopes' => [],
+    //     'attributes' => [],
+    //     'casts' => [],
+    //     'fillable' => [],
+    //     'filters' => [],
+    //     'models' => [],
+    //     'sortable' => [],
+    //     'create' => [],
+    // ];
 
     const SEARCH = [
         'class' => '',
@@ -133,8 +139,6 @@ class ModelMakeCommand extends GeneratorCommand
 
     /**
      * Execute the console command.
-     *
-     * @return void
      */
     public function handle()
     {
@@ -142,7 +146,7 @@ class ModelMakeCommand extends GeneratorCommand
             return false;
         }
 
-        $this->createAll = $this->option('all');
+        $this->createAll = $this->hasOption('all') && $this->option('all');
 
         if ($this->createAll) {
             $this->createController = true;
@@ -264,15 +268,12 @@ class ModelMakeCommand extends GeneratorCommand
      * Build the class with the given name.
      *
      * @param  string  $name
-     * @return string
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
-    protected function buildClass($name)
+    protected function buildClass($name): string
     {
-        $type = $this->c->type() ?? '';
-
-        if (in_array($type, [
+        if (in_array($this->c->type(), [
             'abstract',
             'pivot',
             'playground-abstract',
@@ -285,23 +286,23 @@ class ModelMakeCommand extends GeneratorCommand
             $this->searches['use'] = '';
             $this->searches['use_class'] = '';
 
-            if ($this->option('skeleton')) {
-                $this->buildClass_skeleton();
-            }
+            // if ($this->option('skeleton')) {
+            //     $this->buildClass_skeleton();
+            // }
 
-            $this->buildClass_implements();
-            $this->buildClass_table();
-            $this->buildClass_perPage();
+            // $this->buildClass_implements();
+            // $this->buildClass_table();
+            // $this->buildClass_perPage();
 
-            $this->buildClass_attributes();
-            $this->buildClass_casts();
-            $this->buildClass_fillable();
+            // $this->buildClass_attributes();
+            // $this->buildClass_casts();
+            // $this->buildClass_fillable();
 
-            // Relationships
-            $this->buildClass_HasMany();
-            $this->buildClass_HasOne();
+            // // Relationships
+            // $this->buildClass_HasMany();
+            // $this->buildClass_HasOne();
 
-            $this->buildClass_uses($name);
+            // $this->buildClass_uses($name);
 
             $this->applyConfigurationToSearch();
 
@@ -329,50 +330,58 @@ class ModelMakeCommand extends GeneratorCommand
      */
     protected function createFactory()
     {
-        $type = $this->c->type() ?? '';
         $force = $this->hasOption('force') && $this->option('force');
-        $model = $this->hasOption('model') ? $this->option('model') : '';
-        $module = $this->hasOption('module') ? $this->option('module') : '';
-        $name = $this->argument('name');
-        // $name = $this->qualifiedName;
-        $namespace = $this->hasOption('namespace') ? $this->option('namespace') : '';
-        $organization = $this->hasOption('organization') ? $this->option('organization') : '';
-        $package = $this->hasOption('package') ? $this->option('package') : '';
+        // $model = $this->hasOption('model') ? $this->option('model') : '';
+        // $module = $this->hasOption('module') ? $this->option('module') : '';
+        // $name = $this->argument('name');
+        // // $name = $this->qualifiedName;
+        // $namespace = $this->hasOption('namespace') ? $this->option('namespace') : '';
+        // $organization = $this->hasOption('organization') ? $this->option('organization') : '';
+        // $package = $this->hasOption('package') ? $this->option('package') : '';
 
         $file = $this->option('file');
 
-        if ($this->option('skeleton')) {
+        if ($this->c->skeleton()) {
             if (empty($file) && $this->path_to_configuration) {
                 $file = $this->path_to_configuration;
             }
         }
 
-        if (empty($package)) {
-            $package = $this->c->package();
-        }
-        if (empty($namespace)) {
-            $namespace = $this->c->namespace();
-        }
-        if (empty($model)) {
-            $model = $this->c->model();
-        }
-        if (empty($name)) {
-            $name = $this->c->name();
-        }
-        if (empty($organization)) {
-            $organization = $this->c->organization();
-        }
+        // if (empty($package)) {
+        //     $package = $this->c->package();
+        // }
+        // if (empty($namespace)) {
+        //     $namespace = $this->c->namespace();
+        // }
+        // if (empty($model)) {
+        //     $model = $this->c->model();
+        // }
+        // if (empty($name)) {
+        //     $name = $this->c->name();
+        // }
+        // if (empty($organization)) {
+        //     $organization = $this->c->organization();
+        // }
 
         $params = [
-            'name' => $name.'Factory',
-            '--namespace' => $namespace,
+            // 'name' => $name.'Factory',
+            // '--namespace' => $namespace,
+            // '--force' => $force,
+            // '--package' => $package,
+            // '--organization' => $organization,
+            // '--model' => $model,
+            // '--module' => $module,
+            // '--model-file' => $file,
+            // '--type' => $this->c->type(),
+            'name' => $this->c->name().'Factory',
+            '--namespace' => $this->c->namespace(),
             '--force' => $force,
-            '--package' => $package,
-            '--organization' => $organization,
-            '--model' => $model,
-            '--module' => $module,
+            '--package' => $this->c->package(),
+            '--organization' => $this->c->organization(),
+            '--model' => $this->c->model(),
+            '--module' => $this->c->module(),
             '--model-file' => $file,
-            '--type' => $type,
+            '--type' => $this->c->type(),
         ];
 
         $this->call('playground:make:factory', $params);
@@ -385,7 +394,6 @@ class ModelMakeCommand extends GeneratorCommand
      */
     protected function createMigration()
     {
-        $type = $this->c->type() ?? '';
         $force = $this->hasOption('force') && $this->option('force');
         $model = $this->hasOption('model') ? $this->option('model') : '';
         $module = $this->hasOption('module') ? $this->option('module') : '';
@@ -433,7 +441,7 @@ class ModelMakeCommand extends GeneratorCommand
             '--model' => $model,
             '--module' => $module,
             '--file' => $file,
-            '--type' => $type,
+            '--type' => $this->c->type(),
         ];
 
         // if (empty($params['--file'])) {
@@ -565,7 +573,6 @@ class ModelMakeCommand extends GeneratorCommand
      */
     protected function createTest()
     {
-        $type = $this->c->type() ?? '';
         $force = $this->hasOption('force') && $this->option('force');
         $model = $this->hasOption('model') ? $this->option('model') : '';
         $module = $this->hasOption('module') ? $this->option('module') : '';
@@ -619,7 +626,7 @@ class ModelMakeCommand extends GeneratorCommand
             '--model' => $model,
             '--module' => $module,
             '--model-file' => $file,
-            '--type' => $type,
+            '--type' => $this->c->type(),
         ];
 
         // if (empty($params['--file'])) {
@@ -644,7 +651,10 @@ class ModelMakeCommand extends GeneratorCommand
         $params['--suite'] = 'feature';
         $this->call('playground:make:test', $params);
 
-        $this->configuration['test'] = true;
+        $this->c->setOptions([
+            'test' => true,
+        ]);
+
         // $this->call('playground:make:test', [
         //     // 'name' => "create_{$table}_table",
         //     'name' => $this->qualifiedName,
@@ -659,15 +669,13 @@ class ModelMakeCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        $type = $this->c->type() ?? '';
-
         $template = 'laravel/model.stub';
 
-        if ($type === 'abstract') {
+        if ($this->c->type() === 'abstract') {
             $template = 'model/abstract.stub';
-        } elseif ($type === 'model') {
+        } elseif ($this->c->type() === 'model') {
             $template = 'model/model.stub';
-        } elseif (in_array($type, [
+        } elseif (in_array($this->c->type(), [
             'pivot',
             'api',
             'resource',
@@ -715,9 +723,9 @@ class ModelMakeCommand extends GeneratorCommand
     /**
      * Get the console command options.
      *
-     * @return array
+     * @return array<int, mixed>
      */
-    protected function getOptions()
+    protected function getOptions(): array
     {
         return [
             ['all',             'a',  InputOption::VALUE_NONE, 'Generate a migration, seeder, factory, policy, resource controller, and form request classes for the model'],
@@ -752,7 +760,8 @@ class ModelMakeCommand extends GeneratorCommand
      */
     protected function afterPromptingForMissingArguments(InputInterface $input, OutputInterface $output)
     {
-        if ($this->isReservedName($this->getNameInput()) || $this->didReceiveOptions($input)) {
+        $name = $this->getNameInput();
+        if (($name && $this->isReservedName($name)) || $this->didReceiveOptions($input)) {
             return;
         }
 
@@ -763,6 +772,6 @@ class ModelMakeCommand extends GeneratorCommand
             'migration' => 'Migration',
             'policy' => 'Policy',
             'resource' => 'Resource Controller',
-        ]))->each(fn ($option) => $input->setOption($option, true));
+        ]))->each(fn ($option) => $input->setOption(is_string($option) ? $option : '', true));
     }
 }

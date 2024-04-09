@@ -15,7 +15,6 @@ trait Properties
      * @var array<string, mixed>
      */
     protected $properties = [
-        // "class": "ServiceProvider",
         'class' => '',
         'config' => '',
         'extends' => '',
@@ -152,7 +151,10 @@ trait Properties
             && is_array($options['uses'])
         ) {
             foreach ($options['uses'] as $key => $class) {
-                $this->addToUse($class, $key);
+                $this->addToUse(
+                    $class,
+                    is_string($key) ? $key : null
+                );
             }
         }
 
