@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-10 20:54:37</timestamp>
+  <timestamp>2024-04-10 22:56:47</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>277</methodCount>
+    <methodCount>278</methodCount>
     <crapMethodCount>37</crapMethodCount>
     <crapLoad>560</crapLoad>
-    <totalCrap>13443.86</totalCrap>
-    <crapMethodPercent>13.36</crapMethodPercent>
+    <totalCrap>13435.4</totalCrap>
+    <crapMethodPercent>13.31</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -1623,9 +1623,9 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>20</crap>
-      <complexity>4</complexity>
-      <coverage>0</coverage>
+      <crap>8.04</crap>
+      <complexity>8</complexity>
+      <coverage>91.67</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1634,9 +1634,9 @@
       <methodName>model_fqdn</methodName>
       <methodSignature>model_fqdn(): string</methodSignature>
       <fullMethod>model_fqdn(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1645,9 +1645,20 @@
       <methodName>models</methodName>
       <methodSignature>models(): array</methodSignature>
       <fullMethod>models(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Test</className>
+      <methodName>suite</methodName>
+      <methodSignature>suite(): string</methodSignature>
+      <fullMethod>suite(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2921,9 +2932,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>8.51</crap>
-      <complexity>8</complexity>
-      <coverage>80</coverage>
+      <crap>13.01</crap>
+      <complexity>12</complexity>
+      <coverage>80.85</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
