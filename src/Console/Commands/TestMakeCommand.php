@@ -94,11 +94,21 @@ class TestMakeCommand extends GeneratorCommand
 
         $suite = $this->option('suite');
         $suite = is_string($suite) ? strtolower($suite) : '';
+
+        if (empty($suite) && $this->c->suite()) {
+            $suite = $this->c->suite();
+        }
+
+        // NOTE: Suites could be a configuration option.
         $this->suite = empty($suite) || ! in_array($suite, [
             'acceptance',
             'feature',
             'unit',
         ]) ? 'unit' : $suite;
+
+        $this->c->setOptions([
+            'suite' => $this->suite,
+        ]);
 
         $this->c->setOptions([
             'folder' => Str::of($this->suite)->title()->toString(),
@@ -111,12 +121,17 @@ class TestMakeCommand extends GeneratorCommand
             'playground-model',
         ])) {
 
-            if ($this->model?->fqdn()) {
+            $model_fqdn = $this->c->model_fqdn();
+
+            if (! $model_fqdn && $this->model?->fqdn()) {
+                $model_fqdn = $this->model->fqdn();
                 $this->c->setOptions([
-                    'model_fqdn' => $this->model->fqdn(),
+                    'model_fqdn' => $model_fqdn,
                 ]);
-                $this->searches['model_fqdn'] = $this->parseClassInput($this->c->model_fqdn());
+
             }
+
+            $this->searches['model_fqdn'] = $model_fqdn ? $this->parseClassInput($model_fqdn) : 'ReplaceFqdn';
 
             if (in_array($this->suite, [
                 'acceptance',

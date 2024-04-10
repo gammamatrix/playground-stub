@@ -15,6 +15,8 @@ class Test extends Configuration
 
     protected string $model_fqdn = '';
 
+    protected string $suite = '';
+
     /**
      * @var array<string, string>
      */
@@ -36,38 +38,11 @@ class Test extends Configuration
         'package' => '',
         'type' => '',
         'uses' => [],
-
         // properties
-
         'extends' => '\Tests\TestCase',
-
         'model_fqdn' => '',
-
         'models' => [],
-
-        // 'organization' => '',
-        // 'package' => 'app',
-        // 'fqdn' => '',
-        // 'namespace' => '',
-        // 'model' => '',
-        // 'model_column' => '',
-        // 'model_label' => '',
-        // 'module' => '',
-        // 'module_slug' => '',
-        // 'name' => '',
-        // 'folder' => '',
-        // 'class' => '',
-        // 'type' => '',
-        // 'table' => '',
-        // 'extends' => '\Tests\TestCase',
-        // 'implements' => [],
-        // 'properties' => [],
-        // 'setup' => [],
-        // 'tests' => [],
-        // 'HasOne' => [],
-        // 'HasMany' => [],
-        // 'uses' => [],
-
+        'suite' => '',
     ];
 
     /**
@@ -76,6 +51,18 @@ class Test extends Configuration
     public function setOptions(array $options = []): self
     {
         parent::setOptions($options);
+
+        if (! empty($options['model_fqdn'])
+            && is_string($options['model_fqdn'])
+        ) {
+            $this->model_fqdn = $options['model_fqdn'];
+        }
+
+        if (! empty($options['suite'])
+            && is_string($options['suite'])
+        ) {
+            $this->suite = $options['suite'];
+        }
 
         if (! empty($options['models'])
             && is_array($options['models'])
@@ -99,5 +86,10 @@ class Test extends Configuration
     public function models(): array
     {
         return $this->models;
+    }
+
+    public function suite(): string
+    {
+        return $this->suite;
     }
 }

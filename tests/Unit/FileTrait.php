@@ -57,6 +57,18 @@ trait FileTrait
 
 
         //
+        // Tests
+        //
+
+        } elseif (in_array($type, [
+            'test-model',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/test.model.crm.contact.json',
+                $package_base
+            );
+
+        //
         // Empty
         //
 
