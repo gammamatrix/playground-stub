@@ -39,10 +39,14 @@ Model (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Model)
  [x] Command make model with force
  [x] Command make playground model api with force
  [x] Command make playground model resource with force
+ [x] Command make all playground model api with force
+ [x] Command make all playground model resource with force
 
 Model (Tests\Feature\Playground\Stub\Console\Commands\TestMakeCommand\Model)
  [x] Command make test with force and without skeleton
  [x] Command make test with force and with skeleton
+ [x] Command make playground model api with force
+ [x] Command make playground model resource with force
 
 Properties (Tests\Unit\Playground\Stub\Configuration\Configuration\Properties)
  [x] Properties

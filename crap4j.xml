@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-10 19:40:16</timestamp>
+  <timestamp>2024-04-10 20:54:37</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>252</methodCount>
-    <crapMethodCount>36</crapMethodCount>
-    <crapLoad>549</crapLoad>
-    <totalCrap>13108.96</totalCrap>
-    <crapMethodPercent>14.29</crapMethodPercent>
+    <methodCount>277</methodCount>
+    <crapMethodCount>37</crapMethodCount>
+    <crapLoad>560</crapLoad>
+    <totalCrap>13443.86</totalCrap>
+    <crapMethodPercent>13.36</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -402,6 +402,28 @@
       <methodName>setParent</methodName>
       <methodSignature>setParent(Playground\Stub\Configuration\Contracts\Configuration $parent): self</methodSignature>
       <fullMethod>setParent(Playground\Stub\Configuration\Contracts\Configuration $parent): self</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Factory</className>
+      <methodName>model</methodName>
+      <methodSignature>model(): string</methodSignature>
+      <fullMethod>model(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Factory</className>
+      <methodName>model_fqdn</methodName>
+      <methodSignature>model_fqdn(): string</methodSignature>
+      <fullMethod>model_fqdn(): string</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -1553,6 +1575,50 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Policy</className>
+      <methodName>rolesForAction</methodName>
+      <methodSignature>rolesForAction(): array</methodSignature>
+      <fullMethod>rolesForAction(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Policy</className>
+      <methodName>addRoleForAction</methodName>
+      <methodSignature>addRoleForAction(string $role): self</methodSignature>
+      <fullMethod>addRoleForAction(string $role): self</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Policy</className>
+      <methodName>rolesToView</methodName>
+      <methodSignature>rolesToView(): array</methodSignature>
+      <fullMethod>rolesToView(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Policy</className>
+      <methodName>addRoleToView</methodName>
+      <methodSignature>addRoleToView(string $role): self</methodSignature>
+      <fullMethod>addRoleToView(string $role): self</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
       <className>Playground\Stub\Configuration\Test</className>
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
@@ -2246,6 +2312,72 @@
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\FactoryMakeCommand</className>
+      <methodName>getConfigurationFilename</methodName>
+      <methodSignature>getConfigurationFilename(): string</methodSignature>
+      <fullMethod>getConfigurationFilename(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\FactoryMakeCommand</className>
+      <methodName>getStub</methodName>
+      <methodSignature>getStub(): string</methodSignature>
+      <fullMethod>getStub(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\FactoryMakeCommand</className>
+      <methodName>getDefaultNamespace</methodName>
+      <methodSignature>getDefaultNamespace($rootNamespace): string</methodSignature>
+      <fullMethod>getDefaultNamespace($rootNamespace): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\FactoryMakeCommand</className>
+      <methodName>buildClass</methodName>
+      <methodSignature>buildClass($name): string</methodSignature>
+      <fullMethod>buildClass($name): string</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\FactoryMakeCommand</className>
+      <methodName>getPath</methodName>
+      <methodSignature>getPath($name): string</methodSignature>
+      <fullMethod>getPath($name): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\FactoryMakeCommand</className>
+      <methodName>guessModelName</methodName>
+      <methodSignature>guessModelName($name): string</methodSignature>
+      <fullMethod>guessModelName($name): string</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\GeneratorCommand</className>
       <methodName>handle</methodName>
       <methodSignature>handle()</methodSignature>
@@ -2492,9 +2624,9 @@
       <methodName>handle</methodName>
       <methodSignature>handle()</methodSignature>
       <fullMethod>handle()</fullMethod>
-      <crap>43.5</crap>
-      <complexity>22</complexity>
-      <coverage>64.58</coverage>
+      <crap>27.23</crap>
+      <complexity>23</complexity>
+      <coverage>80</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2514,9 +2646,9 @@
       <methodName>createFactory</methodName>
       <methodSignature>createFactory()</methodSignature>
       <fullMethod>createFactory()</fullMethod>
-      <crap>30</crap>
+      <crap>5.04</crap>
       <complexity>5</complexity>
-      <coverage>0</coverage>
+      <coverage>88.24</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2558,9 +2690,9 @@
       <methodName>createPolicy</methodName>
       <methodSignature>createPolicy()</methodSignature>
       <fullMethod>createPolicy()</fullMethod>
-      <crap>20</crap>
+      <crap>4.13</crap>
       <complexity>4</complexity>
-      <coverage>0</coverage>
+      <coverage>80</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2620,10 +2752,153 @@
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\SeederMakeCommand</className>
+      <className>Playground\Stub\Console\Commands\PolicyMakeCommand</className>
+      <methodName>prepareOptions</methodName>
+      <methodSignature>prepareOptions(): void</methodSignature>
+      <fullMethod>prepareOptions(): void</fullMethod>
+      <crap>132</crap>
+      <complexity>11</complexity>
+      <coverage>0</coverage>
+      <crapLoad>11</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\PolicyMakeCommand</className>
+      <methodName>getConfigurationFilename</methodName>
+      <methodSignature>getConfigurationFilename(): string</methodSignature>
+      <fullMethod>getConfigurationFilename(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\PolicyMakeCommand</className>
+      <methodName>buildClass</methodName>
+      <methodSignature>buildClass($name): string</methodSignature>
+      <fullMethod>buildClass($name): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\PolicyMakeCommand</className>
+      <methodName>buildClass_user_model</methodName>
+      <methodSignature>buildClass_user_model(): void</methodSignature>
+      <fullMethod>buildClass_user_model(): void</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\PolicyMakeCommand</className>
+      <methodName>replaceUserNamespace</methodName>
+      <methodSignature>replaceUserNamespace($stub)</methodSignature>
+      <fullMethod>replaceUserNamespace($stub)</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\PolicyMakeCommand</className>
+      <methodName>userProviderModel</methodName>
+      <methodSignature>userProviderModel(): string</methodSignature>
+      <fullMethod>userProviderModel(): string</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\PolicyMakeCommand</className>
       <methodName>getStub</methodName>
       <methodSignature>getStub()</methodSignature>
       <fullMethod>getStub()</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\PolicyMakeCommand</className>
+      <methodName>getDefaultNamespace</methodName>
+      <methodSignature>getDefaultNamespace($rootNamespace)</methodSignature>
+      <fullMethod>getDefaultNamespace($rootNamespace)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\PolicyMakeCommand</className>
+      <methodName>getOptions</methodName>
+      <methodSignature>getOptions(): array</methodSignature>
+      <fullMethod>getOptions(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\PolicyMakeCommand</className>
+      <methodName>afterPromptingForMissingArguments</methodName>
+      <methodSignature>afterPromptingForMissingArguments(Symfony\Component\Console\Input\InputInterface $input, Symfony\Component\Console\Output\OutputInterface $output)</methodSignature>
+      <fullMethod>afterPromptingForMissingArguments(Symfony\Component\Console\Input\InputInterface $input, Symfony\Component\Console\Output\OutputInterface $output)</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\PolicyMakeCommand</className>
+      <methodName>possibleModels</methodName>
+      <methodSignature>possibleModels(): array</methodSignature>
+      <fullMethod>possibleModels(): array</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\PolicyMakeCommand</className>
+      <methodName>make_roles_to_view</methodName>
+      <methodSignature>make_roles_to_view(array $searches): string</methodSignature>
+      <fullMethod>make_roles_to_view(array $searches): string</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\PolicyMakeCommand</className>
+      <methodName>make_roles_for_action</methodName>
+      <methodSignature>make_roles_for_action(array $searches): string</methodSignature>
+      <fullMethod>make_roles_for_action(array $searches): string</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\SeederMakeCommand</className>
+      <methodName>getStub</methodName>
+      <methodSignature>getStub(): string</methodSignature>
+      <fullMethod>getStub(): string</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
