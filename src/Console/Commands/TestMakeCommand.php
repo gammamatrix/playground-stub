@@ -1,19 +1,16 @@
 <?php
-
-declare(strict_types=1);
 /**
  * Playground
  */
+
+declare(strict_types=1);
 namespace Playground\Stub\Console\Commands;
 
-// use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
 use Playground\Stub\Configuration\Test as Configuration;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputOption;
-
-// use Playground\Stub\Configuration\Configuration;
 
 /**
  * \Playground\Stub\Console\Commands\TestMakeCommand
@@ -32,34 +29,6 @@ class TestMakeCommand extends GeneratorCommand
      * @var ConfigurationContract&Configuration
      */
     protected ConfigurationContract $c;
-
-    // /**
-    //  * @var array<string, mixed>
-    //  */
-    // public const CONFIGURATION = [
-    //     'organization' => '',
-    //     'package' => 'app',
-    //     'fqdn' => '',
-    //     'namespace' => '',
-    //     'model' => '',
-    //     'model_column' => '',
-    //     'model_label' => '',
-    //     'module' => '',
-    //     'module_slug' => '',
-    //     'name' => '',
-    //     'folder' => '',
-    //     'class' => '',
-    //     'type' => '',
-    //     'table' => '',
-    //     'extends' => '\Tests\TestCase',
-    //     'implements' => [],
-    //     'properties' => [],
-    //     'setup' => [],
-    //     'tests' => [],
-    //     'HasOne' => [],
-    //     'HasMany' => [],
-    //     'uses' => [],
-    // ];
 
     /**
      * @var array<string, string>

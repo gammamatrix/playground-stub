@@ -277,6 +277,7 @@ class ModelMakeCommand extends GeneratorCommand
             'abstract',
             'pivot',
             'playground-abstract',
+            'playground-model',
             'model',
             'resource',
             'api',

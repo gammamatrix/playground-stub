@@ -19,12 +19,10 @@ class ConfigurationTest extends TestCase
 {
     public function test_command_with_file_skeleton_and_force(): void
     {
-        $file = sprintf(
-            '%1$s/resources/testing/configurations/model.backlog.json',
-            dirname(dirname(dirname(dirname(dirname(__DIR__)))))
+        $command = sprintf(
+            'playground:make:model --skeleton --force --file %1$s',
+            $this->getResourceFile('model')
         );
-
-        $command = 'playground:make:model --skeleton --force --file '.$file;
         // $result = $this->withoutMockingConsoleOutput()->artisan($command);
         // dd(Artisan::output());
         /**

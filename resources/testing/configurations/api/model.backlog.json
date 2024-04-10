@@ -8,15 +8,15 @@
     "model": "Playground/Matrix/Models/Backlog",
     "name": "Backlog",
     "class": "Backlog",
-    "type": "playground-model",
+    "type": "playground-api",
     "table": "matrix_backlogs",
     "extends": "AbstractModel",
     "implements": [],
-    "factory": false,
-    "migration": false,
-    "policy": false,
+    "factory": true,
+    "migration": true,
+    "policy": true,
     "seed": false,
-    "test": false,
+    "test": true,
     "HasOne": {
         "board": {
             "comment": "The board of the backlog.",
@@ -808,7 +808,7 @@
         ]
     },
     "models": {
-        "Backlog": "tmp-testing-model.backlog.json"
+        "Backlog": "tmp-testing-model-api.backlog.json"
     },
     "sortable": [
         {

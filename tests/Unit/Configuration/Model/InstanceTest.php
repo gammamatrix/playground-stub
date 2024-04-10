@@ -141,14 +141,14 @@ class InstanceTest extends TestCase
         $this->assertSame('Playground/Matrix/Models/Backlog', $instance->model());
         $this->assertSame('Backlog', $instance->name());
         $this->assertSame('Backlog', $instance->class());
-        $this->assertSame('playground-resource', $instance->type());
+        $this->assertSame('playground-model', $instance->type());
         $this->assertSame('matrix_backlogs', $instance->table());
         $this->assertSame('AbstractModel', $instance->extends());
         $this->assertSame([], $instance->implements());
-        $this->assertTrue($instance->factory());
-        $this->assertTrue($instance->migration());
+        $this->assertFalse($instance->factory());
+        $this->assertFalse($instance->migration());
         $this->assertFalse($instance->policy());
         $this->assertFalse($instance->seed());
-        $this->assertTrue($instance->test());
+        $this->assertFalse($instance->test());
     }
 }
