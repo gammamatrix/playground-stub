@@ -19,12 +19,21 @@ Command (Tests\Unit\Playground\Stub\Console\Commands\SeederMakeCommand\Command)
 Command (Tests\Unit\Playground\Stub\Console\Commands\TestMakeCommand\Command)
  [x] Command displays help
 
+Configuration (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Configuration)
+ [x] Command with file skeleton and force
+
 Instance (Tests\Unit\Playground\Stub\Configuration\Configuration\Instance)
  [x] Instance
  [x] Instance apply without options
  [x] Folder is empty by default
  [x] Folder with empty setFolder
  [x] Folder with path for setFolder
+
+Instance (Tests\Unit\Playground\Stub\Configuration\Model\Instance)
+ [x] Instance
+ [x] Instance apply without options
+ [x] Folder is empty by default
+ [x] Model with file and skeleton
 
 Properties (Tests\Unit\Playground\Stub\Configuration\Configuration\Properties)
  [x] Properties
