@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-10 17:22:24</timestamp>
+  <timestamp>2024-04-10 19:40:16</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>252</methodCount>
     <crapMethodCount>36</crapMethodCount>
     <crapLoad>549</crapLoad>
-    <totalCrap>13166.17</totalCrap>
+    <totalCrap>13108.96</totalCrap>
     <crapMethodPercent>14.29</crapMethodPercent>
   </stats>
   <methods>
@@ -2228,9 +2228,9 @@
       <methodName>buildClass_hasOne</methodName>
       <methodSignature>buildClass_hasOne(string $type, string $suite): void</methodSignature>
       <fullMethod>buildClass_hasOne(string $type, string $suite): void</fullMethod>
-      <crap>420</crap>
+      <crap>377.68</crap>
       <complexity>20</complexity>
-      <coverage>0</coverage>
+      <coverage>3.66</coverage>
       <crapLoad>20</crapLoad>
     </method>
     <method>
@@ -2239,9 +2239,9 @@
       <methodName>buildClass_hasMany</methodName>
       <methodSignature>buildClass_hasMany(string $type, string $suite): void</methodSignature>
       <fullMethod>buildClass_hasMany(string $type, string $suite): void</fullMethod>
-      <crap>20</crap>
+      <crap>11.76</crap>
       <complexity>4</complexity>
-      <coverage>0</coverage>
+      <coverage>21.43</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2646,9 +2646,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>14.86</crap>
+      <crap>8.51</crap>
       <complexity>8</complexity>
-      <coverage>52.5</coverage>
+      <coverage>80</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2668,9 +2668,9 @@
       <methodName>qualifyClass</methodName>
       <methodSignature>qualifyClass($name): string</methodSignature>
       <fullMethod>qualifyClass($name): string</fullMethod>
-      <crap>2.03</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>81.25</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2690,9 +2690,9 @@
       <methodName>getStub</methodName>
       <methodSignature>getStub()</methodSignature>
       <fullMethod>getStub()</fullMethod>
-      <crap>5.47</crap>
+      <crap>5.2</crap>
       <complexity>5</complexity>
-      <coverage>73.33</coverage>
+      <coverage>80</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
