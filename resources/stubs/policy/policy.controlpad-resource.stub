@@ -1,0 +1,157 @@
+<?php
+/**
+ * {{organization}}
+ */
+
+namespace {{ namespace }};
+
+use {{ namespacedModel }};
+use App\AuthUser;
+use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Auth\Access\Response;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+
+/**
+ * \{{ namespace }}\{{ class }}
+ */
+class {{ class }}
+{
+    use HandlesAuthorization;
+
+    public $checkLock = false;
+    public $requireAdmin = true;
+
+    /**
+     * Determine whether the user can view any domains.
+     */
+    public function hasPermission(AuthUser $authUser, Model $model = null): bool|Response
+    {
+        if ($authUser->isGuest()) {
+            return Response::denyWithStatus(401, __('auth.unauthorized'));
+        }
+
+        if (!$authUser->isControlpad()) {
+            return Response::denyWithStatus(403, __('auth.permission'));
+        }
+
+        // Models must be unlocked to allow deleting.
+        // NOTE: This lock check is bypassed by a root user.
+        if ($this->checkLock && !empty($model->locked)) {
+            return Response::denyWithStatus(423, __('auth.model.locked', [
+                'model' => Str::of(class_basename($model))->snake()->replace('_', ' ')->title()->lower(),
+            ]));
+        }
+
+        if ($this->requireAdmin && !$authUser->isAdmin()) {
+            return Response::denyWithStatus(403, __('auth.permission'));
+        }
+
+        return true;
+    }
+
+    /**
+     * Perform a before check.
+     *
+     * NOTE Override this method when the root user should not have access.
+     *
+     * @param string $ability The ability represents an action in the MCA.
+     *
+     * @return mixed Returns true if the user has the root role assigned.
+     */
+    public function before(AuthUser $authUser, $ability)
+    {
+        if ($authUser->isControlpad() && $authUser->hasRole('root')) {
+            return true;
+        }
+    }
+
+    /**
+     * Determine whether the user can create models.
+     */
+    public function create(AuthUser $authUser): bool|Response
+    {
+        return $this->hasPermission($authUser);
+    }
+
+    /**
+     * Determine whether the user can delete the {{ modelVariable }}.
+     */
+    public function delete(AuthUser $authUser, {{ model }} ${{ modelVariable }}): bool|Response
+    {
+        $this->checkLock = true;
+
+        return $this->hasPermission($authUser, ${{ modelVariable }});
+    }
+
+    /**
+     * Determine whether the user can permanently delete the {{ modelVariable }}.
+     */
+    public function forceDelete(AuthUser $authUser, {{ model }} ${{ modelVariable }}): bool|Response
+    {
+        $this->checkLock = true;
+
+        return $this->hasPermission($authUser, ${{ modelVariable }});
+    }
+
+    /**
+     * Determine whether the user can lock the {{ modelVariable }}.
+     *
+     */
+    public function lock(AuthUser $authUser, {{ model }} ${{ modelVariable }}): bool|Response
+    {
+        return $this->hasPermission($authUser, ${{ modelVariable }});
+    }
+
+    /**
+     * Determine whether the user can restore the {{ modelVariable }}.
+     *
+     */
+    public function restore(AuthUser $authUser, {{ model }} ${{ modelVariable }}): bool|Response
+    {
+        return $this->hasPermission($authUser, ${{ modelVariable }});
+    }
+
+    /**
+     * Determine whether the user can unlock the {{ modelVariable }}.
+     *
+     */
+    public function unlock(AuthUser $authUser, {{ model }} ${{ modelVariable }}): bool|Response
+    {
+        return $this->hasPermission($authUser, ${{ modelVariable }});
+    }
+
+    /**
+     * Determine whether the user can update the {{ modelVariable }}.
+     *
+     */
+    public function update(AuthUser $authUser, {{ model }} ${{ modelVariable }}): bool|Response
+    {
+        $this->checkLock = true;
+
+        return $this->hasPermission($authUser, ${{ modelVariable }});
+    }
+
+    /**
+     * Determine whether the user can view the {{ modelVariable }}.
+     *
+     */
+    public function view(AuthUser $authUser, {{ model }} ${{ modelVariable }}): bool|Response
+    {
+        $this->requireAdmin = false;
+
+        return $this->hasPermission($authUser, ${{ modelVariable }});
+    }
+
+    /**
+     * Determine whether the user can view any domains.
+     *
+     * @param \App\AuthUser $authUser
+     */
+    public function viewAny(AuthUser $authUser): bool|Response
+    {
+        $this->requireAdmin = false;
+
+        return $this->hasPermission($authUser);
+    }
+}

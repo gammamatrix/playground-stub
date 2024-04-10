@@ -253,9 +253,9 @@ class ModelMakeCommand extends GeneratorCommand
         //     $this->createController();
         // }
 
-        // if ($this->createPolicy) {
-        //     $this->createPolicy();
-        // }
+        if ($this->createPolicy) {
+            $this->createPolicy();
+        }
 
         if ($this->createTest) {
             $this->createTest();

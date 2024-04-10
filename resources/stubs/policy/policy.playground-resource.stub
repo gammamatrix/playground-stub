@@ -1,0 +1,24 @@
+<?php
+/**
+ * {{organization}}
+ */
+
+namespace {{ namespace }};
+
+use GammaMatrix\Playground\Policies\ModelPolicy;
+
+/**
+ * \{{ namespace }}\{{ class }}
+ */
+class {{ class }} extends ModelPolicy
+{
+    /**
+     * @var array $rolesToView The roles allowed to view the MVC.
+     */
+    protected $rolesToView = [{{ rolesToView }}];
+
+    /**
+     * @var array $rolesForAction The roles allowed for actions in the MVC.
+     */
+    protected $rolesForAction = [{{ rolesForAction }}];
+}

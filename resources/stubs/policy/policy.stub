@@ -1,0 +1,22 @@
+<?php
+/**
+ * {{organization}}
+ */
+
+namespace {{ namespace }};
+
+use {{ namespacedUserModel }};
+
+/**
+ * \{{ namespace }}\{{ class }}
+ */
+class {{ class }}
+{
+    /**
+     * Create a new policy instance.
+     */
+    public function __construct()
+    {
+        //
+    }
+}

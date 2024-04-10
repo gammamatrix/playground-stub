@@ -65,11 +65,11 @@ class ServiceProvider extends AuthServiceProvider
 
         // $commands[] = Console\Commands\ControllerMakeCommand::class;
         // $commands[] = Console\Commands\DocsMakeCommand::class;
-        // $commands[] = Console\Commands\FactoryMakeCommand::class;
+        $commands[] = Console\Commands\FactoryMakeCommand::class;
         $commands[] = Console\Commands\MigrationMakeCommand::class;
         $commands[] = Console\Commands\ModelMakeCommand::class;
         // $commands[] = Console\Commands\PackageMakeCommand::class;
-        // $commands[] = Console\Commands\PolicyMakeCommand::class;
+        $commands[] = Console\Commands\PolicyMakeCommand::class;
         // $commands[] = Console\Commands\RequestMakeCommand::class;
         // $commands[] = Console\Commands\ResourceMakeCommand::class;
         // $commands[] = Console\Commands\RouteMakeCommand::class;

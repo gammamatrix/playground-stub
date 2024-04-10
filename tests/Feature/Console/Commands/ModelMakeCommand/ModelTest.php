@@ -57,4 +57,32 @@ class ModelTest extends TestCase
         $result = $this->artisan($command);
         $result->assertExitCode(0);
     }
+
+    public function test_command_make_all_playground_model_api_with_force(): void
+    {
+        $command = sprintf(
+            'playground:make:model --all --force --file %1$s',
+            $this->getResourceFile('playground-model-api')
+        );
+
+        /**
+         * @var \Illuminate\Testing\PendingCommand $result
+         */
+        $result = $this->artisan($command);
+        $result->assertExitCode(0);
+    }
+
+    public function test_command_make_all_playground_model_resource_with_force(): void
+    {
+        $command = sprintf(
+            'playground:make:model --all --force --file %1$s',
+            $this->getResourceFile('playground-model-resource')
+        );
+
+        /**
+         * @var \Illuminate\Testing\PendingCommand $result
+         */
+        $result = $this->artisan($command);
+        $result->assertExitCode(0);
+    }
 }
