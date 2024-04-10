@@ -19,4 +19,5 @@ return [
     'Package.require.invalid' => 'Ignoring a requirement: package [:package] with version [:version] for the composer.json file.',
     'Package.require-dev.invalid' => 'Ignoring a dev requirement: package [:package] with version [:version] for the composer.json file.',
 
+    'Model.CreateColumn.type.unexpected' => 'Unexpected type [:type] for column [:column] - allowed: :allowed',
 ];

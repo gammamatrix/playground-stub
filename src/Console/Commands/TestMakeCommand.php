@@ -142,9 +142,9 @@ class TestMakeCommand extends GeneratorCommand
             'playground-model',
         ])) {
 
-            if (! empty($this->model['fqdn'])) {
+            if ($this->model?->fqdn()) {
                 $this->c->setOptions([
-                    'model_fqdn' => $this->model['fqdn'],
+                    'model_fqdn' => $this->model->fqdn(),
                 ]);
                 $this->searches['model_fqdn'] = $this->parseClassInput($this->c->model_fqdn());
             }

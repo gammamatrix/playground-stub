@@ -21,6 +21,8 @@ class Configuration implements Contracts\Configuration, JsonSerializable
      */
     protected string $folder = '';
 
+    protected ?Contracts\Configuration $_parent = null;
+
     /**
      * @var bool Allows for autogenerating sparse configurations.
      */
@@ -80,6 +82,18 @@ class Configuration implements Contracts\Configuration, JsonSerializable
     public function withSkeleton(): self
     {
         $this->skeleton = true;
+
+        return $this;
+    }
+
+    public function getParent(): ?Contracts\Configuration
+    {
+        return $this->_parent;
+    }
+
+    public function setParent(Contracts\Configuration $parent = null): self
+    {
+        $this->_parent = $parent;
 
         return $this;
     }

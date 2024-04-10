@@ -9,14 +9,15 @@ namespace Playground\Stub\Configuration;
 use Illuminate\Support\Facades\Log;
 
 /**
- * \Playground\Stub\Model
+ * \Playground\Stub\Configuration\Model
  */
 class Model extends Configuration
 {
     use Concerns\Attributes;
-    use Concerns\Filters;
+
+    // use Concerns\Filters;
     use Concerns\Relationships;
-    use Concerns\Sorting;
+    // use Concerns\Sorting;
 
     // protected string $extends = 'Model';
 
@@ -24,7 +25,7 @@ class Model extends Configuration
      * @var array<string, mixed>
      */
     protected $properties = [
-        'class' => 'ServiceProvider',
+        'class' => '',
         'config' => '',
         'fqdn' => '',
         'module' => '',
@@ -66,7 +67,7 @@ class Model extends Configuration
         'filters' => null,
         'models' => [],
         'sortable' => [],
-        'create' => [],
+        'create' => null,
         'uses' => [],
     ];
 
@@ -94,12 +95,12 @@ class Model extends Configuration
     protected array $implements = [];
 
     /**
-     * @var array<string, array<string, string>>
+     * @var array<string, Model\HasOne>
      */
     protected array $HasOne = [];
 
     /**
-     * @var array<string, array<string, string>>
+     * @var array<string, Model\HasMany>
      */
     protected array $HasMany = [];
 
@@ -131,7 +132,7 @@ class Model extends Configuration
     protected array $models = [];
 
     /**
-     * @var array<string, mixed>
+     * @var array<int, Model\Sortable>
      */
     protected array $sortable = [];
 
@@ -142,6 +143,10 @@ class Model extends Configuration
      */
     public function setOptions(array $options = []): self
     {
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$options' => $options,
+        // ]);
         parent::setOptions($options);
 
         if (! empty($options['model'])
@@ -198,16 +203,83 @@ class Model extends Configuration
         $this->addRelationships($options);
         $this->addModelProperties($options);
 
+        // if (! empty($options['HasOne'])
+        //     && is_array($options['HasOne'])
+        // ) {
+        //     foreach ($options['HasOne'] as $method => $meta) {
+        //         if (empty($method) || ! is_string($method)) {
+        //             continue;
+        //         }
+        //         $meta = is_array($meta) ? $meta : [];
+        //         if (empty($meta['method']) && is_string($method)) {
+        //             $meta['method'] = $method;
+        //         }
+        //         $this->HasOne[$method] = new Model\HasOne;
+        //         // $this->HasOne[$method] = new Model\HasOne([], $this->skeleton());
+        //         // $this->HasOne[$method] = new Model\HasOne($meta, $this->skeleton());
+        //         // $this->HasOne[$method]->withSkeleton()->setParent($this)->setOptions($meta);
+        //         if ($this->skeleton()) {
+        //             $this->HasOne[$method]->withSkeleton();
+        //         }
+        //         $this->HasOne[$method]->setParent($this)->setOptions($meta)->apply();
+        //         // dd([
+        //         //     '__METHOD__' => __METHOD__,
+        //         //     '$method' => $method,
+        //         //     '$this->HasOne[$method]' => $this->HasOne[$method],
+        //         //     'json_encode($this->HasOne[$method])' => json_encode($this->HasOne[$method], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT),
+        //         //     // '$options' => $options,
+        //         // ]);
+        //     }
+        // }
+
+        // if (! empty($options['HasMany'])
+        //     && is_array($options['HasMany'])
+        // ) {
+        //     foreach ($options['HasMany'] as $method => $meta) {
+        //         if (empty($method) || ! is_string($method)) {
+        //             continue;
+        //         }
+        //         $meta = is_array($meta) ? $meta : [];
+        //         if (empty($meta['method']) && is_string($method)) {
+        //             $meta['method'] = $method;
+        //         }
+        //         $this->HasMany[$method] = new Model\HasMany;
+        //         // $this->HasMany[$method] = new Model\HasMany([], $this->skeleton());
+        //         // $this->HasMany[$method] = new Model\HasMany($meta, $this->skeleton());
+        //         // $this->HasMany[$method]->withSkeleton()->setParent($this)->setOptions($meta);
+        //         if ($this->skeleton()) {
+        //             $this->HasMany[$method]->withSkeleton();
+        //         }
+        //         $this->HasMany[$method]->setParent($this)->setOptions($meta)->apply();
+        //         // dd([
+        //         //     '__METHOD__' => __METHOD__,
+        //         //     '$method' => $method,
+        //         //     '$this->HasMany[$method]' => $this->HasMany[$method],
+        //         //     'json_encode($this->HasMany[$method])' => json_encode($this->HasMany[$method], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT),
+        //         //     // '$options' => $options,
+        //         // ]);
+        //     }
+        // }
+
         if (! empty($options['create'])
             && is_array($options['create'])
         ) {
             $this->create = new Model\Create($options['create'], $this->skeleton());
+            $this->create->setParent($this)->apply();
         }
 
         if (! empty($options['filters'])
             && is_array($options['filters'])
         ) {
             $this->filters = new Model\Filters($options['filters'], $this->skeleton());
+            $this->filters->apply();
+            // $this->filters->setParent($this)->apply();
+            // dd([
+            //     '__METHOD__' => __METHOD__,
+            //     '$this->filters' => $this->filters,
+            //     // '$options[filters]' => $options['filters'],
+            //     'json_encode($this->filters)' => json_encode($this->filters, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT),
+            // ]);
         }
 
         if (! empty($options['scopes'])
@@ -229,16 +301,9 @@ class Model extends Configuration
         if (! empty($options['sortable'])
             && is_array($options['sortable'])
         ) {
-            foreach ($options['sortable'] as $method => $meta) {
-                $this->addSortable($method, $meta);
-            }
-        }
-
-        if (! empty($options['create'])
-            && is_array($options['create'])
-        ) {
-            foreach ($options['create'] as $method => $meta) {
-                $this->addCreate($method, $meta);
+            foreach ($options['sortable'] as $i => $meta) {
+                $this->sortable[$i] = new Model\Sortable($meta, $this->skeleton());
+                $this->sortable[$i]->apply();
             }
         }
 
@@ -250,6 +315,11 @@ class Model extends Configuration
         mixed $meta
     ): self {
 
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$scope' => $scope,
+        //     '$meta' => $meta,
+        // ]);
         if (empty($scope) || ! is_string($scope)) {
             throw new \RuntimeException(__('playground-stub::stub.Model.Scope.invalid', [
                 'name' => $this->name,
@@ -276,7 +346,7 @@ class Model extends Configuration
 
         $options = [];
 
-        if (! in_array($scope, [
+        if (in_array($scope, [
             'sort',
         ])) {
 
@@ -294,27 +364,12 @@ class Model extends Configuration
         }
 
         $this->scopes[$scope] = $options;
-
-        return $this;
-    }
-
-    public function addCreate(
-        mixed $scope,
-        mixed $meta
-    ): self {
-
-        if (empty($scope) || ! is_string($scope)) {
-            throw new \RuntimeException(__('playground-stub::stub.Model.Scope.invalid', [
-                'name' => $this->name,
-                'scope' => is_string($scope) ? $scope : gettype($scope),
-            ]));
-        }
-
-        if (empty($meta) || ! is_array($meta)) {
-            $meta = [];
-        }
-
-        Log::warning('IMPLEMENT: '.__METHOD__);
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$scope' => $scope,
+        //     '$options' => $options,
+        //     '$this->scopes[$scope]' => $this->scopes[$scope],
+        // ]);
 
         return $this;
     }
@@ -330,10 +385,104 @@ class Model extends Configuration
     }
 
     /**
+     * @return array<string, mixed>
+     */
+    public function scopes(): array
+    {
+        return $this->scopes;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function attributes(): array
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function casts(): array
+    {
+        return $this->casts;
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    public function fillable(): array
+    {
+        return $this->fillable;
+    }
+
+    /**
      * @return array<string, string>
      */
     public function models(): array
     {
         return $this->models;
+    }
+
+    /**
+     * @return array<int, Model\Sortable>
+     */
+    public function sortable(): array
+    {
+        return $this->sortable;
+    }
+
+    /**
+     * @return array<string, Model\HasOne>
+     */
+    public function HasOne(): array
+    {
+        return $this->HasOne;
+    }
+
+    /**
+     * @return array<string, Model\HasMany>
+     */
+    public function HasMany(): array
+    {
+        return $this->HasMany;
+    }
+
+    /**
+     * @return array<string, class-string>
+     */
+    public function implements(): array
+    {
+        return $this->implements;
+    }
+
+    public function table(): string
+    {
+        return $this->table;
+    }
+
+    public function factory(): bool
+    {
+        return $this->factory;
+    }
+
+    public function migration(): bool
+    {
+        return $this->migration;
+    }
+
+    public function policy(): bool
+    {
+        return $this->policy;
+    }
+
+    public function seed(): bool
+    {
+        return $this->seed;
+    }
+
+    public function test(): bool
+    {
+        return $this->test;
     }
 }

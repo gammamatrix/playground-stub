@@ -17,9 +17,14 @@ trait Tests
     {
         $this->searches['hasOne_properties'] = '';
 
-        if (empty($this->model['HasOne']) || ! is_array($this->model['HasOne'])) {
+        if (empty($this->model) || empty($this->model->HasOne())) {
             return;
         }
+
+        /**
+         * @var array<string, array<string, string>> $hasOnes
+         */
+        $hasOnes = [];
 
         if (in_array($type, [
             'playground-api',
@@ -50,11 +55,19 @@ trait Tests
                 'parent' => [
                     'localKey' => 'parent_id',
                     'rule' => 'create',
-                    'related' => $this->model['class'],
+                    'related' => $this->model->class(),
                 ],
-            ] + $this->model['HasOne'];
-        } else {
-            $hasOnes = $this->model['HasOne'];
+            ];
+        }
+
+        foreach ($this->model->HasOne() as $HasOne) {
+            if ($HasOne->accessor()) {
+                $hasOnes[$HasOne->accessor()] = [
+                    'localKey' => $HasOne->localKey(),
+                    'rule' => 'first',
+                    'related' => $HasOne->related(),
+                ];
+            }
         }
 
         $hasOne_properties = PHP_EOL;
@@ -67,15 +80,24 @@ trait Tests
             }
         } else {
             foreach ($hasOnes as $accessor => $meta) {
-                $localKey = $meta['localKey'] ?? '';
-                $rule = $meta['rule'] ?? 'create';
-                $related = $meta['related'] ?? '';
+                $localKey = '';
+                if (! empty($meta['localKey']) && is_string($meta['localKey'])) {
+                    $localKey = $meta['localKey'];
+                }
+                $rule = 'create';
+                if (! empty($meta['rule']) && is_string($meta['rule'])) {
+                    $rule = $meta['rule'];
+                }
+                $related = '';
+                if (! empty($meta['related']) && is_string($meta['related'])) {
+                    $related = $meta['related'];
+                }
                 $related_base = $related ? class_basename($related) : '';
                 if (! empty($related_base) && ! empty($related)) {
                     if ($related_base === $related) {
                         $related = sprintf(
                             '\\%1$s\Models\\%2$s::class',
-                            $this->parseClassInput($this->model['namespace']),
+                            $this->parseClassInput($this->model->namespace()),
                             $this->parseClassInput($related)
                         );
                     } else {
@@ -115,14 +137,14 @@ trait Tests
     {
         $this->searches['hasMany_properties'] = '';
 
-        if (empty($this->model['HasMany']) || ! is_array($this->model['HasMany'])) {
+        if (empty($this->model) || empty($this->model->HasMany())) {
             return;
         }
 
         $hasMany_properties = PHP_EOL;
 
-        foreach ($this->model['HasMany'] as $accessor => $meta) {
-            $hasMany_properties .= sprintf('%1$s\'%2$s\',%3$s', str_repeat(' ', 8), $accessor, PHP_EOL);
+        foreach ($this->model->HasMany() as $HasMany) {
+            $hasMany_properties .= sprintf('%1$s\'%2$s\',%3$s', str_repeat(' ', 8), $HasMany->accessor(), PHP_EOL);
         }
 
         $hasMany_properties .= str_repeat(' ', 4);

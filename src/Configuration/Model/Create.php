@@ -136,6 +136,70 @@ class Create extends Configuration
             }
         }
 
+        if (! empty($options['unique'])
+            && is_array($options['unique'])
+        ) {
+            foreach ($options['unique'] as $i => $meta) {
+                $this->addUnique($i, $meta);
+            }
+        }
+
+        if (! empty($options['dates'])
+            && is_array($options['dates'])
+        ) {
+            foreach ($options['dates'] as $column => $meta) {
+                $this->addDate($column, $meta);
+            }
+        }
+
+        if (! empty($options['flags'])
+            && is_array($options['flags'])
+        ) {
+            foreach ($options['flags'] as $column => $meta) {
+                $this->addFlag($column, $meta);
+            }
+        }
+
+        if (! empty($options['columns'])
+            && is_array($options['columns'])
+        ) {
+            foreach ($options['columns'] as $column => $meta) {
+                $this->addColumn($column, $meta);
+            }
+        }
+
+        if (! empty($options['permissions'])
+            && is_array($options['permissions'])
+        ) {
+            foreach ($options['permissions'] as $column => $meta) {
+                $this->addPermission($column, $meta);
+            }
+        }
+
+        if (! empty($options['status'])
+            && is_array($options['status'])
+        ) {
+            foreach ($options['status'] as $column => $meta) {
+                $this->addStatus($column, $meta);
+            }
+        }
+
+        if (! empty($options['ui'])
+            && is_array($options['ui'])
+        ) {
+            foreach ($options['ui'] as $column => $meta) {
+                $this->addUi($column, $meta);
+            }
+        }
+
+        if (! empty($options['json'])
+            && is_array($options['json'])
+        ) {
+            foreach ($options['json'] as $column => $meta) {
+                $this->addJson($column, $meta);
+            }
+        }
+
         return $this;
     }
 
@@ -148,6 +212,118 @@ class Create extends Configuration
         }
         $meta['column'] = $column;
         $this->ids[$column] = new CreateId($meta, $this->skeleton());
+        $this->ids[$column]->apply();
+
+        return $this;
+    }
+
+    public function addUnique(int $i, mixed $meta): self
+    {
+        if (empty($meta) || ! is_array($meta)) {
+            throw new \RuntimeException(__('playground-stub::stub.Model.Create.unique.invalid', [
+                'i' => $i,
+            ]));
+        }
+        $this->unique[$i] = new CreateUnique($meta, $this->skeleton());
+        $this->unique[$i]->apply();
+
+        return $this;
+    }
+
+    public function addDate(string $column, mixed $meta): self
+    {
+        if (empty($column) || empty($meta) || ! is_array($meta)) {
+            throw new \RuntimeException(__('playground-stub::stub.Model.Create.date.invalid', [
+                'column' => $column,
+            ]));
+        }
+        $meta['column'] = $column;
+        $this->dates[$column] = new CreateDate($meta, $this->skeleton());
+        $this->dates[$column]->apply();
+
+        return $this;
+    }
+
+    public function addFlag(string $column, mixed $meta): self
+    {
+        if (empty($column) || empty($meta) || ! is_array($meta)) {
+            throw new \RuntimeException(__('playground-stub::stub.Model.Create.flag.invalid', [
+                'column' => $column,
+            ]));
+        }
+        $meta['column'] = $column;
+        $this->flags[$column] = new CreateFlag($meta, $this->skeleton());
+        $this->flags[$column]->apply();
+
+        return $this;
+    }
+
+    public function addColumn(string $column, mixed $meta): self
+    {
+        if (empty($column) || empty($meta) || ! is_array($meta)) {
+            throw new \RuntimeException(__('playground-stub::stub.Model.Create.column.invalid', [
+                'column' => $column,
+            ]));
+        }
+        $meta['column'] = $column;
+        $this->columns[$column] = new CreateColumn($meta, $this->skeleton());
+        $this->columns[$column]->apply();
+
+        return $this;
+    }
+
+    public function addPermission(string $column, mixed $meta): self
+    {
+        if (empty($column) || empty($meta) || ! is_array($meta)) {
+            throw new \RuntimeException(__('playground-stub::stub.Model.Create.permission.invalid', [
+                'column' => $column,
+            ]));
+        }
+        $meta['column'] = $column;
+        $this->permissions[$column] = new CreatePermission($meta, $this->skeleton());
+        $this->permissions[$column]->apply();
+
+        return $this;
+    }
+
+    public function addStatus(string $column, mixed $meta): self
+    {
+        if (empty($column) || empty($meta) || ! is_array($meta)) {
+            throw new \RuntimeException(__('playground-stub::stub.Model.Create.status.invalid', [
+                'column' => $column,
+            ]));
+        }
+        $meta['column'] = $column;
+        $this->status[$column] = new CreateStatus($meta, $this->skeleton());
+        $this->status[$column]->apply();
+
+        return $this;
+    }
+
+    public function addUi(string $column, mixed $meta): self
+    {
+        if (empty($column) || empty($meta) || ! is_array($meta)) {
+            throw new \RuntimeException(__('playground-stub::stub.Model.Create.ui.invalid', [
+                'column' => $column,
+            ]));
+        }
+        $meta['column'] = $column;
+        $this->ui[$column] = new CreateUi($meta, $this->skeleton());
+        $this->ui[$column]->apply();
+
+        return $this;
+    }
+
+    public function addJson(string $column, mixed $meta): self
+    {
+        if (empty($column) || empty($meta) || ! is_array($meta)) {
+            throw new \RuntimeException(__('playground-stub::stub.Model.Create.json.invalid', [
+                'column' => $column,
+            ]));
+        }
+        $meta['column'] = $column;
+        $this->json[$column] = new CreateJson($meta, $this->skeleton());
+        $this->json[$column]->apply();
 
         return $this;
     }

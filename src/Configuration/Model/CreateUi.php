@@ -11,4 +11,11 @@ namespace Playground\Stub\Configuration\Model;
  */
 class CreateUi extends CreateColumn
 {
+    /**
+     * @var array<int, string>
+     */
+    public $allowed_types = [
+        'JSON_OBJECT',
+        'string',
+    ];
 }

@@ -66,6 +66,78 @@ class Filters extends Configuration
     protected array $json = [];
 
     /**
+     * @return array<int, Filter>
+     */
+    public function ids(): array
+    {
+        return $this->ids;
+    }
+
+    /**
+     * @return array<int, Filter>
+     */
+    public function dates(): array
+    {
+        return $this->dates;
+    }
+
+    /**
+     * @return array<int, Filter>
+     */
+    public function flags(): array
+    {
+        return $this->flags;
+    }
+
+    /**
+     * @return array<int, Filter>
+     */
+    public function columns(): array
+    {
+        return $this->columns;
+    }
+
+    /**
+     * @return array<string, bool>
+     */
+    public function trash(): array
+    {
+        return $this->trash;
+    }
+
+    /**
+     * @return array<int, Filter>
+     */
+    public function permissions(): array
+    {
+        return $this->permissions;
+    }
+
+    /**
+     * @return array<int, Filter>
+     */
+    public function status(): array
+    {
+        return $this->status;
+    }
+
+    /**
+     * @return array<int, Filter>
+     */
+    public function ui(): array
+    {
+        return $this->ui;
+    }
+
+    /**
+     * @return array<int, Filter>
+     */
+    public function json(): array
+    {
+        return $this->json;
+    }
+
+    /**
      * @var array<string, mixed>
      */
     protected $properties = [
@@ -86,6 +158,8 @@ class Filters extends Configuration
      */
     public function setOptions(array $options = []): self
     {
+        parent::setOptions($options);
+
         if (! empty($options['builder'])
             && is_string($options['builder'])
         ) {
@@ -100,6 +174,68 @@ class Filters extends Configuration
             }
         }
 
+        if (! empty($options['dates'])
+            && is_array($options['dates'])
+        ) {
+            foreach ($options['dates'] as $i => $meta) {
+                $this->addDate($i, $meta);
+            }
+        }
+
+        if (! empty($options['flags'])
+            && is_array($options['flags'])
+        ) {
+            foreach ($options['flags'] as $i => $meta) {
+                $this->addFlag($i, $meta);
+            }
+        }
+
+        if (! empty($options['trash'])
+            && is_array($options['trash'])
+        ) {
+            $this->handleTrash($options['trash']);
+        }
+
+        if (! empty($options['columns'])
+            && is_array($options['columns'])
+        ) {
+            foreach ($options['columns'] as $i => $meta) {
+                $this->addColumn($i, $meta);
+            }
+        }
+
+        if (! empty($options['permissions'])
+            && is_array($options['permissions'])
+        ) {
+            foreach ($options['permissions'] as $i => $meta) {
+                $this->addPermission($i, $meta);
+            }
+        }
+
+        if (! empty($options['status'])
+            && is_array($options['status'])
+        ) {
+            foreach ($options['status'] as $i => $meta) {
+                $this->addStatus($i, $meta);
+            }
+        }
+
+        if (! empty($options['ui'])
+            && is_array($options['ui'])
+        ) {
+            foreach ($options['ui'] as $i => $meta) {
+                $this->addUi($i, $meta);
+            }
+        }
+
+        if (! empty($options['json'])
+            && is_array($options['json'])
+        ) {
+            foreach ($options['json'] as $i => $meta) {
+                $this->addJson($i, $meta);
+            }
+        }
+
         return $this;
     }
 
@@ -107,20 +243,145 @@ class Filters extends Configuration
     {
         if (empty($meta) || ! is_array($meta)) {
             throw new \RuntimeException(__('playground-stub::stub.Filters.Id.invalid', [
-                'name' => $this->name,
                 'i' => $i,
             ]));
         }
 
         $meta['handler'] = 'ids';
 
-        $this->ids[] = new Filter($meta, $this->skeleton());
+        $this->ids[$i] = new Filter($meta, $this->skeleton());
+        $this->ids[$i]->apply();
 
         return $this;
     }
 
-    public function skeleton(): bool
+    public function addDate(int $i, mixed $meta): self
     {
-        return $this->skeleton;
+        if (empty($meta) || ! is_array($meta)) {
+            throw new \RuntimeException(__('playground-stub::stub.Filters.Date.invalid', [
+                'i' => $i,
+            ]));
+        }
+
+        $meta['handler'] = 'dates';
+
+        $this->dates[$i] = new Filter($meta, $this->skeleton());
+        $this->dates[$i]->apply();
+
+        return $this;
+    }
+
+    public function addFlag(int $i, mixed $meta): self
+    {
+        if (empty($meta) || ! is_array($meta)) {
+            throw new \RuntimeException(__('playground-stub::stub.Filters.Flag.invalid', [
+                'i' => $i,
+            ]));
+        }
+
+        $meta['handler'] = 'flags';
+
+        $this->flags[$i] = new Filter($meta, $this->skeleton());
+        $this->flags[$i]->apply();
+
+        return $this;
+    }
+
+    public function handleTrash(mixed $meta): self
+    {
+        if (empty($meta) || ! is_array($meta)) {
+            throw new \RuntimeException(__('playground-stub::stub.Filters.Trash.invalid'));
+        }
+
+        $this->trash['hide'] = ! empty($meta['hide']);
+        $this->trash['only'] = ! empty($meta['only']);
+        $this->trash['with'] = ! empty($meta['with']);
+
+        return $this;
+    }
+
+    public function addColumn(int $i, mixed $meta): self
+    {
+        if (empty($meta) || ! is_array($meta)) {
+            throw new \RuntimeException(__('playground-stub::stub.Filters.Column.invalcolumn', [
+                'i' => $i,
+            ]));
+        }
+
+        $meta['handler'] = 'columns';
+
+        $this->columns[$i] = new Filter($meta, $this->skeleton());
+        $this->columns[$i]->apply();
+
+        return $this;
+    }
+
+    public function addPermission(int $i, mixed $meta): self
+    {
+        if (empty($meta) || ! is_array($meta)) {
+            throw new \RuntimeException(__('playground-stub::stub.Filters.Permission.invalpermission', [
+                'i' => $i,
+            ]));
+        }
+
+        $meta['handler'] = 'permissions';
+
+        $this->permissions[$i] = new Filter($meta, $this->skeleton());
+        $this->permissions[$i]->apply();
+
+        return $this;
+    }
+
+    public function addStatus(int $i, mixed $meta): self
+    {
+        if (empty($meta) || ! is_array($meta)) {
+            throw new \RuntimeException(__('playground-stub::stub.Filters.Status.invalid', [
+                'i' => $i,
+            ]));
+        }
+
+        $meta['handler'] = 'status';
+
+        $this->status[$i] = new Filter($meta, $this->skeleton());
+        $this->status[$i]->apply();
+
+        return $this;
+    }
+
+    public function addUi(int $i, mixed $meta): self
+    {
+        if (empty($meta) || ! is_array($meta)) {
+            throw new \RuntimeException(__('playground-stub::stub.Filters.Ui.invalid', [
+                'i' => $i,
+            ]));
+        }
+
+        $meta['handler'] = 'ui';
+
+        $this->ui[$i] = new Filter($meta, $this->skeleton());
+        $this->ui[$i]->apply();
+
+        return $this;
+    }
+
+    public function addJson(int $i, mixed $meta): self
+    {
+        if (empty($meta) || ! is_array($meta)) {
+            throw new \RuntimeException(__('playground-stub::stub.Filters.Json.invalid', [
+                'i' => $i,
+            ]));
+        }
+
+        $meta['handler'] = 'json';
+
+        $this->json[$i] = new Filter($meta, $this->skeleton());
+        $this->json[$i]->apply();
+
+        return $this;
+    }
+
+    public function builder(): ?string
+    {
+        return $this->builder;
     }
 }
