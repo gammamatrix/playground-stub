@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-11 18:32:31</timestamp>
+  <timestamp>2024-04-11 20:02:18</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>279</methodCount>
+    <methodCount>281</methodCount>
     <crapMethodCount>37</crapMethodCount>
     <crapLoad>560</crapLoad>
-    <totalCrap>13444.2</totalCrap>
-    <crapMethodPercent>13.26</crapMethodPercent>
+    <totalCrap>13455.34</totalCrap>
+    <crapMethodPercent>13.17</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -277,39 +277,6 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Relationships</className>
-      <methodName>addRelationships</methodName>
-      <methodSignature>addRelationships(array $options): self</methodSignature>
-      <fullMethod>addRelationships(array $options): self</fullMethod>
-      <crap>82.18</crap>
-      <complexity>17</complexity>
-      <coverage>39.13</coverage>
-      <crapLoad>11</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Relationships</className>
-      <methodName>addHasOne</methodName>
-      <methodSignature>addHasOne(string $accessor, mixed $meta): self</methodSignature>
-      <fullMethod>addHasOne(string $accessor, mixed $meta): self</fullMethod>
-      <crap>6.04</crap>
-      <complexity>6</complexity>
-      <coverage>90</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Relationships</className>
-      <methodName>addHasMany</methodName>
-      <methodSignature>addHasMany(string $accessor, mixed $meta): self</methodSignature>
-      <fullMethod>addHasMany(string $accessor, mixed $meta): self</fullMethod>
-      <crap>42</crap>
-      <complexity>6</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration\Concerns</package>
       <className>Playground\Stub\Configuration\Concerns\WithFolder</className>
       <methodName>folder</methodName>
       <methodSignature>folder(): string</methodSignature>
@@ -457,9 +424,9 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>30</crap>
-      <complexity>30</complexity>
-      <coverage>96.08</coverage>
+      <crap>27</crap>
+      <complexity>27</complexity>
+      <coverage>95.74</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -553,39 +520,6 @@
     <method>
       <package>Playground\Stub\Configuration</package>
       <className>Playground\Stub\Configuration\Model</className>
-      <methodName>sortable</methodName>
-      <methodSignature>sortable(): array</methodSignature>
-      <fullMethod>sortable(): array</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Model</className>
-      <methodName>HasOne</methodName>
-      <methodSignature>HasOne(): array</methodSignature>
-      <fullMethod>HasOne(): array</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Model</className>
-      <methodName>HasMany</methodName>
-      <methodSignature>HasMany(): array</methodSignature>
-      <fullMethod>HasMany(): array</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Model</className>
       <methodName>implements</methodName>
       <methodSignature>implements(): array</methodSignature>
       <fullMethod>implements(): array</fullMethod>
@@ -655,6 +589,94 @@
       <methodName>test</methodName>
       <methodSignature>test(): bool</methodSignature>
       <fullMethod>test(): bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Relationships</className>
+      <methodName>addRelationships</methodName>
+      <methodSignature>addRelationships(array $options): self</methodSignature>
+      <fullMethod>addRelationships(array $options): self</fullMethod>
+      <crap>82.18</crap>
+      <complexity>17</complexity>
+      <coverage>39.13</coverage>
+      <crapLoad>11</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Relationships</className>
+      <methodName>addHasOne</methodName>
+      <methodSignature>addHasOne(string $accessor, mixed $meta): self</methodSignature>
+      <fullMethod>addHasOne(string $accessor, mixed $meta): self</fullMethod>
+      <crap>6.04</crap>
+      <complexity>6</complexity>
+      <coverage>90</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Relationships</className>
+      <methodName>addHasMany</methodName>
+      <methodSignature>addHasMany(string $accessor, mixed $meta): self</methodSignature>
+      <fullMethod>addHasMany(string $accessor, mixed $meta): self</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Relationships</className>
+      <methodName>HasOne</methodName>
+      <methodSignature>HasOne(): array</methodSignature>
+      <fullMethod>HasOne(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Relationships</className>
+      <methodName>HasMany</methodName>
+      <methodSignature>HasMany(): array</methodSignature>
+      <fullMethod>HasMany(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Sorting</className>
+      <methodName>addSorting</methodName>
+      <methodSignature>addSorting(array $options): self</methodSignature>
+      <fullMethod>addSorting(array $options): self</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Sorting</className>
+      <methodName>addSortable</methodName>
+      <methodSignature>addSortable(mixed $meta, int $i): self</methodSignature>
+      <fullMethod>addSortable(mixed $meta, int $i): self</fullMethod>
+      <crap>10.14</crap>
+      <complexity>7</complexity>
+      <coverage>60</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Sorting</className>
+      <methodName>sortable</methodName>
+      <methodSignature>sortable(): array</methodSignature>
+      <fullMethod>sortable(): array</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
