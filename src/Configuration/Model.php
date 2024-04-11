@@ -203,77 +203,23 @@ class Model extends Configuration
         $this->addRelationships($options);
         $this->addModelProperties($options);
 
-        // if (! empty($options['HasOne'])
-        //     && is_array($options['HasOne'])
-        // ) {
-        //     foreach ($options['HasOne'] as $method => $meta) {
-        //         if (empty($method) || ! is_string($method)) {
-        //             continue;
-        //         }
-        //         $meta = is_array($meta) ? $meta : [];
-        //         if (empty($meta['method']) && is_string($method)) {
-        //             $meta['method'] = $method;
-        //         }
-        //         $this->HasOne[$method] = new Model\HasOne;
-        //         // $this->HasOne[$method] = new Model\HasOne([], $this->skeleton());
-        //         // $this->HasOne[$method] = new Model\HasOne($meta, $this->skeleton());
-        //         // $this->HasOne[$method]->withSkeleton()->setParent($this)->setOptions($meta);
-        //         if ($this->skeleton()) {
-        //             $this->HasOne[$method]->withSkeleton();
-        //         }
-        //         $this->HasOne[$method]->setParent($this)->setOptions($meta)->apply();
-        //         // dd([
-        //         //     '__METHOD__' => __METHOD__,
-        //         //     '$method' => $method,
-        //         //     '$this->HasOne[$method]' => $this->HasOne[$method],
-        //         //     'json_encode($this->HasOne[$method])' => json_encode($this->HasOne[$method], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT),
-        //         //     // '$options' => $options,
-        //         // ]);
-        //     }
-        // }
-
-        // if (! empty($options['HasMany'])
-        //     && is_array($options['HasMany'])
-        // ) {
-        //     foreach ($options['HasMany'] as $method => $meta) {
-        //         if (empty($method) || ! is_string($method)) {
-        //             continue;
-        //         }
-        //         $meta = is_array($meta) ? $meta : [];
-        //         if (empty($meta['method']) && is_string($method)) {
-        //             $meta['method'] = $method;
-        //         }
-        //         $this->HasMany[$method] = new Model\HasMany;
-        //         // $this->HasMany[$method] = new Model\HasMany([], $this->skeleton());
-        //         // $this->HasMany[$method] = new Model\HasMany($meta, $this->skeleton());
-        //         // $this->HasMany[$method]->withSkeleton()->setParent($this)->setOptions($meta);
-        //         if ($this->skeleton()) {
-        //             $this->HasMany[$method]->withSkeleton();
-        //         }
-        //         $this->HasMany[$method]->setParent($this)->setOptions($meta)->apply();
-        //         // dd([
-        //         //     '__METHOD__' => __METHOD__,
-        //         //     '$method' => $method,
-        //         //     '$this->HasMany[$method]' => $this->HasMany[$method],
-        //         //     'json_encode($this->HasMany[$method])' => json_encode($this->HasMany[$method], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT),
-        //         //     // '$options' => $options,
-        //         // ]);
-        //     }
-        // }
-
         if (! empty($options['create'])
             && is_array($options['create'])
         ) {
-            $this->create = new Model\Create($options['create'], $this->skeleton());
-            $this->create->setParent($this)->apply();
+            // $this->create = new Model\Create($options['create'], $this->skeleton());
+            // $this->create->setParent($this)->apply();
+            $this->create = new Model\Create(null, $this->skeleton());
+            $this->create->setParent($this)->setOptions($options['create'])->apply();
         }
 
         if (! empty($options['filters'])
             && is_array($options['filters'])
         ) {
-            $this->filters = new Model\Filters($options['filters'], $this->skeleton());
-            $this->filters->apply();
+            // $this->filters = new Model\Filters($options['filters'], $this->skeleton());
+            // $this->filters->apply();
             // $this->filters->setParent($this)->apply();
+            $this->filters = new Model\Filters(null, $this->skeleton());
+            $this->filters->setParent($this)->setOptions($options['filters'])->apply();
             // dd([
             //     '__METHOD__' => __METHOD__,
             //     '$this->filters' => $this->filters,
@@ -302,8 +248,10 @@ class Model extends Configuration
             && is_array($options['sortable'])
         ) {
             foreach ($options['sortable'] as $i => $meta) {
-                $this->sortable[$i] = new Model\Sortable($meta, $this->skeleton());
-                $this->sortable[$i]->apply();
+                // $this->sortable[$i] = new Model\Sortable($meta, $this->skeleton());
+                // $this->sortable[$i]->apply();
+                $this->sortable[$i] = new Model\Sortable(null, $this->skeleton());
+                $this->sortable[$i]->setParent($this)->setOptions($meta)->apply();
             }
         }
 

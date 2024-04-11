@@ -11,6 +11,8 @@ namespace Playground\Stub\Configuration\Model;
  */
 class CreateJson extends CreateColumn
 {
+    protected ?\Playground\Stub\Configuration\Model $_parent = null;
+
     /**
      * @var array<int, string>
      */

@@ -13,12 +13,16 @@ use JsonSerializable;
  */
 class Configuration implements
     Contracts\Configuration,
+    Contracts\WithFolder,
     Contracts\WithParent,
+    Contracts\WithSkeleton,
     JsonSerializable
 {
     use Concerns\Classes;
     use Concerns\Properties;
+    use Concerns\WithFolder;
     use Concerns\WithParent;
+    use Concerns\WithSkeleton;
 
     /**
      * @var string The component folder.
@@ -62,29 +66,5 @@ class Configuration implements
     public function jsonSerialize(): mixed
     {
         return $this->properties;
-    }
-
-    public function folder(): string
-    {
-        return $this->folder;
-    }
-
-    public function setFolder(string $folder = ''): self
-    {
-        $this->folder = $folder;
-
-        return $this;
-    }
-
-    public function skeleton(): bool
-    {
-        return $this->skeleton;
-    }
-
-    public function withSkeleton(): self
-    {
-        $this->skeleton = true;
-
-        return $this;
     }
 }

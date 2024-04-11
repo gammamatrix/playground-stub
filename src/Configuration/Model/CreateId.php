@@ -13,6 +13,8 @@ use Playground\Stub\Configuration\Configuration;
  */
 class CreateId extends Configuration
 {
+    protected ?\Playground\Stub\Configuration\Model $_parent = null;
+
     protected string $primary = '';
 
     protected string $type = '';

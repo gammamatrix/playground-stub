@@ -13,6 +13,8 @@ use Playground\Stub\Configuration\Configuration;
  */
 class Sortable extends Configuration
 {
+    protected ?\Playground\Stub\Configuration\Model $_parent = null;
+
     protected string $column = '';
 
     protected string $label = '';

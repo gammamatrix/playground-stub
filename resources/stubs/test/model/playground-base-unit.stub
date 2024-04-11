@@ -6,6 +6,7 @@
 
 declare(strict_types=1);
 namespace {{ namespace }};
+
 use {{ namespace }}\ServiceProvider;
 use Playground\ServiceProvider as PlaygroundServiceProvider;
 use Playground\Test\Unit\Models\ModelCase as BaseModelCase;
@@ -14,7 +15,7 @@ use Playground\Test\Unit\Models\ModelCase as BaseModelCase;
  * \{{ namespace }}\{{ class }}
  *
  */
-class {{ class }} extends {{ extends }}{{ implements }}
+class {{ class }} extends BaseModelCase
 {
     protected function getPackageProviders($app)
     {

@@ -14,6 +14,8 @@ use Playground\Stub\Configuration\Configuration;
  */
 class HasOne extends Configuration
 {
+    protected ?\Playground\Stub\Configuration\Model $_parent = null;
+
     protected string $comment = '';
 
     protected string $accessor = '';

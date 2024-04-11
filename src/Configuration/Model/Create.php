@@ -14,6 +14,8 @@ use Playground\Stub\Configuration\Configuration;
  */
 class Create extends Configuration
 {
+    protected ?\Playground\Stub\Configuration\Model $_parent = null;
+
     protected string $migration = '';
 
     protected string $primary = '';

@@ -11,4 +11,5 @@ namespace Playground\Stub\Configuration\Model;
  */
 class CreateFlag extends CreateColumn
 {
+    protected ?\Playground\Stub\Configuration\Model $_parent = null;
 }
