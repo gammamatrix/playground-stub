@@ -7,15 +7,12 @@ declare(strict_types=1);
 namespace Playground\Stub\Configuration\Model;
 
 use Illuminate\Support\Str;
-use Playground\Stub\Configuration\Configuration;
 
 /**
  * \Playground\Stub\Configuration\Model\HasOne
  */
-class HasOne extends Configuration
+class HasOne extends ModelConfiguration
 {
-    protected ?\Playground\Stub\Configuration\Model $_parent = null;
-
     protected string $comment = '';
 
     protected string $accessor = '';

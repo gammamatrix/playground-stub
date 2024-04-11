@@ -6,15 +6,11 @@ declare(strict_types=1);
  */
 namespace Playground\Stub\Configuration\Model;
 
-use Playground\Stub\Configuration\Configuration;
-
 /**
  * \Playground\Stub\Configuration\Model\Sortable
  */
-class Sortable extends Configuration
+class Sortable extends ModelConfiguration
 {
-    protected ?\Playground\Stub\Configuration\Model $_parent = null;
-
     protected string $column = '';
 
     protected string $label = '';

@@ -11,5 +11,4 @@ namespace Playground\Stub\Configuration\Model;
  */
 class CreatePermission extends CreateColumn
 {
-    protected ?\Playground\Stub\Configuration\Model $_parent = null;
 }

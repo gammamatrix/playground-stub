@@ -7,15 +7,12 @@ declare(strict_types=1);
 namespace Playground\Stub\Configuration\Model;
 
 use Illuminate\Support\Facades\Log;
-use Playground\Stub\Configuration\Configuration;
 
 /**
  * \Playground\Stub\Configuration\Model\CreateColumn
  */
-class CreateColumn extends Configuration
+class CreateColumn extends ModelConfiguration
 {
-    protected ?\Playground\Stub\Configuration\Model $_parent = null;
-
     protected string $column = '';
 
     /**

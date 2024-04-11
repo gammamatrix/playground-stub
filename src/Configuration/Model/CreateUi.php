@@ -11,8 +11,6 @@ namespace Playground\Stub\Configuration\Model;
  */
 class CreateUi extends CreateColumn
 {
-    protected ?\Playground\Stub\Configuration\Model $_parent = null;
-
     /**
      * @var array<int, string>
      */

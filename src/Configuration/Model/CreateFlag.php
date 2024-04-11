@@ -9,7 +9,6 @@ namespace Playground\Stub\Configuration\Model;
 /**
  * \Playground\Stub\Configuration\Model\CreateFlag
  */
-class CreateFlag extends CreateColumn
+class CreateFlag extends ModelConfiguration
 {
-    protected ?\Playground\Stub\Configuration\Model $_parent = null;
 }

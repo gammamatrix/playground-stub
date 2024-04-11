@@ -48,9 +48,8 @@ trait Sorting
             || empty($meta['column'])
             || ! is_string($meta['column'])
         ) {
-            $parent = $this->getParent();
             throw new \RuntimeException(__('playground-stub::stub.Model.Sorting.column.missing', [
-                'name' => $parent ? $parent->name() : 'model',
+                'name' => $this->name(),
                 'i' => $i ?? '-',
             ]));
         }

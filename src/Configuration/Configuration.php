@@ -14,14 +14,12 @@ use JsonSerializable;
 class Configuration implements
     Contracts\Configuration,
     Contracts\WithFolder,
-    Contracts\WithParent,
     Contracts\WithSkeleton,
     JsonSerializable
 {
     use Concerns\Classes;
     use Concerns\Properties;
     use Concerns\WithFolder;
-    use Concerns\WithParent;
     use Concerns\WithSkeleton;
 
     /**

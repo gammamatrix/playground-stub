@@ -116,4 +116,16 @@ class Filter extends Configuration
     {
         return $this->unsigned;
     }
+
+    public function getParent(): ?Filters
+    {
+        return $this->_parent;
+    }
+
+    public function setParent(Filters $parent = null): self
+    {
+        $this->_parent = $parent;
+
+        return $this;
+    }
 }

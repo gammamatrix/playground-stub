@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Log;
 class Model extends Configuration
 {
     use Concerns\Attributes;
+
     // use Concerns\Filters;
     use Model\Concerns\Relationships;
-
     use Model\Concerns\Sorting;
 
     // protected string $extends = 'Model';

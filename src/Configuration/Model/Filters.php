@@ -6,16 +6,12 @@ declare(strict_types=1);
  */
 namespace Playground\Stub\Configuration\Model;
 
-use Playground\Stub\Configuration\Configuration;
-
 /**
  * \Playground\Stub\Configuration\Model\Filters
  * src/Configuration/Model/Filters.php
  */
-class Filters extends Configuration
+class Filters extends ModelConfiguration
 {
-    protected ?\Playground\Stub\Configuration\Model $_parent = null;
-
     protected ?string $builder = null;
 
     /**

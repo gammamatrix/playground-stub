@@ -6,15 +6,11 @@ declare(strict_types=1);
  */
 namespace Playground\Stub\Configuration\Model;
 
-use Playground\Stub\Configuration\Configuration;
-
 /**
  * \Playground\Stub\Configuration\Model\Create
  */
-class CreateId extends Configuration
+class CreateId extends ModelConfiguration
 {
-    protected ?\Playground\Stub\Configuration\Model $_parent = null;
-
     protected string $primary = '';
 
     protected string $type = '';
