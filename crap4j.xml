@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-11 00:06:07</timestamp>
+  <timestamp>2024-04-11 17:28:48</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>279</methodCount>
     <crapMethodCount>37</crapMethodCount>
     <crapLoad>560</crapLoad>
-    <totalCrap>13436.2</totalCrap>
+    <totalCrap>13444.2</totalCrap>
     <crapMethodPercent>13.26</crapMethodPercent>
   </stats>
   <methods>
@@ -309,6 +309,28 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
+      <package>Playground\Stub\Configuration\Concerns</package>
+      <className>Playground\Stub\Configuration\Concerns\WithParent</className>
+      <methodName>getParent</methodName>
+      <methodSignature>getParent(): ?Playground\Stub\Configuration\Configuration</methodSignature>
+      <fullMethod>getParent(): ?Playground\Stub\Configuration\Configuration</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Concerns</package>
+      <className>Playground\Stub\Configuration\Concerns\WithParent</className>
+      <methodName>setParent</methodName>
+      <methodSignature>setParent(Playground\Stub\Configuration\Configuration $parent): self</methodSignature>
+      <fullMethod>setParent(Playground\Stub\Configuration\Configuration $parent): self</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
       <package>Playground\Stub\Configuration</package>
       <className>Playground\Stub\Configuration\Configuration</className>
       <methodName>__construct</methodName>
@@ -383,28 +405,6 @@
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Configuration</className>
-      <methodName>getParent</methodName>
-      <methodSignature>getParent(): ?Playground\Stub\Configuration\Contracts\Configuration</methodSignature>
-      <fullMethod>getParent(): ?Playground\Stub\Configuration\Contracts\Configuration</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Configuration</className>
-      <methodName>setParent</methodName>
-      <methodSignature>setParent(Playground\Stub\Configuration\Contracts\Configuration $parent): self</methodSignature>
-      <fullMethod>setParent(Playground\Stub\Configuration\Contracts\Configuration $parent): self</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
