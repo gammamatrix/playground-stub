@@ -128,7 +128,6 @@ class TestMakeCommand extends GeneratorCommand
                 $this->c->setOptions([
                     'model_fqdn' => $model_fqdn,
                 ]);
-
             }
 
             $this->searches['model_fqdn'] = $model_fqdn ? $this->parseClassInput($model_fqdn) : 'ReplaceFqdn';
@@ -137,12 +136,12 @@ class TestMakeCommand extends GeneratorCommand
                 'acceptance',
                 'feature',
             ])) {
-                $this->buildClass_uses_add('GammaMatrix\Playground\Test\Feature\Models\ModelCase');
+                // $this->buildClass_uses_add('GammaMatrix\Playground\Test\Feature\Models\ModelCase');
                 $this->c->setOptions([
                     'extends' => 'ModelCase',
                 ]);
             } else {
-                $this->buildClass_uses_add('GammaMatrix\Playground\Test\Unit\Models\ModelCase');
+                // $this->buildClass_uses_add('GammaMatrix\Playground\Test\Unit\Models\ModelCase');
                 $this->c->setOptions([
                     'extends' => 'ModelCase',
                 ]);
@@ -172,9 +171,10 @@ class TestMakeCommand extends GeneratorCommand
     protected function getConfigurationFilename(): string
     {
         return ! is_string($this->c->name()) ? '' : sprintf(
-            '%1$s/%2$s.json',
-            Str::of($this->c->name())->kebab(),
-            Str::of($this->getType())->kebab(),
+            'test.%1$s.%2$s.%3$s.json',
+            Str::of($this->c->suite())->kebab(),
+            Str::of($this->c->type())->kebab(),
+            Str::of($this->c->name())->kebab()
         );
     }
 

@@ -6,6 +6,8 @@ declare(strict_types=1);
  */
 namespace Playground\Stub\Configuration;
 
+use Illuminate\Support\Str;
+
 /**
  * \Playground\Stub\Configuration\Test
  */
@@ -28,21 +30,20 @@ class Test extends Configuration
     protected $properties = [
         'class' => '',
         'config' => '',
+        'extends' => '\Tests\TestCase',
         'fqdn' => '',
         'model' => '',
+        'model_fqdn' => '',
         'module' => '',
         'module_slug' => '',
         'name' => '',
         'namespace' => '',
         'organization' => '',
         'package' => '',
+        'suite' => '',
         'type' => '',
         'uses' => [],
-        // properties
-        'extends' => '\Tests\TestCase',
-        'model_fqdn' => '',
         'models' => [],
-        'suite' => '',
     ];
 
     /**
@@ -78,6 +79,11 @@ class Test extends Configuration
     public function model_fqdn(): string
     {
         return $this->model_fqdn;
+    }
+
+    public function module_slug(): string
+    {
+        return Str::of($this->module_slug)->replace('-', '_')->toString();
     }
 
     /**

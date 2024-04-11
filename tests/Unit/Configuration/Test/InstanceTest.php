@@ -29,21 +29,20 @@ class InstanceTest extends TestCase
     protected array $expected_properties = [
         'class' => '',
         'config' => '',
+        'extends' => '\Tests\TestCase',
         'fqdn' => '',
         'model' => '',
+        'model_fqdn' => '',
         'module' => '',
         'module_slug' => '',
         'name' => '',
         'namespace' => '',
         'organization' => '',
         'package' => '',
+        'suite' => '',
         'type' => '',
         'uses' => [],
-        // properties
-        'extends' => '\Tests\TestCase',
-        'model_fqdn' => '',
         'models' => [],
-        'suite' => '',
     ];
 
     public function test_instance_apply_without_options(): void
