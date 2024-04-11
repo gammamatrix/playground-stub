@@ -1,19 +1,29 @@
 <?php
-
-declare(strict_types=1);
 /**
  * Playground
  */
-namespace Playground\Stub\Configuration\Concerns;
+
+declare(strict_types=1);
+namespace Playground\Stub\Configuration\Model\Concerns;
 
 use Playground\Stub\Configuration\Model\HasMany;
 use Playground\Stub\Configuration\Model\HasOne;
 
 /**
- * \Playground\Stub\Configuration\Concerns\Relationships
+ * \Playground\Stub\Configuration\Model\Concerns\Relationships
  */
 trait Relationships
 {
+    /**
+     * @var array<string, HasOne>
+     */
+    protected array $HasOne = [];
+
+    /**
+     * @var array<string, HasMany>
+     */
+    protected array $HasMany = [];
+
     /**
      * @param array<string, mixed> $options
      */
@@ -106,5 +116,21 @@ trait Relationships
         }
 
         return $this;
+    }
+
+    /**
+     * @return array<string, HasOne>
+     */
+    public function HasOne(): array
+    {
+        return $this->HasOne;
+    }
+
+    /**
+     * @return array<string, HasMany>
+     */
+    public function HasMany(): array
+    {
+        return $this->HasMany;
     }
 }

@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Log;
 class Model extends Configuration
 {
     use Concerns\Attributes;
-
     // use Concerns\Filters;
-    use Concerns\Relationships;
-    // use Concerns\Sorting;
+    use Model\Concerns\Relationships;
+
+    use Model\Concerns\Sorting;
 
     // protected string $extends = 'Model';
 
@@ -95,16 +95,6 @@ class Model extends Configuration
     protected array $implements = [];
 
     /**
-     * @var array<string, Model\HasOne>
-     */
-    protected array $HasOne = [];
-
-    /**
-     * @var array<string, Model\HasMany>
-     */
-    protected array $HasMany = [];
-
-    /**
      * @var array<string, mixed>
      */
     protected array $scopes = [];
@@ -130,11 +120,6 @@ class Model extends Configuration
      * @var array<string, string>
      */
     protected array $models = [];
-
-    /**
-     * @var array<int, Model\Sortable>
-     */
-    protected array $sortable = [];
 
     protected ?Model\Create $create = null;
 
@@ -202,6 +187,7 @@ class Model extends Configuration
 
         $this->addRelationships($options);
         $this->addModelProperties($options);
+        $this->addSorting($options);
 
         if (! empty($options['create'])
             && is_array($options['create'])
@@ -241,17 +227,6 @@ class Model extends Configuration
         ) {
             foreach ($options['models'] as $key => $file) {
                 $this->addMappedClassTo('models', $key, $file);
-            }
-        }
-
-        if (! empty($options['sortable'])
-            && is_array($options['sortable'])
-        ) {
-            foreach ($options['sortable'] as $i => $meta) {
-                // $this->sortable[$i] = new Model\Sortable($meta, $this->skeleton());
-                // $this->sortable[$i]->apply();
-                $this->sortable[$i] = new Model\Sortable(null, $this->skeleton());
-                $this->sortable[$i]->setParent($this)->setOptions($meta)->apply();
             }
         }
 
@@ -370,30 +345,6 @@ class Model extends Configuration
     public function models(): array
     {
         return $this->models;
-    }
-
-    /**
-     * @return array<int, Model\Sortable>
-     */
-    public function sortable(): array
-    {
-        return $this->sortable;
-    }
-
-    /**
-     * @return array<string, Model\HasOne>
-     */
-    public function HasOne(): array
-    {
-        return $this->HasOne;
-    }
-
-    /**
-     * @return array<string, Model\HasMany>
-     */
-    public function HasMany(): array
-    {
-        return $this->HasMany;
     }
 
     /**

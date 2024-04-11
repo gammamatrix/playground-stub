@@ -251,8 +251,8 @@ class Filters extends Configuration
 
         $meta['handler'] = 'ids';
 
-        $this->ids[$i] = new Filter($meta, $this->skeleton());
-        $this->ids[$i]->apply();
+        $this->ids[$i] = new Filter(null, $this->skeleton());
+        $this->ids[$i]->setParent($this)->setOptions($meta)->apply();
 
         return $this;
     }
@@ -267,8 +267,8 @@ class Filters extends Configuration
 
         $meta['handler'] = 'dates';
 
-        $this->dates[$i] = new Filter($meta, $this->skeleton());
-        $this->dates[$i]->apply();
+        $this->dates[$i] = new Filter(null, $this->skeleton());
+        $this->dates[$i]->setParent($this)->setOptions($meta)->apply();
 
         return $this;
     }
@@ -283,8 +283,8 @@ class Filters extends Configuration
 
         $meta['handler'] = 'flags';
 
-        $this->flags[$i] = new Filter($meta, $this->skeleton());
-        $this->flags[$i]->apply();
+        $this->flags[$i] = new Filter(null, $this->skeleton());
+        $this->flags[$i]->setParent($this)->setOptions($meta)->apply();
 
         return $this;
     }
@@ -312,8 +312,8 @@ class Filters extends Configuration
 
         $meta['handler'] = 'columns';
 
-        $this->columns[$i] = new Filter($meta, $this->skeleton());
-        $this->columns[$i]->apply();
+        $this->columns[$i] = new Filter(null, $this->skeleton());
+        $this->columns[$i]->setParent($this)->setOptions($meta)->apply();
 
         return $this;
     }
@@ -328,8 +328,8 @@ class Filters extends Configuration
 
         $meta['handler'] = 'permissions';
 
-        $this->permissions[$i] = new Filter($meta, $this->skeleton());
-        $this->permissions[$i]->apply();
+        $this->permissions[$i] = new Filter(null, $this->skeleton());
+        $this->permissions[$i]->setParent($this)->setOptions($meta)->apply();
 
         return $this;
     }
@@ -344,8 +344,8 @@ class Filters extends Configuration
 
         $meta['handler'] = 'status';
 
-        $this->status[$i] = new Filter($meta, $this->skeleton());
-        $this->status[$i]->apply();
+        $this->status[$i] = new Filter(null, $this->skeleton());
+        $this->status[$i]->setParent($this)->setOptions($meta)->apply();
 
         return $this;
     }
@@ -360,8 +360,8 @@ class Filters extends Configuration
 
         $meta['handler'] = 'ui';
 
-        $this->ui[$i] = new Filter($meta, $this->skeleton());
-        $this->ui[$i]->apply();
+        $this->ui[$i] = new Filter(null, $this->skeleton());
+        $this->ui[$i]->setParent($this)->setOptions($meta)->apply();
 
         return $this;
     }
@@ -376,8 +376,8 @@ class Filters extends Configuration
 
         $meta['handler'] = 'json';
 
-        $this->json[$i] = new Filter($meta, $this->skeleton());
-        $this->json[$i]->apply();
+        $this->json[$i] = new Filter(null, $this->skeleton());
+        $this->json[$i]->setParent($this)->setOptions($meta)->apply();
 
         return $this;
     }
