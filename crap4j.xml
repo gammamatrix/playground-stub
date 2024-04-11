@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-11 17:28:48</timestamp>
+  <timestamp>2024-04-11 18:32:31</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>279</methodCount>
@@ -310,6 +310,28 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
+      <className>Playground\Stub\Configuration\Concerns\WithFolder</className>
+      <methodName>folder</methodName>
+      <methodSignature>folder(): string</methodSignature>
+      <fullMethod>folder(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Concerns</package>
+      <className>Playground\Stub\Configuration\Concerns\WithFolder</className>
+      <methodName>setFolder</methodName>
+      <methodSignature>setFolder(string $folder): self</methodSignature>
+      <fullMethod>setFolder(string $folder): self</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Concerns</package>
       <className>Playground\Stub\Configuration\Concerns\WithParent</className>
       <methodName>getParent</methodName>
       <methodSignature>getParent(): ?Playground\Stub\Configuration\Configuration</methodSignature>
@@ -328,6 +350,28 @@
       <crap>6</crap>
       <complexity>2</complexity>
       <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Concerns</package>
+      <className>Playground\Stub\Configuration\Concerns\WithSkeleton</className>
+      <methodName>skeleton</methodName>
+      <methodSignature>skeleton(): bool</methodSignature>
+      <fullMethod>skeleton(): bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Concerns</package>
+      <className>Playground\Stub\Configuration\Concerns\WithSkeleton</className>
+      <methodName>withSkeleton</methodName>
+      <methodSignature>withSkeleton(): self</methodSignature>
+      <fullMethod>withSkeleton(): self</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -358,50 +402,6 @@
       <methodName>jsonSerialize</methodName>
       <methodSignature>jsonSerialize(): mixed</methodSignature>
       <fullMethod>jsonSerialize(): mixed</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Configuration</className>
-      <methodName>folder</methodName>
-      <methodSignature>folder(): string</methodSignature>
-      <fullMethod>folder(): string</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Configuration</className>
-      <methodName>setFolder</methodName>
-      <methodSignature>setFolder(string $folder): self</methodSignature>
-      <fullMethod>setFolder(string $folder): self</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Configuration</className>
-      <methodName>skeleton</methodName>
-      <methodSignature>skeleton(): bool</methodSignature>
-      <fullMethod>skeleton(): bool</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Configuration</className>
-      <methodName>withSkeleton</methodName>
-      <methodSignature>withSkeleton(): self</methodSignature>
-      <fullMethod>withSkeleton(): self</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
