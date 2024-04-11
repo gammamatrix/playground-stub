@@ -39,10 +39,6 @@ interface Configuration
 
     public function setFolder(string $folder): self;
 
-    public function getParent(): ?Configuration;
-
-    public function setParent(Configuration $parent = null): self;
-
     /**
      * @return array<string, mixed>
      */

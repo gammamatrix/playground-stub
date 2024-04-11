@@ -14,6 +14,8 @@ use Playground\Stub\Configuration\Configuration;
  */
 class Filters extends Configuration
 {
+    protected ?\Playground\Stub\Configuration\Model $_parent = null;
+
     protected ?string $builder = null;
 
     /**
