@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.21929499072356" branch-rate="0" lines-covered="591" lines-valid="2695" branches-covered="0" branches-valid="0" complexity="1228" version="0.4" timestamp="1712789807">
+<coverage line-rate="0.21966604823748" branch-rate="0" lines-covered="592" lines-valid="2695" branches-covered="0" branches-valid="0" complexity="1229" version="0.4" timestamp="1712793967">
   <sources>
     <source>/app/src</source>
   </sources>
@@ -2626,58 +2626,64 @@
         </class>
       </classes>
     </package>
-    <package name="Configuration/Test.php" line-rate="0.93333333333333" branch-rate="0" complexity="11">
+    <package name="Configuration/Test.php" line-rate="0.9375" branch-rate="0" complexity="12">
       <classes>
-        <class name="Playground\Stub\Configuration\Test" filename="Configuration/Test.php" line-rate="0.93333333333333" branch-rate="0" complexity="11">
+        <class name="Playground\Stub\Configuration\Test" filename="Configuration/Test.php" line-rate="0.9375" branch-rate="0" complexity="12">
           <methods>
             <method name="setOptions" signature="array $options" line-rate="0.91666666666667" branch-rate="0" complexity="8">
               <lines>
-                <line number="53" hits="1"/>
-                <line number="55" hits="1"/>
+                <line number="54" hits="1"/>
                 <line number="56" hits="1"/>
-                <line number="58" hits="1"/>
-                <line number="61" hits="1"/>
+                <line number="57" hits="1"/>
+                <line number="59" hits="1"/>
                 <line number="62" hits="1"/>
-                <line number="64" hits="0"/>
-                <line number="67" hits="1"/>
+                <line number="63" hits="1"/>
+                <line number="65" hits="0"/>
                 <line number="68" hits="1"/>
-                <line number="70" hits="1"/>
+                <line number="69" hits="1"/>
                 <line number="71" hits="1"/>
-                <line number="75" hits="1"/>
+                <line number="72" hits="1"/>
+                <line number="76" hits="1"/>
               </lines>
             </method>
             <method name="model_fqdn" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="80" hits="2"/>
+                <line number="81" hits="2"/>
+              </lines>
+            </method>
+            <method name="module_slug" signature="" line-rate="1" branch-rate="0" complexity="1">
+              <lines>
+                <line number="86" hits="2"/>
               </lines>
             </method>
             <method name="models" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="88" hits="2"/>
+                <line number="94" hits="2"/>
               </lines>
             </method>
             <method name="suite" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="93" hits="2"/>
+                <line number="99" hits="2"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="53" hits="1"/>
-            <line number="55" hits="1"/>
+            <line number="54" hits="1"/>
             <line number="56" hits="1"/>
-            <line number="58" hits="1"/>
-            <line number="61" hits="1"/>
+            <line number="57" hits="1"/>
+            <line number="59" hits="1"/>
             <line number="62" hits="1"/>
-            <line number="64" hits="0"/>
-            <line number="67" hits="1"/>
+            <line number="63" hits="1"/>
+            <line number="65" hits="0"/>
             <line number="68" hits="1"/>
-            <line number="70" hits="1"/>
+            <line number="69" hits="1"/>
             <line number="71" hits="1"/>
-            <line number="75" hits="1"/>
-            <line number="80" hits="2"/>
-            <line number="88" hits="2"/>
-            <line number="93" hits="2"/>
+            <line number="72" hits="1"/>
+            <line number="76" hits="1"/>
+            <line number="81" hits="2"/>
+            <line number="86" hits="2"/>
+            <line number="94" hits="2"/>
+            <line number="99" hits="2"/>
           </lines>
         </class>
       </classes>
@@ -6546,11 +6552,11 @@
         </class>
       </classes>
     </package>
-    <package name="Console/Commands/TestMakeCommand.php" line-rate="0.88392857142857" branch-rate="0" complexity="32">
+    <package name="Console/Commands/TestMakeCommand.php" line-rate="0.89189189189189" branch-rate="0" complexity="32">
       <classes>
-        <class name="Playground\Stub\Console\Commands\TestMakeCommand" filename="Console/Commands/TestMakeCommand.php" line-rate="0.88392857142857" branch-rate="0" complexity="32">
+        <class name="Playground\Stub\Console\Commands\TestMakeCommand" filename="Console/Commands/TestMakeCommand.php" line-rate="0.89189189189189" branch-rate="0" complexity="32">
           <methods>
-            <method name="prepareOptions" signature="" line-rate="0.80851063829787" branch-rate="0" complexity="12">
+            <method name="prepareOptions" signature="" line-rate="0.82222222222222" branch-rate="0" complexity="12">
               <lines>
                 <line number="83" hits="5"/>
                 <line number="93" hits="5"/>
@@ -6581,28 +6587,27 @@
                 <line number="128" hits="0"/>
                 <line number="129" hits="0"/>
                 <line number="130" hits="0"/>
-                <line number="134" hits="4"/>
+                <line number="133" hits="4"/>
+                <line number="135" hits="4"/>
                 <line number="136" hits="4"/>
                 <line number="137" hits="4"/>
                 <line number="138" hits="4"/>
-                <line number="139" hits="4"/>
                 <line number="140" hits="0"/>
                 <line number="141" hits="0"/>
                 <line number="142" hits="0"/>
-                <line number="143" hits="0"/>
                 <line number="145" hits="4"/>
                 <line number="146" hits="4"/>
                 <line number="147" hits="4"/>
-                <line number="148" hits="4"/>
+                <line number="150" hits="4"/>
                 <line number="151" hits="4"/>
-                <line number="152" hits="4"/>
+                <line number="159" hits="5"/>
                 <line number="160" hits="5"/>
                 <line number="161" hits="5"/>
-                <line number="162" hits="5"/>
               </lines>
             </method>
             <method name="getConfigurationFilename" signature="" line-rate="1" branch-rate="0" complexity="2">
               <lines>
+                <line number="173" hits="5"/>
                 <line number="174" hits="5"/>
                 <line number="175" hits="5"/>
                 <line number="176" hits="5"/>
@@ -6725,24 +6730,23 @@
             <line number="128" hits="0"/>
             <line number="129" hits="0"/>
             <line number="130" hits="0"/>
-            <line number="134" hits="4"/>
+            <line number="133" hits="4"/>
+            <line number="135" hits="4"/>
             <line number="136" hits="4"/>
             <line number="137" hits="4"/>
             <line number="138" hits="4"/>
-            <line number="139" hits="4"/>
             <line number="140" hits="0"/>
             <line number="141" hits="0"/>
             <line number="142" hits="0"/>
-            <line number="143" hits="0"/>
             <line number="145" hits="4"/>
             <line number="146" hits="4"/>
             <line number="147" hits="4"/>
-            <line number="148" hits="4"/>
+            <line number="150" hits="4"/>
             <line number="151" hits="4"/>
-            <line number="152" hits="4"/>
+            <line number="159" hits="5"/>
             <line number="160" hits="5"/>
             <line number="161" hits="5"/>
-            <line number="162" hits="5"/>
+            <line number="173" hits="5"/>
             <line number="174" hits="5"/>
             <line number="175" hits="5"/>
             <line number="176" hits="5"/>

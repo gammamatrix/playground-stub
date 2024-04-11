@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-10 22:56:47</timestamp>
+  <timestamp>2024-04-11 00:06:07</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>278</methodCount>
+    <methodCount>279</methodCount>
     <crapMethodCount>37</crapMethodCount>
     <crapLoad>560</crapLoad>
-    <totalCrap>13435.4</totalCrap>
-    <crapMethodPercent>13.31</crapMethodPercent>
+    <totalCrap>13436.2</totalCrap>
+    <crapMethodPercent>13.26</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -1642,6 +1642,17 @@
     <method>
       <package>Playground\Stub\Configuration</package>
       <className>Playground\Stub\Configuration\Test</className>
+      <methodName>module_slug</methodName>
+      <methodSignature>module_slug(): string</methodSignature>
+      <fullMethod>module_slug(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Test</className>
       <methodName>models</methodName>
       <methodSignature>models(): array</methodSignature>
       <fullMethod>models(): array</fullMethod>
@@ -2932,9 +2943,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>13.01</crap>
+      <crap>12.81</crap>
       <complexity>12</complexity>
-      <coverage>80.85</coverage>
+      <coverage>82.22</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
