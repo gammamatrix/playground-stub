@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-12 07:59:49</timestamp>
+  <timestamp>2024-04-12 21:02:04</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>293</methodCount>
-    <crapMethodCount>36</crapMethodCount>
-    <crapLoad>549</crapLoad>
-    <totalCrap>13340.34</totalCrap>
-    <crapMethodPercent>12.29</crapMethodPercent>
+    <methodCount>311</methodCount>
+    <crapMethodCount>32</crapMethodCount>
+    <crapLoad>482</crapLoad>
+    <totalCrap>11572.74</totalCrap>
+    <crapMethodPercent>10.29</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -17,10 +17,10 @@
       <methodName>addClassTo</methodName>
       <methodSignature>addClassTo(string $property, mixed $fqdn): self</methodSignature>
       <fullMethod>addClassTo(string $property, mixed $fqdn): self</fullMethod>
-      <crap>72</crap>
-      <complexity>8</complexity>
-      <coverage>0</coverage>
-      <crapLoad>8</crapLoad>
+      <crap>9</crap>
+      <complexity>9</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
@@ -28,10 +28,10 @@
       <methodName>addMappedClassTo</methodName>
       <methodSignature>addMappedClassTo(string $property, mixed $key, mixed $value): self</methodSignature>
       <fullMethod>addMappedClassTo(string $property, mixed $key, mixed $value): self</fullMethod>
-      <crap>110</crap>
-      <complexity>10</complexity>
-      <coverage>0</coverage>
-      <crapLoad>10</crapLoad>
+      <crap>15</crap>
+      <complexity>15</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
@@ -39,9 +39,9 @@
       <methodName>addClassFileTo</methodName>
       <methodSignature>addClassFileTo(string $property, string $file): self</methodSignature>
       <fullMethod>addClassFileTo(string $property, string $file): self</fullMethod>
-      <crap>42</crap>
+      <crap>6</crap>
       <complexity>6</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -50,9 +50,9 @@
       <methodName>addToUse</methodName>
       <methodSignature>addToUse(string $class, string $key): self</methodSignature>
       <fullMethod>addToUse(string $class, string $key): self</fullMethod>
-      <crap>5.5</crap>
+      <crap>4</crap>
       <complexity>4</complexity>
-      <coverage>54.55</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1667,10 +1667,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>1560</crap>
+      <crap>48.14</crap>
       <complexity>39</complexity>
-      <coverage>0</coverage>
-      <crapLoad>40</crapLoad>
+      <coverage>81.82</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration</package>
@@ -1678,9 +1678,9 @@
       <methodName>addKeyword</methodName>
       <methodSignature>addKeyword(mixed $keyword): self</methodSignature>
       <fullMethod>addKeyword(mixed $keyword): self</fullMethod>
-      <crap>20</crap>
+      <crap>5.26</crap>
       <complexity>4</complexity>
-      <coverage>0</coverage>
+      <coverage>57.14</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1689,10 +1689,10 @@
       <methodName>addRequire</methodName>
       <methodSignature>addRequire(mixed $package, mixed $version): self</methodSignature>
       <fullMethod>addRequire(mixed $package, mixed $version): self</fullMethod>
-      <crap>90</crap>
+      <crap>26.5</crap>
       <complexity>9</complexity>
-      <coverage>0</coverage>
-      <crapLoad>9</crapLoad>
+      <coverage>40</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration</package>
@@ -1704,6 +1704,204 @@
       <complexity>9</complexity>
       <coverage>0</coverage>
       <crapLoad>9</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>factories</methodName>
+      <methodSignature>factories(): bool</methodSignature>
+      <fullMethod>factories(): bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>package_name</methodName>
+      <methodSignature>package_name(): string</methodSignature>
+      <fullMethod>package_name(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>package_autoload</methodName>
+      <methodSignature>package_autoload(): string</methodSignature>
+      <fullMethod>package_autoload(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>package_description</methodName>
+      <methodSignature>package_description(): string</methodSignature>
+      <fullMethod>package_description(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>package_homepage</methodName>
+      <methodSignature>package_homepage(): string</methodSignature>
+      <fullMethod>package_homepage(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>package_keywords</methodName>
+      <methodSignature>package_keywords(): array</methodSignature>
+      <fullMethod>package_keywords(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>package_license</methodName>
+      <methodSignature>package_license(): string</methodSignature>
+      <fullMethod>package_license(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>package_require</methodName>
+      <methodSignature>package_require(): array</methodSignature>
+      <fullMethod>package_require(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>package_require_dev</methodName>
+      <methodSignature>package_require_dev(): array</methodSignature>
+      <fullMethod>package_require_dev(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>package_autoload_psr4</methodName>
+      <methodSignature>package_autoload_psr4(): array</methodSignature>
+      <fullMethod>package_autoload_psr4(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>package_laravel_providers</methodName>
+      <methodSignature>package_laravel_providers(): array</methodSignature>
+      <fullMethod>package_laravel_providers(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>packagist</methodName>
+      <methodSignature>packagist(): string</methodSignature>
+      <fullMethod>packagist(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>controllers</methodName>
+      <methodSignature>controllers(): array</methodSignature>
+      <fullMethod>controllers(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>models</methodName>
+      <methodSignature>models(): array</methodSignature>
+      <fullMethod>models(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>policies</methodName>
+      <methodSignature>policies(): array</methodSignature>
+      <fullMethod>policies(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>routes</methodName>
+      <methodSignature>routes(): array</methodSignature>
+      <fullMethod>routes(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>service_provider</methodName>
+      <methodSignature>service_provider(): string</methodSignature>
+      <fullMethod>service_provider(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>version</methodName>
+      <methodSignature>version(): string</methodSignature>
+      <fullMethod>version(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration</package>

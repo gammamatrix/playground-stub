@@ -1,3 +1,27 @@
+Add Class File To (Tests\Unit\Playground\Stub\Configuration\Configuration\AddClassFileTo)
+ [x] AddClassFileTo without property
+ [x] AddClassFileTo without file
+ [x] AddClassFileTo with missing property
+ [x] AddClassFileTo with valid parameters and succeed
+
+Add Class To (Tests\Unit\Playground\Stub\Configuration\Configuration\AddClassTo)
+ [x] AddClassTo without property
+ [x] AddClassTo without fqdn
+ [x] AddClassTo with missing property
+ [x] AddClassTo with valid parameters and succeed
+
+Add Mapped Class To (Tests\Unit\Playground\Stub\Configuration\Configuration\AddMappedClassTo)
+ [x] AddMappedClassTo without property
+ [x] AddMappedClassTo without key
+ [x] AddMappedClassTo without value
+ [x] AddMappedClassTo with missing property
+ [x] AddMappedClassTo with valid parameters and succeed
+
+Add To Use (Tests\Unit\Playground\Stub\Configuration\Configuration\AddToUse)
+ [x] AddToUse without class
+ [x] AddToUse without key and succeed
+ [x] AddToUse with key and succeed
+
 Attributes (Tests\Unit\Playground\Stub\Configuration\Model\Attributes)
  [x] AddModelProperties with empty options
  [x] AddAttribute with invalid column
@@ -47,6 +71,12 @@ Instance (Tests\Unit\Playground\Stub\Configuration\Model\Instance)
  [x] Instance apply without options
  [x] Folder is empty by default
  [x] Model with file and skeleton
+
+Instance (Tests\Unit\Playground\Stub\Configuration\Package\Instance)
+ [x] Instance
+ [x] Instance apply without options
+ [x] Folder is empty by default
+ [x] Package for model with file and skeleton
 
 Instance (Tests\Unit\Playground\Stub\Configuration\Policy\Instance)
  [x] Instance
