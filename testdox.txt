@@ -81,6 +81,14 @@ Properties (Tests\Unit\Playground\Stub\Configuration\Configuration\Properties)
 Relationships (Tests\Unit\Playground\Stub\Configuration\Model\Relationships)
  [x] AddRelationships for HasOne with invalid accessor
  [x] AddRelationships for HasMany with invalid accessor
+ [x] AddHasOne without meta
+ [x] AddHasMany without meta
+
+Scopes (Tests\Unit\Playground\Stub\Configuration\Model\Scopes)
+ [x] AddScopes with sort
+ [x] AddScope with invalid scope
+ [x] AddScope for sort without meta
+ [x] AddScope unsupported scope and ignore
 
 Skeleton (Tests\Unit\Playground\Stub\Configuration\Configuration\Skeleton)
  [x] Skeleton
@@ -90,4 +98,9 @@ Skeleton (Tests\Unit\Playground\Stub\Configuration\Configuration\Skeleton)
  [x] Skeleton parameter as true
  [x] Skeleton parameter as false overrules option
  [x] Skeleton parameter as true overrules option
+
+Sorting (Tests\Unit\Playground\Stub\Configuration\Model\Sorting)
+ [x] AddSortable without column
+ [x] AddSortable with index
+ [x] AddSortable without index
 

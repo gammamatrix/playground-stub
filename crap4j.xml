@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-12 07:19:37</timestamp>
+  <timestamp>2024-04-12 07:59:49</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>293</methodCount>
     <crapMethodCount>36</crapMethodCount>
     <crapLoad>549</crapLoad>
-    <totalCrap>13349</totalCrap>
+    <totalCrap>13340.34</totalCrap>
     <crapMethodPercent>12.29</crapMethodPercent>
   </stats>
   <methods>
@@ -655,9 +655,9 @@
       <methodName>addHasMany</methodName>
       <methodSignature>addHasMany(string $accessor, mixed $meta): self</methodSignature>
       <fullMethod>addHasMany(string $accessor, mixed $meta): self</fullMethod>
-      <crap>6.29</crap>
+      <crap>6</crap>
       <complexity>6</complexity>
-      <coverage>80</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -699,9 +699,9 @@
       <methodName>addScope</methodName>
       <methodSignature>addScope(mixed $scope, mixed $meta): self</methodSignature>
       <fullMethod>addScope(mixed $scope, mixed $meta): self</fullMethod>
-      <crap>20.73</crap>
-      <complexity>12</complexity>
-      <coverage>60.71</coverage>
+      <crap>13</crap>
+      <complexity>13</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -732,9 +732,9 @@
       <methodName>addSortable</methodName>
       <methodSignature>addSortable(mixed $meta, int $i): self</methodSignature>
       <fullMethod>addSortable(mixed $meta, int $i): self</fullMethod>
-      <crap>7.64</crap>
-      <complexity>6</complexity>
-      <coverage>64.29</coverage>
+      <crap>7</crap>
+      <complexity>7</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
