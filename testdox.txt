@@ -1,3 +1,16 @@
+Attributes (Tests\Unit\Playground\Stub\Configuration\Model\Attributes)
+ [x] AddModelProperties with empty options
+ [x] AddAttribute with invalid column
+ [x] AddAttribute with invalid default value of array
+ [x] AddCast with invalid column and set empty string
+ [x] AddCast with invalid cast value and treat as string
+ [x] AddFillable with invalid column
+
+Classes (Tests\Unit\Playground\Stub\Configuration\Model\Classes)
+ [x] AddExtends with string
+ [x] AddImplements with string
+ [x] AddModels with string
+
 Command (Tests\Feature\Playground\Stub\Console\Commands\About\Command)
  [x] Command about displays package information and succeed with code 0
 

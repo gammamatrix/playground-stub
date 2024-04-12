@@ -1,60 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-12 06:13:29</timestamp>
+  <timestamp>2024-04-12 07:05:58</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>293</methodCount>
     <crapMethodCount>37</crapMethodCount>
     <crapLoad>558</crapLoad>
-    <totalCrap>13427.62</totalCrap>
+    <totalCrap>13424.73</totalCrap>
     <crapMethodPercent>12.63</crapMethodPercent>
   </stats>
   <methods>
-    <method>
-      <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Attributes</className>
-      <methodName>addModelProperties</methodName>
-      <methodSignature>addModelProperties(array $options): self</methodSignature>
-      <fullMethod>addModelProperties(array $options): self</fullMethod>
-      <crap>10</crap>
-      <complexity>10</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Attributes</className>
-      <methodName>addAttribute</methodName>
-      <methodSignature>addAttribute(mixed $column, mixed $value): self</methodSignature>
-      <fullMethod>addAttribute(mixed $column, mixed $value): self</fullMethod>
-      <crap>7.1</crap>
-      <complexity>6</complexity>
-      <coverage>68.75</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Attributes</className>
-      <methodName>addCast</methodName>
-      <methodSignature>addCast(mixed $column, mixed $cast): self</methodSignature>
-      <fullMethod>addCast(mixed $column, mixed $cast): self</fullMethod>
-      <crap>9.65</crap>
-      <complexity>9</complexity>
-      <coverage>80</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Attributes</className>
-      <methodName>addFillable</methodName>
-      <methodSignature>addFillable(mixed $column): self</methodSignature>
-      <fullMethod>addFillable(mixed $column): self</fullMethod>
-      <crap>8.12</crap>
-      <complexity>5</complexity>
-      <coverage>50</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
       <className>Playground\Stub\Configuration\Concerns\Classes</className>
@@ -453,6 +409,50 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Attributes</className>
+      <methodName>addModelProperties</methodName>
+      <methodSignature>addModelProperties(array $options): self</methodSignature>
+      <fullMethod>addModelProperties(array $options): self</fullMethod>
+      <crap>10</crap>
+      <complexity>10</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Attributes</className>
+      <methodName>addAttribute</methodName>
+      <methodSignature>addAttribute(mixed $column, mixed $value): self</methodSignature>
+      <fullMethod>addAttribute(mixed $column, mixed $value): self</fullMethod>
+      <crap>7</crap>
+      <complexity>7</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Attributes</className>
+      <methodName>addCast</methodName>
+      <methodSignature>addCast(mixed $column, mixed $cast): self</methodSignature>
+      <fullMethod>addCast(mixed $column, mixed $cast): self</fullMethod>
+      <crap>10</crap>
+      <complexity>10</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Attributes</className>
+      <methodName>addFillable</methodName>
+      <methodSignature>addFillable(mixed $column): self</methodSignature>
+      <fullMethod>addFillable(mixed $column): self</fullMethod>
+      <crap>6</crap>
+      <complexity>6</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
       <className>Playground\Stub\Configuration\Model\Concerns\Classes</className>
       <methodName>addExtends</methodName>
       <methodSignature>addExtends(array $options): self</methodSignature>
@@ -468,9 +468,9 @@
       <methodName>addImplements</methodName>
       <methodSignature>addImplements(array $options): self</methodSignature>
       <fullMethod>addImplements(array $options): self</fullMethod>
-      <crap>5.02</crap>
+      <crap>4</crap>
       <complexity>4</complexity>
-      <coverage>60</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
