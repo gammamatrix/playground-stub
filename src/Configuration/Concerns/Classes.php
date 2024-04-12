@@ -11,21 +11,21 @@ namespace Playground\Stub\Configuration\Concerns;
  */
 trait Classes
 {
-    /**
-     * @var array<int|string, string>
-     */
-    protected array $uses = [];
-
     public function addClassTo(
         string $property,
         mixed $fqdn
     ): self {
 
-        if (empty($property)
-            || empty($fqdn)
-            || ! is_string($fqdn)
-        ) {
-            throw new \RuntimeException(__('playground-stub::stub.Classes.properties.required', [
+        if (empty($property)) {
+            throw new \RuntimeException(__('playground-stub::stub.Configuration.addClassTo.property.required', [
+                'class' => static::class,
+                'property' => $property,
+                'fqdn' => is_string($fqdn) ? $fqdn : gettype($fqdn),
+            ]));
+        }
+
+        if (empty($fqdn) || ! is_string($fqdn)) {
+            throw new \RuntimeException(__('playground-stub::stub.Configuration.addClassTo.fqdn.required', [
                 'class' => static::class,
                 'property' => $property,
                 'fqdn' => is_string($fqdn) ? $fqdn : gettype($fqdn),
@@ -35,7 +35,7 @@ trait Classes
         if (! property_exists($this, $property)
             || ! is_array($this->{$property})
         ) {
-            throw new \RuntimeException(__('playground-stub::stub.Classes.properties.invalid', [
+            throw new \RuntimeException(__('playground-stub::stub.Configuration.addClassTo.property.missing', [
                 'class' => static::class,
                 'property' => $property,
                 'fqdn' => $fqdn,
@@ -57,14 +57,26 @@ trait Classes
         mixed $key,
         mixed $value
     ): self {
+        if (empty($property)) {
+            throw new \RuntimeException(__('playground-stub::stub.Configuration.addMappedClassTo.property.required', [
+                'class' => static::class,
+                'key' => is_string($key) ? $key : gettype($key),
+                'property' => $property,
+                'value' => is_string($value) ? $value : gettype($value),
+            ]));
+        }
 
-        if (empty($property)
-            || empty($key)
-            || ! is_string($key)
-            || empty($value)
-            || ! is_string($value)
-        ) {
-            throw new \RuntimeException(__('playground-stub::stub.Classes.properties.required', [
+        if (empty($key) || ! is_string($key)) {
+            throw new \RuntimeException(__('playground-stub::stub.Configuration.addMappedClassTo.key.required', [
+                'class' => static::class,
+                'key' => is_string($key) ? $key : gettype($key),
+                'property' => $property,
+                'value' => is_string($value) ? $value : gettype($value),
+            ]));
+        }
+
+        if (empty($value) || ! is_string($value)) {
+            throw new \RuntimeException(__('playground-stub::stub.Configuration.addMappedClassTo.value.required', [
                 'class' => static::class,
                 'key' => is_string($key) ? $key : gettype($key),
                 'property' => $property,
@@ -75,8 +87,9 @@ trait Classes
         if (! property_exists($this, $property)
             || ! is_array($this->{$property})
         ) {
-            throw new \RuntimeException(__('playground-stub::stub.Classes.properties.invalid', [
+            throw new \RuntimeException(__('playground-stub::stub.Configuration.addMappedClassTo.property.missing', [
                 'class' => static::class,
+                'key' => is_string($key) ? $key : gettype($key),
                 'property' => $property,
                 'value' => $value,
             ]));
@@ -92,10 +105,16 @@ trait Classes
         string $file
     ): self {
 
-        if (empty($property)
-            || empty($file)
-        ) {
-            throw new \RuntimeException(__('playground-stub::stub.Classes.files.required', [
+        if (empty($property)) {
+            throw new \RuntimeException(__('playground-stub::stub.Configuration.addClassFileTo.property.required', [
+                'class' => static::class,
+                'property' => $property,
+                'file' => $file,
+            ]));
+        }
+
+        if (empty($file)) {
+            throw new \RuntimeException(__('playground-stub::stub.Configuration.addClassFileTo.file.required', [
                 'class' => static::class,
                 'property' => $property,
                 'file' => $file,
@@ -105,7 +124,7 @@ trait Classes
         if (! property_exists($this, $property)
             || ! is_array($this->{$property})
         ) {
-            throw new \RuntimeException(__('playground-stub::stub.Classes.properties.invalid', [
+            throw new \RuntimeException(__('playground-stub::stub.Configuration.addClassFileTo.property.missing', [
                 'class' => static::class,
                 'property' => $property,
                 'file' => $file,
@@ -113,7 +132,7 @@ trait Classes
         }
 
         if (! in_array($file, $this->{$property})) {
-            $this->{$file}[] = $file;
+            $this->{$property}[] = $file;
         }
 
         return $this;
@@ -125,7 +144,7 @@ trait Classes
     ): self {
 
         if (empty($class)) {
-            throw new \RuntimeException(__('playground-stub::stub.Classes.use.required', [
+            throw new \RuntimeException(__('playground-stub::stub.Configuration.addToUse.class.required', [
                 'class' => static::class,
                 'use_class' => $class,
                 'key' => $key ?? '',

@@ -11,6 +11,17 @@ namespace Tests\Unit\Playground\Stub;
  */
 trait FileTrait
 {
+    /**
+     * @return array<mixed>
+     */
+    protected function getResourceFileAsArray(string $type = ''): array
+    {
+        $file = $this->getResourceFile($type);
+        $content = file_exists($file) ? file_get_contents($file) : null;
+        $data = $content ? json_decode($content, true) : [];
+        return is_array($data) ? $data : [];
+    }
+
     protected function getResourceFile(string $type = ''): string
     {
         $package_base = dirname(dirname(__DIR__));
@@ -57,7 +68,28 @@ trait FileTrait
 
 
         //
-        // Tests
+        // Package
+        //
+
+        } elseif (in_array($type, [
+            'test-package-model',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/package.playground-cms.json',
+                $package_base
+            );
+
+        } elseif (in_array($type, [
+            'test-package',
+            'test-package-api',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/package.playground-cms-api.json',
+                $package_base
+            );
+
+        //
+        // Policy
         //
 
         } elseif (in_array($type, [

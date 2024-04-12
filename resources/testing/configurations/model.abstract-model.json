@@ -1,5 +1,7 @@
 {
     "package": "playground-cms",
+    "module": "Cms",
+    "module_slug": "cms",
     "name": "AbstractModel",
     "namespace": "Playground\\Cms",
     "modelspace": "Playground\\Cms\\Models",

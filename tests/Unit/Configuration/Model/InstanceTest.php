@@ -102,12 +102,7 @@ class InstanceTest extends TestCase
 
     public function test_model_with_file_and_skeleton(): void
     {
-        $file = sprintf(
-            '%1$s/resources/testing/configurations/model.backlog.json',
-            dirname(dirname(dirname(dirname(__DIR__))))
-        );
-        $content = file_exists($file) ? file_get_contents($file) : null;
-        $options = $content ? json_decode($content, true) : [];
+        $options = $this->getResourceFileAsArray('model-backlog');
         // dd([
         //     '__METHOD__' => __METHOD__,
         //     '$file' => $file,
@@ -115,10 +110,7 @@ class InstanceTest extends TestCase
         //     '$options' => $options,
         // ]);
 
-        $instance = new Model(
-            is_array($options) ? $options : [],
-            true
-        );
+        $instance = new Model($options, true);
 
         $instance->apply();
         // dump([

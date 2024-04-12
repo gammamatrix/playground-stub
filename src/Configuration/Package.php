@@ -9,7 +9,7 @@ namespace Playground\Stub\Configuration;
 use Illuminate\Support\Facades\Log;
 
 /**
- * \Playground\Stub\Package
+ * \Playground\Stub\Configuration\Package
  */
 class Package extends Configuration
 {
@@ -31,8 +31,8 @@ class Package extends Configuration
         'package_name' => '',
         'package_autoload' => '',
         'package_description' => '',
-        'package_keywords' => [],
         'package_homepage' => '',
+        'package_keywords' => [],
         'package_license' => '',
         'package_require' => [],
         'package_require_dev' => [],
@@ -47,6 +47,8 @@ class Package extends Configuration
         // 'version' => '0.1.2-alpha.3',
         'version' => '',
     ];
+
+    protected string $class = 'ServiceProvider';
 
     protected bool $factories = false;
 
@@ -85,7 +87,6 @@ class Package extends Configuration
      */
     protected array $package_laravel_providers = [];
 
-    // "packagist": "gammamatrix/playground-matrix",
     protected string $packagist = '';
 
     /**
@@ -285,5 +286,122 @@ class Package extends Configuration
         }
 
         return $this;
+    }
+
+    public function factories(): bool
+    {
+        return $this->factories;
+    }
+
+    public function package_name(): string
+    {
+        return $this->package_name;
+    }
+
+    public function package_autoload(): string
+    {
+        return $this->package_autoload;
+    }
+
+    public function package_description(): string
+    {
+        return $this->package_description;
+    }
+
+    public function package_homepage(): string
+    {
+        return $this->package_homepage;
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    public function package_keywords(): array
+    {
+        return $this->package_keywords;
+    }
+
+    public function package_license(): string
+    {
+        return $this->package_license;
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public function package_require(): array
+    {
+        return $this->package_require;
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public function package_require_dev(): array
+    {
+        return $this->package_require_dev;
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    public function package_autoload_psr4(): array
+    {
+        return $this->package_autoload_psr4;
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    public function package_laravel_providers(): array
+    {
+        return $this->package_laravel_providers;
+    }
+
+    public function packagist(): string
+    {
+        return $this->packagist;
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    public function controllers(): array
+    {
+        return $this->controllers;
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    public function models(): array
+    {
+        return $this->models;
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    public function policies(): array
+    {
+        return $this->policies;
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    public function routes(): array
+    {
+        return $this->routes;
+    }
+
+    public function service_provider(): string
+    {
+        return $this->service_provider;
+    }
+
+    public function version(): string
+    {
+        return $this->version;
     }
 }

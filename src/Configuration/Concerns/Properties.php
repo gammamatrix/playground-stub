@@ -65,6 +65,11 @@ trait Properties
     protected string $type = '';
 
     /**
+     * @var array<int|string, string>
+     */
+    protected array $uses = [];
+
+    /**
      * @param array<string, mixed> $options
      */
     public function setOptions(array $options = []): self
