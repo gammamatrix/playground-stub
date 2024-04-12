@@ -27,4 +27,9 @@ return [
 
     'Model.HasOne.invalid' => 'Adding a HasOne to [:name] requires an accessor [:accessor] to be provided.',
     'Model.HasMany.invalid' => 'Adding a HasMany to [:name] requires an accessor [:accessor] to be provided.',
+
+    'Model.Scope.invalid' => 'Adding a Scope to [:name] requires a scope [:scope] to be provided.',
+    'Model.Scope.ignored' => 'Adding a Scope to [:name] is limited to [sort] at this time.',
+
+    'Model.Sorting.invalid' => 'Adding a sortable column to [:name] requires a column [:column] to be provided - index[:i]',
 ];

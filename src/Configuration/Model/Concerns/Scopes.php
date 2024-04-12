@@ -39,14 +39,9 @@ trait Scopes
         mixed $meta
     ): self {
 
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$scope' => $scope,
-        //     '$meta' => $meta,
-        // ]);
         if (empty($scope) || ! is_string($scope)) {
             throw new \RuntimeException(__('playground-stub::stub.Model.Scope.invalid', [
-                'name' => $this->name,
+                'name' => $this->name() ?: 'model',
                 'scope' => is_string($scope) ? $scope : gettype($scope),
             ]));
         }
@@ -60,10 +55,10 @@ trait Scopes
         ];
 
         if (! in_array($scope, $supportedScopes)) {
-            Log::warning('playground-stub::stub.Model.Scope.ignored', [
+            Log::warning(__('playground-stub::stub.Model.Scope.ignored', [
                 'name' => $this->name,
                 'scope' => $scope,
-            ]);
+            ]));
 
             return $this;
         }
@@ -88,12 +83,6 @@ trait Scopes
         }
 
         $this->scopes[$scope] = $options;
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$scope' => $scope,
-        //     '$options' => $options,
-        //     '$this->scopes[$scope]' => $this->scopes[$scope],
-        // ]);
 
         return $this;
     }

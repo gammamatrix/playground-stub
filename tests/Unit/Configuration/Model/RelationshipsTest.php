@@ -72,4 +72,34 @@ class RelationshipsTest extends TestCase
 
         $instance->addRelationships($options);
     }
+
+    public function test_addHasOne_without_meta(): void
+    {
+        $withSkeleton = true;
+        $instance = new Model([
+            'name' => 'SomeModel',
+        ], $withSkeleton);
+
+        $this->assertInstanceOf(Model::class, $instance);
+
+        $this->assertEmpty($instance->HasOne());
+        $instance->addHasOne('someAccessor', null);
+        $this->assertNotEmpty($instance->HasOne());
+        // dump($instance);
+    }
+
+    public function test_addHasMany_without_meta(): void
+    {
+        $withSkeleton = true;
+        $instance = new Model([
+            'name' => 'SomeModel',
+        ], $withSkeleton);
+
+        $this->assertInstanceOf(Model::class, $instance);
+
+        // dump($instance);
+        $this->assertEmpty($instance->HasMany());
+        $instance->addHasMany('someAccessor', null);
+        $this->assertNotEmpty($instance->HasMany());
+    }
 }
