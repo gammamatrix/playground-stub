@@ -24,4 +24,7 @@ return [
     'Model.Attributes.invalid' => 'Adding an attribute to [:name] requires a column [:column] to be provided.',
     'Model.Casts.invalid' => 'Adding a cast to [:name] requires a column [:column] to be provided.',
     'Model.Fillable.invalid' => 'Adding a fillable column to [:name] requires a column [:column] to be provided.',
+
+    'Model.HasOne.invalid' => 'Adding a HasOne to [:name] requires an accessor [:accessor] to be provided.',
+    'Model.HasMany.invalid' => 'Adding a HasMany to [:name] requires an accessor [:accessor] to be provided.',
 ];

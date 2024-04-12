@@ -35,7 +35,7 @@ trait Relationships
             foreach ($options['HasOne'] as $accessor => $meta) {
                 if (empty($accessor) || ! is_string($accessor)) {
                     throw new \RuntimeException(__('playground-stub::stub.Model.HasOne.invalid', [
-                        'name' => $this->name(),
+                        'name' => $this->name() ?: 'model',
                         'accessor' => is_string($accessor) ? $accessor : gettype($accessor),
                     ]));
                 }
@@ -51,7 +51,7 @@ trait Relationships
             foreach ($options['HasMany'] as $accessor => $meta) {
                 if (empty($accessor) || ! is_string($accessor)) {
                     throw new \RuntimeException(__('playground-stub::stub.Model.HasMany.invalid', [
-                        'name' => $this->name(),
+                        'name' => $this->name() ?: 'model',
                         'accessor' => is_string($accessor) ? $accessor : gettype($accessor),
                     ]));
                 }
