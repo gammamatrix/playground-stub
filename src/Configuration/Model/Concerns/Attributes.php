@@ -1,13 +1,13 @@
 <?php
-
-declare(strict_types=1);
 /**
  * Playground
  */
-namespace Playground\Stub\Configuration\Concerns;
+
+declare(strict_types=1);
+namespace Playground\Stub\Configuration\Model\Concerns;
 
 /**
- * \Playground\Stub\Configuration\Concerns\Attributes
+ * \Playground\Stub\Configuration\Model\Concerns\Attributes
  */
 trait Attributes
 {
@@ -50,7 +50,7 @@ trait Attributes
 
         if (empty($column) || ! is_string($column)) {
             throw new \RuntimeException(__('playground-stub::stub.Model.Attributes.invalid', [
-                'name' => $this->name(),
+                'name' => $this->name() ?: 'model',
                 'column' => is_string($column) ? $column : gettype($column),
             ]));
         }
@@ -77,14 +77,14 @@ trait Attributes
     ): self {
 
         if (empty($column) || ! is_string($column)) {
-            throw new \RuntimeException(__('playground-stub::stub.Model.Attributes.invalid', [
-                'name' => $this->name(),
+            throw new \RuntimeException(__('playground-stub::stub.Model.Casts.invalid', [
+                'name' => $this->name() ?: 'model',
                 'column' => is_string($column) ? $column : gettype($column),
             ]));
         }
 
         if (! is_string($cast)) {
-            $this->attributes[$column] = 'string';
+            $this->casts[$column] = 'string';
         } elseif (in_array($cast, [
             'datetime',
             'dateTime',
@@ -111,7 +111,7 @@ trait Attributes
     {
         if (empty($column) || ! is_string($column)) {
             throw new \RuntimeException(__('playground-stub::stub.Model.Fillable.invalid', [
-                'name' => $this->name(),
+                'name' => $this->name() ?: 'model',
                 'column' => is_string($column) ? $column : gettype($column),
             ]));
         }

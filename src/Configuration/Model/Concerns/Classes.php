@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace Playground\Stub\Configuration\Model\Concerns;
 
 /**
- * \ Playground\Stub\Configuration\Model\Concerns\Classes
+ * \Playground\Stub\Configuration\Model\Concerns\Classes
  */
 trait Classes
 {

@@ -9,7 +9,7 @@ namespace Playground\Stub\Configuration\Model\Concerns;
 use Playground\Stub\Configuration\Model;
 
 /**
- * \ Playground\Stub\Configuration\Model\Concerns\Creating
+ * \Playground\Stub\Configuration\Model\Concerns\Creating
  */
 trait Creating
 {

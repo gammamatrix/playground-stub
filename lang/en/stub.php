@@ -20,4 +20,8 @@ return [
     'Package.require-dev.invalid' => 'Ignoring a dev requirement: package [:package] with version [:version] for the composer.json file.',
 
     'Model.CreateColumn.type.unexpected' => 'Unexpected type [:type] for column [:column] - allowed: :allowed',
+
+    'Model.Attributes.invalid' => 'Adding an attribute to [:name] requires a column [:column] to be provided.',
+    'Model.Casts.invalid' => 'Adding a cast to [:name] requires a column [:column] to be provided.',
+    'Model.Fillable.invalid' => 'Adding a fillable column to [:name] requires a column [:column] to be provided.',
 ];

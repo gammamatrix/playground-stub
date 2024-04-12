@@ -11,7 +11,7 @@ namespace Playground\Stub\Configuration;
  */
 class Model extends Configuration
 {
-    use Concerns\Attributes;
+    use Model\Concerns\Attributes;
     use Model\Concerns\Classes;
     use Model\Concerns\Components;
     use Model\Concerns\Creating;
