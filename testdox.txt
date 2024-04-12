@@ -35,6 +35,12 @@ Instance (Tests\Unit\Playground\Stub\Configuration\Model\Instance)
  [x] Folder is empty by default
  [x] Model with file and skeleton
 
+Instance (Tests\Unit\Playground\Stub\Configuration\Policy\Instance)
+ [x] Instance
+ [x] Instance apply without options
+ [x] Folder is empty by default
+ [x] Test with file and skeleton
+
 Instance (Tests\Unit\Playground\Stub\Configuration\Test\Instance)
  [x] Instance
  [x] Instance apply without options

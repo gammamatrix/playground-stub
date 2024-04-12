@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.22690615835777" branch-rate="0" lines-covered="619" lines-valid="2728" branches-covered="0" branches-valid="0" complexity="1245" version="0.4" timestamp="1712899539">
+<coverage line-rate="0.23469387755102" branch-rate="0" lines-covered="644" lines-valid="2744" branches-covered="0" branches-valid="0" complexity="1259" version="0.4" timestamp="1712902409">
   <sources>
     <source>/app/src</source>
   </sources>
@@ -2774,44 +2774,84 @@
         </class>
       </classes>
     </package>
-    <package name="Configuration/Policy.php" line-rate="0" branch-rate="0" complexity="8">
+    <package name="Configuration/Policy.php" line-rate="1" branch-rate="0" complexity="22">
       <classes>
-        <class name="Playground\Stub\Configuration\Policy" filename="Configuration/Policy.php" line-rate="0" branch-rate="0" complexity="8">
+        <class name="Playground\Stub\Configuration\Policy" filename="Configuration/Policy.php" line-rate="1" branch-rate="0" complexity="22">
           <methods>
-            <method name="rolesForAction" signature="" line-rate="0" branch-rate="0" complexity="1">
+            <method name="setOptions" signature="array $options" line-rate="1" branch-rate="0" complexity="13">
               <lines>
-                <line number="47" hits="0"/>
+                <line number="51" hits="1"/>
+                <line number="53" hits="1"/>
+                <line number="54" hits="1"/>
+                <line number="56" hits="1"/>
+                <line number="59" hits="1"/>
+                <line number="60" hits="1"/>
+                <line number="62" hits="1"/>
+                <line number="63" hits="1"/>
+                <line number="64" hits="1"/>
+                <line number="69" hits="1"/>
+                <line number="70" hits="1"/>
+                <line number="72" hits="1"/>
+                <line number="73" hits="1"/>
+                <line number="74" hits="1"/>
+                <line number="79" hits="1"/>
               </lines>
             </method>
-            <method name="addRoleForAction" signature="string $role" line-rate="0" branch-rate="0" complexity="3">
+            <method name="rolesForAction" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="52" hits="0"/>
-                <line number="53" hits="0"/>
-                <line number="56" hits="0"/>
+                <line number="87" hits="2"/>
               </lines>
             </method>
-            <method name="rolesToView" signature="" line-rate="0" branch-rate="0" complexity="1">
+            <method name="addRoleForAction" signature="string $role" line-rate="1" branch-rate="0" complexity="3">
               <lines>
-                <line number="64" hits="0"/>
+                <line number="92" hits="1"/>
+                <line number="93" hits="1"/>
+                <line number="96" hits="1"/>
               </lines>
             </method>
-            <method name="addRoleToView" signature="string $role" line-rate="0" branch-rate="0" complexity="3">
+            <method name="rolesToView" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="69" hits="0"/>
-                <line number="70" hits="0"/>
-                <line number="73" hits="0"/>
+                <line number="104" hits="2"/>
+              </lines>
+            </method>
+            <method name="addRoleToView" signature="string $role" line-rate="1" branch-rate="0" complexity="3">
+              <lines>
+                <line number="109" hits="1"/>
+                <line number="110" hits="1"/>
+                <line number="113" hits="1"/>
+              </lines>
+            </method>
+            <method name="model_fqdn" signature="" line-rate="1" branch-rate="0" complexity="1">
+              <lines>
+                <line number="118" hits="2"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="47" hits="0"/>
-            <line number="52" hits="0"/>
-            <line number="53" hits="0"/>
-            <line number="56" hits="0"/>
-            <line number="64" hits="0"/>
-            <line number="69" hits="0"/>
-            <line number="70" hits="0"/>
-            <line number="73" hits="0"/>
+            <line number="51" hits="1"/>
+            <line number="53" hits="1"/>
+            <line number="54" hits="1"/>
+            <line number="56" hits="1"/>
+            <line number="59" hits="1"/>
+            <line number="60" hits="1"/>
+            <line number="62" hits="1"/>
+            <line number="63" hits="1"/>
+            <line number="64" hits="1"/>
+            <line number="69" hits="1"/>
+            <line number="70" hits="1"/>
+            <line number="72" hits="1"/>
+            <line number="73" hits="1"/>
+            <line number="74" hits="1"/>
+            <line number="79" hits="1"/>
+            <line number="87" hits="2"/>
+            <line number="92" hits="1"/>
+            <line number="93" hits="1"/>
+            <line number="96" hits="1"/>
+            <line number="104" hits="2"/>
+            <line number="109" hits="1"/>
+            <line number="110" hits="1"/>
+            <line number="113" hits="1"/>
+            <line number="118" hits="2"/>
           </lines>
         </class>
       </classes>
@@ -2832,11 +2872,11 @@
         </class>
       </classes>
     </package>
-    <package name="Configuration/Test.php" line-rate="0.9375" branch-rate="0" complexity="12">
+    <package name="Configuration/Test.php" line-rate="1" branch-rate="0" complexity="12">
       <classes>
-        <class name="Playground\Stub\Configuration\Test" filename="Configuration/Test.php" line-rate="0.9375" branch-rate="0" complexity="12">
+        <class name="Playground\Stub\Configuration\Test" filename="Configuration/Test.php" line-rate="1" branch-rate="0" complexity="12">
           <methods>
-            <method name="setOptions" signature="array $options" line-rate="0.91666666666667" branch-rate="0" complexity="8">
+            <method name="setOptions" signature="array $options" line-rate="1" branch-rate="0" complexity="8">
               <lines>
                 <line number="54" hits="1"/>
                 <line number="56" hits="1"/>
@@ -2844,7 +2884,7 @@
                 <line number="59" hits="1"/>
                 <line number="62" hits="1"/>
                 <line number="63" hits="1"/>
-                <line number="65" hits="0"/>
+                <line number="65" hits="1"/>
                 <line number="68" hits="1"/>
                 <line number="69" hits="1"/>
                 <line number="71" hits="1"/>
@@ -2880,7 +2920,7 @@
             <line number="59" hits="1"/>
             <line number="62" hits="1"/>
             <line number="63" hits="1"/>
-            <line number="65" hits="0"/>
+            <line number="65" hits="1"/>
             <line number="68" hits="1"/>
             <line number="69" hits="1"/>
             <line number="71" hits="1"/>

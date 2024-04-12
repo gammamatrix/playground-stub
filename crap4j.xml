@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-12 05:25:39</timestamp>
+  <timestamp>2024-04-12 06:13:29</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>291</methodCount>
+    <methodCount>293</methodCount>
     <crapMethodCount>37</crapMethodCount>
     <crapLoad>558</crapLoad>
-    <totalCrap>13433.66</totalCrap>
-    <crapMethodPercent>12.71</crapMethodPercent>
+    <totalCrap>13427.62</totalCrap>
+    <crapMethodPercent>12.63</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -1708,12 +1708,23 @@
     <method>
       <package>Playground\Stub\Configuration</package>
       <className>Playground\Stub\Configuration\Policy</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>13</crap>
+      <complexity>13</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Policy</className>
       <methodName>rolesForAction</methodName>
       <methodSignature>rolesForAction(): array</methodSignature>
       <fullMethod>rolesForAction(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1722,9 +1733,9 @@
       <methodName>addRoleForAction</methodName>
       <methodSignature>addRoleForAction(string $role): self</methodSignature>
       <fullMethod>addRoleForAction(string $role): self</fullMethod>
-      <crap>12</crap>
+      <crap>3</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1733,9 +1744,9 @@
       <methodName>rolesToView</methodName>
       <methodSignature>rolesToView(): array</methodSignature>
       <fullMethod>rolesToView(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1744,9 +1755,20 @@
       <methodName>addRoleToView</methodName>
       <methodSignature>addRoleToView(string $role): self</methodSignature>
       <fullMethod>addRoleToView(string $role): self</fullMethod>
-      <crap>12</crap>
+      <crap>3</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Policy</className>
+      <methodName>model_fqdn</methodName>
+      <methodSignature>model_fqdn(): string</methodSignature>
+      <fullMethod>model_fqdn(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1755,9 +1777,9 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>8.04</crap>
+      <crap>8</crap>
       <complexity>8</complexity>
-      <coverage>91.67</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
