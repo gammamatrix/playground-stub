@@ -170,10 +170,13 @@ class TestMakeCommand extends GeneratorCommand
 
     protected function getConfigurationFilename(): string
     {
+        $type = $this->c->type();
+
         return ! is_string($this->c->name()) ? '' : sprintf(
-            'test.%1$s.%2$s.%3$s.json',
+            'test.%1$s.%2$s%3$s%4$s.json',
             Str::of($this->c->suite())->kebab(),
-            Str::of($this->c->type())->kebab(),
+            Str::of($type)->kebab(),
+            $type ? '.' : '',
             Str::of($this->c->name())->kebab()
         );
     }

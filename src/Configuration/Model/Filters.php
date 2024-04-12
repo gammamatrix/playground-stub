@@ -8,7 +8,6 @@ namespace Playground\Stub\Configuration\Model;
 
 /**
  * \Playground\Stub\Configuration\Model\Filters
- * src/Configuration/Model/Filters.php
  */
 class Filters extends ModelConfiguration
 {
