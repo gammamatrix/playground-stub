@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.24052478134111" branch-rate="0" lines-covered="660" lines-valid="2744" branches-covered="0" branches-valid="0" complexity="1262" version="0.4" timestamp="1712905558">
+<coverage line-rate="0.2481778425656" branch-rate="0" lines-covered="681" lines-valid="2744" branches-covered="0" branches-valid="0" complexity="1264" version="0.4" timestamp="1712906377">
   <sources>
     <source>/app/src</source>
   </sources>
@@ -528,27 +528,27 @@
           <methods>
             <method name="setOptions" signature="array $options" line-rate="1" branch-rate="0" complexity="7">
               <lines>
-                <line number="105" hits="6"/>
-                <line number="107" hits="6"/>
-                <line number="108" hits="6"/>
+                <line number="105" hits="8"/>
+                <line number="107" hits="8"/>
+                <line number="108" hits="8"/>
                 <line number="110" hits="1"/>
-                <line number="113" hits="6"/>
-                <line number="114" hits="6"/>
+                <line number="113" hits="8"/>
+                <line number="114" hits="8"/>
                 <line number="116" hits="1"/>
-                <line number="118" hits="6"/>
-                <line number="119" hits="6"/>
+                <line number="118" hits="8"/>
+                <line number="119" hits="8"/>
                 <line number="121" hits="1"/>
-                <line number="124" hits="6"/>
-                <line number="125" hits="6"/>
-                <line number="126" hits="6"/>
-                <line number="127" hits="6"/>
-                <line number="128" hits="6"/>
-                <line number="129" hits="6"/>
-                <line number="130" hits="6"/>
-                <line number="131" hits="6"/>
-                <line number="132" hits="6"/>
-                <line number="135" hits="6"/>
-                <line number="137" hits="6"/>
+                <line number="124" hits="8"/>
+                <line number="125" hits="8"/>
+                <line number="126" hits="8"/>
+                <line number="127" hits="8"/>
+                <line number="128" hits="8"/>
+                <line number="129" hits="8"/>
+                <line number="130" hits="8"/>
+                <line number="131" hits="8"/>
+                <line number="132" hits="8"/>
+                <line number="135" hits="8"/>
+                <line number="137" hits="8"/>
               </lines>
             </method>
             <method name="attributes" signature="" line-rate="1" branch-rate="0" complexity="1">
@@ -573,27 +573,27 @@
             </method>
           </methods>
           <lines>
-            <line number="105" hits="6"/>
-            <line number="107" hits="6"/>
-            <line number="108" hits="6"/>
+            <line number="105" hits="8"/>
+            <line number="107" hits="8"/>
+            <line number="108" hits="8"/>
             <line number="110" hits="1"/>
-            <line number="113" hits="6"/>
-            <line number="114" hits="6"/>
+            <line number="113" hits="8"/>
+            <line number="114" hits="8"/>
             <line number="116" hits="1"/>
-            <line number="118" hits="6"/>
-            <line number="119" hits="6"/>
+            <line number="118" hits="8"/>
+            <line number="119" hits="8"/>
             <line number="121" hits="1"/>
-            <line number="124" hits="6"/>
-            <line number="125" hits="6"/>
-            <line number="126" hits="6"/>
-            <line number="127" hits="6"/>
-            <line number="128" hits="6"/>
-            <line number="129" hits="6"/>
-            <line number="130" hits="6"/>
-            <line number="131" hits="6"/>
-            <line number="132" hits="6"/>
-            <line number="135" hits="6"/>
-            <line number="137" hits="6"/>
+            <line number="124" hits="8"/>
+            <line number="125" hits="8"/>
+            <line number="126" hits="8"/>
+            <line number="127" hits="8"/>
+            <line number="128" hits="8"/>
+            <line number="129" hits="8"/>
+            <line number="130" hits="8"/>
+            <line number="131" hits="8"/>
+            <line number="132" hits="8"/>
+            <line number="135" hits="8"/>
+            <line number="137" hits="8"/>
             <line number="145" hits="4"/>
             <line number="153" hits="4"/>
             <line number="161" hits="3"/>
@@ -608,19 +608,19 @@
           <methods>
             <method name="addModelProperties" signature="array $options" line-rate="1" branch-rate="0" complexity="10">
               <lines>
-                <line number="19" hits="7"/>
-                <line number="20" hits="7"/>
+                <line number="19" hits="9"/>
+                <line number="20" hits="9"/>
                 <line number="22" hits="1"/>
                 <line number="23" hits="1"/>
-                <line number="27" hits="7"/>
-                <line number="28" hits="7"/>
+                <line number="27" hits="9"/>
+                <line number="28" hits="9"/>
                 <line number="30" hits="1"/>
                 <line number="31" hits="1"/>
-                <line number="35" hits="7"/>
-                <line number="36" hits="7"/>
+                <line number="35" hits="9"/>
+                <line number="36" hits="9"/>
                 <line number="38" hits="1"/>
                 <line number="39" hits="1"/>
-                <line number="43" hits="7"/>
+                <line number="43" hits="9"/>
               </lines>
             </method>
             <method name="addAttribute" signature="mixed $column, mixed $value" line-rate="1" branch-rate="0" complexity="7">
@@ -686,19 +686,19 @@
             </method>
           </methods>
           <lines>
-            <line number="19" hits="7"/>
-            <line number="20" hits="7"/>
+            <line number="19" hits="9"/>
+            <line number="20" hits="9"/>
             <line number="22" hits="1"/>
             <line number="23" hits="1"/>
-            <line number="27" hits="7"/>
-            <line number="28" hits="7"/>
+            <line number="27" hits="9"/>
+            <line number="28" hits="9"/>
             <line number="30" hits="1"/>
             <line number="31" hits="1"/>
-            <line number="35" hits="7"/>
-            <line number="36" hits="7"/>
+            <line number="35" hits="9"/>
+            <line number="36" hits="9"/>
             <line number="38" hits="1"/>
             <line number="39" hits="1"/>
-            <line number="43" hits="7"/>
+            <line number="43" hits="9"/>
             <line number="51" hits="3"/>
             <line number="52" hits="1"/>
             <line number="53" hits="1"/>
@@ -758,28 +758,28 @@
           <methods>
             <method name="addExtends" signature="array $options" line-rate="1" branch-rate="0" complexity="3">
               <lines>
-                <line number="31" hits="7"/>
-                <line number="32" hits="7"/>
+                <line number="31" hits="9"/>
+                <line number="32" hits="9"/>
                 <line number="34" hits="2"/>
-                <line number="37" hits="7"/>
+                <line number="37" hits="9"/>
               </lines>
             </method>
             <method name="addImplements" signature="array $options" line-rate="1" branch-rate="0" complexity="4">
               <lines>
-                <line number="45" hits="7"/>
-                <line number="46" hits="7"/>
+                <line number="45" hits="9"/>
+                <line number="46" hits="9"/>
                 <line number="48" hits="1"/>
                 <line number="49" hits="1"/>
-                <line number="53" hits="7"/>
+                <line number="53" hits="9"/>
               </lines>
             </method>
             <method name="addModels" signature="array $options" line-rate="1" branch-rate="0" complexity="4">
               <lines>
-                <line number="61" hits="7"/>
-                <line number="62" hits="7"/>
+                <line number="61" hits="9"/>
+                <line number="62" hits="9"/>
                 <line number="64" hits="2"/>
                 <line number="65" hits="2"/>
-                <line number="69" hits="7"/>
+                <line number="69" hits="9"/>
               </lines>
             </method>
             <method name="extends" signature="" line-rate="1" branch-rate="0" complexity="1">
@@ -799,20 +799,20 @@
             </method>
           </methods>
           <lines>
-            <line number="31" hits="7"/>
-            <line number="32" hits="7"/>
+            <line number="31" hits="9"/>
+            <line number="32" hits="9"/>
             <line number="34" hits="2"/>
-            <line number="37" hits="7"/>
-            <line number="45" hits="7"/>
-            <line number="46" hits="7"/>
+            <line number="37" hits="9"/>
+            <line number="45" hits="9"/>
+            <line number="46" hits="9"/>
             <line number="48" hits="1"/>
             <line number="49" hits="1"/>
-            <line number="53" hits="7"/>
-            <line number="61" hits="7"/>
-            <line number="62" hits="7"/>
+            <line number="53" hits="9"/>
+            <line number="61" hits="9"/>
+            <line number="62" hits="9"/>
             <line number="64" hits="2"/>
             <line number="65" hits="2"/>
-            <line number="69" hits="7"/>
+            <line number="69" hits="9"/>
             <line number="74" hits="3"/>
             <line number="82" hits="3"/>
             <line number="90" hits="3"/>
@@ -826,17 +826,17 @@
           <methods>
             <method name="addComponents" signature="array $options" line-rate="1" branch-rate="0" complexity="6">
               <lines>
-                <line number="29" hits="6"/>
+                <line number="29" hits="8"/>
                 <line number="30" hits="1"/>
-                <line number="33" hits="6"/>
+                <line number="33" hits="8"/>
                 <line number="34" hits="1"/>
-                <line number="37" hits="6"/>
+                <line number="37" hits="8"/>
                 <line number="38" hits="1"/>
-                <line number="41" hits="6"/>
+                <line number="41" hits="8"/>
                 <line number="42" hits="1"/>
-                <line number="45" hits="6"/>
+                <line number="45" hits="8"/>
                 <line number="46" hits="1"/>
-                <line number="49" hits="6"/>
+                <line number="49" hits="8"/>
               </lines>
             </method>
             <method name="factory" signature="" line-rate="1" branch-rate="0" complexity="1">
@@ -866,17 +866,17 @@
             </method>
           </methods>
           <lines>
-            <line number="29" hits="6"/>
+            <line number="29" hits="8"/>
             <line number="30" hits="1"/>
-            <line number="33" hits="6"/>
+            <line number="33" hits="8"/>
             <line number="34" hits="1"/>
-            <line number="37" hits="6"/>
+            <line number="37" hits="8"/>
             <line number="38" hits="1"/>
-            <line number="41" hits="6"/>
+            <line number="41" hits="8"/>
             <line number="42" hits="1"/>
-            <line number="45" hits="6"/>
+            <line number="45" hits="8"/>
             <line number="46" hits="1"/>
-            <line number="49" hits="6"/>
+            <line number="49" hits="8"/>
             <line number="54" hits="2"/>
             <line number="59" hits="2"/>
             <line number="64" hits="2"/>
@@ -892,11 +892,11 @@
           <methods>
             <method name="addCreate" signature="array $options" line-rate="1" branch-rate="0" complexity="3">
               <lines>
-                <line number="28" hits="6"/>
-                <line number="29" hits="6"/>
+                <line number="28" hits="8"/>
+                <line number="29" hits="8"/>
                 <line number="33" hits="1"/>
                 <line number="34" hits="1"/>
-                <line number="37" hits="6"/>
+                <line number="37" hits="8"/>
               </lines>
             </method>
             <method name="create" signature="" line-rate="1" branch-rate="0" complexity="1">
@@ -906,11 +906,11 @@
             </method>
           </methods>
           <lines>
-            <line number="28" hits="6"/>
-            <line number="29" hits="6"/>
+            <line number="28" hits="8"/>
+            <line number="29" hits="8"/>
             <line number="33" hits="1"/>
             <line number="34" hits="1"/>
-            <line number="37" hits="6"/>
+            <line number="37" hits="8"/>
             <line number="42" hits="2"/>
           </lines>
         </class>
@@ -922,11 +922,11 @@
           <methods>
             <method name="addFilters" signature="array $options" line-rate="1" branch-rate="0" complexity="3">
               <lines>
-                <line number="23" hits="6"/>
-                <line number="24" hits="6"/>
+                <line number="23" hits="8"/>
+                <line number="24" hits="8"/>
                 <line number="26" hits="1"/>
                 <line number="27" hits="1"/>
-                <line number="36" hits="6"/>
+                <line number="36" hits="8"/>
               </lines>
             </method>
             <method name="filters" signature="" line-rate="1" branch-rate="0" complexity="1">
@@ -936,71 +936,71 @@
             </method>
           </methods>
           <lines>
-            <line number="23" hits="6"/>
-            <line number="24" hits="6"/>
+            <line number="23" hits="8"/>
+            <line number="24" hits="8"/>
             <line number="26" hits="1"/>
             <line number="27" hits="1"/>
-            <line number="36" hits="6"/>
+            <line number="36" hits="8"/>
             <line number="41" hits="2"/>
           </lines>
         </class>
       </classes>
     </package>
-    <package name="Configuration/Model/Concerns/Relationships.php" line-rate="0.46511627906977" branch-rate="0" complexity="29">
+    <package name="Configuration/Model/Concerns/Relationships.php" line-rate="0.95348837209302" branch-rate="0" complexity="31">
       <classes>
-        <class name="Playground\Stub\Configuration\Model\Concerns\Relationships" filename="Configuration/Model/Concerns/Relationships.php" line-rate="0.46511627906977" branch-rate="0" complexity="29">
+        <class name="Playground\Stub\Configuration\Model\Concerns\Relationships" filename="Configuration/Model/Concerns/Relationships.php" line-rate="0.95348837209302" branch-rate="0" complexity="31">
           <methods>
-            <method name="addRelationships" signature="array $options" line-rate="0.42857142857143" branch-rate="0" complexity="15">
+            <method name="addRelationships" signature="array $options" line-rate="1" branch-rate="0" complexity="17">
               <lines>
-                <line number="32" hits="6"/>
-                <line number="33" hits="6"/>
-                <line number="35" hits="1"/>
-                <line number="36" hits="1"/>
-                <line number="37" hits="0"/>
-                <line number="38" hits="0"/>
-                <line number="39" hits="0"/>
-                <line number="40" hits="0"/>
-                <line number="42" hits="1"/>
-                <line number="43" hits="1"/>
-                <line number="48" hits="6"/>
-                <line number="49" hits="6"/>
-                <line number="51" hits="0"/>
-                <line number="52" hits="0"/>
-                <line number="53" hits="0"/>
-                <line number="54" hits="0"/>
-                <line number="55" hits="0"/>
-                <line number="56" hits="0"/>
-                <line number="58" hits="0"/>
-                <line number="59" hits="0"/>
-                <line number="64" hits="6"/>
+                <line number="32" hits="8"/>
+                <line number="33" hits="8"/>
+                <line number="35" hits="2"/>
+                <line number="36" hits="2"/>
+                <line number="37" hits="1"/>
+                <line number="38" hits="1"/>
+                <line number="39" hits="1"/>
+                <line number="40" hits="1"/>
+                <line number="42" hits="2"/>
+                <line number="43" hits="2"/>
+                <line number="48" hits="8"/>
+                <line number="49" hits="8"/>
+                <line number="51" hits="1"/>
+                <line number="52" hits="1"/>
+                <line number="53" hits="1"/>
+                <line number="54" hits="1"/>
+                <line number="55" hits="1"/>
+                <line number="56" hits="1"/>
+                <line number="58" hits="1"/>
+                <line number="59" hits="1"/>
+                <line number="64" hits="8"/>
               </lines>
             </method>
-            <method name="addHasOne" signature="string $accessor, mixed $meta" line-rate="0.9" branch-rate="0" complexity="6">
+            <method name="addHasOne" signature="string $accessor, mixed $meta" line-rate="1" branch-rate="0" complexity="6">
               <lines>
-                <line number="72" hits="1"/>
-                <line number="73" hits="0"/>
-                <line number="76" hits="1"/>
-                <line number="77" hits="1"/>
-                <line number="78" hits="1"/>
-                <line number="81" hits="1"/>
-                <line number="83" hits="1"/>
+                <line number="72" hits="2"/>
+                <line number="73" hits="1"/>
+                <line number="76" hits="2"/>
+                <line number="77" hits="2"/>
+                <line number="78" hits="2"/>
+                <line number="81" hits="2"/>
+                <line number="83" hits="2"/>
                 <line number="84" hits="1"/>
-                <line number="87" hits="1"/>
-                <line number="90" hits="1"/>
+                <line number="87" hits="2"/>
+                <line number="90" hits="2"/>
               </lines>
             </method>
-            <method name="addHasMany" signature="string $accessor, mixed $meta" line-rate="0" branch-rate="0" complexity="6">
+            <method name="addHasMany" signature="string $accessor, mixed $meta" line-rate="0.8" branch-rate="0" complexity="6">
               <lines>
-                <line number="98" hits="0"/>
+                <line number="98" hits="1"/>
                 <line number="99" hits="0"/>
-                <line number="102" hits="0"/>
-                <line number="103" hits="0"/>
-                <line number="104" hits="0"/>
-                <line number="107" hits="0"/>
-                <line number="109" hits="0"/>
+                <line number="102" hits="1"/>
+                <line number="103" hits="1"/>
+                <line number="104" hits="1"/>
+                <line number="107" hits="1"/>
+                <line number="109" hits="1"/>
                 <line number="110" hits="0"/>
-                <line number="113" hits="0"/>
-                <line number="116" hits="0"/>
+                <line number="113" hits="1"/>
+                <line number="116" hits="1"/>
               </lines>
             </method>
             <method name="HasOne" signature="" line-rate="1" branch-rate="0" complexity="1">
@@ -1015,47 +1015,47 @@
             </method>
           </methods>
           <lines>
-            <line number="32" hits="6"/>
-            <line number="33" hits="6"/>
-            <line number="35" hits="1"/>
-            <line number="36" hits="1"/>
-            <line number="37" hits="0"/>
-            <line number="38" hits="0"/>
-            <line number="39" hits="0"/>
-            <line number="40" hits="0"/>
-            <line number="42" hits="1"/>
-            <line number="43" hits="1"/>
-            <line number="48" hits="6"/>
-            <line number="49" hits="6"/>
-            <line number="51" hits="0"/>
-            <line number="52" hits="0"/>
-            <line number="53" hits="0"/>
-            <line number="54" hits="0"/>
-            <line number="55" hits="0"/>
-            <line number="56" hits="0"/>
-            <line number="58" hits="0"/>
-            <line number="59" hits="0"/>
-            <line number="64" hits="6"/>
-            <line number="72" hits="1"/>
-            <line number="73" hits="0"/>
-            <line number="76" hits="1"/>
-            <line number="77" hits="1"/>
-            <line number="78" hits="1"/>
-            <line number="81" hits="1"/>
-            <line number="83" hits="1"/>
+            <line number="32" hits="8"/>
+            <line number="33" hits="8"/>
+            <line number="35" hits="2"/>
+            <line number="36" hits="2"/>
+            <line number="37" hits="1"/>
+            <line number="38" hits="1"/>
+            <line number="39" hits="1"/>
+            <line number="40" hits="1"/>
+            <line number="42" hits="2"/>
+            <line number="43" hits="2"/>
+            <line number="48" hits="8"/>
+            <line number="49" hits="8"/>
+            <line number="51" hits="1"/>
+            <line number="52" hits="1"/>
+            <line number="53" hits="1"/>
+            <line number="54" hits="1"/>
+            <line number="55" hits="1"/>
+            <line number="56" hits="1"/>
+            <line number="58" hits="1"/>
+            <line number="59" hits="1"/>
+            <line number="64" hits="8"/>
+            <line number="72" hits="2"/>
+            <line number="73" hits="1"/>
+            <line number="76" hits="2"/>
+            <line number="77" hits="2"/>
+            <line number="78" hits="2"/>
+            <line number="81" hits="2"/>
+            <line number="83" hits="2"/>
             <line number="84" hits="1"/>
-            <line number="87" hits="1"/>
-            <line number="90" hits="1"/>
-            <line number="98" hits="0"/>
+            <line number="87" hits="2"/>
+            <line number="90" hits="2"/>
+            <line number="98" hits="1"/>
             <line number="99" hits="0"/>
-            <line number="102" hits="0"/>
-            <line number="103" hits="0"/>
-            <line number="104" hits="0"/>
-            <line number="107" hits="0"/>
-            <line number="109" hits="0"/>
+            <line number="102" hits="1"/>
+            <line number="103" hits="1"/>
+            <line number="104" hits="1"/>
+            <line number="107" hits="1"/>
+            <line number="109" hits="1"/>
             <line number="110" hits="0"/>
-            <line number="113" hits="0"/>
-            <line number="116" hits="0"/>
+            <line number="113" hits="1"/>
+            <line number="116" hits="1"/>
             <line number="124" hits="2"/>
             <line number="132" hits="2"/>
           </lines>
@@ -1068,11 +1068,11 @@
           <methods>
             <method name="addScopes" signature="array $options" line-rate="1" branch-rate="0" complexity="4">
               <lines>
-                <line number="26" hits="6"/>
-                <line number="27" hits="6"/>
+                <line number="26" hits="8"/>
+                <line number="27" hits="8"/>
                 <line number="29" hits="1"/>
                 <line number="30" hits="1"/>
-                <line number="34" hits="6"/>
+                <line number="34" hits="8"/>
               </lines>
             </method>
             <method name="addScope" signature="mixed $scope, mixed $meta" line-rate="0.60714285714286" branch-rate="0" complexity="12">
@@ -1114,11 +1114,11 @@
             </method>
           </methods>
           <lines>
-            <line number="26" hits="6"/>
-            <line number="27" hits="6"/>
+            <line number="26" hits="8"/>
+            <line number="27" hits="8"/>
             <line number="29" hits="1"/>
             <line number="30" hits="1"/>
-            <line number="34" hits="6"/>
+            <line number="34" hits="8"/>
             <line number="47" hits="1"/>
             <line number="48" hits="0"/>
             <line number="49" hits="0"/>
@@ -1158,11 +1158,11 @@
           <methods>
             <method name="addSorting" signature="array $options" line-rate="1" branch-rate="0" complexity="4">
               <lines>
-                <line number="26" hits="6"/>
-                <line number="27" hits="6"/>
+                <line number="26" hits="8"/>
+                <line number="27" hits="8"/>
                 <line number="29" hits="1"/>
                 <line number="30" hits="1"/>
-                <line number="38" hits="6"/>
+                <line number="38" hits="8"/>
               </lines>
             </method>
             <method name="addSortable" signature="mixed $meta, int $i" line-rate="0.64285714285714" branch-rate="0" complexity="6">
@@ -1190,11 +1190,11 @@
             </method>
           </methods>
           <lines>
-            <line number="26" hits="6"/>
-            <line number="27" hits="6"/>
+            <line number="26" hits="8"/>
+            <line number="27" hits="8"/>
             <line number="29" hits="1"/>
             <line number="30" hits="1"/>
-            <line number="38" hits="6"/>
+            <line number="38" hits="8"/>
             <line number="46" hits="1"/>
             <line number="47" hits="1"/>
             <line number="48" hits="1"/>

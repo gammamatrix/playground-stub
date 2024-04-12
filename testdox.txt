@@ -78,6 +78,10 @@ Properties (Tests\Unit\Playground\Stub\Configuration\Configuration\Properties)
  [x] Properties with all options without apply
  [x] Properties with all options with apply
 
+Relationships (Tests\Unit\Playground\Stub\Configuration\Model\Relationships)
+ [x] AddRelationships for HasOne with invalid accessor
+ [x] AddRelationships for HasMany with invalid accessor
+
 Skeleton (Tests\Unit\Playground\Stub\Configuration\Configuration\Skeleton)
  [x] Skeleton
  [x] Skeleton withSkeleton

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-12 07:05:58</timestamp>
+  <timestamp>2024-04-12 07:19:37</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>293</methodCount>
-    <crapMethodCount>37</crapMethodCount>
-    <crapLoad>558</crapLoad>
-    <totalCrap>13424.73</totalCrap>
-    <crapMethodPercent>12.63</crapMethodPercent>
+    <crapMethodCount>36</crapMethodCount>
+    <crapLoad>549</crapLoad>
+    <totalCrap>13349</totalCrap>
+    <crapMethodPercent>12.29</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -633,10 +633,10 @@
       <methodName>addRelationships</methodName>
       <methodSignature>addRelationships(array $options): self</methodSignature>
       <fullMethod>addRelationships(array $options): self</fullMethod>
-      <crap>56.98</crap>
-      <complexity>15</complexity>
-      <coverage>42.86</coverage>
-      <crapLoad>9</crapLoad>
+      <crap>17</crap>
+      <complexity>17</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration\Model\Concerns</package>
@@ -644,9 +644,9 @@
       <methodName>addHasOne</methodName>
       <methodSignature>addHasOne(string $accessor, mixed $meta): self</methodSignature>
       <fullMethod>addHasOne(string $accessor, mixed $meta): self</fullMethod>
-      <crap>6.04</crap>
+      <crap>6</crap>
       <complexity>6</complexity>
-      <coverage>90</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -655,9 +655,9 @@
       <methodName>addHasMany</methodName>
       <methodSignature>addHasMany(string $accessor, mixed $meta): self</methodSignature>
       <fullMethod>addHasMany(string $accessor, mixed $meta): self</fullMethod>
-      <crap>42</crap>
+      <crap>6.29</crap>
       <complexity>6</complexity>
-      <coverage>0</coverage>
+      <coverage>80</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
