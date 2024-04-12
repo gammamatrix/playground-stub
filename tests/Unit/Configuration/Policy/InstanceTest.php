@@ -4,23 +4,23 @@
  */
 
 declare(strict_types=1);
-namespace Tests\Unit\Playground\Stub\Configuration\Test;
+namespace Tests\Unit\Playground\Stub\Configuration\Policy;
 
 use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\Unit\Playground\Stub\TestCase;
-use Playground\Stub\Configuration\Test;
+use Playground\Stub\Configuration\Policy;
 
 /**
- * \Tests\Unit\Playground\Stub\Configuration\Test\InstanceTest
+ * \Tests\Unit\Playground\Stub\Configuration\Policy\InstanceTest
  */
-#[CoversClass(Test::class)]
+#[CoversClass(Policy::class)]
 class InstanceTest extends TestCase
 {
     public function test_instance(): void
     {
-        $instance = new Test;
+        $instance = new Policy;
 
-        $this->assertInstanceOf(Test::class, $instance);
+        $this->assertInstanceOf(Policy::class, $instance);
     }
 
     /**
@@ -29,7 +29,6 @@ class InstanceTest extends TestCase
     protected array $expected_properties = [
         'class' => '',
         'config' => '',
-        'extends' => '\Tests\TestCase',
         'fqdn' => '',
         'model' => '',
         'model_fqdn' => '',
@@ -39,15 +38,14 @@ class InstanceTest extends TestCase
         'namespace' => '',
         'organization' => '',
         'package' => '',
-        'suite' => '',
-        'type' => '',
-        'uses' => [],
-        'models' => [],
+        // properties
+        'rolesForAction' => [],
+        'rolesToView' => [],
     ];
 
     public function test_instance_apply_without_options(): void
     {
-        $instance = new Test;
+        $instance = new Policy;
 
         $properties = $instance->apply()->properties();
 
@@ -64,9 +62,9 @@ class InstanceTest extends TestCase
 
     public function test_folder_is_empty_by_default(): void
     {
-        $instance = new Test;
+        $instance = new Policy;
 
-        $this->assertInstanceOf(Test::class, $instance);
+        $this->assertInstanceOf(Policy::class, $instance);
 
         $this->assertIsString($instance->folder());
         $this->assertEmpty($instance->folder());
@@ -74,13 +72,10 @@ class InstanceTest extends TestCase
 
     public function test_test_with_file_and_skeleton(): void
     {
-        $file = $this->getResourceFile('test-model');
+        $file = $this->getResourceFile('test-policy');
         $content = file_exists($file) ? file_get_contents($file) : null;
         $options = $content ? json_decode($content, true) : [];
 
-        if (is_array($options)) {
-            $options['suite'] = 'unit';
-        }
         // dd([
         //     '__METHOD__' => __METHOD__,
         //     '$file' => $file,
@@ -88,7 +83,7 @@ class InstanceTest extends TestCase
         //     '$options' => $options,
         // ]);
 
-        $instance = new Test(
+        $instance = new Policy(
             is_array($options) ? $options : [],
             true
         );
@@ -106,21 +101,29 @@ class InstanceTest extends TestCase
         $this->assertTrue($instance->skeleton());
 
         $this->assertSame('Playground', $instance->organization());
-        $this->assertSame('playground-crm', $instance->package());
-        $this->assertSame('unit', $instance->suite());
-        $this->assertSame('Crm', $instance->module());
-        $this->assertSame('crm', $instance->module_slug());
+        $this->assertSame('playground-cms-api', $instance->package());
+        $this->assertSame('Cms', $instance->module());
+        $this->assertSame('cms', $instance->module_slug());
         $this->assertSame('', $instance->fqdn());
-        $this->assertSame('Playground/Crm', $instance->namespace());
-        $this->assertSame('Playground/Crm/Models/Contact', $instance->model_fqdn());
-        $this->assertSame('Contact', $instance->model());
-        $this->assertSame('Contact', $instance->name());
-        $this->assertSame('ModelTest', $instance->class());
-        $this->assertSame('playground-model', $instance->type());
-        $this->assertSame('Playground/Crm/Models/Contact', $instance->model_fqdn());
+        $this->assertSame('Playground\\Cms\\Api', $instance->namespace());
+        $this->assertSame('Snippet', $instance->model());
+        $this->assertSame('SnippetPolicy', $instance->name());
+        $this->assertSame('SnippetPolicy', $instance->class());
+        $this->assertSame('playground-resource', $instance->type());
+        $this->assertSame('Playground\\Cms\\Models\\Snippet', $instance->model_fqdn());
         $this->assertSame([
-            'Contact' => 'tmp-testing-model.crm.contact.json',
-        ], $instance->models());
-        $this->assertSame('ModelCase', $instance->extends());
+            'publisher',
+            'manager',
+            'admin',
+            'root',
+        ], $instance->rolesForAction());
+        $this->assertSame([
+            'user',
+            'staff',
+            'publisher',
+            'manager',
+            'admin',
+            'root',
+        ], $instance->rolesToView());
     }
 }

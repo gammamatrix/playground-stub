@@ -61,6 +61,18 @@ trait FileTrait
         //
 
         } elseif (in_array($type, [
+            'test-policy',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/policy.snippet.json',
+                $package_base
+            );
+
+        //
+        // Tests
+        //
+
+        } elseif (in_array($type, [
             'test-model',
         ])) {
             $file = sprintf(
