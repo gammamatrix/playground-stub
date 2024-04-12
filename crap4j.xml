@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-11 21:40:12</timestamp>
+  <timestamp>2024-04-12 05:25:39</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>283</methodCount>
+    <methodCount>291</methodCount>
     <crapMethodCount>37</crapMethodCount>
     <crapLoad>558</crapLoad>
-    <totalCrap>13423.64</totalCrap>
-    <crapMethodPercent>13.07</crapMethodPercent>
+    <totalCrap>13433.66</totalCrap>
+    <crapMethodPercent>12.71</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -402,52 +402,8 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>27</crap>
-      <complexity>27</complexity>
-      <coverage>95.74</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Model</className>
-      <methodName>addScope</methodName>
-      <methodSignature>addScope(mixed $scope, mixed $meta): self</methodSignature>
-      <fullMethod>addScope(mixed $scope, mixed $meta): self</fullMethod>
-      <crap>20.73</crap>
-      <complexity>12</complexity>
-      <coverage>60.71</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Model</className>
-      <methodName>create</methodName>
-      <methodSignature>create(): ?Playground\Stub\Configuration\Model\Create</methodSignature>
-      <fullMethod>create(): ?Playground\Stub\Configuration\Model\Create</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Model</className>
-      <methodName>filters</methodName>
-      <methodSignature>filters(): ?Playground\Stub\Configuration\Model\Filters</methodSignature>
-      <fullMethod>filters(): ?Playground\Stub\Configuration\Model\Filters</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Model</className>
-      <methodName>scopes</methodName>
-      <methodSignature>scopes(): array</methodSignature>
-      <fullMethod>scopes(): array</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
+      <crap>7</crap>
+      <complexity>7</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -487,28 +443,6 @@
     <method>
       <package>Playground\Stub\Configuration</package>
       <className>Playground\Stub\Configuration\Model</className>
-      <methodName>models</methodName>
-      <methodSignature>models(): array</methodSignature>
-      <fullMethod>models(): array</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Model</className>
-      <methodName>implements</methodName>
-      <methodSignature>implements(): array</methodSignature>
-      <fullMethod>implements(): array</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Model</className>
       <methodName>table</methodName>
       <methodSignature>table(): string</methodSignature>
       <fullMethod>table(): string</fullMethod>
@@ -518,8 +452,85 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Model</className>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Classes</className>
+      <methodName>addExtends</methodName>
+      <methodSignature>addExtends(array $options): self</methodSignature>
+      <fullMethod>addExtends(array $options): self</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Classes</className>
+      <methodName>addImplements</methodName>
+      <methodSignature>addImplements(array $options): self</methodSignature>
+      <fullMethod>addImplements(array $options): self</fullMethod>
+      <crap>5.02</crap>
+      <complexity>4</complexity>
+      <coverage>60</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Classes</className>
+      <methodName>addModels</methodName>
+      <methodSignature>addModels(array $options): self</methodSignature>
+      <fullMethod>addModels(array $options): self</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Classes</className>
+      <methodName>extends</methodName>
+      <methodSignature>extends(): string</methodSignature>
+      <fullMethod>extends(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Classes</className>
+      <methodName>implements</methodName>
+      <methodSignature>implements(): array</methodSignature>
+      <fullMethod>implements(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Classes</className>
+      <methodName>models</methodName>
+      <methodSignature>models(): array</methodSignature>
+      <fullMethod>models(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Components</className>
+      <methodName>addComponents</methodName>
+      <methodSignature>addComponents(array $options): self</methodSignature>
+      <fullMethod>addComponents(array $options): self</fullMethod>
+      <crap>6</crap>
+      <complexity>6</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Components</className>
       <methodName>factory</methodName>
       <methodSignature>factory(): bool</methodSignature>
       <fullMethod>factory(): bool</fullMethod>
@@ -529,8 +540,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Model</className>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Components</className>
       <methodName>migration</methodName>
       <methodSignature>migration(): bool</methodSignature>
       <fullMethod>migration(): bool</fullMethod>
@@ -540,8 +551,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Model</className>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Components</className>
       <methodName>policy</methodName>
       <methodSignature>policy(): bool</methodSignature>
       <fullMethod>policy(): bool</fullMethod>
@@ -551,8 +562,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Model</className>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Components</className>
       <methodName>seed</methodName>
       <methodSignature>seed(): bool</methodSignature>
       <fullMethod>seed(): bool</fullMethod>
@@ -562,11 +573,55 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Model</className>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Components</className>
       <methodName>test</methodName>
       <methodSignature>test(): bool</methodSignature>
       <fullMethod>test(): bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Creating</className>
+      <methodName>addCreate</methodName>
+      <methodSignature>addCreate(array $options): self</methodSignature>
+      <fullMethod>addCreate(array $options): self</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Creating</className>
+      <methodName>create</methodName>
+      <methodSignature>create(): ?Playground\Stub\Configuration\Model\Create</methodSignature>
+      <fullMethod>create(): ?Playground\Stub\Configuration\Model\Create</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Filters</className>
+      <methodName>addFilters</methodName>
+      <methodSignature>addFilters(array $options): self</methodSignature>
+      <fullMethod>addFilters(array $options): self</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Filters</className>
+      <methodName>filters</methodName>
+      <methodSignature>filters(): ?Playground\Stub\Configuration\Model\Filters</methodSignature>
+      <fullMethod>filters(): ?Playground\Stub\Configuration\Model\Filters</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -622,6 +677,39 @@
       <methodName>HasMany</methodName>
       <methodSignature>HasMany(): array</methodSignature>
       <fullMethod>HasMany(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Scopes</className>
+      <methodName>addScopes</methodName>
+      <methodSignature>addScopes(array $options): self</methodSignature>
+      <fullMethod>addScopes(array $options): self</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Scopes</className>
+      <methodName>addScope</methodName>
+      <methodSignature>addScope(mixed $scope, mixed $meta): self</methodSignature>
+      <fullMethod>addScope(mixed $scope, mixed $meta): self</fullMethod>
+      <crap>20.73</crap>
+      <complexity>12</complexity>
+      <coverage>60.71</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Scopes</className>
+      <methodName>scopes</methodName>
+      <methodSignature>scopes(): array</methodSignature>
+      <fullMethod>scopes(): array</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -2998,8 +3086,8 @@
       <methodName>getConfigurationFilename</methodName>
       <methodSignature>getConfigurationFilename(): string</methodSignature>
       <fullMethod>getConfigurationFilename(): string</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
+      <crap>3</crap>
+      <complexity>3</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
