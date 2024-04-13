@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-13 20:36:33</timestamp>
+  <timestamp>2024-04-13 23:25:54</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>314</methodCount>
-    <crapMethodCount>24</crapMethodCount>
-    <crapLoad>333</crapLoad>
-    <totalCrap>7592.13</totalCrap>
-    <crapMethodPercent>7.64</crapMethodPercent>
+    <methodCount>313</methodCount>
+    <crapMethodCount>23</crapMethodCount>
+    <crapLoad>322</crapLoad>
+    <totalCrap>7521.59</totalCrap>
+    <crapMethodPercent>7.35</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -3064,10 +3064,10 @@
       <methodName>handle</methodName>
       <methodSignature>handle()</methodSignature>
       <fullMethod>handle()</fullMethod>
-      <crap>70.88</crap>
-      <complexity>27</complexity>
-      <coverage>60.81</coverage>
-      <crapLoad>11</crapLoad>
+      <crap>31</crap>
+      <complexity>31</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
@@ -3152,9 +3152,9 @@
       <methodName>getStub</methodName>
       <methodSignature>getStub()</methodSignature>
       <fullMethod>getStub()</fullMethod>
-      <crap>6.66</crap>
+      <crap>6</crap>
       <complexity>6</complexity>
-      <coverage>73.68</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3177,17 +3177,6 @@
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\ModelMakeCommand</className>
-      <methodName>afterPromptingForMissingArguments</methodName>
-      <methodSignature>afterPromptingForMissingArguments(Symfony\Component\Console\Input\InputInterface $input, Symfony\Component\Console\Output\OutputInterface $output)</methodSignature>
-      <fullMethod>afterPromptingForMissingArguments(Symfony\Component\Console\Input\InputInterface $input, Symfony\Component\Console\Output\OutputInterface $output)</fullMethod>
-      <crap>30</crap>
-      <complexity>5</complexity>
-      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
