@@ -78,10 +78,43 @@ Instance (Tests\Unit\Playground\Stub\Configuration\Migration\Instance)
  [x] Folder is empty by default
  [x] Migration for model with file and skeleton
 
+Instance (Tests\Unit\Playground\Stub\Configuration\Model\CreateColumn\Instance)
+ [x] Instance
+ [x] Model with file and skeleton jsonSerialize
+ [x] SetOptions unsupported primary and log message
+
 Instance (Tests\Unit\Playground\Stub\Configuration\Model\Create\Instance)
  [x] Instance
  [x] Model with file and skeleton
  [x] SetOptions unsupported primary and ignore
+ [x] AddId with empty column
+ [x] AddUnique with empty column
+ [x] AddDate with empty column
+ [x] AddFlag with empty column
+ [x] AddColumn with empty column
+ [x] AddPermission with empty column
+ [x] AddStatus with empty column
+ [x] AddUi with empty column
+ [x] AddJson with empty column
+
+Instance (Tests\Unit\Playground\Stub\Configuration\Model\Filter\Instance)
+ [x] Instance
+ [x] Instance apply without options
+
+Instance (Tests\Unit\Playground\Stub\Configuration\Model\Filters\Instance)
+ [x] Instance
+ [x] Instance apply without options
+ [x] Model with file and skeleton
+ [x] SetOptions with builder in options
+ [x] AddId with empty meta
+ [x] AddDate with empty meta
+ [x] AddFlag with empty meta
+ [x] HandleTrash with empty meta
+ [x] AddColumn with empty meta
+ [x] AddPermission with empty meta
+ [x] AddStatus with empty meta
+ [x] AddUi with empty meta
+ [x] AddJson with empty meta
 
 Instance (Tests\Unit\Playground\Stub\Configuration\Model\Instance)
  [x] Instance
