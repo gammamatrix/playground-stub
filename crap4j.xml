@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-13 18:31:48</timestamp>
+  <timestamp>2024-04-13 20:36:33</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>312</methodCount>
-    <crapMethodCount>22</crapMethodCount>
-    <crapLoad>316</crapLoad>
-    <totalCrap>7719.5</totalCrap>
-    <crapMethodPercent>7.05</crapMethodPercent>
+    <methodCount>314</methodCount>
+    <crapMethodCount>24</crapMethodCount>
+    <crapLoad>333</crapLoad>
+    <totalCrap>7592.13</totalCrap>
+    <crapMethodPercent>7.64</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -589,8 +589,19 @@
       <methodName>addComponents</methodName>
       <methodSignature>addComponents(array $options): self</methodSignature>
       <fullMethod>addComponents(array $options): self</fullMethod>
-      <crap>6</crap>
-      <complexity>6</complexity>
+      <crap>8.15</crap>
+      <complexity>8</complexity>
+      <coverage>86.67</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Components</className>
+      <methodName>controller</methodName>
+      <methodSignature>controller(): bool</methodSignature>
+      <fullMethod>controller(): bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -622,6 +633,17 @@
       <methodName>policy</methodName>
       <methodSignature>policy(): bool</methodSignature>
       <fullMethod>policy(): bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Components</className>
+      <methodName>requests</methodName>
+      <methodSignature>requests(): bool</methodSignature>
+      <fullMethod>requests(): bool</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -2294,10 +2316,10 @@
       <methodName>buildClass_model</methodName>
       <methodSignature>buildClass_model(string $name): void</methodSignature>
       <fullMethod>buildClass_model(string $name): void</fullMethod>
-      <crap>650</crap>
-      <complexity>25</complexity>
+      <crap>462</crap>
+      <complexity>21</complexity>
       <coverage>0</coverage>
-      <crapLoad>26</crapLoad>
+      <crapLoad>21</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands\Concerns</package>
@@ -2635,8 +2657,8 @@
       <methodName>getConfigurationType</methodName>
       <methodSignature>getConfigurationType(): string</methodSignature>
       <fullMethod>getConfigurationType(): string</fullMethod>
-      <crap>30</crap>
-      <complexity>5</complexity>
+      <crap>20</crap>
+      <complexity>4</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -3042,10 +3064,10 @@
       <methodName>handle</methodName>
       <methodSignature>handle()</methodSignature>
       <fullMethod>handle()</fullMethod>
-      <crap>27.23</crap>
-      <complexity>23</complexity>
-      <coverage>80</coverage>
-      <crapLoad>0</crapLoad>
+      <crap>70.88</crap>
+      <complexity>27</complexity>
+      <coverage>60.81</coverage>
+      <crapLoad>11</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
@@ -3062,21 +3084,43 @@
       <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\ModelMakeCommand</className>
       <methodName>createFactory</methodName>
-      <methodSignature>createFactory()</methodSignature>
-      <fullMethod>createFactory()</fullMethod>
-      <crap>5.04</crap>
-      <complexity>5</complexity>
-      <coverage>88.24</coverage>
+      <methodSignature>createFactory(): void</methodSignature>
+      <fullMethod>createFactory(): void</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\ModelMakeCommand</className>
       <methodName>createMigration</methodName>
-      <methodSignature>createMigration()</methodSignature>
-      <fullMethod>createMigration()</fullMethod>
-      <crap>13</crap>
-      <complexity>13</complexity>
+      <methodSignature>createMigration(): void</methodSignature>
+      <fullMethod>createMigration(): void</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\ModelMakeCommand</className>
+      <methodName>createController</methodName>
+      <methodSignature>createController(): void</methodSignature>
+      <fullMethod>createController(): void</fullMethod>
+      <crap>90</crap>
+      <complexity>9</complexity>
+      <coverage>0</coverage>
+      <crapLoad>9</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\ModelMakeCommand</className>
+      <methodName>createPolicy</methodName>
+      <methodSignature>createPolicy(): void</methodSignature>
+      <fullMethod>createPolicy(): void</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -3084,33 +3128,11 @@
       <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\ModelMakeCommand</className>
       <methodName>createSeeder</methodName>
-      <methodSignature>createSeeder()</methodSignature>
-      <fullMethod>createSeeder()</fullMethod>
-      <crap>20</crap>
+      <methodSignature>createSeeder(): void</methodSignature>
+      <fullMethod>createSeeder(): void</fullMethod>
+      <crap>4</crap>
       <complexity>4</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\ModelMakeCommand</className>
-      <methodName>createController</methodName>
-      <methodSignature>createController()</methodSignature>
-      <fullMethod>createController()</fullMethod>
-      <crap>30</crap>
-      <complexity>5</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\ModelMakeCommand</className>
-      <methodName>createPolicy</methodName>
-      <methodSignature>createPolicy()</methodSignature>
-      <fullMethod>createPolicy()</fullMethod>
-      <crap>4.13</crap>
-      <complexity>4</complexity>
-      <coverage>80</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3119,8 +3141,8 @@
       <methodName>createTest</methodName>
       <methodSignature>createTest()</methodSignature>
       <fullMethod>createTest()</fullMethod>
-      <crap>15</crap>
-      <complexity>15</complexity>
+      <crap>4</crap>
+      <complexity>4</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
