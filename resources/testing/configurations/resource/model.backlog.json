@@ -12,9 +12,11 @@
     "table": "matrix_backlogs",
     "extends": "AbstractModel",
     "implements": [],
+    "controller": true,
     "factory": true,
     "migration": true,
     "policy": true,
+    "requests": true,
     "seed": false,
     "test": true,
     "HasOne": {

@@ -39,11 +39,13 @@ class Model extends Configuration
         'model' => '',
         'type' => '',
         'table' => '',
-        'factory' => true,
-        'migration' => true,
+        'controller' => false,
+        'factory' => false,
+        'migration' => false,
         'policy' => false,
+        'requests' => false,
         'seed' => false,
-        'test' => true,
+        'test' => false,
         // "organization": "GammaMatrix",
         // "package": "playground-matrix",
         // "module": "Matrix",
@@ -165,4 +167,9 @@ class Model extends Configuration
     {
         return $this->table;
     }
+
+    // public function type(): string
+    // {
+    //     return $this->type;
+    // }
 }

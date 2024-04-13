@@ -96,13 +96,11 @@ trait BuildingClasses
     {
         $model = '';
         $modelConfiguration = $this->getModelConfiguration();
-        if (! empty($modelConfiguration['name'])
-            && is_string($modelConfiguration['name'])
-        ) {
+        if ($modelConfiguration?->name()) {
             $model = $this->parseClassInput(sprintf(
                 '%1$s/Models/%2$s',
-                is_string($modelConfiguration['namespace']) ? rtrim($modelConfiguration['namespace'], '\\/') : '',
-                is_string($modelConfiguration['name']) ? rtrim($modelConfiguration['name'], '\\/') : ''
+                rtrim($modelConfiguration->namespace(), '\\/'),
+                rtrim($modelConfiguration->name(), '\\/')
             ));
         }
         // dump([
@@ -185,10 +183,9 @@ trait BuildingClasses
                 $this->searches['table'] = $this->configuration['table'];
             }
             if (empty($this->searches['table'])
-                && ! empty($modelConfiguration['table'])
-                && is_string($modelConfiguration['table'])
+                && $modelConfiguration?->table()
             ) {
-                $this->searches['table'] = $modelConfiguration['table'];
+                $this->searches['table'] = $modelConfiguration->table();
             }
         }
 

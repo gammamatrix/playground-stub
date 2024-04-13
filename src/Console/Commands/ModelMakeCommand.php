@@ -123,19 +123,19 @@ class ModelMakeCommand extends GeneratorCommand
      */
     protected $type = 'Model';
 
-    public bool $createAll = false;
+    // public bool $createAll = false;
 
-    public bool $createController = false;
+    // public bool $createController = false;
 
-    public bool $createFactory = false;
+    // public bool $createFactory = false;
 
-    public bool $createMigration = false;
+    // public bool $createMigration = false;
 
-    public bool $createSeeder = false;
+    // public bool $createSeeder = false;
 
-    public bool $createPolicy = false;
+    // public bool $createPolicy = false;
 
-    public bool $createTest = false;
+    // public bool $createTest = false;
 
     /**
      * Execute the console command.
@@ -146,92 +146,110 @@ class ModelMakeCommand extends GeneratorCommand
             return false;
         }
 
-        $this->createAll = $this->hasOption('all') && $this->option('all');
+        // $this->createAll = $this->hasOption('all') && $this->option('all');
 
-        if ($this->createAll) {
-            $this->createController = true;
-            $this->createFactory = true;
-            $this->createMigration = true;
-            $this->createSeeder = true;
-            $this->createPolicy = true;
-            $this->createTest = true;
+        if ($this->hasOption('all') && $this->option('all')) {
+            // $this->createController = true;
+            // $this->createFactory = true;
+            // $this->createMigration = true;
+            // $this->createSeeder = true;
+            // $this->createPolicy = true;
+            // $this->createTest = true;
+
+            $this->c->setOptions([
+                'controller' => true,
+                'factory' => true,
+                'migration' => true,
+                'policy' => true,
+                'requests' => true,
+                'seed' => true,
+                'test' => true,
+            ]);
+
+        } else {
+
+            // Check options
+
+            if ($this->hasOption('controller') && $this->option('controller')) {
+                $this->c->setOptions([
+                    'controller' => true,
+                ]);
+            }
+
+            if ($this->hasOption('factory') && $this->option('factory')) {
+                $this->c->setOptions([
+                    'factory' => true,
+                ]);
+            }
+
+            if ($this->hasOption('migration') && $this->option('migration')) {
+                $this->c->setOptions([
+                    'migration' => true,
+                ]);
+            }
+
+            if ($this->hasOption('policy') && $this->option('policy')) {
+                $this->c->setOptions([
+                    'policy' => true,
+                ]);
+            }
+
+            if ($this->hasOption('requests') && $this->option('requests')) {
+                $this->c->setOptions([
+                    'requests' => true,
+                ]);
+            }
+
+            if ($this->hasOption('seed') && $this->option('seed')) {
+                $this->c->setOptions([
+                    'seed' => true,
+                ]);
+            }
+
+            if ($this->hasOption('test') && $this->option('test')) {
+                $this->c->setOptions([
+                    'test' => true,
+                ]);
+            }
+
         }
 
-        // if (in_array($this->c->type(), [
-        //     'pivot',
-        // ])) {
-        //     $this->createMigration = true;
-        // }
+        if (in_array($this->c->type(), [
+            'pivot',
+        ])) {
+            $this->c->setOptions([
+                'migration' => true,
+            ]);
+        }
 
         if (in_array($this->c->type(), [
             'api',
         ])) {
-            $this->createController = true;
-            $this->createPolicy = true;
+            $this->c->setOptions([
+                'controller' => true,
+                'policy' => true,
+            ]);
         }
 
         if (in_array($this->c->type(), [
             'resource',
-            // 'playground-api',
-            // 'playground-resource',
+            'playground-api',
+            'playground-resource',
         ])) {
-            $this->createFactory = true;
-            $this->createMigration = true;
+            $this->c->setOptions([
+                'controller' => true,
+                'factory' => true,
+                'policy' => true,
+            ]);
         }
 
-        if (! empty($this->configuration['factory'])
-            || $this->option('factory')
-        ) {
-            $this->createFactory = true;
-        }
-
-        if (! empty($this->configuration['migration'])
-            || $this->option('migration')
-        ) {
-            $this->createMigration = true;
-        }
-
-        if (! empty($this->configuration['seed'])
-            || $this->option('seed')
-        ) {
-            $this->createSeeder = true;
-        }
-
-        if (! empty($this->configuration['policy'])
-            || $this->option('policy')
-        ) {
-            $this->createPolicy = true;
-        }
-
-        if (! empty($this->configuration['test'])
-            || $this->option('test')
-        ) {
-            $this->createTest = true;
-        }
-
-        if ($this->option('skeleton')) {
-            if ($this->path_to_configuration) {
-                $this->createMigration = true;
-                $this->createTest = true;
-            }
-        }
-
-        // if ($this->option('all')) {
-        //     $this->input->setOption('factory', true);
-        //     $this->input->setOption('seed', true);
-        //     $this->input->setOption('migration', true);
-        //     $this->input->setOption('controller', true);
-        //     $this->input->setOption('policy', true);
-        //     $this->input->setOption('resource', true);
-        // }
-
-        if ($this->createFactory) {
+        if ($this->c->factory()) {
             $this->createFactory();
         }
         // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$this->qualifiedName' => $this->qualifiedName,
-        //     // '$this->configuration' => $this->configuration,
+        //     // '$this->c' => $this->c,
         //     '$this->searches' => $this->searches,
         //     // '$this->createController' => $this->createController,
         //     // '$this->createFactory' => $this->createFactory,
@@ -241,23 +259,23 @@ class ModelMakeCommand extends GeneratorCommand
         //     '$this->options()' => $this->options(),
         // ]);
 
-        if ($this->createMigration) {
+        if ($this->c->migration()) {
             $this->createMigration();
         }
 
-        // if ($this->createSeeder) {
-        //     $this->createSeeder();
-        // }
+        if ($this->c->seed()) {
+            $this->createSeeder();
+        }
 
-        // if ($this->createController) {
+        // if ($this->c->controller()) {
         //     $this->createController();
         // }
 
-        if ($this->createPolicy) {
+        if ($this->c->policy()) {
             $this->createPolicy();
         }
 
-        if ($this->createTest) {
+        if ($this->c->test()) {
             $this->createTest();
         }
 
@@ -316,22 +334,71 @@ class ModelMakeCommand extends GeneratorCommand
         //     '__METHOD__' => __METHOD__,
         //     // '$config' => $config,
         //     // '$config_columns' => $config_columns,
-        //     // '$this->configuration[table]' => $this->configuration['table'],
         //     // '$this->searches[table]' => $this->searches['table'],
-        //     '$this->configuration' => $this->configuration,
         //     '$this->searches' => $this->searches,
         // ]);
         return parent::buildClass($name);
     }
 
     /**
-     * Create a model factory for the model.
+     * Create a factory file for the model.
      *
-     * @return void
+     * @see FactoryMakeCommand
      */
-    protected function createFactory()
+    protected function createFactory(): void
     {
         $force = $this->hasOption('force') && $this->option('force');
+        $file = $this->option('file');
+
+        $params = [
+            'name' => Str::of(class_basename($this->qualifiedName))
+                ->studly()->finish('Factory')->toString(),
+            '--namespace' => $this->c->namespace(),
+            '--force' => $force,
+            '--package' => $this->c->package(),
+            '--organization' => $this->c->organization(),
+            '--model' => $this->c->model(),
+            '--module' => $this->c->module(),
+            '--model-file' => $file,
+            '--type' => $this->c->type(),
+        ];
+
+        if (! empty($file) && is_string($file)) {
+            $params['--model-file'] = $file;
+        }
+
+        $this->call('playground:make:factory', $params);
+    }
+
+    /**
+     * Create a migration file for the model.
+     *
+     * @see MigrationMakeCommand
+     */
+    protected function createMigration(): void
+    {
+        $force = $this->hasOption('force') && $this->option('force');
+        $file = $this->option('file');
+
+        $params = [
+            'name' => $this->c->name(),
+            '--namespace' => $this->c->namespace(),
+            '--force' => $force,
+            '--package' => $this->c->package(),
+            '--organization' => $this->c->organization(),
+            '--model' => $this->c->model(),
+            '--module' => $this->c->module(),
+            '--model-file' => $file,
+            '--type' => $this->c->type(),
+        ];
+
+        if (! empty($file) && is_string($file)) {
+            $params['--model-file'] = $file;
+        }
+
+        $this->call('playground:make:migration', $params);
+
+        // $force = $this->hasOption('force') && $this->option('force');
         // $model = $this->hasOption('model') ? $this->option('model') : '';
         // $module = $this->hasOption('module') ? $this->option('module') : '';
         // $name = $this->argument('name');
@@ -340,13 +407,322 @@ class ModelMakeCommand extends GeneratorCommand
         // $organization = $this->hasOption('organization') ? $this->option('organization') : '';
         // $package = $this->hasOption('package') ? $this->option('package') : '';
 
+        // $table = Str::snake(Str::pluralStudly(class_basename($this->qualifiedName)));
+        // // dump([
+        // //     '__METHOD__' => __METHOD__,
+        // //     // '$this->argument(name)' => $this->argument('name'),
+        // //     '$this->qualifiedName' => $this->qualifiedName,
+        // // ]);
+
+        // // if ($this->option('pivot')) {
+        // //     $table = Str::singular($table);
+        // // }
+
+        // $file = $this->option('file');
+
+        // // if ($this->option('skeleton')) {
+        // //     if (empty($file) && $this->path_to_configuration) {
+        // //         $file = $this->path_to_configuration;
+        // //     }
+        // // }
+
+        // if (empty($model)) {
+        //     $model = $this->c->model();
+        // }
+        // if (empty($name)) {
+        //     $name = $this->c->name();
+        // }
+        // if (empty($organization)) {
+        //     $organization = $this->c->organization();
+        // }
+
+        // $params = [
+        //     'name' => $name,
+        //     '--namespace' => $namespace,
+        //     '--force' => $force,
+        //     '--package' => $package,
+        //     '--organization' => $organization,
+        //     '--model' => $model,
+        //     '--module' => $module,
+        //     '--file' => $file,
+        //     '--type' => $this->c->type(),
+        // ];
+
+        // // if (empty($params['--file'])) {
+        // //     $params['name'] = $this->qualifiedName;
+        // // }
+
+        // // if ($this->hasOption('force') && $this->option('force')) {
+        // //     $params['--force'] = true;
+        // // }
+
+        // // dump([
+        // //     '__METHOD__' => __METHOD__,
+        // //     '$this->c' => $this->c,
+        // //     '$this->searches' => $this->searches,
+        // //     '$this->qualifiedName' => $this->qualifiedName,
+        // //     '$table' => $table,
+        // //     '$params' => $params,
+        // // ]);
+        // $this->call('playground:make:migration', $params);
+
+        // // $this->call('playground:make:migration', [
+        // //     // 'name' => "create_{$table}_table",
+        // //     'name' => $this->qualifiedName,
+        // //     // '--create' => $table,
+        // // ]);
+    }
+
+    /**
+     * Create a controller for the model.
+     *
+     * @see PolicyMakeCommand
+     * @see SeederMakeCommand
+     * @see TestMakeCommand
+     */
+    protected function createController(): void
+    {
+        $force = $this->hasOption('force') && $this->option('force');
         $file = $this->option('file');
 
-        if ($this->c->skeleton()) {
-            if (empty($file) && $this->path_to_configuration) {
-                $file = $this->path_to_configuration;
+        $params = [
+            'name' => Str::of(class_basename($this->qualifiedName))
+                ->studly()->finish('Controller')->toString(),
+            '--namespace' => $this->c->namespace(),
+            '--force' => $force,
+            '--package' => $this->c->package(),
+            '--organization' => $this->c->organization(),
+            '--model' => $this->c->model(),
+            '--module' => $this->c->module(),
+            '--type' => $this->c->type(),
+        ];
+
+        if ($this->option('api')) {
+            $params['--api'] = true;
+        } elseif ($this->option('resource')) {
+            $params['--resource'] = true;
+        } else {
+            if (in_array($this->c->type(), [
+                'resource',
+                'playground-resource',
+            ])) {
+                $params['--resource'] = true;
+            } elseif (in_array($this->c->type(), [
+                'api',
+                'playground-api',
+            ])) {
+                $params['--api'] = true;
             }
         }
+        if ($this->c->requests()) {
+            $params['--requests'] = true;
+        }
+
+        if (! empty($file) && is_string($file)) {
+            $params['--model-file'] = $file;
+        }
+
+        $this->call('playground:make:controller', $params);
+
+        // $controller = Str::studly(class_basename($this->qualifiedName));
+
+        // // $modelName = $this->qualifyClass($this->getNameInput());
+
+        // $params = [
+        //     '--file' => $this->option('file'),
+        // ];
+
+        // if (empty($params['--file'])) {
+        //     $params['name'] = "{$controller}Controller";
+        //     // $params['--model'] = $this->option('resource') || $this->option('api') ? $modelName : null;
+        //     $params['--model'] = $this->qualifiedName;
+        //     if ($this->option('api')) {
+        //         $params['--api'] = true;
+        //     } elseif ($this->option('resource')) {
+        //         $params['--resource'] = true;
+        //     } else {
+        //         if (in_array($this->c->type(), [
+        //             'resource',
+        //             'playground-resource',
+        //         ])) {
+        //             $params['--resource'] = true;
+        //         } elseif (in_array($this->c->type(), [
+        //             'api',
+        //             'playground-api',
+        //         ])) {
+        //             $params['--api'] = true;
+        //         }
+        //     }
+        //     $params['--requests'] = $this->c->requests();
+        // }
+
+        // if ($this->hasOption('force') && $this->option('force')) {
+        //     $params['--force'] = true;
+        // }
+
+        // $this->call('playground:make:controller', $params);
+
+        // // $this->call('playground:make:controller', array_filter([
+        // //     'name' => "{$controller}Controller",
+        // //     '--model' => $this->option('resource') || $this->option('api') ? $modelName : null,
+        // //     '--api' => $this->option('api'),
+        // //     '--requests' => $this->option('requests') || $this->option('all'),
+        // // ]));
+
+        // // $force = $this->hasOption('force') && $this->option('force');
+        // // $file = $this->option('file');
+
+        // // // $seeder = Str::studly(class_basename($this->argument('name')));
+        // // $seeder = Str::studly(class_basename($this->qualifiedName));
+
+        // // $params = [
+        // //     'name' => sprintf('%1$sSeeder', Str::studly(class_basename($this->qualifiedName))),
+        // //     '--namespace' => $this->c->namespace(),
+        // //     '--force' => $force,
+        // //     '--package' => $this->c->package(),
+        // //     '--organization' => $this->c->organization(),
+        // //     '--model' => $this->c->model(),
+        // //     '--module' => $this->c->module(),
+        // //     '--type' => $this->c->type(),
+        // // ];
+
+        // // if (! empty($file) && is_string($file)) {
+        // //     $params['--model-file'] = $file;
+        // // }
+
+        // // $this->call('playground:make:controller', $params);
+
+    }
+
+    /**
+     * Create a policy file for the model.
+     *
+     * @see PolicyMakeCommand
+     */
+    protected function createPolicy(): void
+    {
+        $force = $this->hasOption('force') && $this->option('force');
+        $file = $this->option('file');
+
+        $params = [
+            'name' => Str::of(class_basename($this->qualifiedName))
+                ->studly()->finish('Policy')->toString(),
+            '--namespace' => $this->c->namespace(),
+            '--force' => $force,
+            '--package' => $this->c->package(),
+            '--organization' => $this->c->organization(),
+            '--model' => $this->c->model(),
+            '--module' => $this->c->module(),
+            '--type' => $this->c->type(),
+        ];
+
+        if (! empty($file) && is_string($file)) {
+            $params['--model-file'] = $file;
+        }
+
+        $this->call('playground:make:policy', $params);
+    }
+
+    /**
+     * Create a seeder file for the model.
+     *
+     * @see SeederMakeCommand
+     */
+    protected function createSeeder(): void
+    {
+        $force = $this->hasOption('force') && $this->option('force');
+        $file = $this->option('file');
+
+        $params = [
+            'name' => Str::of(class_basename($this->qualifiedName))
+                ->studly()->finish('Seeder')->toString(),
+            '--namespace' => $this->c->namespace(),
+            '--force' => $force,
+            '--package' => $this->c->package(),
+            '--organization' => $this->c->organization(),
+            '--model' => $this->c->model(),
+            '--module' => $this->c->module(),
+            '--type' => $this->c->type(),
+        ];
+
+        if (! empty($file) && is_string($file)) {
+            $params['--model-file'] = $file;
+        }
+
+        $this->call('playground:make:seeder', $params);
+    }
+
+    /**
+     * Create a test file for the model.
+     *
+     * @return void
+     */
+    protected function createTest()
+    {
+        $force = $this->hasOption('force') && $this->option('force');
+        $file = $this->option('file');
+
+        $params = [
+            'name' => Str::of(class_basename($this->qualifiedName))
+                ->studly()->finish('Policy')->toString(),
+            '--namespace' => $this->c->namespace(),
+            '--force' => $force,
+            '--package' => $this->c->package(),
+            '--organization' => $this->c->organization(),
+            '--model' => $this->c->model(),
+            '--module' => $this->c->module(),
+            '--type' => $this->c->type(),
+        ];
+
+        if (! empty($file) && is_string($file)) {
+            $params['--model-file'] = $file;
+        }
+
+        $params['--suite'] = 'unit';
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     // '$this->c' => $this->c,
+        //     // '$this->searches' => $this->searches,
+        //     '$this->qualifiedName' => $this->qualifiedName,
+        //     // '$table' => $table,
+        //     '$params' => $params,
+        // ]);
+        $this->call('playground:make:test', $params);
+
+        $params['--suite'] = 'feature';
+        $this->call('playground:make:test', $params);
+
+        // $this->c->setOptions([
+        //     'test' => true,
+        // ]);
+
+        // $force = $this->hasOption('force') && $this->option('force');
+        // $model = $this->hasOption('model') ? $this->option('model') : '';
+        // $module = $this->hasOption('module') ? $this->option('module') : '';
+        // $name = $this->argument('name');
+        // // $name = $this->qualifiedName;
+        // $namespace = $this->hasOption('namespace') ? $this->option('namespace') : '';
+        // $organization = $this->hasOption('organization') ? $this->option('organization') : '';
+        // $package = $this->hasOption('package') ? $this->option('package') : '';
+
+        // // $table = Str::snake(Str::pluralStudly(class_basename($this->qualifiedName)));
+        // // dd([
+        // //     '__METHOD__' => __METHOD__,
+        // //     // '$this->argument(name)' => $this->argument('name'),
+        // //     '$this->qualifiedName' => $this->qualifiedName,
+        // // ]);
+
+        // // if ($this->option('pivot')) {
+        // //     $table = Str::singular($table);
+        // // }
+
+        // $file = $this->option('file');
+
+        // // if ($this->option('skeleton')) {
+        // //     if (empty($file) && $this->path_to_configuration) {
+        // //         $file = $this->path_to_configuration;
+        // //     }
+        // // }
 
         // if (empty($package)) {
         //     $package = $this->c->package();
@@ -364,303 +740,49 @@ class ModelMakeCommand extends GeneratorCommand
         //     $organization = $this->c->organization();
         // }
 
-        $params = [
-            // 'name' => $name.'Factory',
-            // '--namespace' => $namespace,
-            // '--force' => $force,
-            // '--package' => $package,
-            // '--organization' => $organization,
-            // '--model' => $model,
-            // '--module' => $module,
-            // '--model-file' => $file,
-            // '--type' => $this->c->type(),
-            'name' => $this->c->name().'Factory',
-            '--namespace' => $this->c->namespace(),
-            '--force' => $force,
-            '--package' => $this->c->package(),
-            '--organization' => $this->c->organization(),
-            '--model' => $this->c->model(),
-            '--module' => $this->c->module(),
-            '--model-file' => $file,
-            '--type' => $this->c->type(),
-        ];
+        // $params = [
+        //     'name' => $name,
+        //     '--namespace' => $namespace,
+        //     '--force' => $force,
+        //     '--package' => $package,
+        //     '--organization' => $organization,
+        //     '--model' => $model,
+        //     '--module' => $module,
+        //     '--model-file' => $file,
+        //     '--type' => $this->c->type(),
+        // ];
 
-        $this->call('playground:make:factory', $params);
-    }
+        // // if (empty($params['--file'])) {
+        // //     $params['name'] = $this->qualifiedName;
+        // // }
 
-    /**
-     * Create a migration file for the model.
-     *
-     * @return void
-     */
-    protected function createMigration()
-    {
-        $force = $this->hasOption('force') && $this->option('force');
-        $model = $this->hasOption('model') ? $this->option('model') : '';
-        $module = $this->hasOption('module') ? $this->option('module') : '';
-        $name = $this->argument('name');
-        // $name = $this->qualifiedName;
-        $namespace = $this->hasOption('namespace') ? $this->option('namespace') : '';
-        $organization = $this->hasOption('organization') ? $this->option('organization') : '';
-        $package = $this->hasOption('package') ? $this->option('package') : '';
+        // // if ($this->hasOption('force') && $this->option('force')) {
+        // //     $params['--force'] = true;
+        // // }
 
-        $table = Str::snake(Str::pluralStudly(class_basename($this->qualifiedName)));
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     // '$this->argument(name)' => $this->argument('name'),
-        //     '$this->qualifiedName' => $this->qualifiedName,
+        // $params['--suite'] = 'unit';
+        // // dd([
+        // //     '__METHOD__' => __METHOD__,
+        // //     // '$this->c' => $this->c,
+        // //     // '$this->searches' => $this->searches,
+        // //     '$this->qualifiedName' => $this->qualifiedName,
+        // //     // '$table' => $table,
+        // //     '$params' => $params,
+        // // ]);
+        // $this->call('playground:make:test', $params);
+
+        // $params['--suite'] = 'feature';
+        // $this->call('playground:make:test', $params);
+
+        // $this->c->setOptions([
+        //     'test' => true,
         // ]);
 
-        // if ($this->option('pivot')) {
-        //     $table = Str::singular($table);
-        // }
-
-        $file = $this->option('file');
-
-        if ($this->option('skeleton')) {
-            if (empty($file) && $this->path_to_configuration) {
-                $file = $this->path_to_configuration;
-            }
-        }
-
-        if (empty($model)) {
-            $model = $this->c->model();
-        }
-        if (empty($name)) {
-            $name = $this->c->name();
-        }
-        if (empty($organization)) {
-            $organization = $this->c->organization();
-        }
-
-        $params = [
-            'name' => $name,
-            '--namespace' => $namespace,
-            '--force' => $force,
-            '--package' => $package,
-            '--organization' => $organization,
-            '--model' => $model,
-            '--module' => $module,
-            '--file' => $file,
-            '--type' => $this->c->type(),
-        ];
-
-        // if (empty($params['--file'])) {
-        //     $params['name'] = $this->qualifiedName;
-        // }
-
-        // if ($this->hasOption('force') && $this->option('force')) {
-        //     $params['--force'] = true;
-        // }
-
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$this->configuration' => $this->configuration,
-        //     '$this->searches' => $this->searches,
-        //     '$this->qualifiedName' => $this->qualifiedName,
-        //     '$table' => $table,
-        //     '$params' => $params,
-        // ]);
-        $this->call('playground:make:migration', $params);
-
-        // $this->call('playground:make:migration', [
-        //     // 'name' => "create_{$table}_table",
-        //     'name' => $this->qualifiedName,
-        //     // '--create' => $table,
-        // ]);
-    }
-
-    /**
-     * Create a seeder file for the model.
-     *
-     * @return void
-     */
-    protected function createSeeder()
-    {
-        // $seeder = Str::studly(class_basename($this->argument('name')));
-        $seeder = Str::studly(class_basename($this->qualifiedName));
-
-        $params = [
-            '--file' => $this->option('file'),
-        ];
-
-        if (empty($params['--file'])) {
-            $params['name'] = "{$seeder}Seeder";
-        }
-
-        if ($this->hasOption('force') && $this->option('force')) {
-            $params['--force'] = true;
-        }
-
-        $this->call('playground:make:seeder', $params);
-
-        // $this->call('playground:make:seeder', [
-        //     'name' => "{$seeder}Seeder",
-        // ]);
-    }
-
-    /**
-     * Create a controller for the model.
-     *
-     * @return void
-     */
-    protected function createController()
-    {
-        $controller = Str::studly(class_basename($this->qualifiedName));
-
-        // $modelName = $this->qualifyClass($this->getNameInput());
-
-        $params = [
-            '--file' => $this->option('file'),
-        ];
-
-        if (empty($params['--file'])) {
-            $params['name'] = "{$controller}Controller";
-            // $params['--model'] = $this->option('resource') || $this->option('api') ? $modelName : null;
-            $params['--model'] = $this->qualifiedName;
-            $params['--api'] = $this->option('api');
-            $params['--requests'] = $this->option('requests') || $this->createAll;
-        }
-
-        if ($this->hasOption('force') && $this->option('force')) {
-            $params['--force'] = true;
-        }
-
-        $this->call('playground:make:controller', $params);
-
-        // $this->call('playground:make:controller', array_filter([
-        //     'name' => "{$controller}Controller",
-        //     '--model' => $this->option('resource') || $this->option('api') ? $modelName : null,
-        //     '--api' => $this->option('api'),
-        //     '--requests' => $this->option('requests') || $this->option('all'),
-        // ]));
-    }
-
-    /**
-     * Create a policy file for the model.
-     *
-     * @return void
-     */
-    protected function createPolicy()
-    {
-        // $policy = Str::studly(class_basename($this->argument('name')));
-        $policy = Str::studly(class_basename($this->qualifiedName));
-
-        $params = [
-            '--file' => $this->option('file'),
-        ];
-
-        if (empty($params['--file'])) {
-            $params['name'] = "{$policy}Policy";
-            $params['--model'] = $this->qualifiedName;
-        }
-
-        if ($this->hasOption('force') && $this->option('force')) {
-            $params['--force'] = true;
-        }
-
-        $this->call('playground:make:policy', $params);
-
-        // $this->call('playground:make:policy', [
-        //     'name' => "{$policy}Policy",
-        //     '--model' => $this->qualifyClass($this->getNameInput()),
-        // ]);
-    }
-
-    /**
-     * Create a test file for the model.
-     *
-     * @return void
-     */
-    protected function createTest()
-    {
-        $force = $this->hasOption('force') && $this->option('force');
-        $model = $this->hasOption('model') ? $this->option('model') : '';
-        $module = $this->hasOption('module') ? $this->option('module') : '';
-        $name = $this->argument('name');
-        // $name = $this->qualifiedName;
-        $namespace = $this->hasOption('namespace') ? $this->option('namespace') : '';
-        $organization = $this->hasOption('organization') ? $this->option('organization') : '';
-        $package = $this->hasOption('package') ? $this->option('package') : '';
-
-        // $table = Str::snake(Str::pluralStudly(class_basename($this->qualifiedName)));
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     // '$this->argument(name)' => $this->argument('name'),
-        //     '$this->qualifiedName' => $this->qualifiedName,
-        // ]);
-
-        // if ($this->option('pivot')) {
-        //     $table = Str::singular($table);
-        // }
-
-        $file = $this->option('file');
-
-        if ($this->option('skeleton')) {
-            if (empty($file) && $this->path_to_configuration) {
-                $file = $this->path_to_configuration;
-            }
-        }
-
-        if (empty($package)) {
-            $package = $this->c->package();
-        }
-        if (empty($namespace)) {
-            $namespace = $this->c->namespace();
-        }
-        if (empty($model)) {
-            $model = $this->c->model();
-        }
-        if (empty($name)) {
-            $name = $this->c->name();
-        }
-        if (empty($organization)) {
-            $organization = $this->c->organization();
-        }
-
-        $params = [
-            'name' => $name,
-            '--namespace' => $namespace,
-            '--force' => $force,
-            '--package' => $package,
-            '--organization' => $organization,
-            '--model' => $model,
-            '--module' => $module,
-            '--model-file' => $file,
-            '--type' => $this->c->type(),
-        ];
-
-        // if (empty($params['--file'])) {
-        //     $params['name'] = $this->qualifiedName;
-        // }
-
-        // if ($this->hasOption('force') && $this->option('force')) {
-        //     $params['--force'] = true;
-        // }
-
-        $params['--suite'] = 'unit';
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     // '$this->configuration' => $this->configuration,
-        //     // '$this->searches' => $this->searches,
-        //     '$this->qualifiedName' => $this->qualifiedName,
-        //     // '$table' => $table,
-        //     '$params' => $params,
-        // ]);
-        $this->call('playground:make:test', $params);
-
-        $params['--suite'] = 'feature';
-        $this->call('playground:make:test', $params);
-
-        $this->c->setOptions([
-            'test' => true,
-        ]);
-
-        // $this->call('playground:make:test', [
-        //     // 'name' => "create_{$table}_table",
-        //     'name' => $this->qualifiedName,
-        //     // '--create' => $table,
-        // ]);
+        // // $this->call('playground:make:test', [
+        // //     // 'name' => "create_{$table}_table",
+        // //     'name' => $this->qualifiedName,
+        // //     // '--create' => $table,
+        // // ]);
     }
 
     /**

@@ -11,11 +11,15 @@ namespace Playground\Stub\Configuration\Model\Concerns;
  */
 trait Components
 {
+    protected bool $controller = false;
+
     protected bool $factory = false;
 
     protected bool $migration = false;
 
     protected bool $policy = false;
+
+    protected bool $requests = false;
 
     protected bool $seed = false;
 
@@ -26,6 +30,10 @@ trait Components
      */
     public function addComponents(array $options): self
     {
+        if (array_key_exists('controller', $options)) {
+            $this->controller = ! empty($options['controller']);
+        }
+
         if (array_key_exists('factory', $options)) {
             $this->factory = ! empty($options['factory']);
         }
@@ -38,6 +46,10 @@ trait Components
             $this->policy = ! empty($options['policy']);
         }
 
+        if (array_key_exists('requests', $options)) {
+            $this->requests = ! empty($options['requests']);
+        }
+
         if (array_key_exists('seed', $options)) {
             $this->seed = ! empty($options['seed']);
         }
@@ -47,6 +59,11 @@ trait Components
         }
 
         return $this;
+    }
+
+    public function controller(): bool
+    {
+        return $this->controller;
     }
 
     public function factory(): bool
@@ -62,6 +79,11 @@ trait Components
     public function policy(): bool
     {
         return $this->policy;
+    }
+
+    public function requests(): bool
+    {
+        return $this->requests;
     }
 
     public function seed(): bool

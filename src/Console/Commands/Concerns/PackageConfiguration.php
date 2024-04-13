@@ -663,7 +663,7 @@ trait PackageConfiguration
     protected function getConfigurationType(): string
     {
         $type = $this->c->type();
-        if (! $type || ! is_string($type)) {
+        if (! $type) {
             $type = $this->option('type');
             if (is_string($type)) {
                 $this->c->setOptions([
