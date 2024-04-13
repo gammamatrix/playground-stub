@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-13 17:35:59</timestamp>
+  <timestamp>2024-04-13 18:31:48</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>314</methodCount>
-    <crapMethodCount>23</crapMethodCount>
-    <crapLoad>328</crapLoad>
-    <totalCrap>7995.5</totalCrap>
-    <crapMethodPercent>7.32</crapMethodPercent>
+    <methodCount>312</methodCount>
+    <crapMethodCount>22</crapMethodCount>
+    <crapLoad>316</crapLoad>
+    <totalCrap>7719.5</totalCrap>
+    <crapMethodPercent>7.05</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -3174,10 +3174,10 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>132</crap>
+      <crap>11</crap>
       <complexity>11</complexity>
-      <coverage>0</coverage>
-      <crapLoad>11</crapLoad>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
@@ -3185,9 +3185,9 @@
       <methodName>getConfigurationFilename</methodName>
       <methodSignature>getConfigurationFilename(): string</methodSignature>
       <fullMethod>getConfigurationFilename(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3196,9 +3196,9 @@
       <methodName>buildClass</methodName>
       <methodSignature>buildClass($name): string</methodSignature>
       <fullMethod>buildClass($name): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3207,20 +3207,20 @@
       <methodName>buildClass_user_model</methodName>
       <methodSignature>buildClass_user_model(): void</methodSignature>
       <fullMethod>buildClass_user_model(): void</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\PolicyMakeCommand</className>
-      <methodName>replaceUserNamespace</methodName>
-      <methodSignature>replaceUserNamespace($stub)</methodSignature>
-      <fullMethod>replaceUserNamespace($stub)</fullMethod>
-      <crap>6</crap>
-      <complexity>2</complexity>
-      <coverage>0</coverage>
+      <methodName>userProviderModelGuard</methodName>
+      <methodSignature>userProviderModelGuard(mixed $guard): string</methodSignature>
+      <fullMethod>userProviderModelGuard(mixed $guard): string</fullMethod>
+      <crap>7</crap>
+      <complexity>7</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3229,9 +3229,9 @@
       <methodName>userProviderModel</methodName>
       <methodSignature>userProviderModel(): string</methodSignature>
       <fullMethod>userProviderModel(): string</fullMethod>
-      <crap>30</crap>
+      <crap>5</crap>
       <complexity>5</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3240,9 +3240,9 @@
       <methodName>getStub</methodName>
       <methodSignature>getStub()</methodSignature>
       <fullMethod>getStub()</fullMethod>
-      <crap>42</crap>
-      <complexity>6</complexity>
-      <coverage>0</coverage>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3251,9 +3251,9 @@
       <methodName>getDefaultNamespace</methodName>
       <methodSignature>getDefaultNamespace($rootNamespace)</methodSignature>
       <fullMethod>getDefaultNamespace($rootNamespace)</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3262,31 +3262,9 @@
       <methodName>getOptions</methodName>
       <methodSignature>getOptions(): array</methodSignature>
       <fullMethod>getOptions(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\PolicyMakeCommand</className>
-      <methodName>afterPromptingForMissingArguments</methodName>
-      <methodSignature>afterPromptingForMissingArguments(Symfony\Component\Console\Input\InputInterface $input, Symfony\Component\Console\Output\OutputInterface $output)</methodSignature>
-      <fullMethod>afterPromptingForMissingArguments(Symfony\Component\Console\Input\InputInterface $input, Symfony\Component\Console\Output\OutputInterface $output)</fullMethod>
-      <crap>30</crap>
-      <complexity>5</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\PolicyMakeCommand</className>
-      <methodName>possibleModels</methodName>
-      <methodSignature>possibleModels(): array</methodSignature>
-      <fullMethod>possibleModels(): array</fullMethod>
-      <crap>6</crap>
-      <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3295,9 +3273,9 @@
       <methodName>make_roles_to_view</methodName>
       <methodSignature>make_roles_to_view(array $searches): string</methodSignature>
       <fullMethod>make_roles_to_view(array $searches): string</fullMethod>
-      <crap>30</crap>
+      <crap>5</crap>
       <complexity>5</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3306,9 +3284,9 @@
       <methodName>make_roles_for_action</methodName>
       <methodSignature>make_roles_for_action(array $searches): string</methodSignature>
       <fullMethod>make_roles_for_action(array $searches): string</fullMethod>
-      <crap>30</crap>
+      <crap>5</crap>
       <complexity>5</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
