@@ -33,6 +33,8 @@ return [
     'Package.require-dev.package.required' => 'Ignoring a dev requirement: package [INVALID: :package] with version [:version] for the composer.json file.',
     'Package.require-dev.version.required' => 'Ignoring a dev requirement: package [:package] with version [INVALID: :version] for the composer.json file.',
 
+    'Policy.guard.required' => 'Creaating policies requires a guard [INVALID: :guard].',
+
     'Model.Create.primary.unexpected' => 'Unexpected type [INVALID: :primary] column - allowed: :allowed',
     'Model.CreateColumn.type.unexpected' => 'Unexpected type [:type] for column [:column] - allowed: :allowed',
 

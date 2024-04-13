@@ -7,7 +7,6 @@ declare(strict_types=1);
 namespace Playground\Stub\Console\Commands;
 
 use Illuminate\Support\Str;
-use LogicException;
 use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
 use Playground\Stub\Configuration\Policy as Configuration;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -154,55 +153,63 @@ class PolicyMakeCommand extends GeneratorCommand
 
     protected function buildClass_user_model(): void
     {
+        $upm = $this->userProviderModel();
         if (empty($this->searches[$this->laravel->getNamespace().'User'])) {
-            $this->searches[$this->laravel->getNamespace().'User'] = $this->userProviderModel();
+            $this->searches[$this->laravel->getNamespace().'User'] = $upm;
         }
 
-        $this->searches['NamespacedDummyUserModel'] = $this->userProviderModel();
-        $this->searches['namespacedUserModel'] = $this->userProviderModel();
+        $this->searches['NamespacedDummyUserModel'] = $upm;
+        $this->searches['namespacedUserModel'] = $upm;
     }
 
-    /**
-     * Replace the User model namespace.
-     *
-     * @param  string  $stub
-     * @return string
-     */
-    protected function replaceUserNamespace($stub)
-    {
-        $model = $this->userProviderModel();
+    // /**
+    //  * Replace the User model namespace.
+    //  *
+    //  * @param  string  $stub
+    //  * @return string
+    //  */
+    // protected function replaceUserNamespace($stub)
+    // {
+    //     $model = $this->userProviderModel();
 
-        if (! $model) {
-            return $stub;
+    //     if (! $model) {
+    //         return $stub;
+    //     }
+
+    //     return str_replace(
+    //         $this->laravel->getNamespace().'User',
+    //         $model,
+    //         $stub
+    //     );
+    // }
+
+    protected function userProviderModelGuard(mixed $guard): string
+    {
+        $guardProvider = is_string($guard) && $guard ? config('auth.guards.'.$guard.'.provider') : null;
+
+        if (! $guard || ! $guardProvider) {
+
+            throw new \RuntimeException(__('playground-stub::stub.Policy.guard.required', [
+                'guard' => is_string($guard) ? $guard : gettype($guard),
+            ]));
         }
 
-        return str_replace(
-            $this->laravel->getNamespace().'User',
-            $model,
-            $stub
-        );
+        return is_string($guardProvider) ? $guardProvider : '';
     }
 
     /**
      * Get the model for the guard's user provider.
      *
-     * @throws LogicException
+     * @throws \RuntimeException
      */
     protected function userProviderModel(): string
     {
         $guard = $this->option('guard') ?: config('auth.defaults.guard');
+        $guardProvider = $this->userProviderModelGuard($guard);
 
-        if (is_null($guardProvider = config('auth.guards.'.$guard.'.provider'))) {
-            throw new LogicException('The ['.$guard.'] guard is not defined in your "auth" configuration file.');
-        }
+        $upm = $guardProvider ? config('auth.providers.'.$guardProvider.'.model') : null;
 
-        $upm = config('auth.providers.'.$guardProvider.'.model');
-
-        if ($upm && is_string($upm)) {
-            return $upm;
-        }
-
-        return 'App\\Models\\User';
+        return $upm && is_string($upm) ? $upm : 'App\\Models\\User';
     }
 
     // /**
@@ -275,9 +282,7 @@ class PolicyMakeCommand extends GeneratorCommand
 
         $type = $this->getConfigurationType();
 
-        if ($type === 'controlpad-resource') {
-            $template = 'policy/policy.controlpad-resource.stub';
-        } elseif ($type === 'playground-resource') {
+        if ($type === 'playground-resource') {
             $template = 'policy/policy.playground-resource.stub';
         } elseif ($type === 'playground-api') {
             $template = 'policy/policy.playground-api.stub';
@@ -342,44 +347,44 @@ class PolicyMakeCommand extends GeneratorCommand
         // ];
     }
 
-    /**
-     * Interact further with the user if they were prompted for missing arguments.
-     *
-     * @return void
-     */
-    protected function afterPromptingForMissingArguments(InputInterface $input, OutputInterface $output)
-    {
-        $name = $this->getNameInput();
-        if (($name && $this->isReservedName($name)) || $this->didReceiveOptions($input)) {
-            return;
-        }
+    // /**
+    //  * Interact further with the user if they were prompted for missing arguments.
+    //  *
+    //  * @return void
+    //  */
+    // protected function afterPromptingForMissingArguments(InputInterface $input, OutputInterface $output)
+    // {
+    //     $name = $this->getNameInput();
+    //     if (($name && $this->isReservedName($name)) || $this->didReceiveOptions($input)) {
+    //         return;
+    //     }
 
-        $model = suggest(
-            'What model should this policy apply to? (Optional)',
-            $this->possibleModels(),
-        );
+    //     $model = suggest(
+    //         'What model should this policy apply to? (Optional)',
+    //         $this->possibleModels(),
+    //     );
 
-        if ($model) {
-            $input->setOption('model', $model);
-        }
-    }
+    //     if ($model) {
+    //         $input->setOption('model', $model);
+    //     }
+    // }
 
-    /**
-     * Get a list of possible model names.
-     *
-     * @return array<int, string>
-     */
-    protected function possibleModels(): array
-    {
-        $modelPath = is_dir(app_path('Models')) ? app_path('Models') : app_path();
+    // /**
+    //  * Get a list of possible model names.
+    //  *
+    //  * @return array<int, string>
+    //  */
+    // protected function possibleModels(): array
+    // {
+    //     $modelPath = is_dir(app_path('Models')) ? app_path('Models') : app_path();
 
-        return [];
-        // return collect((new Finder)->files()->depth(0)->in($modelPath))
-        //     ->map(fn ($file) => $file->getBasename('.php'))
-        //     ->sort()
-        //     ->values()
-        //     ->all();
-    }
+    //     return [];
+    //     // return collect((new Finder)->files()->depth(0)->in($modelPath))
+    //     //     ->map(fn ($file) => $file->getBasename('.php'))
+    //     //     ->sort()
+    //     //     ->values()
+    //     //     ->all();
+    // }
 
     /**
      * @param array<string, string> $searches
