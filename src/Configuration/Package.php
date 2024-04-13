@@ -29,7 +29,7 @@ class Package extends Configuration
         // properties
         'factories' => false,
         'package_name' => '',
-        'package_autoload' => '',
+        // 'package_autoload' => '',
         'package_description' => '',
         'package_homepage' => '',
         'package_keywords' => [],
@@ -54,7 +54,7 @@ class Package extends Configuration
 
     protected string $package_name = '';
 
-    protected string $package_autoload = '';
+    // protected string $package_autoload = '';
 
     protected string $package_description = '';
 
@@ -126,11 +126,11 @@ class Package extends Configuration
             $this->package_name = $options['package_name'];
         }
 
-        if (! empty($options['package_autoload'])
-            && is_string($options['package_autoload'])
-        ) {
-            $this->package_autoload = $options['package_autoload'];
-        }
+        // if (! empty($options['package_autoload'])
+        //     && is_string($options['package_autoload'])
+        // ) {
+        //     $this->package_autoload = $options['package_autoload'];
+        // }
 
         if (! empty($options['package_description'])
             && is_string($options['package_description'])
@@ -298,10 +298,10 @@ class Package extends Configuration
         return $this->package_name;
     }
 
-    public function package_autoload(): string
-    {
-        return $this->package_autoload;
-    }
+    // public function package_autoload(): string
+    // {
+    //     return $this->package_autoload;
+    // }
 
     public function package_description(): string
     {

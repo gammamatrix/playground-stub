@@ -1,0 +1,15 @@
+{
+    "name": "Client",
+    "namespace": "GammaMatrix/Playground/Crm/Resource",
+    "module": "",
+    "module_slug": "",
+    "organization": "GammaMatrix",
+    "package": "playground-crm-resource",
+    "config": "playground-crm-resource",
+    "type": "controller",
+    "models": {
+        "Client": "storage/app/stub/playground-crm/resources/packages/model.client.json"
+    },
+    "model": "GammaMatrix/Playground/Crm/Models/Client",
+    "controller_type": "playground-resource"
+}

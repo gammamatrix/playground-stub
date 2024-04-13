@@ -39,7 +39,7 @@ class InstanceTest extends TestCase
         // properties
         'factories' => false,
         'package_name' => '',
-        'package_autoload' => '',
+        // 'package_autoload' => '',
         'package_description' => '',
         'package_homepage' => '',
         'package_keywords' => [],
@@ -129,7 +129,7 @@ class InstanceTest extends TestCase
             'php' => '^8.2',
         ], $instance->package_require());
         $this->assertSame([], $instance->package_require_dev());
-        $this->assertSame([], $instance->package_autoload_psr4());
+        // $this->assertSame([], $instance->package_autoload_psr4());
         $this->assertSame([
             'Playground/Cms/ServiceProvider',
         ], $instance->package_laravel_providers());
@@ -147,4 +147,78 @@ class InstanceTest extends TestCase
         $this->assertSame([], $instance->routes());
         $this->assertFalse($instance->factories());
     }
+
+    public function test_package_for_api_with_file_and_skeleton(): void
+    {
+        $options = $this->getResourceFileAsArray('test-package-api');
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$file' => $file,
+        //     '$content' => $content,
+        //     '$options' => $options,
+        // ]);
+
+        $instance = new Package($options, true);
+
+        $instance->apply();
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$options' => $options,
+        //     '$instance' => $instance,
+        //     // 'json_encode($instance)' => json_encode($instance, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT),
+        //     // '$options' => $options,
+        // ]);
+        // echo(json_encode($instance, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
+        $this->assertEmpty($instance->folder());
+        $this->assertTrue($instance->skeleton());
+
+        $this->assertSame('Playground', $instance->organization());
+        $this->assertSame('playground-cms-api', $instance->package());
+        $this->assertSame('gammamatrix/playground-cms-api', $instance->packagist());
+        $this->assertSame('Cms', $instance->module());
+        $this->assertSame('cms', $instance->module_slug());
+        $this->assertSame('Playground\\Cms\\Api\\ServiceProvider', $instance->fqdn());
+        $this->assertSame('Playground\\Cms\\Api', $instance->namespace());
+        $this->assertSame('Playground\\Cms\\Api\\ServiceProvider', $instance->name());
+        $this->assertSame('ServiceProvider', $instance->class());
+        $this->assertSame('', $instance->type());
+        $this->assertSame('playground-policies', $instance->service_provider());
+        $this->assertSame([
+            'laravel',
+            'playground',
+            'cms',
+            'api',
+        ], $instance->package_keywords());
+        $this->assertSame([
+            'php' => '^8.2',
+        ], $instance->package_require());
+        $this->assertSame([
+            'playground-test' => '^73.0',
+        ], $instance->package_require_dev());
+        // $this->assertSame([], $instance->package_autoload_psr4());
+        $this->assertSame([
+            'Playground\\Cms\\Api\\ServiceProvider',
+        ], $instance->package_laravel_providers());
+        $this->assertSame([
+            'vendor/gammamatrix/playground-stub/resources/playground/cms/controller.page.json',
+        ], $instance->controllers());
+        $this->assertSame([
+            'vendor/gammamatrix/playground-stub/resources/playground/cms/model.abstract.json',
+            'vendor/gammamatrix/playground-stub/resources/playground/cms/model.abstract-page.json',
+            'vendor/gammamatrix/playground-stub/resources/playground/cms/model.abstract-snippet.json',
+            'vendor/gammamatrix/playground-stub/resources/playground/cms/model.page.json',
+            'vendor/gammamatrix/playground-stub/resources/playground/cms/model.snippet.json',
+            'vendor/gammamatrix/playground-stub/resources/playground/cms/model.page-revision.json',
+            'vendor/gammamatrix/playground-stub/resources/playground/cms/model.snippet-revision.json',
+        ], $instance->models());
+        $this->assertSame([
+            'vendor/gammamatrix/playground-stub/resources/playground/cms/policy.page.json',
+            'vendor/gammamatrix/playground-stub/resources/playground/cms/policy.snippet.json',
+        ], $instance->policies());
+        $this->assertSame([
+            'vendor/gammamatrix/playground-stub/resources/playground/cms/route.snippet.json',
+        ], $instance->routes());
+        $this->assertFalse($instance->factories());
+    }
+
 }

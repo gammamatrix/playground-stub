@@ -1,0 +1,24 @@
+{
+    "class": "clients",
+    "controller": "ClientController",
+    "extends": "",
+    "name": "Client",
+    "folder": "client",
+    "namespace": "GammaMatrix/Playground/Crm/Resource",
+    "model": "GammaMatrix/Playground/Crm/Models/Client",
+    "model_column": "client",
+    "model_label": "Client",
+    "model_slug_plural": "clients",
+    "module": "",
+    "module_slug": "",
+    "organization": "GammaMatrix",
+    "package": "playground-crm-resource",
+    "config": "playground-crm-resource",
+    "type": "playground-resource",
+    "route": "playground.crm.resource.clients",
+    "route_prefix": "resource//clients",
+    "title": "Client",
+    "models": {
+        "Client": "storage/app/stub/playground-crm/resources/packages/model.client.json"
+    }
+}

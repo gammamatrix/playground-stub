@@ -27,10 +27,34 @@ trait FileTrait
         $package_base = dirname(dirname(__DIR__));
 
         //
-        // Models
+        // Factories
         //
 
         if (in_array($type, [
+            'factory-model',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/test.factory.crm.contact.json',
+                $package_base
+            );
+
+        //
+        // Migrations
+        //
+
+        } elseif (in_array($type, [
+            'migration-model',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/test.migration.crm.contact.json',
+                $package_base
+            );
+
+        //
+        // Models
+        //
+
+        } elseif (in_array($type, [
             'model',
             'model-backlog',
             'playground-model',
