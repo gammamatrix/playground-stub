@@ -78,6 +78,11 @@ Instance (Tests\Unit\Playground\Stub\Configuration\Migration\Instance)
  [x] Folder is empty by default
  [x] Migration for model with file and skeleton
 
+Instance (Tests\Unit\Playground\Stub\Configuration\Model\Create\Instance)
+ [x] Instance
+ [x] Model with file and skeleton
+ [x] SetOptions unsupported primary and ignore
+
 Instance (Tests\Unit\Playground\Stub\Configuration\Model\Instance)
  [x] Instance
  [x] Instance apply without options

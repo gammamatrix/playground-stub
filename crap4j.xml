@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-13 05:21:57</timestamp>
+  <timestamp>2024-04-13 05:52:59</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>316</methodCount>
-    <crapMethodCount>31</crapMethodCount>
-    <crapLoad>473</crapLoad>
-    <totalCrap>11481.84</totalCrap>
-    <crapMethodPercent>9.81</crapMethodPercent>
+    <crapMethodCount>25</crapMethodCount>
+    <crapLoad>359</crapLoad>
+    <totalCrap>8576.96</totalCrap>
+    <crapMethodPercent>7.91</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -820,10 +820,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>1190</crap>
-      <complexity>34</complexity>
-      <coverage>0</coverage>
-      <crapLoad>35</crapLoad>
+      <crap>33</crap>
+      <complexity>33</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration\Model</package>
@@ -831,9 +831,9 @@
       <methodName>addId</methodName>
       <methodSignature>addId(string $column, mixed $meta): self</methodSignature>
       <fullMethod>addId(string $column, mixed $meta): self</fullMethod>
-      <crap>20</crap>
+      <crap>4.84</crap>
       <complexity>4</complexity>
-      <coverage>0</coverage>
+      <coverage>62.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -842,9 +842,9 @@
       <methodName>addUnique</methodName>
       <methodSignature>addUnique(int $i, mixed $meta): self</methodSignature>
       <fullMethod>addUnique(int $i, mixed $meta): self</fullMethod>
-      <crap>12</crap>
+      <crap>3.71</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>57.14</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -853,9 +853,9 @@
       <methodName>addDate</methodName>
       <methodSignature>addDate(string $column, mixed $meta): self</methodSignature>
       <fullMethod>addDate(string $column, mixed $meta): self</fullMethod>
-      <crap>20</crap>
+      <crap>4.84</crap>
       <complexity>4</complexity>
-      <coverage>0</coverage>
+      <coverage>62.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -864,9 +864,9 @@
       <methodName>addFlag</methodName>
       <methodSignature>addFlag(string $column, mixed $meta): self</methodSignature>
       <fullMethod>addFlag(string $column, mixed $meta): self</fullMethod>
-      <crap>20</crap>
+      <crap>4.84</crap>
       <complexity>4</complexity>
-      <coverage>0</coverage>
+      <coverage>62.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -875,9 +875,9 @@
       <methodName>addColumn</methodName>
       <methodSignature>addColumn(string $column, mixed $meta): self</methodSignature>
       <fullMethod>addColumn(string $column, mixed $meta): self</fullMethod>
-      <crap>20</crap>
+      <crap>4.84</crap>
       <complexity>4</complexity>
-      <coverage>0</coverage>
+      <coverage>62.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -886,9 +886,9 @@
       <methodName>addPermission</methodName>
       <methodSignature>addPermission(string $column, mixed $meta): self</methodSignature>
       <fullMethod>addPermission(string $column, mixed $meta): self</fullMethod>
-      <crap>20</crap>
+      <crap>4.84</crap>
       <complexity>4</complexity>
-      <coverage>0</coverage>
+      <coverage>62.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -897,9 +897,9 @@
       <methodName>addStatus</methodName>
       <methodSignature>addStatus(string $column, mixed $meta): self</methodSignature>
       <fullMethod>addStatus(string $column, mixed $meta): self</fullMethod>
-      <crap>20</crap>
+      <crap>4.84</crap>
       <complexity>4</complexity>
-      <coverage>0</coverage>
+      <coverage>62.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -908,9 +908,9 @@
       <methodName>addUi</methodName>
       <methodSignature>addUi(string $column, mixed $meta): self</methodSignature>
       <fullMethod>addUi(string $column, mixed $meta): self</fullMethod>
-      <crap>20</crap>
+      <crap>4.84</crap>
       <complexity>4</complexity>
-      <coverage>0</coverage>
+      <coverage>62.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -919,9 +919,9 @@
       <methodName>addJson</methodName>
       <methodSignature>addJson(string $column, mixed $meta): self</methodSignature>
       <fullMethod>addJson(string $column, mixed $meta): self</fullMethod>
-      <crap>20</crap>
+      <crap>4.84</crap>
       <complexity>4</complexity>
-      <coverage>0</coverage>
+      <coverage>62.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -930,9 +930,9 @@
       <methodName>migration</methodName>
       <methodSignature>migration(): string</methodSignature>
       <fullMethod>migration(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -941,9 +941,9 @@
       <methodName>primary</methodName>
       <methodSignature>primary(): string</methodSignature>
       <fullMethod>primary(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -952,9 +952,9 @@
       <methodName>timestamps</methodName>
       <methodSignature>timestamps(): bool</methodSignature>
       <fullMethod>timestamps(): bool</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -963,9 +963,9 @@
       <methodName>softDeletes</methodName>
       <methodSignature>softDeletes(): bool</methodSignature>
       <fullMethod>softDeletes(): bool</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -974,9 +974,9 @@
       <methodName>trash</methodName>
       <methodSignature>trash(): array</methodSignature>
       <fullMethod>trash(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -985,9 +985,9 @@
       <methodName>ids</methodName>
       <methodSignature>ids(): array</methodSignature>
       <fullMethod>ids(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -996,9 +996,9 @@
       <methodName>unique</methodName>
       <methodSignature>unique(): array</methodSignature>
       <fullMethod>unique(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1007,9 +1007,9 @@
       <methodName>dates</methodName>
       <methodSignature>dates(): array</methodSignature>
       <fullMethod>dates(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1018,9 +1018,9 @@
       <methodName>flags</methodName>
       <methodSignature>flags(): array</methodSignature>
       <fullMethod>flags(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1029,9 +1029,9 @@
       <methodName>columns</methodName>
       <methodSignature>columns(): array</methodSignature>
       <fullMethod>columns(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1040,9 +1040,9 @@
       <methodName>permissions</methodName>
       <methodSignature>permissions(): array</methodSignature>
       <fullMethod>permissions(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1051,9 +1051,9 @@
       <methodName>status</methodName>
       <methodSignature>status(): array</methodSignature>
       <fullMethod>status(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1062,9 +1062,9 @@
       <methodName>ui</methodName>
       <methodSignature>ui(): array</methodSignature>
       <fullMethod>ui(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1073,9 +1073,9 @@
       <methodName>json</methodName>
       <methodSignature>json(): array</methodSignature>
       <fullMethod>json(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1084,10 +1084,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>182</crap>
+      <crap>14.85</crap>
       <complexity>13</complexity>
-      <coverage>0</coverage>
-      <crapLoad>13</crapLoad>
+      <coverage>77.78</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration\Model</package>
@@ -1095,9 +1095,9 @@
       <methodName>apply</methodName>
       <methodSignature>apply(): self</methodSignature>
       <fullMethod>apply(): self</fullMethod>
-      <crap>30</crap>
+      <crap>5</crap>
       <complexity>5</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1117,9 +1117,9 @@
       <methodName>column</methodName>
       <methodSignature>column(): string</methodSignature>
       <fullMethod>column(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1128,9 +1128,9 @@
       <methodName>description</methodName>
       <methodSignature>description(): string</methodSignature>
       <fullMethod>description(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1139,9 +1139,9 @@
       <methodName>label</methodName>
       <methodSignature>label(): string</methodSignature>
       <fullMethod>label(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1150,9 +1150,9 @@
       <methodName>icon</methodName>
       <methodSignature>icon(): string</methodSignature>
       <fullMethod>icon(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1161,9 +1161,9 @@
       <methodName>index</methodName>
       <methodSignature>index(): bool</methodSignature>
       <fullMethod>index(): bool</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1172,9 +1172,9 @@
       <methodName>nullable</methodName>
       <methodSignature>nullable(): bool</methodSignature>
       <fullMethod>nullable(): bool</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1183,9 +1183,9 @@
       <methodName>readOnly</methodName>
       <methodSignature>readOnly(): bool</methodSignature>
       <fullMethod>readOnly(): bool</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1194,10 +1194,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>56</crap>
+      <crap>7</crap>
       <complexity>7</complexity>
-      <coverage>0</coverage>
-      <crapLoad>7</crapLoad>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration\Model</package>
@@ -1205,9 +1205,9 @@
       <methodName>foreign</methodName>
       <methodSignature>foreign(): ?array</methodSignature>
       <fullMethod>foreign(): ?array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1315,9 +1315,9 @@
       <methodName>ids</methodName>
       <methodSignature>ids(): array</methodSignature>
       <fullMethod>ids(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1326,9 +1326,9 @@
       <methodName>dates</methodName>
       <methodSignature>dates(): array</methodSignature>
       <fullMethod>dates(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1337,9 +1337,9 @@
       <methodName>flags</methodName>
       <methodSignature>flags(): array</methodSignature>
       <fullMethod>flags(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1348,9 +1348,9 @@
       <methodName>columns</methodName>
       <methodSignature>columns(): array</methodSignature>
       <fullMethod>columns(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1359,9 +1359,9 @@
       <methodName>trash</methodName>
       <methodSignature>trash(): array</methodSignature>
       <fullMethod>trash(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1370,9 +1370,9 @@
       <methodName>permissions</methodName>
       <methodSignature>permissions(): array</methodSignature>
       <fullMethod>permissions(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1381,9 +1381,9 @@
       <methodName>status</methodName>
       <methodSignature>status(): array</methodSignature>
       <fullMethod>status(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1392,9 +1392,9 @@
       <methodName>ui</methodName>
       <methodSignature>ui(): array</methodSignature>
       <fullMethod>ui(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1403,9 +1403,9 @@
       <methodName>json</methodName>
       <methodSignature>json(): array</methodSignature>
       <fullMethod>json(): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1414,10 +1414,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>870</crap>
+      <crap>29</crap>
       <complexity>29</complexity>
-      <coverage>0</coverage>
-      <crapLoad>30</crapLoad>
+      <coverage>97.5</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration\Model</package>
@@ -1425,9 +1425,9 @@
       <methodName>addId</methodName>
       <methodSignature>addId(int $i, mixed $meta): self</methodSignature>
       <fullMethod>addId(int $i, mixed $meta): self</fullMethod>
-      <crap>12</crap>
+      <crap>3.47</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>62.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1436,9 +1436,9 @@
       <methodName>addDate</methodName>
       <methodSignature>addDate(int $i, mixed $meta): self</methodSignature>
       <fullMethod>addDate(int $i, mixed $meta): self</fullMethod>
-      <crap>12</crap>
+      <crap>3.47</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>62.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1447,9 +1447,9 @@
       <methodName>addFlag</methodName>
       <methodSignature>addFlag(int $i, mixed $meta): self</methodSignature>
       <fullMethod>addFlag(int $i, mixed $meta): self</fullMethod>
-      <crap>12</crap>
+      <crap>3.47</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>62.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1458,9 +1458,9 @@
       <methodName>handleTrash</methodName>
       <methodSignature>handleTrash(mixed $meta): self</methodSignature>
       <fullMethod>handleTrash(mixed $meta): self</fullMethod>
-      <crap>12</crap>
+      <crap>3.04</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>83.33</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1469,9 +1469,9 @@
       <methodName>addColumn</methodName>
       <methodSignature>addColumn(int $i, mixed $meta): self</methodSignature>
       <fullMethod>addColumn(int $i, mixed $meta): self</fullMethod>
-      <crap>12</crap>
+      <crap>3.47</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>62.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1480,9 +1480,9 @@
       <methodName>addPermission</methodName>
       <methodSignature>addPermission(int $i, mixed $meta): self</methodSignature>
       <fullMethod>addPermission(int $i, mixed $meta): self</fullMethod>
-      <crap>12</crap>
+      <crap>3.47</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>62.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1491,9 +1491,9 @@
       <methodName>addStatus</methodName>
       <methodSignature>addStatus(int $i, mixed $meta): self</methodSignature>
       <fullMethod>addStatus(int $i, mixed $meta): self</fullMethod>
-      <crap>12</crap>
+      <crap>3.47</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>62.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1502,9 +1502,9 @@
       <methodName>addUi</methodName>
       <methodSignature>addUi(int $i, mixed $meta): self</methodSignature>
       <fullMethod>addUi(int $i, mixed $meta): self</fullMethod>
-      <crap>12</crap>
+      <crap>3.47</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>62.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1513,9 +1513,9 @@
       <methodName>addJson</methodName>
       <methodSignature>addJson(int $i, mixed $meta): self</methodSignature>
       <fullMethod>addJson(int $i, mixed $meta): self</fullMethod>
-      <crap>12</crap>
+      <crap>3.47</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>62.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1524,9 +1524,9 @@
       <methodName>builder</methodName>
       <methodSignature>builder(): ?string</methodSignature>
       <fullMethod>builder(): ?string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1601,10 +1601,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>342</crap>
+      <crap>24.8</crap>
       <complexity>18</complexity>
-      <coverage>0</coverage>
-      <crapLoad>18</crapLoad>
+      <coverage>72.41</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration\Model</package>
@@ -1612,9 +1612,9 @@
       <methodName>comment</methodName>
       <methodSignature>comment(): string</methodSignature>
       <fullMethod>comment(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1623,9 +1623,9 @@
       <methodName>accessor</methodName>
       <methodSignature>accessor(): string</methodSignature>
       <fullMethod>accessor(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1634,9 +1634,9 @@
       <methodName>related</methodName>
       <methodSignature>related(): string</methodSignature>
       <fullMethod>related(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1645,9 +1645,9 @@
       <methodName>foreignKey</methodName>
       <methodSignature>foreignKey(): string</methodSignature>
       <fullMethod>foreignKey(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1656,9 +1656,9 @@
       <methodName>localKey</methodName>
       <methodSignature>localKey(): string</methodSignature>
       <fullMethod>localKey(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1667,9 +1667,9 @@
       <methodName>getParent</methodName>
       <methodSignature>getParent(): ?Playground\Stub\Configuration\Model</methodSignature>
       <fullMethod>getParent(): ?Playground\Stub\Configuration\Model</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1678,9 +1678,9 @@
       <methodName>setParent</methodName>
       <methodSignature>setParent(Playground\Stub\Configuration\Model $parent): self</methodSignature>
       <fullMethod>setParent(Playground\Stub\Configuration\Model $parent): self</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1689,10 +1689,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>110</crap>
+      <crap>10.24</crap>
       <complexity>10</complexity>
-      <coverage>0</coverage>
-      <crapLoad>10</crapLoad>
+      <coverage>86.67</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration\Model</package>
@@ -1700,9 +1700,9 @@
       <methodName>column</methodName>
       <methodSignature>column(): string</methodSignature>
       <fullMethod>column(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1711,9 +1711,9 @@
       <methodName>label</methodName>
       <methodSignature>label(): string</methodSignature>
       <fullMethod>label(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1722,9 +1722,9 @@
       <methodName>icon</methodName>
       <methodSignature>icon(): string</methodSignature>
       <fullMethod>icon(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
