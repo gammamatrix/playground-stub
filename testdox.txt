@@ -66,6 +66,18 @@ Instance (Tests\Unit\Playground\Stub\Configuration\Configuration\Instance)
  [x] Folder with empty setFolder
  [x] Folder with path for setFolder
 
+Instance (Tests\Unit\Playground\Stub\Configuration\Factory\Instance)
+ [x] Instance
+ [x] Instance apply without options
+ [x] Folder is empty by default
+ [x] Factory for model with file and skeleton
+
+Instance (Tests\Unit\Playground\Stub\Configuration\Migration\Instance)
+ [x] Instance
+ [x] Instance apply without options
+ [x] Folder is empty by default
+ [x] Migration for model with file and skeleton
+
 Instance (Tests\Unit\Playground\Stub\Configuration\Model\Instance)
  [x] Instance
  [x] Instance apply without options
@@ -77,6 +89,7 @@ Instance (Tests\Unit\Playground\Stub\Configuration\Package\Instance)
  [x] Instance apply without options
  [x] Folder is empty by default
  [x] Package for model with file and skeleton
+ [x] Package for api with file and skeleton
 
 Instance (Tests\Unit\Playground\Stub\Configuration\Policy\Instance)
  [x] Instance

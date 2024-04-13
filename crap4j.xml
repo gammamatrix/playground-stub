@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-12 21:02:04</timestamp>
+  <timestamp>2024-04-13 04:19:23</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>311</methodCount>
-    <crapMethodCount>32</crapMethodCount>
-    <crapLoad>482</crapLoad>
-    <totalCrap>11572.74</totalCrap>
-    <crapMethodPercent>10.29</crapMethodPercent>
+    <methodCount>316</methodCount>
+    <crapMethodCount>31</crapMethodCount>
+    <crapLoad>473</crapLoad>
+    <totalCrap>11501.1</totalCrap>
+    <crapMethodPercent>9.81</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -311,12 +311,34 @@
     <method>
       <package>Playground\Stub\Configuration</package>
       <className>Playground\Stub\Configuration\Factory</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Factory</className>
+      <methodName>addModels</methodName>
+      <methodSignature>addModels(array $options): self</methodSignature>
+      <fullMethod>addModels(array $options): self</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Factory</className>
       <methodName>model</methodName>
       <methodSignature>model(): string</methodSignature>
       <fullMethod>model(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -325,9 +347,20 @@
       <methodName>model_fqdn</methodName>
       <methodSignature>model_fqdn(): string</methodSignature>
       <fullMethod>model_fqdn(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Factory</className>
+      <methodName>models</methodName>
+      <methodSignature>models(): array</methodSignature>
+      <fullMethod>models(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -336,9 +369,9 @@
       <methodName>table</methodName>
       <methodSignature>table(): string</methodSignature>
       <fullMethod>table(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -347,9 +380,42 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
-      <coverage>0</coverage>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Migration</className>
+      <methodName>addModels</methodName>
+      <methodSignature>addModels(array $options): self</methodSignature>
+      <fullMethod>addModels(array $options): self</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Migration</className>
+      <methodName>model_fqdn</methodName>
+      <methodSignature>model_fqdn(): string</methodSignature>
+      <fullMethod>model_fqdn(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Migration</className>
+      <methodName>models</methodName>
+      <methodSignature>models(): array</methodSignature>
+      <fullMethod>models(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1667,9 +1733,9 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>48.14</crap>
-      <complexity>39</complexity>
-      <coverage>81.82</coverage>
+      <crap>37</crap>
+      <complexity>37</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1700,10 +1766,10 @@
       <methodName>addRequireDev</methodName>
       <methodSignature>addRequireDev(mixed $package, mixed $version): self</methodSignature>
       <fullMethod>addRequireDev(mixed $package, mixed $version): self</fullMethod>
-      <crap>90</crap>
+      <crap>26.5</crap>
       <complexity>9</complexity>
-      <coverage>0</coverage>
-      <crapLoad>9</crapLoad>
+      <coverage>40</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration</package>
@@ -1722,17 +1788,6 @@
       <methodName>package_name</methodName>
       <methodSignature>package_name(): string</methodSignature>
       <fullMethod>package_name(): string</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration</package>
-      <className>Playground\Stub\Configuration\Package</className>
-      <methodName>package_autoload</methodName>
-      <methodSignature>package_autoload(): string</methodSignature>
-      <fullMethod>package_autoload(): string</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
