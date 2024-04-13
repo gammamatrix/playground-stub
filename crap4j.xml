@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-13 04:19:23</timestamp>
+  <timestamp>2024-04-13 05:21:57</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>316</methodCount>
     <crapMethodCount>31</crapMethodCount>
     <crapLoad>473</crapLoad>
-    <totalCrap>11501.1</totalCrap>
+    <totalCrap>11481.84</totalCrap>
     <crapMethodPercent>9.81</crapMethodPercent>
   </stats>
   <methods>
@@ -1744,9 +1744,9 @@
       <methodName>addKeyword</methodName>
       <methodSignature>addKeyword(mixed $keyword): self</methodSignature>
       <fullMethod>addKeyword(mixed $keyword): self</fullMethod>
-      <crap>5.26</crap>
-      <complexity>4</complexity>
-      <coverage>57.14</coverage>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1755,9 +1755,9 @@
       <methodName>addRequire</methodName>
       <methodSignature>addRequire(mixed $package, mixed $version): self</methodSignature>
       <fullMethod>addRequire(mixed $package, mixed $version): self</fullMethod>
-      <crap>26.5</crap>
-      <complexity>9</complexity>
-      <coverage>40</coverage>
+      <crap>17</crap>
+      <complexity>17</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1766,9 +1766,9 @@
       <methodName>addRequireDev</methodName>
       <methodSignature>addRequireDev(mixed $package, mixed $version): self</methodSignature>
       <fullMethod>addRequireDev(mixed $package, mixed $version): self</fullMethod>
-      <crap>26.5</crap>
-      <complexity>9</complexity>
-      <coverage>40</coverage>
+      <crap>17</crap>
+      <complexity>17</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>

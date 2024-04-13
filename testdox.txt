@@ -90,6 +90,11 @@ Instance (Tests\Unit\Playground\Stub\Configuration\Package\Instance)
  [x] Folder is empty by default
  [x] Package for model with file and skeleton
  [x] Package for api with file and skeleton
+ [x] AddKeyword with invalid keyword and log message
+ [x] AddRequire with invalid package and log message
+ [x] AddRequire with invalid version and log message
+ [x] AddRequireDev with invalid package and log message
+ [x] AddRequireDev with invalid version and log message
 
 Instance (Tests\Unit\Playground\Stub\Configuration\Policy\Instance)
  [x] Instance

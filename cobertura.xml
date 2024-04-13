@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.31952873973581" branch-rate="0" lines-covered="895" lines-valid="2801" branches-covered="0" branches-valid="0" complexity="1303" version="0.4" timestamp="1712981963">
+<coverage line-rate="0.33084842030529" branch-rate="0" lines-covered="932" lines-valid="2817" branches-covered="0" branches-valid="0" complexity="1320" version="0.4" timestamp="1712985717">
   <sources>
     <source>/app/src</source>
   </sources>
@@ -2674,9 +2674,9 @@
         </class>
       </classes>
     </package>
-    <package name="Configuration/Package.php" line-rate="0.80188679245283" branch-rate="0" complexity="76">
+    <package name="Configuration/Package.php" line-rate="1" branch-rate="0" complexity="93">
       <classes>
-        <class name="Playground\Stub\Configuration\Package" filename="Configuration/Package.php" line-rate="0.80188679245283" branch-rate="0" complexity="76">
+        <class name="Playground\Stub\Configuration\Package" filename="Configuration/Package.php" line-rate="1" branch-rate="0" complexity="93">
           <methods>
             <method name="setOptions" signature="array $options" line-rate="1" branch-rate="0" complexity="37">
               <lines>
@@ -2734,138 +2734,154 @@
                 <line number="229" hits="9"/>
               </lines>
             </method>
-            <method name="addKeyword" signature="mixed $keyword" line-rate="0.57142857142857" branch-rate="0" complexity="4">
+            <method name="addKeyword" signature="mixed $keyword" line-rate="1" branch-rate="0" complexity="5">
               <lines>
-                <line number="234" hits="2"/>
-                <line number="235" hits="0"/>
-                <line number="236" hits="0"/>
-                <line number="237" hits="0"/>
+                <line number="234" hits="3"/>
+                <line number="235" hits="1"/>
+                <line number="236" hits="1"/>
+                <line number="237" hits="1"/>
                 <line number="238" hits="2"/>
                 <line number="239" hits="2"/>
-                <line number="242" hits="2"/>
+                <line number="242" hits="3"/>
               </lines>
             </method>
-            <method name="addRequire" signature="mixed $package, mixed $version" line-rate="0.4" branch-rate="0" complexity="9">
+            <method name="addRequire" signature="mixed $package, mixed $version" line-rate="1" branch-rate="0" complexity="17">
               <lines>
-                <line number="247" hits="2"/>
-                <line number="248" hits="2"/>
-                <line number="249" hits="2"/>
-                <line number="250" hits="2"/>
-                <line number="252" hits="2"/>
-                <line number="254" hits="0"/>
-                <line number="255" hits="0"/>
-                <line number="256" hits="0"/>
-                <line number="257" hits="0"/>
-                <line number="258" hits="0"/>
-                <line number="259" hits="0"/>
-                <line number="260" hits="0"/>
-                <line number="261" hits="0"/>
-                <line number="262" hits="0"/>
-                <line number="265" hits="2"/>
+                <line number="247" hits="4"/>
+                <line number="248" hits="1"/>
+                <line number="249" hits="1"/>
+                <line number="250" hits="1"/>
+                <line number="251" hits="1"/>
+                <line number="252" hits="1"/>
+                <line number="253" hits="1"/>
+                <line number="254" hits="1"/>
+                <line number="255" hits="1"/>
+                <line number="256" hits="1"/>
+                <line number="259" hits="4"/>
+                <line number="260" hits="1"/>
+                <line number="261" hits="1"/>
+                <line number="262" hits="1"/>
+                <line number="263" hits="1"/>
+                <line number="264" hits="1"/>
+                <line number="265" hits="1"/>
+                <line number="266" hits="1"/>
+                <line number="267" hits="1"/>
+                <line number="268" hits="1"/>
+                <line number="271" hits="4"/>
+                <line number="272" hits="2"/>
+                <line number="275" hits="4"/>
               </lines>
             </method>
-            <method name="addRequireDev" signature="mixed $package, mixed $version" line-rate="0.4" branch-rate="0" complexity="9">
+            <method name="addRequireDev" signature="mixed $package, mixed $version" line-rate="1" branch-rate="0" complexity="17">
               <lines>
-                <line number="270" hits="1"/>
-                <line number="271" hits="1"/>
-                <line number="272" hits="1"/>
-                <line number="273" hits="1"/>
-                <line number="275" hits="0"/>
-                <line number="276" hits="0"/>
-                <line number="277" hits="0"/>
-                <line number="278" hits="0"/>
-                <line number="279" hits="0"/>
-                <line number="280" hits="0"/>
-                <line number="281" hits="0"/>
-                <line number="282" hits="0"/>
-                <line number="283" hits="0"/>
+                <line number="280" hits="3"/>
+                <line number="281" hits="1"/>
+                <line number="282" hits="1"/>
+                <line number="283" hits="1"/>
+                <line number="284" hits="1"/>
                 <line number="285" hits="1"/>
+                <line number="286" hits="1"/>
+                <line number="287" hits="1"/>
                 <line number="288" hits="1"/>
+                <line number="289" hits="1"/>
+                <line number="292" hits="3"/>
+                <line number="293" hits="1"/>
+                <line number="294" hits="1"/>
+                <line number="295" hits="1"/>
+                <line number="296" hits="1"/>
+                <line number="297" hits="1"/>
+                <line number="298" hits="1"/>
+                <line number="299" hits="1"/>
+                <line number="300" hits="1"/>
+                <line number="301" hits="1"/>
+                <line number="304" hits="3"/>
+                <line number="305" hits="1"/>
+                <line number="308" hits="3"/>
               </lines>
             </method>
             <method name="factories" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="293" hits="3"/>
+                <line number="313" hits="3"/>
               </lines>
             </method>
             <method name="package_name" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="298" hits="3"/>
+                <line number="318" hits="3"/>
               </lines>
             </method>
             <method name="package_description" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="308" hits="3"/>
+                <line number="328" hits="3"/>
               </lines>
             </method>
             <method name="package_homepage" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="313" hits="3"/>
+                <line number="333" hits="3"/>
               </lines>
             </method>
             <method name="package_keywords" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="321" hits="3"/>
+                <line number="341" hits="3"/>
               </lines>
             </method>
             <method name="package_license" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="326" hits="3"/>
+                <line number="346" hits="3"/>
               </lines>
             </method>
             <method name="package_require" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="334" hits="3"/>
+                <line number="354" hits="3"/>
               </lines>
             </method>
             <method name="package_require_dev" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="342" hits="3"/>
+                <line number="362" hits="3"/>
               </lines>
             </method>
             <method name="package_autoload_psr4" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="350" hits="3"/>
+                <line number="370" hits="3"/>
               </lines>
             </method>
             <method name="package_laravel_providers" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="358" hits="3"/>
+                <line number="378" hits="3"/>
               </lines>
             </method>
             <method name="packagist" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="363" hits="3"/>
+                <line number="383" hits="3"/>
               </lines>
             </method>
             <method name="controllers" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="371" hits="3"/>
+                <line number="391" hits="3"/>
               </lines>
             </method>
             <method name="models" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="379" hits="4"/>
+                <line number="399" hits="4"/>
               </lines>
             </method>
             <method name="policies" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="387" hits="3"/>
+                <line number="407" hits="3"/>
               </lines>
             </method>
             <method name="routes" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="395" hits="3"/>
+                <line number="415" hits="3"/>
               </lines>
             </method>
             <method name="service_provider" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="400" hits="3"/>
+                <line number="420" hits="3"/>
               </lines>
             </method>
             <method name="version" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="405" hits="3"/>
+                <line number="425" hits="3"/>
               </lines>
             </method>
           </methods>
@@ -2922,60 +2938,76 @@
             <line number="224" hits="9"/>
             <line number="226" hits="1"/>
             <line number="229" hits="9"/>
-            <line number="234" hits="2"/>
-            <line number="235" hits="0"/>
-            <line number="236" hits="0"/>
-            <line number="237" hits="0"/>
+            <line number="234" hits="3"/>
+            <line number="235" hits="1"/>
+            <line number="236" hits="1"/>
+            <line number="237" hits="1"/>
             <line number="238" hits="2"/>
             <line number="239" hits="2"/>
-            <line number="242" hits="2"/>
-            <line number="247" hits="2"/>
-            <line number="248" hits="2"/>
-            <line number="249" hits="2"/>
-            <line number="250" hits="2"/>
-            <line number="252" hits="2"/>
-            <line number="254" hits="0"/>
-            <line number="255" hits="0"/>
-            <line number="256" hits="0"/>
-            <line number="257" hits="0"/>
-            <line number="258" hits="0"/>
-            <line number="259" hits="0"/>
-            <line number="260" hits="0"/>
-            <line number="261" hits="0"/>
-            <line number="262" hits="0"/>
-            <line number="265" hits="2"/>
-            <line number="270" hits="1"/>
-            <line number="271" hits="1"/>
-            <line number="272" hits="1"/>
-            <line number="273" hits="1"/>
-            <line number="275" hits="0"/>
-            <line number="276" hits="0"/>
-            <line number="277" hits="0"/>
-            <line number="278" hits="0"/>
-            <line number="279" hits="0"/>
-            <line number="280" hits="0"/>
-            <line number="281" hits="0"/>
-            <line number="282" hits="0"/>
-            <line number="283" hits="0"/>
+            <line number="242" hits="3"/>
+            <line number="247" hits="4"/>
+            <line number="248" hits="1"/>
+            <line number="249" hits="1"/>
+            <line number="250" hits="1"/>
+            <line number="251" hits="1"/>
+            <line number="252" hits="1"/>
+            <line number="253" hits="1"/>
+            <line number="254" hits="1"/>
+            <line number="255" hits="1"/>
+            <line number="256" hits="1"/>
+            <line number="259" hits="4"/>
+            <line number="260" hits="1"/>
+            <line number="261" hits="1"/>
+            <line number="262" hits="1"/>
+            <line number="263" hits="1"/>
+            <line number="264" hits="1"/>
+            <line number="265" hits="1"/>
+            <line number="266" hits="1"/>
+            <line number="267" hits="1"/>
+            <line number="268" hits="1"/>
+            <line number="271" hits="4"/>
+            <line number="272" hits="2"/>
+            <line number="275" hits="4"/>
+            <line number="280" hits="3"/>
+            <line number="281" hits="1"/>
+            <line number="282" hits="1"/>
+            <line number="283" hits="1"/>
+            <line number="284" hits="1"/>
             <line number="285" hits="1"/>
+            <line number="286" hits="1"/>
+            <line number="287" hits="1"/>
             <line number="288" hits="1"/>
-            <line number="293" hits="3"/>
-            <line number="298" hits="3"/>
+            <line number="289" hits="1"/>
+            <line number="292" hits="3"/>
+            <line number="293" hits="1"/>
+            <line number="294" hits="1"/>
+            <line number="295" hits="1"/>
+            <line number="296" hits="1"/>
+            <line number="297" hits="1"/>
+            <line number="298" hits="1"/>
+            <line number="299" hits="1"/>
+            <line number="300" hits="1"/>
+            <line number="301" hits="1"/>
+            <line number="304" hits="3"/>
+            <line number="305" hits="1"/>
             <line number="308" hits="3"/>
             <line number="313" hits="3"/>
-            <line number="321" hits="3"/>
-            <line number="326" hits="3"/>
-            <line number="334" hits="3"/>
-            <line number="342" hits="3"/>
-            <line number="350" hits="3"/>
-            <line number="358" hits="3"/>
-            <line number="363" hits="3"/>
-            <line number="371" hits="3"/>
-            <line number="379" hits="4"/>
-            <line number="387" hits="3"/>
-            <line number="395" hits="3"/>
-            <line number="400" hits="3"/>
-            <line number="405" hits="3"/>
+            <line number="318" hits="3"/>
+            <line number="328" hits="3"/>
+            <line number="333" hits="3"/>
+            <line number="341" hits="3"/>
+            <line number="346" hits="3"/>
+            <line number="354" hits="3"/>
+            <line number="362" hits="3"/>
+            <line number="370" hits="3"/>
+            <line number="378" hits="3"/>
+            <line number="383" hits="3"/>
+            <line number="391" hits="3"/>
+            <line number="399" hits="4"/>
+            <line number="407" hits="3"/>
+            <line number="415" hits="3"/>
+            <line number="420" hits="3"/>
+            <line number="425" hits="3"/>
           </lines>
         </class>
       </classes>
