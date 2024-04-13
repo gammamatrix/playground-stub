@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-13 06:40:04</timestamp>
+  <timestamp>2024-04-13 17:35:59</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>316</methodCount>
+    <methodCount>314</methodCount>
     <crapMethodCount>23</crapMethodCount>
     <crapLoad>328</crapLoad>
-    <totalCrap>8040.84</totalCrap>
-    <crapMethodPercent>7.28</crapMethodPercent>
+    <totalCrap>7995.5</totalCrap>
+    <crapMethodPercent>7.32</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -2745,9 +2745,9 @@
       <methodName>getConfigurationFilename</methodName>
       <methodSignature>getConfigurationFilename(): string</methodSignature>
       <fullMethod>getConfigurationFilename(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2756,9 +2756,9 @@
       <methodName>getStub</methodName>
       <methodSignature>getStub(): string</methodSignature>
       <fullMethod>getStub(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2767,9 +2767,9 @@
       <methodName>getDefaultNamespace</methodName>
       <methodSignature>getDefaultNamespace($rootNamespace): string</methodSignature>
       <fullMethod>getDefaultNamespace($rootNamespace): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2778,9 +2778,9 @@
       <methodName>buildClass</methodName>
       <methodSignature>buildClass($name): string</methodSignature>
       <fullMethod>buildClass($name): string</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
-      <coverage>0</coverage>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2789,20 +2789,9 @@
       <methodName>getPath</methodName>
       <methodSignature>getPath($name): string</methodSignature>
       <fullMethod>getPath($name): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\FactoryMakeCommand</className>
-      <methodName>guessModelName</methodName>
-      <methodSignature>guessModelName($name): string</methodSignature>
-      <fullMethod>guessModelName($name): string</fullMethod>
-      <crap>20</crap>
-      <complexity>4</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3350,9 +3339,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>12.81</crap>
-      <complexity>12</complexity>
-      <coverage>82.22</coverage>
+      <crap>9</crap>
+      <complexity>9</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3380,23 +3369,12 @@
     <method>
       <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\TestMakeCommand</className>
-      <methodName>handle</methodName>
-      <methodSignature>handle()</methodSignature>
-      <fullMethod>handle()</fullMethod>
-      <crap>3.33</crap>
-      <complexity>3</complexity>
-      <coverage>66.67</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\TestMakeCommand</className>
       <methodName>getStub</methodName>
       <methodSignature>getStub()</methodSignature>
       <fullMethod>getStub()</fullMethod>
-      <crap>5.2</crap>
-      <complexity>5</complexity>
-      <coverage>80</coverage>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>

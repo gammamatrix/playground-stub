@@ -38,6 +38,9 @@ Classes (Tests\Unit\Playground\Stub\Configuration\Model\Classes)
 Command (Tests\Feature\Playground\Stub\Console\Commands\About\Command)
  [x] Command about displays package information and succeed with code 0
 
+Command (Tests\Feature\Playground\Stub\Console\Commands\FactoryMakeCommand\Command)
+ [x] Command skeleton
+
 Command (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Command)
  [x] Command skeleton
 
@@ -46,6 +49,9 @@ Command (Tests\Feature\Playground\Stub\Console\Commands\SeederMakeCommand\Comman
 
 Command (Tests\Feature\Playground\Stub\Console\Commands\TestMakeCommand\Command)
  [x] Command skeleton
+
+Command (Tests\Unit\Playground\Stub\Console\Commands\FactoryMakeCommand\Command)
+ [x] Command displays help
 
 Command (Tests\Unit\Playground\Stub\Console\Commands\ModelMakeCommand\Command)
  [x] Command displays help
@@ -145,6 +151,10 @@ Instance (Tests\Unit\Playground\Stub\Configuration\Test\Instance)
  [x] Instance apply without options
  [x] Folder is empty by default
  [x] Test with file and skeleton
+
+Model (Tests\Feature\Playground\Stub\Console\Commands\FactoryMakeCommand\Model)
+ [x] Command make factory with force and without skeleton
+ [x] Command make factory with force and with skeleton
 
 Model (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Model)
  [x] Command make model with force
