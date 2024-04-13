@@ -1,0 +1,14 @@
+<?php
+/**
+ * {{organization}}
+ */
+
+namespace {{ namespace }};
+{{ use }}
+/**
+ * \{{ namespace }}\{{ class }}
+ */
+abstract class {{ class }} extends {{ extends }}{{ implements }}
+{
+{{ use_class }}{{ attributes }}{{ casts }}{{ fillable }}{{ perPage }}{{ HasOne }}{{ HasMany }}{{ scopes }}{{ filters }}
+}

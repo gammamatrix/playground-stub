@@ -16,6 +16,15 @@ use Tests\Feature\Playground\Stub\TestCase;
 #[CoversClass(ModelMakeCommand::class)]
 class CommandTest extends TestCase
 {
+    public function test_command_without_options_or_arguments(): void
+    {
+        /**
+         * @var \Illuminate\Testing\PendingCommand $result
+         */
+        $result = $this->artisan('playground:make:model');
+        $result->assertExitCode(0);
+    }
+
     public function test_command_skeleton(): void
     {
         /**

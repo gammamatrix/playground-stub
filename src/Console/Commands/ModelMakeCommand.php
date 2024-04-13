@@ -214,8 +214,19 @@ class ModelMakeCommand extends GeneratorCommand
 
         }
 
+        if ($this->hasOption('pivot') && $this->option('pivot')) {
+            $this->c->setOptions([
+                'type' => 'pivot',
+            ]);
+        } elseif ($this->hasOption('morph-pivot') && $this->option('morph-pivot')) {
+            $this->c->setOptions([
+                'type' => 'morph-pivot',
+            ]);
+        }
+
         if (in_array($this->c->type(), [
             'pivot',
+            'morph-pivot',
         ])) {
             $this->c->setOptions([
                 'migration' => true,
@@ -294,6 +305,7 @@ class ModelMakeCommand extends GeneratorCommand
         if (in_array($this->c->type(), [
             'abstract',
             'pivot',
+            'morph-pivot',
             'playground-abstract',
             'playground-model',
             'model',
@@ -799,18 +811,17 @@ class ModelMakeCommand extends GeneratorCommand
         } elseif ($this->c->type() === 'model') {
             $template = 'model/model.stub';
         } elseif (in_array($this->c->type(), [
-            'pivot',
             'api',
             'resource',
             'playground-api',
             'playground-resource',
         ])) {
             $template = 'model/resource.stub';
-        } elseif ($this->option('pivot')) {
+        } elseif ($this->c->type() === 'pivot') {
             $template = 'laravel/model.pivot.stub';
 
             return $this->resolveStubPath('laravel/model.pivot.stub');
-        } elseif ($this->option('morph-pivot')) {
+        } elseif ($this->c->type() === 'morph-pivot') {
             $template = 'laravel/model.morph-pivot.stub';
         }
 
@@ -876,25 +887,25 @@ class ModelMakeCommand extends GeneratorCommand
         ];
     }
 
-    /**
-     * Interact further with the user if they were prompted for missing arguments.
-     *
-     * @return void
-     */
-    protected function afterPromptingForMissingArguments(InputInterface $input, OutputInterface $output)
-    {
-        $name = $this->getNameInput();
-        if (($name && $this->isReservedName($name)) || $this->didReceiveOptions($input)) {
-            return;
-        }
+    // /**
+    //  * Interact further with the user if they were prompted for missing arguments.
+    //  *
+    //  * @return void
+    //  */
+    // protected function afterPromptingForMissingArguments(InputInterface $input, OutputInterface $output)
+    // {
+    //     $name = $this->getNameInput();
+    //     if (($name && $this->isReservedName($name)) || $this->didReceiveOptions($input)) {
+    //         return;
+    //     }
 
-        collect(multiselect('Would you like any of the following?', [
-            'seed' => 'Database Seeder',
-            'factory' => 'Factory',
-            'requests' => 'Form Requests',
-            'migration' => 'Migration',
-            'policy' => 'Policy',
-            'resource' => 'Resource Controller',
-        ]))->each(fn ($option) => $input->setOption(is_string($option) ? $option : '', true));
-    }
+    //     collect(multiselect('Would you like any of the following?', [
+    //         'seed' => 'Database Seeder',
+    //         'factory' => 'Factory',
+    //         'requests' => 'Form Requests',
+    //         'migration' => 'Migration',
+    //         'policy' => 'Policy',
+    //         'resource' => 'Resource Controller',
+    //     ]))->each(fn ($option) => $input->setOption(is_string($option) ? $option : '', true));
+    // }
 }
