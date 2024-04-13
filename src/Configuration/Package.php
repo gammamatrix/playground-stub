@@ -232,8 +232,8 @@ class Package extends Configuration
     public function addKeyword(mixed $keyword): self
     {
         if (empty($keyword) || ! is_string($keyword)) {
-            Log::warning(__('playground-stub::stub.Package.keywords.invalid', [
-                'keyword' => gettype($keyword),
+            Log::warning(__('playground-stub::stub.Package.keywords.required', [
+                'keyword' => is_string($keyword) ? $keyword : gettype($keyword),
             ]));
         } elseif (! in_array($keyword, $this->package_keywords)) {
             $this->package_keywords[] = $keyword;
@@ -244,14 +244,8 @@ class Package extends Configuration
 
     public function addRequire(mixed $package, mixed $version): self
     {
-        if (! empty($package)
-            && is_string($package)
-            && ! empty($version)
-            && is_string($version)
-        ) {
-            $this->package_require[$package] = $version;
-        } else {
-            Log::warning(__('playground-stub::stub.Package.require.invalid', [
+        if (empty($package) || ! is_string($package)) {
+            Log::warning(__('playground-stub::stub.Package.require.package.required', [
                 'package' => is_string($package) ? $package : gettype($package),
                 'version' => is_string($version) ? $version : gettype($version),
             ]), [
@@ -262,17 +256,8 @@ class Package extends Configuration
             ]);
         }
 
-        return $this;
-    }
-
-    public function addRequireDev(mixed $package, mixed $version): self
-    {
-        if (empty($package)
-            || ! is_string($package)
-            || empty($version)
-            || ! is_string($version)
-        ) {
-            Log::warning(__('playground-stub::stub.Package.require-dev.invalid', [
+        if (empty($version) || ! is_string($version)) {
+            Log::warning(__('playground-stub::stub.Package.require.version.required', [
                 'package' => is_string($package) ? $package : gettype($package),
                 'version' => is_string($version) ? $version : gettype($version),
             ]), [
@@ -281,7 +266,42 @@ class Package extends Configuration
                 'package' => is_string($package) ? $package : gettype($package),
                 'version' => is_string($version) ? $version : gettype($version),
             ]);
-        } else {
+        }
+
+        if (! empty($package) && is_string($package) && ! empty($version) && is_string($version)) {
+            $this->package_require[$package] = $version;
+        }
+
+        return $this;
+    }
+
+    public function addRequireDev(mixed $package, mixed $version): self
+    {
+        if (empty($package) || ! is_string($package)) {
+            Log::warning(__('playground-stub::stub.Package.require-dev.package.required', [
+                'package' => is_string($package) ? $package : gettype($package),
+                'version' => is_string($version) ? $version : gettype($version),
+            ]), [
+                'package-type' => gettype($package),
+                'version-type' => gettype($version),
+                'package' => is_string($package) ? $package : gettype($package),
+                'version' => is_string($version) ? $version : gettype($version),
+            ]);
+        }
+
+        if (empty($version) || ! is_string($version)) {
+            Log::warning(__('playground-stub::stub.Package.require-dev.version.required', [
+                'package' => is_string($package) ? $package : gettype($package),
+                'version' => is_string($version) ? $version : gettype($version),
+            ]), [
+                'package-type' => gettype($package),
+                'version-type' => gettype($version),
+                'package' => is_string($package) ? $package : gettype($package),
+                'version' => is_string($version) ? $version : gettype($version),
+            ]);
+        }
+
+        if (! empty($package) && is_string($package) && ! empty($version) && is_string($version)) {
             $this->package_require_dev[$package] = $version;
         }
 

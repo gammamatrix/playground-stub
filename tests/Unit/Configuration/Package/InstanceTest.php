@@ -9,6 +9,8 @@ namespace Tests\Unit\Playground\Stub\Configuration\Package;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\Unit\Playground\Stub\TestCase;
 use Playground\Stub\Configuration\Package;
+use TiMacDonald\Log\LogEntry;
+use TiMacDonald\Log\LogFake;
 
 /**
  * \Tests\Unit\Playground\Stub\Configuration\Package\InstanceTest
@@ -221,4 +223,146 @@ class InstanceTest extends TestCase
         $this->assertFalse($instance->factories());
     }
 
+    public function test_addKeyword_with_invalid_keyword_and_log_message(): void
+    {
+        $log = LogFake::bind();
+
+        $instance = new Package;
+
+        $this->assertInstanceOf(Package::class, $instance);
+        $keyword = '';
+        $instance->addKeyword($keyword);
+        $this->assertIsString($instance->folder());
+        $this->assertEmpty($instance->folder());
+
+        // $log->dump();
+        $log->assertLogged(
+            fn (LogEntry $log) => $log->level === 'warning'
+        );
+
+        $log->assertLogged(
+            fn (LogEntry $log) => is_string($log->message) && str_contains(
+                $log->message,
+                __('playground-stub::stub.Package.keywords.required', [
+                    'keyword' => '',
+                ])
+            )
+        );
+    }
+
+    public function test_addRequire_with_invalid_package_and_log_message(): void
+    {
+        $log = LogFake::bind();
+
+        $instance = new Package;
+
+        $this->assertInstanceOf(Package::class, $instance);
+        $package = '';
+        $version = 'dev-master';
+        $instance->addRequire($package, $version);
+        $this->assertIsString($instance->folder());
+        $this->assertEmpty($instance->folder());
+
+        // $log->dump();
+        $log->assertLogged(
+            fn (LogEntry $log) => $log->level === 'warning'
+        );
+
+        $log->assertLogged(
+            fn (LogEntry $log) => is_string($log->message) && str_contains(
+                $log->message,
+                __('playground-stub::stub.Package.require.package.required', [
+                    'package' => '',
+                    'version' => 'dev-master',
+                ])
+            )
+        );
+    }
+
+    public function test_addRequire_with_invalid_version_and_log_message(): void
+    {
+        $log = LogFake::bind();
+
+        $instance = new Package;
+
+        $this->assertInstanceOf(Package::class, $instance);
+        $package = 'some-package';
+        $version = '';
+        $instance->addRequire($package, $version);
+        $this->assertIsString($instance->folder());
+        $this->assertEmpty($instance->folder());
+
+        // $log->dump();
+        $log->assertLogged(
+            fn (LogEntry $log) => $log->level === 'warning'
+        );
+
+        $log->assertLogged(
+            fn (LogEntry $log) => is_string($log->message) && str_contains(
+                $log->message,
+                __('playground-stub::stub.Package.require.version.required', [
+                    'package' => 'some-package',
+                    'version' => '',
+                ])
+            )
+        );
+    }
+
+    public function test_addRequireDev_with_invalid_package_and_log_message(): void
+    {
+        $log = LogFake::bind();
+
+        $instance = new Package;
+
+        $this->assertInstanceOf(Package::class, $instance);
+        $package = '';
+        $version = 'dev-master';
+        $instance->addRequireDev($package, $version);
+        $this->assertIsString($instance->folder());
+        $this->assertEmpty($instance->folder());
+
+        // $log->dump();
+        $log->assertLogged(
+            fn (LogEntry $log) => $log->level === 'warning'
+        );
+
+        $log->assertLogged(
+            fn (LogEntry $log) => is_string($log->message) && str_contains(
+                $log->message,
+                __('playground-stub::stub.Package.require-dev.package.required', [
+                    'package' => '',
+                    'version' => 'dev-master',
+                ])
+            )
+        );
+    }
+
+    public function test_addRequireDev_with_invalid_version_and_log_message(): void
+    {
+        $log = LogFake::bind();
+
+        $instance = new Package;
+
+        $this->assertInstanceOf(Package::class, $instance);
+        $package = 'some-package';
+        $version = '';
+        $instance->addRequireDev($package, $version);
+        $this->assertIsString($instance->folder());
+        $this->assertEmpty($instance->folder());
+
+        // $log->dump();
+        $log->assertLogged(
+            fn (LogEntry $log) => $log->level === 'warning'
+        );
+
+        $log->assertLogged(
+            fn (LogEntry $log) => is_string($log->message) && str_contains(
+                $log->message,
+                __('playground-stub::stub.Package.require-dev.version.required', [
+                    'package' => 'some-package',
+                    'version' => '',
+                ])
+            )
+        );
+    }
 }
