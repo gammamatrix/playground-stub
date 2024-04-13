@@ -170,20 +170,19 @@ class FactoryMakeCommand extends GeneratorCommand
      */
     protected function buildClass($name): string
     {
-        if (empty($this->model) || empty($this->model->fqdn())) {
-            $this->c->setOptions([
-                'model_fqdn' => sprintf(
-                    '%1$s\\Models\\%2$s',
-                    $this->rootNamespace(),
-                    Str::of($name)->studly()
-                ),
-            ]);
+        $model_fqdn = $this->model?->fqdn();
 
-        } else {
-            $this->c->setOptions([
-                'model_fqdn' => $this->model->fqdn(),
-            ]);
+        if (! $model_fqdn) {
+            $model_fqdn = sprintf(
+                '%1$s\\Models\\%2$s',
+                $this->rootNamespace(),
+                Str::of($name)->studly()
+            );
         }
+
+        $this->c->setOptions([
+            'model_fqdn' => $model_fqdn,
+        ]);
 
         $this->applyConfigurationToSearch();
 
@@ -256,29 +255,29 @@ class FactoryMakeCommand extends GeneratorCommand
         // return $this->laravel->databasePath().'/factories/'.str_replace('\\', '/', $name).'.php';
     }
 
-    /**
-     * Guess the model name from the Factory name or return a default model name.
-     *
-     * @param  string  $name
-     */
-    protected function guessModelName($name): string
-    {
-        if (str_ends_with($name, 'Factory')) {
-            $name = substr($name, 0, -7);
-        }
+    // /**
+    //  * Guess the model name from the Factory name or return a default model name.
+    //  *
+    //  * @param  string  $name
+    //  */
+    // protected function guessModelName($name): string
+    // {
+    //     if (str_ends_with($name, 'Factory')) {
+    //         $name = substr($name, 0, -7);
+    //     }
 
-        $modelName = $this->qualifyModel(Str::after($name, $this->rootNamespace()));
+    //     $modelName = $this->qualifyModel(Str::after($name, $this->rootNamespace()));
 
-        if (class_exists($modelName)) {
-            return $modelName;
-        }
+    //     if (class_exists($modelName)) {
+    //         return $modelName;
+    //     }
 
-        if (is_dir(app_path('Models/'))) {
-            return $this->rootNamespace().'Models\Model';
-        }
+    //     if (is_dir(app_path('Models/'))) {
+    //         return $this->rootNamespace().'Models\Model';
+    //     }
 
-        return $this->rootNamespace().'Model';
-    }
+    //     return $this->rootNamespace().'Model';
+    // }
 
     // /**
     //  * Get the console command options.

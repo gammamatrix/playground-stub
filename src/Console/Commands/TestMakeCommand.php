@@ -94,10 +94,7 @@ class TestMakeCommand extends GeneratorCommand
 
         $suite = $this->option('suite');
         $suite = is_string($suite) ? strtolower($suite) : '';
-
-        if (empty($suite) && $this->c->suite()) {
-            $suite = $this->c->suite();
-        }
+        $suite = $suite ? $suite : $this->c->suite();
 
         // NOTE: Suites could be a configuration option.
         $this->suite = empty($suite) || ! in_array($suite, [
@@ -121,31 +118,33 @@ class TestMakeCommand extends GeneratorCommand
             'playground-model',
         ])) {
 
-            $model_fqdn = $this->c->model_fqdn();
-
-            if (! $model_fqdn && $this->model?->fqdn()) {
-                $model_fqdn = $this->model->fqdn();
-                $this->c->setOptions([
-                    'model_fqdn' => $model_fqdn,
-                ]);
+            // The FQDN, from the model, is the source of truth.
+            $model_fqdn = $this->model?->fqdn();
+            if (! $model_fqdn) {
+                $model_fqdn = $this->c->model_fqdn();
             }
+            $this->c->setOptions([
+                'model_fqdn' => $model_fqdn,
+            ]);
 
             $this->searches['model_fqdn'] = $model_fqdn ? $this->parseClassInput($model_fqdn) : 'ReplaceFqdn';
 
-            if (in_array($this->suite, [
-                'acceptance',
-                'feature',
-            ])) {
-                // $this->buildClass_uses_add('GammaMatrix\Playground\Test\Feature\Models\ModelCase');
-                $this->c->setOptions([
-                    'extends' => 'ModelCase',
-                ]);
-            } else {
-                // $this->buildClass_uses_add('GammaMatrix\Playground\Test\Unit\Models\ModelCase');
-                $this->c->setOptions([
-                    'extends' => 'ModelCase',
-                ]);
-            }
+            $extends = 'ModelCase';
+
+            // if (in_array($this->suite, [
+            //     'acceptance',
+            //     'feature',
+            // ])) {
+            //     // $this->buildClass_uses_add('GammaMatrix\Playground\Test\Feature\Models\ModelCase');
+            //     $this->c->setOptions([
+            //         'extends' => 'ModelCase',
+            //     ]);
+            // } else {
+            //     // $this->buildClass_uses_add('GammaMatrix\Playground\Test\Unit\Models\ModelCase');
+            // }
+            $this->c->setOptions([
+                'extends' => $extends,
+            ]);
 
             $this->buildClass_hasOne($type, $this->suite);
             $this->buildClass_hasMany($type, $this->suite);
@@ -246,31 +245,31 @@ class TestMakeCommand extends GeneratorCommand
         // return $this->c->class();
     }
 
-    /**
-     * Execute the console command.
-     */
-    public function handle()
-    {
-        if (parent::handle() === false && ! $this->option('force')) {
-            return false;
-        }
+    // /**
+    //  * Execute the console command.
+    //  */
+    // public function handle()
+    // {
+    //     if (parent::handle() === false && ! $this->option('force')) {
+    //         return false;
+    //     }
 
-        $type = $this->getConfigurationType();
+    //     $type = $this->getConfigurationType();
 
-        // if ($type === 'playground-resource') {
-        //     $this->handle_playground_resource();
-        // }
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$type' => $type,
-        //     // '$this->model' => $this->model,
-        //     '$this->configuration' => $this->configuration,
-        //     '$this->searches' => $this->searches,
-        //     '$this->options()' => $this->options(),
-        // ]);
+    //     // if ($type === 'playground-resource') {
+    //     //     $this->handle_playground_resource();
+    //     // }
+    //     // dump([
+    //     //     '__METHOD__' => __METHOD__,
+    //     //     '$type' => $type,
+    //     //     // '$this->model' => $this->model,
+    //     //     '$this->configuration' => $this->configuration,
+    //     //     '$this->searches' => $this->searches,
+    //     //     '$this->options()' => $this->options(),
+    //     // ]);
 
-        // $this->saveConfiguration();
-    }
+    //     // $this->saveConfiguration();
+    // }
 
     // protected function handle_playground_resource()
     // {
@@ -327,19 +326,19 @@ class TestMakeCommand extends GeneratorCommand
 
         $type = $this->getConfigurationType();
 
-        if (in_array($type, [
-            'playground-model',
-            'playground-resource',
-            'playground-api',
-        ])) {
-            $test = 'test/model/playground.stub';
-        } elseif ($type === 'playground') {
-            $test = 'test/test.stub';
-        } elseif ($type === 'playground-resource-index') {
-            $test = 'test/test.stub';
-        } elseif ($type === 'playground-resource') {
-            $test = 'test/test.stub';
-        }
+        // if (in_array($type, [
+        //     'playground-model',
+        //     'playground-resource',
+        //     'playground-api',
+        // ])) {
+        //     $test = 'test/model/playground.stub';
+        // } elseif ($type === 'playground') {
+        //     $test = 'test/test.stub';
+        // } elseif ($type === 'playground-resource-index') {
+        //     $test = 'test/test.stub';
+        // } elseif ($type === 'playground-resource') {
+        //     $test = 'test/test.stub';
+        // }
 
         return $this->resolveStubPath($test);
     }
