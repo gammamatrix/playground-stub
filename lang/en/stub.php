@@ -30,8 +30,10 @@ return [
     'Package.keywords.required' => 'Ignoring a keyword [INVALID: :keyword] for the composer.json file.',
     'Package.require.package.required' => 'Ignoring a requirement: package [INVALID: :package] with version [:version] for the composer.json file.',
     'Package.require.version.required' => 'Ignoring a requirement: package [:package] with version [INVALID: :version] for the composer.json file.',
-    'Package.require-dev.invalid' => 'Ignoring a dev requirement: package [:package] with version [:version] for the composer.json file.',
+    'Package.require-dev.package.required' => 'Ignoring a dev requirement: package [INVALID: :package] with version [:version] for the composer.json file.',
+    'Package.require-dev.version.required' => 'Ignoring a dev requirement: package [:package] with version [INVALID: :version] for the composer.json file.',
 
+    'Model.Create.primary.unexpected' => 'Unexpected type [INVALID: :primary] column - allowed: :allowed',
     'Model.CreateColumn.type.unexpected' => 'Unexpected type [:type] for column [:column] - allowed: :allowed',
 
     'Model.Attributes.invalid' => 'Adding an attribute to [:name] requires a column [:column] to be provided.',

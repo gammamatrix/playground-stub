@@ -1203,6 +1203,7 @@
         }
     ],
     "create": {
+        "migration": "2020_01_02_100001_create_matrix_backlogs_table",
         "class": "2020_01_02_100001_create_matrix_backlogs_table",
         "primary": "uuid",
         "ids": {

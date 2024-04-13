@@ -9,7 +9,7 @@ namespace Playground\Stub\Configuration\Model;
 use Playground\Stub\Configuration\Configuration;
 
 /**
- * \Playground\Stub\Configuration\Filter
+ * \Playground\Stub\Configuration\Model\Filter
  */
 class Filter extends Configuration
 {

@@ -100,10 +100,6 @@ class Create extends ModelConfiguration
      */
     public function setOptions(array $options = []): self
     {
-        if (array_key_exists('skeleton', $options)) {
-            $this->skeleton = ! empty($options['skeleton']);
-        }
-
         if (! empty($options['migration'])
             && is_string($options['migration'])
         ) {

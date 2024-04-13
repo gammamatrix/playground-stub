@@ -14,6 +14,22 @@ use Playground\Stub\Configuration\Model;
  * \Tests\Unit\Playground\Stub\Configuration\Model\InstanceTest
  */
 #[CoversClass(Model::class)]
+#[CoversClass(Model\Create::class)]
+#[CoversClass(Model\CreateColumn::class)]
+#[CoversClass(Model\CreateDate::class)]
+#[CoversClass(Model\CreateFlag::class)]
+#[CoversClass(Model\CreateDate::class)]
+#[CoversClass(Model\CreateId::class)]
+#[CoversClass(Model\CreateJson::class)]
+#[CoversClass(Model\CreatePermission::class)]
+#[CoversClass(Model\CreateStatus::class)]
+#[CoversClass(Model\CreateUi::class)]
+#[CoversClass(Model\CreateUnique::class)]
+#[CoversClass(Model\Filters::class)]
+#[CoversClass(Model\HasMany::class)]
+#[CoversClass(Model\HasOne::class)]
+#[CoversClass(Model\ModelConfiguration::class)]
+#[CoversClass(Model\Sortable::class)]
 class InstanceTest extends TestCase
 {
     public function test_instance(): void
