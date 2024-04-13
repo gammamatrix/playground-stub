@@ -300,7 +300,7 @@ class Filters extends ModelConfiguration
     public function addColumn(int $i, mixed $meta): self
     {
         if (empty($meta) || ! is_array($meta)) {
-            throw new \RuntimeException(__('playground-stub::stub.Filters.Column.invalcolumn', [
+            throw new \RuntimeException(__('playground-stub::stub.Filters.Column.invalid', [
                 'i' => $i,
             ]));
         }
@@ -316,7 +316,7 @@ class Filters extends ModelConfiguration
     public function addPermission(int $i, mixed $meta): self
     {
         if (empty($meta) || ! is_array($meta)) {
-            throw new \RuntimeException(__('playground-stub::stub.Filters.Permission.invalpermission', [
+            throw new \RuntimeException(__('playground-stub::stub.Filters.Permission.invalid', [
                 'i' => $i,
             ]));
         }

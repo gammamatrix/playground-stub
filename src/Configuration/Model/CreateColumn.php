@@ -79,10 +79,6 @@ class CreateColumn extends ModelConfiguration
      */
     public function setOptions(array $options = []): self
     {
-        if (array_key_exists('skeleton', $options)) {
-            $this->skeleton = ! empty($options['skeleton']);
-        }
-
         if (! empty($options['column'])
             && is_string($options['column'])
         ) {
@@ -145,7 +141,7 @@ class CreateColumn extends ModelConfiguration
 
     public function jsonSerialize(): mixed
     {
-        if ($this->hasDefault
+        if (! $this->hasDefault
             && array_key_exists('default', $this->properties)
         ) {
             unset($this->properties['default']);

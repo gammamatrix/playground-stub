@@ -97,13 +97,26 @@
             "localKey": "ticket_id"
         },
         "version": {
-            "comment": "The version of the backlog.",
-            "related": "Version",
-            "foreignKey": "id",
-            "localKey": "version_id"
+            "comment": "",
+            "related": "",
+            "foreignKey": "",
+            "localKey": ""
         }
     },
-    "HasMany": [],
+    "HasMany": {
+        "sprints": {
+            "comment": "",
+            "related": "",
+            "foreignKey": "",
+            "localKey": ""
+        },
+        "tickets": {
+            "comment": "The tickets of the backlog.",
+            "related": "Ticket",
+            "foreignKey": "ticket_id",
+            "localKey": "id"
+        }
+    },
     "scopes": {
         "sort": {
             "include": "minus",
@@ -1069,7 +1082,9 @@
         {
             "column": "completed",
             "type": "boolean",
-            "nullable": false
+            "nullable": false,
+            "label": "Completed",
+            "icon": "fa-solid fa-check"
         },
         {
             "column": "duplicate",

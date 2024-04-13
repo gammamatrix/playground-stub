@@ -4,50 +4,47 @@
  */
 
 declare(strict_types=1);
-namespace Tests\Unit\Playground\Stub\Configuration\Model\Create;
+namespace Tests\Unit\Playground\Stub\Configuration\Model\CreateColumn;
 
 use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\Unit\Playground\Stub\TestCase;
-use Playground\Stub\Configuration\Model\Create;
+use Playground\Stub\Configuration\Model\CreateColumn;
 use TiMacDonald\Log\LogEntry;
 use TiMacDonald\Log\LogFake;
 
 /**
- * \Tests\Unit\Playground\Stub\Configuration\Model\InstanceTest
+ * \Tests\Unit\Playground\Stub\Configuration\Model\CreateColumn\InstanceTest
  */
-#[CoversClass(Create::class)]
+#[CoversClass(CreateColumn::class)]
 class InstanceTest extends TestCase
 {
     public function test_instance(): void
     {
-        $instance = new Create;
+        $instance = new CreateColumn;
 
-        $this->assertInstanceOf(Create::class, $instance);
+        $this->assertInstanceOf(CreateColumn::class, $instance);
     }
 
     /**
      * @var array<string, mixed>
      */
     protected array $expected_properties = [
-        'migration' => '',
-        'primary' => '',
-        'timestamps' => false,
-        'softDeletes' => false,
-        'trash' => [],
-        'ids' => [],
-        'unique' => [],
-        'dates' => [],
-        'flags' => [],
-        'columns' => [],
-        'permissions' => [],
-        'status' => [],
-        'ui' => [],
-        'json' => [],
+        'column' => '',
+        'label' => '',
+        'description' => '',
+        'icon' => '',
+        'default' => null,
+        'index' => false,
+        'nullable' => false,
+        'readOnly' => false,
+        'type' => 'string',
     ];
 
-    public function test_model_with_file_and_skeleton(): void
+    public function test_model_with_file_and_skeleton_jsonSerialize(): void
     {
-        $options = $this->getResourceFileAsArray('model-backlog');
+        $options = [
+            'column' => 'some_column',
+        ];
         // dd([
         //     '__METHOD__' => __METHOD__,
         //     '$file' => $file,
@@ -55,7 +52,7 @@ class InstanceTest extends TestCase
         //     '$options' => $options,
         // ]);
 
-        $instance = new Create($options['create'] ?? [], true);
+        $instance = new CreateColumn($options, true);
 
         $instance->apply();
         // dd([
@@ -67,23 +64,29 @@ class InstanceTest extends TestCase
         // echo(json_encode($instance, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
         $this->assertTrue($instance->skeleton());
 
-        $this->assertSame('uuid', $instance->primary());
+        $this->assertSame('some_column', $instance->column());
+
+        $data = $instance->apply()->jsonSerialize();
+        $this->assertIsArray($data);
+        $this->assertArrayHasKey('column', $data);
+        $this->assertSame('some_column', $data['column']);
     }
 
-    public function test_setOptions_unsupported_primary_and_ignore(): void
+    public function test_setOptions_unsupported_primary_and_log_message(): void
     {
         $log = LogFake::bind();
 
         $withSkeleton = true;
-        $instance = new Create([
+        $instance = new CreateColumn([
+            'column' => 'some_column',
             'migration' => 'some_migration_name',
         ], $withSkeleton);
 
-        $this->assertInstanceOf(Create::class, $instance);
+        $this->assertInstanceOf(CreateColumn::class, $instance);
 
         // dump($instance);
         $instance->setOptions([
-            'primary' => 'some-custom-type',
+            'type' => 'some-custom-type',
         ]);
 
         // $log->dump();
@@ -92,12 +95,33 @@ class InstanceTest extends TestCase
             fn (LogEntry $log) => $log->level === 'warning'
         );
 
+        $allowed_types = [
+            'uuid',
+            'ulid',
+            'string',
+            'smallText',
+            'mediumText',
+            'text',
+            'longText',
+            'boolean',
+            'integer',
+            'bigInteger',
+            'mediumInteger',
+            'smallInteger',
+            'tinyInteger',
+            'dateTime',
+            'decimal',
+            'float',
+            'double',
+        ];
+
         $log->assertLogged(
             fn (LogEntry $log) => is_string($log->message) && str_contains(
                 $log->message,
-                __('playground-stub::stub.Model.Create.primary.unexpected', [
-                    'primary' => 'some-custom-type',
-                    'allowed' => 'string, uuid, increments',
+                __('playground-stub::stub.Model.CreateColumn.type.unexpected', [
+                    'column' => 'some_column',
+                    'type' => 'some-custom-type',
+                    'allowed' => implode(', ', $allowed_types),
                 ])
             )
         );

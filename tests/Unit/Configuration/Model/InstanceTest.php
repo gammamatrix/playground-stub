@@ -25,6 +25,7 @@ use Playground\Stub\Configuration\Model;
 #[CoversClass(Model\CreateStatus::class)]
 #[CoversClass(Model\CreateUi::class)]
 #[CoversClass(Model\CreateUnique::class)]
+#[CoversClass(Model\Filter::class)]
 #[CoversClass(Model\Filters::class)]
 #[CoversClass(Model\HasMany::class)]
 #[CoversClass(Model\HasOne::class)]
