@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-14 07:05:54</timestamp>
+  <timestamp>2024-04-14 07:25:42</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>372</methodCount>
     <crapMethodCount>24</crapMethodCount>
     <crapLoad>352</crapLoad>
-    <totalCrap>9020.72</totalCrap>
+    <totalCrap>9005.02</totalCrap>
     <crapMethodPercent>6.45</crapMethodPercent>
   </stats>
   <methods>
@@ -2206,9 +2206,9 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>8</crap>
+      <crap>8.3</crap>
       <complexity>8</complexity>
-      <coverage>100</coverage>
+      <coverage>83.33</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3020,8 +3020,8 @@
       <methodName>createConfig</methodName>
       <methodSignature>createConfig(array $searches): void</methodSignature>
       <fullMethod>createConfig(array $searches): void</fullMethod>
-      <crap>20</crap>
-      <complexity>4</complexity>
+      <crap>12</crap>
+      <complexity>3</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -3031,8 +3031,8 @@
       <methodName>createSkeleton</methodName>
       <methodSignature>createSkeleton(array $searches): void</methodSignature>
       <fullMethod>createSkeleton(array $searches): void</fullMethod>
-      <crap>20</crap>
-      <complexity>4</complexity>
+      <crap>12</crap>
+      <complexity>3</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
