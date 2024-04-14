@@ -1,0 +1,33 @@
+{
+    "namespace": "Playground\\Matrix\\Resource",
+    "type": "playground-resource",
+    "class": "BacklogController",
+    "organization": "Playground",
+    "package": "playground-matrix-resource",
+    "name": "Backlog",
+    "slug": "backlog",
+    "route": "matrix.resource.backlogs",
+    "module_label": "Matrix",
+    "module_slug": "matrix",
+    "view": "playground-matrix-resource::backlog",
+    "model": "Playground\\Matrix\\Models\\Backlog",
+    "table": "matrix_backlogs",
+    "models": {
+        "Backlog": "vendor/gammamatrix/playground-stub/resources/playground/matrix/model.backlog.json"
+    },
+    "policies": [
+        "vendor/gammamatrix/playground-stub/resources/playground/matrix/resource/backlog/policy.json"
+    ],
+    "requests": [
+        "vendor/gammamatrix/playground-stub/resources/playground/matrix/resource/backlog/request.destroy.json",
+        "vendor/gammamatrix/playground-stub/resources/playground/matrix/resource/backlog/request.index.json",
+        "vendor/gammamatrix/playground-stub/resources/playground/matrix/resource/backlog/request.restore.json",
+        "vendor/gammamatrix/playground-stub/resources/playground/matrix/resource/backlog/request.show.json",
+        "vendor/gammamatrix/playground-stub/resources/playground/matrix/resource/backlog/request.store.json",
+        "vendor/gammamatrix/playground-stub/resources/playground/matrix/resource/backlog/request.update.json"
+    ],
+    "resources": [
+        "vendor/gammamatrix/playground-stub/resources/playground/matrix/resource/backlog/resource.json",
+        "vendor/gammamatrix/playground-stub/resources/playground/matrix/resource/backlog/resource.collection.json"
+    ]
+}

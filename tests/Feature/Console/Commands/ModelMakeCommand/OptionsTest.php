@@ -7,12 +7,16 @@ declare(strict_types=1);
 namespace Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand;
 
 use PHPUnit\Framework\Attributes\CoversClass;
+use Playground\Stub\Console\Commands\Command;
+use Playground\Stub\Console\Commands\GeneratorCommand;
 use Playground\Stub\Console\Commands\ModelMakeCommand;
 use Tests\Feature\Playground\Stub\TestCase;
 
 /**
  * \Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\OptionsTest
  */
+#[CoversClass(Command::class)]
+#[CoversClass(GeneratorCommand::class)]
 #[CoversClass(ModelMakeCommand::class)]
 class OptionsTest extends TestCase
 {
@@ -96,6 +100,28 @@ class OptionsTest extends TestCase
     public function test_command_make_model_with_model_type(): void
     {
         $command = 'playground:make:model testing --force --type model';
+
+        /**
+         * @var \Illuminate\Testing\PendingCommand $result
+         */
+        $result = $this->artisan($command);
+        $result->assertExitCode(0);
+    }
+
+    public function test_command_make_model_with_api_controller_option(): void
+    {
+        $command = 'playground:make:model testing --force --api --controller';
+
+        /**
+         * @var \Illuminate\Testing\PendingCommand $result
+         */
+        $result = $this->artisan($command);
+        $result->assertExitCode(0);
+    }
+
+    public function test_command_make_model_with_resource_controller_option(): void
+    {
+        $command = 'playground:make:model testing --force --resource --controller';
 
         /**
          * @var \Illuminate\Testing\PendingCommand $result

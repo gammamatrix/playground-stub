@@ -1,12 +1,12 @@
 <?php
-
-declare(strict_types=1);
 /**
  * Playground
  */
+
+declare(strict_types=1);
 namespace Playground\Stub\Console\Commands;
 
-use Illuminate\Console\Concerns\CreatesMatchingTest;
+use Illuminate\Support\Str;
 use Symfony\Component\Finder\Finder;
 
 abstract class GeneratorCommand extends Command
@@ -60,6 +60,9 @@ abstract class GeneratorCommand extends Command
                 return false;
             }
         }
+
+        $name = $this->handleName($name);
+
         // dd([
         //     '__METHOD__' => __METHOD__,
         //     '$name' => $name,
@@ -111,17 +114,52 @@ abstract class GeneratorCommand extends Command
 
         $info = $this->type;
 
-        // if (in_array(CreatesMatchingTest::class, class_uses_recursive($this))) {
-        //     if ($this->handleTestCreation($path)) {
-        //         $info .= ' and test';
-        //     }
-        // }
+        if ($this->handleTestCreation($path)) {
+            $info .= ' and test';
+        }
 
         $this->components->info(sprintf('%s [%s] created successfully.', $info, $path));
 
         if ($this->saveConfiguration) {
             $this->saveConfiguration();
         }
+    }
+
+    public function handleName(string $name): string
+    {
+        $name = ltrim($name, '\\/');
+
+        $name = str_replace('/', '\\', $name);
+
+        if ($this->qualifiedNameStudly && ! ctype_upper($name)) {
+            $name = Str::of($name)->studly()->toString();
+        }
+
+        $this->c->setOptions([
+            'name' => $name,
+        ]);
+
+        return $name;
+    }
+
+    /**
+     * Create the matching test case if requested.
+     *
+     * @param  string  $path
+     * @return bool
+     */
+    protected function handleTestCreation($path)
+    {
+        return false;
+        // if (! $this->option('test') && ! $this->option('pest') && ! $this->option('phpunit')) {
+        //     return false;
+        // }
+
+        // return $this->callSilent('make:test', [
+        //     'name' => Str::of($path)->after($this->laravel['path'])->beforeLast('.php')->append('Test')->replace('\\', '/'),
+        //     '--pest' => $this->option('pest'),
+        //     '--phpunit' => $this->option('phpunit'),
+        // ]) == 0;
     }
 
     /**

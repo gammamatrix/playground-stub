@@ -395,13 +395,13 @@ abstract class Command extends BaseGeneratorCommand
      */
     protected function qualifyClass($name): string
     {
-        $name = ltrim($name, '\\/');
+        // $name = ltrim($name, '\\/');
 
-        $name = str_replace('/', '\\', $name);
+        // $name = str_replace('/', '\\', $name);
 
-        if ($this->qualifiedNameStudly && ! ctype_upper($name)) {
-            $name = Str::of($name)->studly()->toString();
-        }
+        // if ($this->qualifiedNameStudly && ! ctype_upper($name)) {
+        //     $name = Str::of($name)->studly()->toString();
+        // }
 
         $rootNamespace = $this->rootNamespace();
         // dump([

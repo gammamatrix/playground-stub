@@ -278,9 +278,9 @@ class ModelMakeCommand extends GeneratorCommand
             $this->createSeeder();
         }
 
-        // if ($this->c->controller()) {
-        //     $this->createController();
-        // }
+        if ($this->c->controller()) {
+            $this->createController();
+        }
 
         if ($this->c->policy()) {
             $this->createPolicy();
@@ -676,7 +676,7 @@ class ModelMakeCommand extends GeneratorCommand
 
         $params = [
             'name' => Str::of(class_basename($this->qualifiedName))
-                ->studly()->finish('Policy')->toString(),
+                ->studly()->finish('Test')->toString(),
             '--namespace' => $this->c->namespace(),
             '--force' => $force,
             '--package' => $this->c->package(),

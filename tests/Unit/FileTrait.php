@@ -27,10 +27,22 @@ trait FileTrait
         $package_base = dirname(dirname(__DIR__));
 
         //
-        // Factories
+        // Controllers
         //
 
         if (in_array($type, [
+            'controller-playground-resource',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/test.controller.resource.backlog.json',
+                $package_base
+            );
+
+        //
+        // Factories
+        //
+
+        } elseif (in_array($type, [
             'factory-model',
         ])) {
             $file = sprintf(

@@ -7,12 +7,16 @@ declare(strict_types=1);
 namespace Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand;
 
 use PHPUnit\Framework\Attributes\CoversClass;
+use Playground\Stub\Console\Commands\Command;
+use Playground\Stub\Console\Commands\GeneratorCommand;
 use Playground\Stub\Console\Commands\ModelMakeCommand;
 use Tests\Feature\Playground\Stub\TestCase;
 
 /**
  * \Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\ModelTest
  */
+#[CoversClass(Command::class)]
+#[CoversClass(GeneratorCommand::class)]
 #[CoversClass(ModelMakeCommand::class)]
 class ModelTest extends TestCase
 {

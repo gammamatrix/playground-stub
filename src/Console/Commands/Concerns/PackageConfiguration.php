@@ -236,6 +236,7 @@ trait PackageConfiguration
 
         $this->resetModelFile();
 
+        // Reset options gets called after the file for CLI overrides
         $this->resetOptions();
         // dump([
         //     '__METHOD__' => __METHOD__,
