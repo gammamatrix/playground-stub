@@ -38,6 +38,10 @@ Classes (Tests\Unit\Playground\Stub\Configuration\Model\Classes)
 Command (Tests\Feature\Playground\Stub\Console\Commands\About\Command)
  [x] Command about displays package information and succeed with code 0
 
+Command (Tests\Feature\Playground\Stub\Console\Commands\ControllerMakeCommand\Command)
+ [x] Command without options or arguments
+ [x] Command skeleton
+
 Command (Tests\Feature\Playground\Stub\Console\Commands\FactoryMakeCommand\Command)
  [x] Command without options or arguments
  [x] Command skeleton
@@ -65,6 +69,9 @@ Command (Tests\Feature\Playground\Stub\Console\Commands\SeederMakeCommand\Comman
 Command (Tests\Feature\Playground\Stub\Console\Commands\TestMakeCommand\Command)
  [x] Command without options or arguments
  [x] Command skeleton
+
+Command (Tests\Unit\Playground\Stub\Console\Commands\ControllerMakeCommand\Command)
+ [x] Command displays help
 
 Command (Tests\Unit\Playground\Stub\Console\Commands\FactoryMakeCommand\Command)
  [x] Command displays help
@@ -171,6 +178,10 @@ Instance (Tests\Unit\Playground\Stub\Configuration\Test\Instance)
  [x] Folder is empty by default
  [x] Test with file and skeleton
 
+Model (Tests\Feature\Playground\Stub\Console\Commands\ControllerMakeCommand\Model)
+ [x] Command make controller with force and without skeleton
+ [x] Command make controller with force and with skeleton
+
 Model (Tests\Feature\Playground\Stub\Console\Commands\FactoryMakeCommand\Model)
  [x] Command make factory with force and without skeleton
  [x] Command make factory with force and with skeleton
@@ -201,6 +212,8 @@ Options (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Options
  [x] Command make model with api type
  [x] Command make model with abstract type
  [x] Command make model with model type
+ [x] Command make model with api controller option
+ [x] Command make model with resource controller option
 
 Properties (Tests\Unit\Playground\Stub\Configuration\Configuration\Properties)
  [x] Properties
