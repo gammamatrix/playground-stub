@@ -20,6 +20,6 @@
     "setup": [],
     "tests": [],
     "models": {
-        "Contact": "tmp-testing-model.crm.contact.json"
+        "Contact": "resources/testing/configurations/test.model.crm.contact.json"
     }
 }

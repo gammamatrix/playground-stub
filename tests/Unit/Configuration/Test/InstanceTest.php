@@ -110,7 +110,7 @@ class InstanceTest extends TestCase
         $this->assertSame('unit', $instance->suite());
         $this->assertSame('Crm', $instance->module());
         $this->assertSame('crm', $instance->module_slug());
-        $this->assertSame('', $instance->fqdn());
+        $this->assertSame('Playground/Crm/Models/Contact', $instance->fqdn());
         $this->assertSame('Playground/Crm', $instance->namespace());
         $this->assertSame('Playground/Crm/Models/Contact', $instance->model_fqdn());
         $this->assertSame('Contact', $instance->model());
@@ -118,9 +118,7 @@ class InstanceTest extends TestCase
         $this->assertSame('ModelTest', $instance->class());
         $this->assertSame('playground-model', $instance->type());
         $this->assertSame('Playground/Crm/Models/Contact', $instance->model_fqdn());
-        $this->assertSame([
-            'Contact' => 'tmp-testing-model.crm.contact.json',
-        ], $instance->models());
+        $this->assertSame([], $instance->models());
         $this->assertSame('ModelCase', $instance->extends());
     }
 }

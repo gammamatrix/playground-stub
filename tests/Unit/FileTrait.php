@@ -55,7 +55,7 @@ trait FileTrait
         //
 
         } elseif (in_array($type, [
-            'migration-model',
+            'migration',
         ])) {
             $file = sprintf(
                 '%1$s/resources/testing/configurations/test.migration.crm.contact.json',
@@ -142,6 +142,7 @@ trait FileTrait
 
         } elseif (in_array($type, [
             'test-model',
+            'model-crm-contact',
         ])) {
             $file = sprintf(
                 '%1$s/resources/testing/configurations/test.model.crm.contact.json',

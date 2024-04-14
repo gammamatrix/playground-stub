@@ -19,8 +19,8 @@ class ModelTest extends TestCase
     public function test_command_make_factory_with_force_and_without_skeleton(): void
     {
         $command = sprintf(
-            'playground:make:migration --force --file %1$s',
-            $this->getResourceFile('migration-model')
+            'playground:make:migration --force --model-file %1$s',
+            $this->getResourceFile('model-crm-contact')
         );
 
         /**
@@ -33,8 +33,9 @@ class ModelTest extends TestCase
     public function test_command_make_factory_with_force_and_with_skeleton(): void
     {
         $command = sprintf(
-            'playground:make:migration --skeleton --force --file %1$s',
-            $this->getResourceFile('migration-model')
+            'playground:make:migration --skeleton --force --file %1$s --model-file %2$s',
+            $this->getResourceFile('migration'),
+            $this->getResourceFile('model-crm-contact')
         );
 
         /**

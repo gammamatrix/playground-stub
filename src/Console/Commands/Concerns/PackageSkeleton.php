@@ -20,9 +20,8 @@ trait PackageSkeleton
      */
     protected function createConfig(array &$searches): void
     {
-        if (empty($this->configuration['config'])
-            || ! is_string($this->configuration['config'])
-            || ! preg_match('/^[a-z0-9]+(?:-[a-z0-9]+)*$/', $this->configuration['config'])
+        if (! $this->c->config()
+            || ! preg_match('/^[a-z0-9]+(?:-[a-z0-9]+)*$/', $this->c->config())
         ) {
             // Only create a config file if a valid filename is provided.
             $this->components->info('Skipping config file.');
@@ -37,7 +36,7 @@ trait PackageSkeleton
 
         $file = sprintf(
             'config/%1$s.php',
-            $this->configuration['config']
+            $this->c->config()
         );
 
         $destination = sprintf(
@@ -53,8 +52,6 @@ trait PackageSkeleton
         //     '$destination' => $destination,
         //     '$this->folder' => $this->folder,
         //     '$this->qualifiedName' => $this->qualifiedName,
-        //     '$this->configuration[config]' => $this->configuration['config'],
-        //     '$this->configuration[packagist]' => $this->configuration['packagist'],
         //     // '$stub' => $stub,
         //     // '$destination' => $destination,
         //     // '$searches' => $searches,
@@ -77,8 +74,6 @@ trait PackageSkeleton
         //     '$destination' => $destination,
         //     '$this->folder' => $this->folder,
         //     '$this->qualifiedName' => $this->qualifiedName,
-        //     '$this->configuration[config]' => $this->configuration['config'],
-        //     '$this->configuration[packagist]' => $this->configuration['packagist'],
         //     // '$stub' => $stub,
         //     // '$destination' => $destination,
         //     // '$searches' => $searches,
@@ -107,9 +102,7 @@ trait PackageSkeleton
         $skeletons['.php-cs-fixer.dist'] = '.php-cs-fixer.dist';
         $skeletons['CHANGELOG.md'] = 'CHANGELOG.md';
 
-        if (! empty($this->configuration['license'])
-            && $this->configuration['license'] === 'MIT'
-        ) {
+        if ($this->c->package_license() === 'MIT') {
             $skeletons['LICENSE-MIT.md'] = 'LICENSE.md';
             $skeletons['README-MIT.md'] = 'README.md';
         } else {
@@ -126,8 +119,6 @@ trait PackageSkeleton
         //     '$destination' => $destination,
         //     '$this->folder' => $this->folder,
         //     '$this->qualifiedName' => $this->qualifiedName,
-        //     '$this->configuration[config]' => $this->configuration['config'],
-        //     '$this->configuration[packagist]' => $this->configuration['packagist'],
         //     // '$stub' => $stub,
         //     // '$destination' => $destination,
         //     // '$searches' => $searches,

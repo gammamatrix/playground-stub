@@ -75,7 +75,7 @@ class InstanceTest extends TestCase
 
     public function test_migration_for_model_with_file_and_skeleton(): void
     {
-        $options = $this->getResourceFileAsArray('migration-model');
+        $options = $this->getResourceFileAsArray('migration');
         // dd([
         //     '__METHOD__' => __METHOD__,
         //     '$file' => $file,
@@ -109,7 +109,7 @@ class InstanceTest extends TestCase
         $this->assertSame('playground-model', $instance->type());
         $this->assertSame([], $instance->uses());
         $this->assertSame([
-            'Contact' => 'tmp-testing-model.crm.contact.json',
+            'Contact' => 'resources/testing/configurations/test.model.crm.contact.json',
         ], $instance->models());
     }
 }
