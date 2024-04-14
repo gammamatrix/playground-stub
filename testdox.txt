@@ -46,6 +46,10 @@ Command (Tests\Feature\Playground\Stub\Console\Commands\FactoryMakeCommand\Comma
  [x] Command without options or arguments
  [x] Command skeleton
 
+Command (Tests\Feature\Playground\Stub\Console\Commands\MigrationMakeCommand\Command)
+ [x] Command without options or arguments
+ [x] Command skeleton
+
 Command (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Command)
  [x] Command without options or arguments
  [x] Command skeleton
@@ -74,6 +78,9 @@ Command (Tests\Unit\Playground\Stub\Console\Commands\ControllerMakeCommand\Comma
  [x] Command displays help
 
 Command (Tests\Unit\Playground\Stub\Console\Commands\FactoryMakeCommand\Command)
+ [x] Command displays help
+
+Command (Tests\Unit\Playground\Stub\Console\Commands\MigrationMakeCommand\Command)
  [x] Command displays help
 
 Command (Tests\Unit\Playground\Stub\Console\Commands\ModelMakeCommand\Command)
@@ -183,6 +190,10 @@ Model (Tests\Feature\Playground\Stub\Console\Commands\ControllerMakeCommand\Mode
  [x] Command make controller with force and with skeleton
 
 Model (Tests\Feature\Playground\Stub\Console\Commands\FactoryMakeCommand\Model)
+ [x] Command make factory with force and without skeleton
+ [x] Command make factory with force and with skeleton
+
+Model (Tests\Feature\Playground\Stub\Console\Commands\MigrationMakeCommand\Model)
  [x] Command make factory with force and without skeleton
  [x] Command make factory with force and with skeleton
 
