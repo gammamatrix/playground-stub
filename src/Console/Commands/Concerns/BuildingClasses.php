@@ -2,6 +2,7 @@
 /**
  * Playground
  */
+
 declare(strict_types=1);
 namespace Playground\Stub\Console\Commands\Concerns;
 

@@ -117,6 +117,7 @@ class Model extends Configuration
         ) {
             $this->type = $options['type'];
         }
+
         if (! empty($options['table'])
             && is_string($options['table'])
         ) {

@@ -1,60 +1,66 @@
 <?php
-
-declare(strict_types=1);
 /**
  * Playground
  */
-namespace GammaMatrix\Playground\Stub\Console\Commands;
+
+declare(strict_types=1);
+namespace Playground\Stub\Console\Commands;
 
 use Illuminate\Support\Str;
-use Playground\Stub\Configuration\Package as Configuration;
+use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
 // use Symfony\Component\Console\Input\InputArgument;
+use Playground\Stub\Configuration\Package as Configuration;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputOption;
 
 /**
- * \GammaMatrix\Playground\Stub\Console\Commands\PackageMakeCommand
+ * \Playground\Stub\Console\Commands\PackageMakeCommand
  */
 #[AsCommand(name: 'playground:make:package')]
 class PackageMakeCommand extends GeneratorCommand
 {
-    // use Traits\MakeComposerTrait;
-    // use Traits\MakeSkeletonTrait;
+    use Concerns\ComposerJson;
+    use Concerns\PackageSkeleton;
 
     /**
      * @var class-string<Configuration>
      */
     public const CONF = Configuration::class;
 
-    const CONFIGURATION = [
-        'class' => 'ServiceProvider',
-        'config' => '',
-        'factories' => false,
-        'package' => '',
-        'module' => '',
-        'module_slug' => '',
-        'name' => '',
-        'namespace' => '',
-        'organization' => '',
-        // 'package' => '',
-        'package_name' => '',
-        'package_autoload' => '',
-        'package_description' => '',
-        'package_keywords' => [],
-        'package_homepage' => '',
-        'package_license' => '',
-        'package_require' => [],
-        'package_require_dev' => [],
-        'package_autoload_psr4' => [],
-        'package_laravel_providers' => [],
-        'packagist' => '',
-        'controllers' => [],
-        'models' => [],
-        'policies' => [],
-        'routes' => [],
-        'service_provider' => '',
-        'version' => '1.0.0',
-    ];
+    /**
+     * @var ConfigurationContract&Configuration
+     */
+    protected ConfigurationContract $c;
+
+    // const CONFIGURATION = [
+    //     'class' => 'ServiceProvider',
+    //     'config' => '',
+    //     'factories' => false,
+    //     'package' => '',
+    //     'module' => '',
+    //     'module_slug' => '',
+    //     'name' => '',
+    //     'namespace' => '',
+    //     'organization' => '',
+    //     // 'package' => '',
+    //     'package_name' => '',
+    //     'package_autoload' => '',
+    //     'package_description' => '',
+    //     'package_keywords' => [],
+    //     'package_homepage' => '',
+    //     'package_license' => '',
+    //     'package_require' => [],
+    //     'package_require_dev' => [],
+    //     'package_autoload_psr4' => [],
+    //     'package_laravel_providers' => [],
+    //     'packagist' => '',
+    //     'controllers' => [],
+    //     'models' => [],
+    //     'policies' => [],
+    //     'routes' => [],
+    //     'service_provider' => '',
+    //     'version' => '1.0.0',
+    // ];
 
     const SEARCH = [
         'class' => 'ServiceProvider',
@@ -106,6 +112,8 @@ class PackageMakeCommand extends GeneratorCommand
 
     /**
      * Autoloading for the package.
+     *
+     * @var array<string, array<string, string>>
      */
     protected array $autoload = [
         'psr-4' => [],
@@ -114,9 +122,9 @@ class PackageMakeCommand extends GeneratorCommand
     /**
      * Get the console command arguments.
      *
-     * @return array
+     * @return array<int, mixed>
      */
-    protected function getOptions()
+    protected function getOptions(): array
     {
         $options = parent::getOptions();
 
@@ -129,7 +137,6 @@ class PackageMakeCommand extends GeneratorCommand
     /**
      * Execute the console command.
      *
-     * @return void
      */
     public function handle()
     {
@@ -140,15 +147,19 @@ class PackageMakeCommand extends GeneratorCommand
         if ($this->hasOption('factories')
             && $this->option('factories')
         ) {
-            $this->configuration['factories'] = true;
+            $this->c->setOptions([
+                'factories' => true,
+            ]);
         }
 
         if ($this->hasOption('license')
             && is_string($this->option('license'))
             && $this->option('license')
         ) {
-            $this->searches['package_license'] = $this->option('license');
-            $this->configuration['package_license'] = $this->option('license');
+            $this->c->setOptions([
+                'package_license' => $this->option('license'),
+            ]);
+            $this->searches['package_license'] = $this->c->package_license();
         }
         // dd([
         //     '__METHOD__' => __METHOD__,
@@ -163,41 +174,15 @@ class PackageMakeCommand extends GeneratorCommand
         if ($this->hasOption('policies')
             && is_array($this->option('policies'))
         ) {
-            if (empty($this->configuration['policies'])
-                || ! is_array($this->configuration['policies'])
-            ) {
-                $this->configuration['policies'] = [];
-            }
-            foreach ($this->option('policies') as $policy) {
-                if (! in_array($policy, $this->configuration['policies'])) {
-                    $this->configuration['policies'][] = $policy;
-                }
-            }
+            $this->c->setOptions([
+                'policies' => $this->option('policies'),
+            ]);
         }
 
-        if (! empty($this->configuration['models']
-            && is_array($this->configuration['models'])
-        )) {
-            $this->handle_models($this->configuration['models']);
-        }
-
-        if (! empty($this->configuration['policies']
-            && is_array($this->configuration['policies'])
-        )) {
-            $this->handle_policies($this->configuration['policies']);
-        }
-
-        if (! empty($this->configuration['requests'])
-            && is_array($this->configuration['requests'])
-        ) {
-            $this->handle_requests($this->configuration['requests']);
-        }
-
-        if (! empty($this->configuration['controllers'])
-            && is_array($this->configuration['controllers'])
-        ) {
-            $this->handle_controllers($this->configuration['controllers']);
-        }
+        $this->handle_models();
+        $this->handle_policies();
+        // $this->handle_requests();
+        $this->handle_controllers();
 
         $this->saveConfiguration();
     }
@@ -211,7 +196,7 @@ class PackageMakeCommand extends GeneratorCommand
         );
     }
 
-    public function handle_controllers(array $controllers)
+    public function handle_controllers(): void
     {
         // dd([
         //     '__METHOD__' => __METHOD__,
@@ -226,7 +211,7 @@ class PackageMakeCommand extends GeneratorCommand
             $params['--force'] = true;
         }
 
-        foreach ($controllers as $controller) {
+        foreach ($this->c->controllers() as $controller) {
             if (is_string($controller) && $controller) {
                 $params['--file'] = $controller;
                 $this->call('playground:make:controller', $params);
@@ -234,7 +219,7 @@ class PackageMakeCommand extends GeneratorCommand
         }
     }
 
-    public function handle_models(array $models)
+    public function handle_models(): void
     {
         // dd([
         //     '__METHOD__' => __METHOD__,
@@ -250,7 +235,7 @@ class PackageMakeCommand extends GeneratorCommand
             $params['--force'] = true;
         }
 
-        foreach ($models as $model) {
+        foreach ($this->c->models() as $model) {
             if (is_string($model) && $model) {
                 $params['--file'] = $model;
                 $this->call('playground:make:model', $params);
@@ -258,7 +243,7 @@ class PackageMakeCommand extends GeneratorCommand
         }
     }
 
-    public function handle_policies(array $policies)
+    public function handle_policies(): void
     {
         // dd([
         //     '__METHOD__' => __METHOD__,
@@ -274,7 +259,7 @@ class PackageMakeCommand extends GeneratorCommand
             $params['--force'] = true;
         }
 
-        foreach ($policies as $policy) {
+        foreach ($this->c->policies() as $policy) {
             // $file = sprintf('', $policy);
             // dd([
             //     '__METHOD__' => __METHOD__,
@@ -291,7 +276,7 @@ class PackageMakeCommand extends GeneratorCommand
         // }
     }
 
-    public function handle_requests(array $requests)
+    public function handle_requests(): void
     {
         // dd([
         //     '__METHOD__' => __METHOD__,
@@ -306,7 +291,7 @@ class PackageMakeCommand extends GeneratorCommand
             $params['--force'] = true;
         }
 
-        foreach ($requests as $request) {
+        foreach ($this->c->requests() as $request) {
             if (is_string($request) && $request) {
                 $params['--file'] = $request;
                 // dump([
@@ -326,7 +311,7 @@ class PackageMakeCommand extends GeneratorCommand
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
-    protected function buildClass($name)
+    protected function buildClass($name): string
     {
         if (empty($this->searches['namespace'])) {
             $this->searches['namespace'] = $this->getNamespace($name);
@@ -335,6 +320,7 @@ class PackageMakeCommand extends GeneratorCommand
         if (empty($this->searches['organization'])
             && $this->hasOption('organization')
             && $this->option('organization')
+            && is_string($this->option('organization'))
         ) {
             $this->searches['organization'] = $this->option('organization');
         }
@@ -347,17 +333,26 @@ class PackageMakeCommand extends GeneratorCommand
      *
      * @return string
      */
-    protected function getStub()
+    protected function getStub(): string
     {
         $template = 'service-provider/ServiceProvider.stub';
 
-        $type = $this->configuration['service_provider'] ?? '';
+        $type = $this->getConfigurationType();
 
-        if ($type === 'policies') {
+        if (in_array($type, [
+            'policies',
+            'api',
+            'resource',
+        ])) {
             $template = 'service-provider/ServiceProvider-policies.stub';
-        } elseif ($type === 'playground') {
+        } elseif (in_array($type, [
+            'playground',
+        ])) {
             $template = 'service-provider/ServiceProvider-playground.stub';
-        } elseif ($type === 'playground-policies') {
+        } elseif (in_array($type, [
+            'playground-api',
+            'playground-resource',
+        ])) {
             $template = 'service-provider/ServiceProvider-playground-policies.stub';
         }
 
@@ -413,7 +408,7 @@ class PackageMakeCommand extends GeneratorCommand
      * @param  string  $name
      * @return string
      */
-    protected function getNamespace($name)
+    protected function getNamespace($name): string
     {
         return trim(implode('\\', explode('\\', $name)), '\\');
         // return trim(implode('\\', array_slice(explode('\\', $name), 0, -1)), '\\');

@@ -42,7 +42,9 @@ class Package extends Configuration
         'controllers' => [],
         'models' => [],
         'policies' => [],
+        'requests' => [],
         'routes' => [],
+        'transformers' => [],
         'service_provider' => '',
         // 'version' => '0.1.2-alpha.3',
         'version' => '',
@@ -107,7 +109,17 @@ class Package extends Configuration
     /**
      * @var array<int, string>
      */
+    protected array $requests = [];
+
+    /**
+     * @var array<int, string>
+     */
     protected array $routes = [];
+
+    /**
+     * @var array<int, string>
+     */
+    protected array $transformers = [];
 
     protected string $service_provider = '';
 
@@ -206,11 +218,35 @@ class Package extends Configuration
             }
         }
 
+        if (! empty($options['requests'])
+            && is_array($options['requests'])
+        ) {
+            foreach ($options['requests'] as $file) {
+                $this->addClassFileTo('requests', $file);
+            }
+        }
+
+        if (! empty($options['resources'])
+            && is_array($options['resources'])
+        ) {
+            foreach ($options['resources'] as $file) {
+                $this->addClassFileTo('resources', $file);
+            }
+        }
+
         if (! empty($options['routes'])
             && is_array($options['routes'])
         ) {
             foreach ($options['routes'] as $file) {
                 $this->addClassFileTo('routes', $file);
+            }
+        }
+
+        if (! empty($options['transformers'])
+            && is_array($options['transformers'])
+        ) {
+            foreach ($options['transformers'] as $file) {
+                $this->addClassFileTo('transformers', $file);
             }
         }
 
@@ -410,9 +446,25 @@ class Package extends Configuration
     /**
      * @return array<int, string>
      */
+    public function requests(): array
+    {
+        return $this->requests;
+    }
+
+    /**
+     * @return array<int, string>
+     */
     public function routes(): array
     {
         return $this->routes;
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    public function transformers(): array
+    {
+        return $this->transformers;
     }
 
     public function service_provider(): string
