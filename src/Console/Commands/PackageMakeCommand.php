@@ -136,7 +136,6 @@ class PackageMakeCommand extends GeneratorCommand
 
     /**
      * Execute the console command.
-     *
      */
     public function handle()
     {
@@ -307,7 +306,6 @@ class PackageMakeCommand extends GeneratorCommand
      * Build the class with the given name.
      *
      * @param  string  $name
-     * @return string
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
@@ -330,8 +328,6 @@ class PackageMakeCommand extends GeneratorCommand
 
     /**
      * Get the stub file for the generator.
-     *
-     * @return string
      */
     protected function getStub(): string
     {
@@ -406,7 +402,6 @@ class PackageMakeCommand extends GeneratorCommand
      * Get the full namespace for a given class, without the class name.
      *
      * @param  string  $name
-     * @return string
      */
     protected function getNamespace($name): string
     {

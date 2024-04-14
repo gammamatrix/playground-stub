@@ -22,6 +22,7 @@ trait ComposerJson
     // },
 
     abstract protected function setConfigurationByKey(string $key, string $value): void;
+
     abstract protected function isConfigurationByKeyEmpty(string $key): bool;
 
     /**

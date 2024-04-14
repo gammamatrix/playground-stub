@@ -67,6 +67,12 @@ trait Classes
         }
 
         if (empty($key) || ! is_string($key)) {
+            // dump([
+            //     '$property' => $property,
+            //     '$key' => $key,
+            //     '$value' => $value,
+            //     '$this' => $this,
+            // ]);
             throw new \RuntimeException(__('playground-stub::stub.Configuration.addMappedClassTo.key.required', [
                 'class' => static::class,
                 'key' => is_string($key) ? $key : gettype($key),
