@@ -54,6 +54,10 @@ Command (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Command
  [x] Command without options or arguments
  [x] Command skeleton
 
+Command (Tests\Feature\Playground\Stub\Console\Commands\PackageMakeCommand\Command)
+ [x] Command without options or arguments
+ [x] Command skeleton
+
 Command (Tests\Feature\Playground\Stub\Console\Commands\PolicyMakeCommand\Command)
  [x] Command without options or arguments
  [x] Command skeleton
@@ -84,6 +88,9 @@ Command (Tests\Unit\Playground\Stub\Console\Commands\MigrationMakeCommand\Comman
  [x] Command displays help
 
 Command (Tests\Unit\Playground\Stub\Console\Commands\ModelMakeCommand\Command)
+ [x] Command displays help
+
+Command (Tests\Unit\Playground\Stub\Console\Commands\PackageMakeCommand\Command)
  [x] Command displays help
 
 Command (Tests\Unit\Playground\Stub\Console\Commands\PolicyMakeCommand\Command)
@@ -203,6 +210,9 @@ Model (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Model)
  [x] Command make playground model resource with force
  [x] Command make all playground model api with force
  [x] Command make all playground model resource with force
+
+Model (Tests\Feature\Playground\Stub\Console\Commands\PackageMakeCommand\Model)
+ [x] Command make api package with force and without skeleton
 
 Model (Tests\Feature\Playground\Stub\Console\Commands\PolicyMakeCommand\Model)
  [x] Command make factory with force and without skeleton
