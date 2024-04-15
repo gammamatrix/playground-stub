@@ -1,16 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-15 06:13:26</timestamp>
+  <timestamp>2024-04-15 07:10:21</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>386</methodCount>
+    <methodCount>385</methodCount>
     <crapMethodCount>15</crapMethodCount>
-    <crapLoad>266</crapLoad>
-    <totalCrap>7739.09</totalCrap>
-    <crapMethodPercent>3.89</crapMethodPercent>
+    <crapLoad>263</crapLoad>
+    <totalCrap>7716.67</totalCrap>
+    <crapMethodPercent>3.9</crapMethodPercent>
   </stats>
   <methods>
+    <method>
+      <package>Playground\Stub\Building\Migration</package>
+      <className>Playground\Stub\Building\Migration\BuildColumns</className>
+      <methodName>buildClass_columns</methodName>
+      <methodSignature>buildClass_columns(): void</methodSignature>
+      <fullMethod>buildClass_columns(): void</fullMethod>
+      <crap>8.2</crap>
+      <complexity>6</complexity>
+      <coverage>60.61</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Migration</package>
+      <className>Playground\Stub\Building\Migration\BuildDates</className>
+      <methodName>buildClass_dates</methodName>
+      <methodSignature>buildClass_dates(): void</methodSignature>
+      <fullMethod>buildClass_dates(): void</fullMethod>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Migration</package>
+      <className>Playground\Stub\Building\Migration\BuildDates</className>
+      <methodName>buildClass_timestamps</methodName>
+      <methodSignature>buildClass_timestamps(): void</methodSignature>
+      <fullMethod>buildClass_timestamps(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Migration</package>
+      <className>Playground\Stub\Building\Migration\BuildDates</className>
+      <methodName>buildClass_softDeletes</methodName>
+      <methodSignature>buildClass_softDeletes(): void</methodSignature>
+      <fullMethod>buildClass_softDeletes(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Migration</package>
+      <className>Playground\Stub\Building\Migration\BuildFlags</className>
+      <methodName>buildClass_flags</methodName>
+      <methodSignature>buildClass_flags(): void</methodSignature>
+      <fullMethod>buildClass_flags(): void</fullMethod>
+      <crap>8.2</crap>
+      <complexity>6</complexity>
+      <coverage>60.61</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
     <method>
       <package>Playground\Stub\Building\Migration</package>
       <className>Playground\Stub\Building\Migration\BuildIds</className>
@@ -31,6 +86,50 @@
       <crap>18.74</crap>
       <complexity>11</complexity>
       <coverage>60</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Migration</package>
+      <className>Playground\Stub\Building\Migration\BuildJson</className>
+      <methodName>buildClass_json</methodName>
+      <methodSignature>buildClass_json(): void</methodSignature>
+      <fullMethod>buildClass_json(): void</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Migration</package>
+      <className>Playground\Stub\Building\Migration\BuildPermissions</className>
+      <methodName>buildClass_permissions</methodName>
+      <methodSignature>buildClass_permissions(): void</methodSignature>
+      <fullMethod>buildClass_permissions(): void</fullMethod>
+      <crap>8.2</crap>
+      <complexity>6</complexity>
+      <coverage>60.61</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Migration</package>
+      <className>Playground\Stub\Building\Migration\BuildStatus</className>
+      <methodName>buildClass_status</methodName>
+      <methodSignature>buildClass_status(): void</methodSignature>
+      <fullMethod>buildClass_status(): void</fullMethod>
+      <crap>8.2</crap>
+      <complexity>6</complexity>
+      <coverage>60.61</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Migration</package>
+      <className>Playground\Stub\Building\Migration\BuildUi</className>
+      <methodName>buildClass_ui</methodName>
+      <methodSignature>buildClass_ui(): void</methodSignature>
+      <fullMethod>buildClass_ui(): void</fullMethod>
+      <crap>8.45</crap>
+      <complexity>7</complexity>
+      <coverage>69.05</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3611,112 +3710,13 @@
     <method>
       <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
-      <methodName>buildClass_timestamps</methodName>
-      <methodSignature>buildClass_timestamps(): void</methodSignature>
-      <fullMethod>buildClass_timestamps(): void</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
-      <methodName>buildClass_softDeletes</methodName>
-      <methodSignature>buildClass_softDeletes(): void</methodSignature>
-      <fullMethod>buildClass_softDeletes(): void</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
-      <methodName>buildClass_dates</methodName>
-      <methodSignature>buildClass_dates(): void</methodSignature>
-      <fullMethod>buildClass_dates(): void</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
-      <methodName>buildClass_permissions</methodName>
-      <methodSignature>buildClass_permissions(): void</methodSignature>
-      <fullMethod>buildClass_permissions(): void</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
-      <methodName>buildClass_ui</methodName>
-      <methodSignature>buildClass_ui(): void</methodSignature>
-      <fullMethod>buildClass_ui(): void</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
-      <methodName>buildClass_flags</methodName>
-      <methodSignature>buildClass_flags(): void</methodSignature>
-      <fullMethod>buildClass_flags(): void</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
-      <methodName>buildClass_status</methodName>
-      <methodSignature>buildClass_status(): void</methodSignature>
-      <fullMethod>buildClass_status(): void</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
-      <methodName>buildClass_columns</methodName>
-      <methodSignature>buildClass_columns(): void</methodSignature>
-      <fullMethod>buildClass_columns(): void</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
-      <methodName>buildClass_column_group</methodName>
-      <methodSignature>buildClass_column_group(string $group, array $attributes, array $allowed): void</methodSignature>
-      <fullMethod>buildClass_column_group(string $group, array $attributes, array $allowed): void</fullMethod>
-      <crap>9.45</crap>
-      <complexity>7</complexity>
-      <coverage>63.16</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
       <methodName>buildClass_column</methodName>
       <methodSignature>buildClass_column(string $attribute, array $meta, string $group): string</methodSignature>
       <fullMethod>buildClass_column(string $attribute, array $meta, string $group): string</fullMethod>
-      <crap>97.96</crap>
+      <crap>53.74</crap>
       <complexity>21</complexity>
-      <coverage>44.12</coverage>
-      <crapLoad>12</crapLoad>
+      <coverage>57.97</coverage>
+      <crapLoad>9</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
@@ -3727,17 +3727,6 @@
       <crap>10.96</crap>
       <complexity>8</complexity>
       <coverage>64.1</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
-      <methodName>buildClass_json</methodName>
-      <methodSignature>buildClass_json(): void</methodSignature>
-      <fullMethod>buildClass_json(): void</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
