@@ -365,15 +365,44 @@ trait PackageConfiguration
 
     public function resetFile(): void
     {
+        $file = '';
+        $pathInApp = '';
+        $pathInPackage = '';
+        $payload = null;
+
+        // if ($this->hasOption('file')
+        //     && $this->option('file')
+        //     && is_string($this->option('file'))
+        //     && $this->files->exists($this->option('file'))
+        // ) {
+        //     $this->loadOptionsIntoConfiguration(
+        //         $this->files->json($this->option('file'))
+        //     );
+        // }
+
         if ($this->hasOption('file')
             && $this->option('file')
             && is_string($this->option('file'))
-            && $this->files->exists($this->option('file'))
         ) {
-            $this->loadOptionsIntoConfiguration(
-                $this->files->json($this->option('file'))
-            );
+            $file = $this->option('file');
+            $pathInApp = base_path($file);
+            $pathInPackage = sprintf('%1$s/%2$s', dirname(dirname(dirname(__DIR__))), $file);
         }
+
+        if ($this->files->exists($pathInApp)) {
+            $this->components->info(sprintf('Loading %s [%s] from the app [%s]', $this->type, $file, $pathInApp));
+            $payload = $this->files->json($pathInApp);
+        } elseif ($this->files->exists($pathInPackage)) {
+            $this->components->info(sprintf('Loading %s [%s] from the package [%s]', $this->type, $file, $pathInApp));
+            $payload = $this->files->json($pathInPackage);
+        } elseif ($this->files->exists($file)) {
+            $this->components->info(sprintf('Loading %s [%s]', $this->type, $file));
+            $payload = $this->files->json($file);
+        } else {
+            $this->components->error(sprintf('Unable to find %s [%s] in the app [%s] or package [%s]', $this->type, $file, $pathInApp, $pathInPackage));
+        }
+
+        $this->loadOptionsIntoConfiguration($payload);
     }
 
     /**
@@ -389,9 +418,9 @@ trait PackageConfiguration
      * }
      * </code>
      */
-    public function initModel(bool $withSkeleton = false): void
+    public function initModel(bool $withSkeleton = false, bool $reload = false): void
     {
-        if ($this->model) {
+        if (! $reload && $this->model) {
             if ($withSkeleton) {
                 $this->model->withSkeleton();
             }
@@ -404,14 +433,18 @@ trait PackageConfiguration
 
         if (! empty($model) && ! empty($models[$model])) {
 
-            if (file_exists($models[$model])) {
+            $this->model = new Model(
+                $this->readJsonFileAsArray($models[$model], false, 'Model File'),
+                $withSkeleton
+            );
+            // if (file_exists($models[$model])) {
 
-                $contents = file_get_contents($models[$model]);
-                if ($contents) {
-                    $m = json_decode($contents, true);
-                    $this->model = new Model($m, $withSkeleton);
-                }
-            }
+            //     $contents = file_get_contents($models[$model]);
+            //     if ($contents) {
+            //         $m = json_decode($contents, true);
+            //         $this->model = new Model($m, $withSkeleton);
+            //     }
+            // }
         }
 
         // dd([
@@ -445,14 +478,20 @@ trait PackageConfiguration
             }
         }
 
-        if ($model_file && $this->preloadModelFile && file_exists($model_file)) {
-            $contents = file_get_contents($model_file);
-            if ($contents) {
-                $model = json_decode($contents, true);
-                if (is_array($model)) {
-                    $this->model = new Model($model);
-                }
-            }
+        if ($model_file
+            && $this->preloadModelFile
+            // && file_exists($model_file)
+        ) {
+            $this->model = new Model(
+                $this->readJsonFileAsArray($model_file, false, 'Model File')
+            );
+            // $contents = file_get_contents($model_file);
+            // if ($contents) {
+            //     $model = json_decode($contents, true);
+            //     if (is_array($model)) {
+            //         $this->model = new Model($model);
+            //     }
+            // }
         }
         // dump([
         //     '__METHOD__' => __METHOD__,
@@ -475,17 +514,23 @@ trait PackageConfiguration
             $model_file = $this->option('file');
         }
 
-        if ($model_file && is_string($model_file) && file_exists($model_file)) {
-            $contents = file_get_contents($model_file);
-            if ($contents) {
-                $model = json_decode($contents, true);
-                if (is_array($model) && $this->model) {
-                    // $this->model = array_replace($this->model, $model);
-                    $this->model = new Model(array_replace($this->model->properties(), $model));
-                } elseif (is_array($model)) {
-                    $this->model = new Model($model);
-                }
+        if ($model_file
+            && is_string($model_file)
+            // && file_exists($model_file)
+        ) {
+
+            $model = $this->readJsonFileAsArray($model_file, false, 'Model File');
+
+            // $contents = file_get_contents($model_file);
+            // if ($contents) {
+            //     $model = json_decode($contents, true);
+            if (is_array($model) && $this->model) {
+                // $this->model = array_replace($this->model, $model);
+                $this->model = new Model(array_replace($this->model->properties(), $model));
+            } elseif (is_array($model)) {
+                $this->model = new Model($model);
             }
+            // }
         }
 
         // dump([
