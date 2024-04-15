@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-15 07:10:21</timestamp>
+  <timestamp>2024-04-15 20:45:12</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>385</methodCount>
+    <methodCount>386</methodCount>
     <crapMethodCount>15</crapMethodCount>
     <crapLoad>263</crapLoad>
-    <totalCrap>7716.67</totalCrap>
-    <crapMethodPercent>3.9</crapMethodPercent>
+    <totalCrap>7710.96</totalCrap>
+    <crapMethodPercent>3.89</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -2577,6 +2577,17 @@
     <method>
       <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\Command</className>
+      <methodName>readJsonFileAsArray</methodName>
+      <methodSignature>readJsonFileAsArray(string $file, bool $required, string $name): array</methodSignature>
+      <fullMethod>readJsonFileAsArray(string $file, bool $required, string $name): array</fullMethod>
+      <crap>10.99</crap>
+      <complexity>8</complexity>
+      <coverage>64</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\Command</className>
       <methodName>disk</methodName>
       <methodSignature>disk(): Illuminate\Filesystem\FilesystemAdapter</methodSignature>
       <fullMethod>disk(): Illuminate\Filesystem\FilesystemAdapter</fullMethod>
@@ -3009,9 +3020,9 @@
       <methodName>loadOptionsIntoConfiguration</methodName>
       <methodSignature>loadOptionsIntoConfiguration(mixed $configuration): void</methodSignature>
       <fullMethod>loadOptionsIntoConfiguration(mixed $configuration): void</fullMethod>
-      <crap>2.15</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>66.67</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3130,20 +3141,20 @@
       <methodName>resetFile</methodName>
       <methodSignature>resetFile(): void</methodSignature>
       <fullMethod>resetFile(): void</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
-      <coverage>100</coverage>
+      <crap>7.34</crap>
+      <complexity>7</complexity>
+      <coverage>80.95</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands\Concerns</package>
       <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
       <methodName>initModel</methodName>
-      <methodSignature>initModel(bool $withSkeleton): void</methodSignature>
-      <fullMethod>initModel(bool $withSkeleton): void</fullMethod>
-      <crap>19.12</crap>
-      <complexity>9</complexity>
-      <coverage>50</coverage>
+      <methodSignature>initModel(bool $withSkeleton, bool $reload): void</methodSignature>
+      <fullMethod>initModel(bool $withSkeleton, bool $reload): void</fullMethod>
+      <crap>14.01</crap>
+      <complexity>8</complexity>
+      <coverage>54.55</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3152,9 +3163,9 @@
       <methodName>resetModelFile</methodName>
       <methodSignature>resetModelFile(): void</methodSignature>
       <fullMethod>resetModelFile(): void</fullMethod>
-      <crap>41.26</crap>
-      <complexity>32</complexity>
-      <coverage>79.17</coverage>
+      <crap>27.48</crap>
+      <complexity>27</complexity>
+      <coverage>91.3</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
