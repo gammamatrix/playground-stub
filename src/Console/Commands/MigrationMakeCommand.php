@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace Playground\Stub\Console\Commands;
 
 use Illuminate\Support\Str;
+use Playground\Stub\Building;
 use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
 use Playground\Stub\Configuration\Migration as Configuration;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -18,6 +19,8 @@ use Symfony\Component\Console\Input\InputOption;
 #[AsCommand(name: 'playground:make:migration')]
 class MigrationMakeCommand extends GeneratorCommand
 {
+    use Building\Migration\BuildIds;
+
     /**
      * @var class-string<Configuration>
      */
@@ -36,6 +39,8 @@ class MigrationMakeCommand extends GeneratorCommand
      * @var string
      */
     protected $name = 'playground:make:migration';
+
+    protected bool $qualifiedNameStudly = false;
 
     // /**
     //  * The console command signature.
@@ -63,6 +68,22 @@ class MigrationMakeCommand extends GeneratorCommand
 
     //     return $options;
     // }
+
+    /**
+     * Get the console command arguments.
+     *
+     * @return array<int, mixed>
+     */
+    protected function getOptions(): array
+    {
+        $options = parent::getOptions();
+
+        $options[] = ['table', null, InputOption::VALUE_OPTIONAL, 'The schema table name of the migration'];
+        $options[] = ['create', null, InputOption::VALUE_NONE, 'Make a create migration'];
+        $options[] = ['update', null, InputOption::VALUE_NONE, 'Make an update migration'];
+
+        return $options;
+    }
 
     /**
      * The console command description.
@@ -130,20 +151,6 @@ class MigrationMakeCommand extends GeneratorCommand
     ];
 
     /**
-     * Get the console command arguments.
-     *
-     * @return array<int, mixed>
-     */
-    protected function getOptions(): array
-    {
-        $options = parent::getOptions();
-
-        $options[] = ['table', null, InputOption::VALUE_OPTIONAL, 'The schema table name of the '.strtolower($this->type)];
-
-        return $options;
-    }
-
-    /**
      * Execute the console command.
      */
     public function handle()
@@ -154,17 +161,36 @@ class MigrationMakeCommand extends GeneratorCommand
             return false;
         }
 
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$his->arguments()' => $this->arguments(),
-        //     '$his->options()' => $this->options(),
-        //     '$this->configuration' => $this->configuration,
-        //     '$this->searches' => $this->searches,
-        // ]);
+    }
 
-        // if ($this->option('factory')) {
-        //     $this->createFactory();
-        // }
+    public function prepareOptions(): void
+    {
+        $options = $this->options();
+
+        $type = $this->getConfigurationType();
+
+        if ($this->hasOption('create') && $this->option('create')) {
+            $this->c->setOptions([
+                'create' => true,
+            ]);
+        } elseif ($this->hasOption('update') && $this->option('update')) {
+            $this->c->setOptions([
+                'update' => true,
+            ]);
+        }
+
+        $this->initModel($this->c->skeleton());
+
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     // '$options' => $options,
+        //     '$type' => $type,
+        //     // '$this->model' => $this->model,
+        //     '!empty($this->model)' => !empty($this->model),
+        //     // '$this->c' => $this->c,
+        //     '$this->c->class()' => $this->c->class(),
+        //     '$this->c->table()' => $this->c->table(),
+        // ]);
     }
 
     /**
@@ -206,19 +232,8 @@ class MigrationMakeCommand extends GeneratorCommand
             }
         } else {
             $table = Str::snake(Str::pluralStudly(class_basename($name)));
-            // dd([
-            //     '__METHOD__' => __METHOD__,
-            //     '$table' => $table,
-            // ]);
         }
 
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$table' => $table,
-        //     '$this->c->class()' => $this->c->class(),
-        //     '$this->configuration[create][class]' => $this->configuration['create']['class'],
-        // ]);
-        $class = '';
         if ($this->c->class()) {
             $class = $this->c->class();
         } else {
@@ -239,7 +254,7 @@ class MigrationMakeCommand extends GeneratorCommand
         //     '__METHOD__' => __METHOD__,
         //     // '$his->arguments()' => $this->arguments(),
         //     // '$his->options()' => $this->options(),
-        //     // '$this->configuration' => $this->configuration,
+        //     // '$this->c' => $this->c,
         //     '$this->c->class()' => $this->c->class(),
         //     '$this->c->table()' => $this->c->table(),
         //     // '$this->searches' => $this->searches,
@@ -261,6 +276,7 @@ class MigrationMakeCommand extends GeneratorCommand
     {
         if (in_array($this->c->type(), [
             'model',
+            'playground-model',
             'resource',
             'playground-resource',
             'api',
@@ -287,12 +303,13 @@ class MigrationMakeCommand extends GeneratorCommand
             $this->buildClass_uses($name);
 
         }
-        // dd([
+        // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$his->arguments()' => $this->arguments(),
         //     '$his->options()' => $this->options(),
-        //     '$this->configuration' => $this->configuration,
+        //     '$this->c' => $this->c,
         //     '$this->searches' => $this->searches,
+        //     '$this->model' => $this->model,
         // ]);
 
         return parent::buildClass($name);
@@ -300,9 +317,7 @@ class MigrationMakeCommand extends GeneratorCommand
 
     protected function buildClass_primary(): void
     {
-        $primary = empty($this->configuration['create']['primary'])
-            || ! is_string($this->configuration['create']['primary'])
-            ? '' : $this->configuration['create']['primary'];
+        $primary = $this->model?->create()?->primary();
 
         $this->searches['table_primary'] = PHP_EOL;
 
@@ -328,35 +343,9 @@ class MigrationMakeCommand extends GeneratorCommand
         }
     }
 
-    protected function buildClass_ids(): void
-    {
-        if (empty($this->configuration['create']['ids'])
-            || ! is_array($this->configuration['create']['ids'])
-        ) {
-            return;
-        }
-
-        $this->searches['table_ids'] = PHP_EOL.PHP_EOL;
-
-        $this->searches['table_ids'] .= sprintf(
-            '%1$s// IDs',
-            str_repeat(' ', 12)
-        );
-
-        $this->searches['table_ids'] .= PHP_EOL;
-
-        // if (!empty($this->searches['table_primary'])) {
-        //     $this->searches['table_ids'] .= PHP_EOL;
-        // }
-        $this->buildClass_column_group(
-            'table_ids',
-            $this->configuration['create']['ids']
-        );
-    }
-
     protected function buildClass_timestamps(): void
     {
-        if (empty($this->configuration['create']['timestamps'])) {
+        if (! $this->model?->create()?->timestamps()) {
             return;
         }
 
@@ -377,7 +366,7 @@ class MigrationMakeCommand extends GeneratorCommand
 
     protected function buildClass_softDeletes(): void
     {
-        if (empty($this->configuration['create']['softDeletes'])) {
+        if (! $this->model?->create()?->softDeletes()) {
             return;
         }
 
@@ -391,20 +380,15 @@ class MigrationMakeCommand extends GeneratorCommand
 
     protected function buildClass_dates(): void
     {
-        if (empty($this->configuration['create']['dates'])) {
+        $dates = $this->model?->create()?->dates();
+        if (! $dates) {
             return;
         }
 
         $this->searches['table_dates'] .= PHP_EOL;
 
-        if (empty($this->configuration['create']['dates'])
-            || ! is_array($this->configuration['create']['dates'])
-        ) {
-            return;
-        }
-
         $i = 0;
-        foreach ($this->configuration['create']['dates'] as $attribute => $meta) {
+        foreach ($dates as $attribute => $meta) {
             $column = '';
 
             $column .= sprintf(
@@ -414,12 +398,12 @@ class MigrationMakeCommand extends GeneratorCommand
                 $attribute
             );
 
-            if (! empty($meta['nullable'])) {
+            if ($meta->nullable()) {
                 // $column .= '->nullable()->default(null)';
                 $column .= '->nullable()';
             }
 
-            if (! empty($meta['index'])) {
+            if ($meta->index()) {
                 $column .= '->index()';
             }
 
@@ -432,9 +416,8 @@ class MigrationMakeCommand extends GeneratorCommand
 
     protected function buildClass_permissions(): void
     {
-        if (empty($this->configuration['create']['permissions'])
-            || ! is_array($this->configuration['create']['permissions'])
-        ) {
+        $permissions = $this->model?->create()?->permissions();
+        if (! $permissions) {
             return;
         }
 
@@ -453,15 +436,14 @@ class MigrationMakeCommand extends GeneratorCommand
 
         $this->buildClass_column_group(
             'table_permissions',
-            $this->configuration['create']['permissions']
+            $permissions
         );
     }
 
     protected function buildClass_ui(): void
     {
-        if (empty($this->configuration['create']['ui'])
-            || ! is_array($this->configuration['create']['ui'])
-        ) {
+        $ui = $this->model?->create()?->ui();
+        if (! $ui) {
             return;
         }
 
@@ -480,15 +462,14 @@ class MigrationMakeCommand extends GeneratorCommand
 
         $this->buildClass_column_group(
             'table_ui',
-            $this->configuration['create']['ui']
+            $ui
         );
     }
 
     protected function buildClass_flags(): void
     {
-        if (empty($this->configuration['create']['flags'])
-            || ! is_array($this->configuration['create']['flags'])
-        ) {
+        $flags = $this->model?->create()?->flags();
+        if (! $flags) {
             return;
         }
 
@@ -507,15 +488,14 @@ class MigrationMakeCommand extends GeneratorCommand
 
         $this->buildClass_column_group(
             'table_flags',
-            $this->configuration['create']['flags']
+            $flags
         );
     }
 
     protected function buildClass_status(): void
     {
-        if (empty($this->configuration['create']['status'])
-            || ! is_array($this->configuration['create']['status'])
-        ) {
+        $status = $this->model?->create()?->status();
+        if (! $status) {
             return;
         }
 
@@ -534,15 +514,14 @@ class MigrationMakeCommand extends GeneratorCommand
 
         $this->buildClass_column_group(
             'table_status',
-            $this->configuration['create']['status']
+            $status
         );
     }
 
     protected function buildClass_columns(): void
     {
-        if (empty($this->configuration['create']['columns'])
-            || ! is_array($this->configuration['create']['columns'])
-        ) {
+        $columns = $this->model?->create()?->columns();
+        if (! $columns) {
             return;
         }
 
@@ -561,36 +540,9 @@ class MigrationMakeCommand extends GeneratorCommand
 
         $this->buildClass_column_group(
             'table_columns',
-            $this->configuration['create']['columns']
+            $columns
         );
     }
-
-    // protected function buildClass_entity(): void
-    // {
-    //     if (empty($this->configuration['create']['entity'])
-    //         || ! is_array($this->configuration['create']['entity'])
-    //     ) {
-    //         return;
-    //     }
-
-    //     $this->searches['table_entity'] = PHP_EOL.PHP_EOL;
-
-    //     $this->searches['table_entity'] .= sprintf(
-    //         '%1$s// Entity',
-    //         str_repeat(' ', 12)
-    //     );
-
-    //     $this->searches['table_entity'] .= PHP_EOL;
-
-    //     // if (!empty($this->searches['table_primary'])) {
-    //     //     $this->searches['table_permissions'] .= PHP_EOL;
-    //     // }
-
-    //     $this->buildClass_column_group(
-    //         'table_entity',
-    //         $this->configuration['create']['entity']
-    //     );
-    // }
 
     /**
      * @param array<string, mixed> $attributes
@@ -634,6 +586,12 @@ class MigrationMakeCommand extends GeneratorCommand
      */
     protected function buildClass_column(string $attribute, array $meta, string $group): string
     {
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$attribute' => $attribute,
+        //     '$meta' => $meta,
+        //     '$group' => $group,
+        // ]);
         $allowed = [
             'uuid',
             'string',
@@ -785,12 +743,10 @@ class MigrationMakeCommand extends GeneratorCommand
 
     protected function buildClass_json(): void
     {
-        if (empty($this->configuration['create']['json'])
-            || ! is_array($this->configuration['create']['json'])
-        ) {
+        $json = $this->model?->create()?->json();
+        if (! $json) {
             return;
         }
-        // $this->configuration['uses'][] = 'Illuminate\Database\Query\Expression';
         $this->buildClass_uses_add('Illuminate\Database\Query\Expression');
         // $this->searches['use'] .= 'use Illuminate\Database\Query\Expression;';
         // $this->searches['use'] .= PHP_EOL;
@@ -810,14 +766,23 @@ class MigrationMakeCommand extends GeneratorCommand
         $this->searches['table_json'] .= PHP_EOL;
 
         $i = 0;
-        foreach ($this->configuration['create']['json'] as $attribute => $meta) {
+        foreach ($json as $attribute => $meta) {
+            // dump([
+            //     '__METHOD__' => __METHOD__,
+            //     '$attribute' => $attribute,
+            //     '$meta' => $meta,
+            // ]);
 
             // $type = empty($meta['type'])
             //     || ! is_string($meta['type'])
             //     || ! in_array($meta['type'], $allowed)
             // ? '' : $meta['type'];
 
-            $this->searches['table_json'] .= $this->buildClass_json_column($attribute, $meta, 'json');
+            $this->searches['table_json'] .= $this->buildClass_json_column(
+                $attribute,
+                $meta->properties(),
+                'json'
+            );
             // $column = '';
 
             // $column .= sprintf(
@@ -854,20 +819,12 @@ class MigrationMakeCommand extends GeneratorCommand
      */
     protected function getStub(): string
     {
-        $template = 'laravel/migration.create.stub';
+        $template = 'laravel/migration.stub';
 
-        if ($this->c->type() === 'model') {
+        if ($this->c->create()) {
             $template = 'model/migration.create.stub';
-
-            return $this->resolveStubPath('model/migration.create.stub');
-        } elseif (in_array($this->c->type(), [
-            'model',
-            'resource',
-            'playground-resource',
-            'api',
-            'playground-api',
-        ])) {
-            $template = 'model/migration.create.stub';
+        } elseif ($this->c->update()) {
+            $template = 'model/migration.update.stub';
         }
 
         return $this->resolveStubPath($template);

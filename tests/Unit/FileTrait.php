@@ -76,6 +76,20 @@ trait FileTrait
                 $package_base
             );
         } elseif (in_array($type, [
+            'playground-model-bare',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/test.model.playground.bare.json',
+                $package_base
+            );
+        } elseif (in_array($type, [
+            'playground-model-sparse',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/test.model.playground.sparse.json',
+                $package_base
+            );
+        } elseif (in_array($type, [
             'abstract',
             'playground-abstract',
         ])) {

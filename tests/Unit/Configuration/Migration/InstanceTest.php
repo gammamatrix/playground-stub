@@ -29,9 +29,6 @@ class InstanceTest extends TestCase
     protected array $expected_properties = [
         'class' => '',
         'config' => '',
-        'extends' => '',
-        'fqdn' => '',
-        'extends_use' => '',
         'model' => '',
         'model_fqdn' => '',
         'module' => '',
@@ -43,7 +40,8 @@ class InstanceTest extends TestCase
         'table' => '',
         'type' => '',
         'models' => [],
-        'uses' => [],
+        'create' => false,
+        'update' => false,
     ];
 
     public function test_instance_apply_without_options(): void
@@ -108,6 +106,8 @@ class InstanceTest extends TestCase
         $this->assertSame('crm_contacts', $instance->table());
         $this->assertSame('playground-model', $instance->type());
         $this->assertSame([], $instance->uses());
+        $this->assertFalse($instance->create());
+        $this->assertFalse($instance->update());
         $this->assertSame([
             'Contact' => 'resources/testing/configurations/test.model.crm.contact.json',
         ], $instance->models());

@@ -115,10 +115,10 @@ class InstanceTest extends TestCase
         $this->assertSame('Playground/Crm/Models/Contact', $instance->model_fqdn());
         $this->assertSame('Contact', $instance->model());
         $this->assertSame('Contact', $instance->name());
-        $this->assertSame('ModelTest', $instance->class());
+        $this->assertSame('Contact', $instance->class());
         $this->assertSame('playground-model', $instance->type());
         $this->assertSame('Playground/Crm/Models/Contact', $instance->model_fqdn());
         $this->assertSame([], $instance->models());
-        $this->assertSame('ModelCase', $instance->extends());
+        $this->assertSame('Model', $instance->extends());
     }
 }

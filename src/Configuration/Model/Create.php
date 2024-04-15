@@ -123,6 +123,30 @@ class Create extends ModelConfiguration
             $this->primary = $options['primary'];
         }
 
+        if (array_key_exists('timestamps', $options)) {
+            $this->timestamps = ! empty($options['timestamps']);
+        }
+
+        if (array_key_exists('softDeletes', $options)) {
+            $this->softDeletes = ! empty($options['softDeletes']);
+        }
+
+        if (! empty($options['trash'])
+            && is_array($options['trash'])
+        ) {
+            if (array_key_exists('hide', $options['trash'])) {
+                $this->trash['hide'] = ! empty($options['trash']['hide']);
+            }
+
+            if (array_key_exists('only', $options['trash'])) {
+                $this->trash['only'] = ! empty($options['trash']['only']);
+            }
+
+            if (array_key_exists('with', $options['trash'])) {
+                $this->trash['with'] = ! empty($options['trash']['with']);
+            }
+        }
+
         if (! empty($options['ids'])
             && is_array($options['ids'])
         ) {
@@ -200,6 +224,11 @@ class Create extends ModelConfiguration
 
     public function addId(string $column, mixed $meta): self
     {
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$this->skeleton()' => $this->skeleton(),
+        //     '$column' => $column,
+        // ]);
         if (empty($column) || empty($meta) || ! is_array($meta)) {
             throw new \RuntimeException(__('playground-stub::stub.Model.Create.id.invalid', [
                 'column' => $column,

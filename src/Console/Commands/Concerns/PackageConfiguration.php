@@ -241,7 +241,7 @@ trait PackageConfiguration
         // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$this->folder' => $this->folder,
-        //     // '$this->options()' => $this->options(),
+        //     '$this->options()' => $this->options(),
         //     // '$this->model' => $this->model,
         //     '$this->searches' => $this->searches,
         //     '$this->c' => $this->c,
@@ -376,6 +376,57 @@ trait PackageConfiguration
         }
     }
 
+    /**
+     * Initialize the model
+     *
+     * Initializes the model from the configuration, if not set or provided
+     * by --model-file.
+     *
+     * <code>
+     * "model": "Contact",
+     * "models": {
+     *     "Contact": "resources/testing/configurations/test.model.crm.contact.json"
+     * }
+     * </code>
+     */
+    public function initModel(bool $withSkeleton = false): void
+    {
+        if ($this->model) {
+            if ($withSkeleton) {
+                $this->model->withSkeleton();
+            }
+
+            return;
+        }
+
+        $model = method_exists($this->c, 'model') ? $this->c->model() : '';
+        $models = method_exists($this->c, 'models') ? $this->c->models() : [];
+
+        if (! empty($model) && ! empty($models[$model])) {
+
+            if (file_exists($models[$model])) {
+
+                $contents = file_get_contents($models[$model]);
+                if ($contents) {
+                    $m = json_decode($contents, true);
+                    $this->model = new Model($m, $withSkeleton);
+                }
+            }
+        }
+
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     'test' => !empty($model) && !empty($models[$model]),
+        //     '$models[$model]' => $models[$model] ?? '',
+        //     '$model' => $model,
+        //     '$models' => $models,
+        //     '$this->options()' => $this->options(),
+        //     '$this->c->class()' => $this->c->class(),
+        //     '$this->c->table()' => $this->c->table(),
+        // ]);
+
+    }
+
     public function resetModelFile(): void
     {
         $model_file = null;
@@ -474,54 +525,17 @@ trait PackageConfiguration
 
     public function resetOptions(): void
     {
-        // $this->resetName();
-
-        // if ($this->hasArgument('name')
-        //     && $this->argument('name')
-        // ) {
-        //     $this->c->name() = $this->parseClassInput($this->argument('name'));
-        //     $this->searches['name'] =  $this->c->name();
-        // }
-
         $hasOptionClass = $this->hasOption('class') && is_string($this->option('class')) && $this->option('class');
         $hasOptionModel = $this->hasOption('model') && is_string($this->option('model')) && $this->option('model');
         $hasOptionModule = $this->hasOption('module') && is_string($this->option('module')) && $this->option('module');
         $hasOptionOrganization = $this->hasOption('organization') && is_string($this->option('organization')) && $this->option('organization');
         $hasOptionPackage = $this->hasOption('package') && is_string($this->option('package')) && $this->option('package');
+        $hasOptionSkeleton = $this->hasOption('skeleton') && ! empty($this->option('skeleton'));
         $hasOptionType = $this->hasOption('type') && is_string($this->option('type')) && $this->option('type');
 
-        // $this->resetNamespace();
-
-        // if ($this->hasOption('namespace')
-        //     && $this->option('namespace')
-        // ) {
-        //     $this->c->namespace() = $this->parseClassConfig($this->option('namespace'));
-        //     $this->searches['namespace'] = $this->parseClassInput($this->getDefaultNamespace($this->c->namespace()));
-        //     // $this->searches['namespace'] =  $this->c->namespace();
-
-        //     $package = [];
-
-        //     foreach (Str::of($this->c->namespace())
-        //         ->replace('\\', '.')
-        //         ->replace('/', '.')
-        //         ->explode('.') as $i => $value
-        //     ) {
-        //         if (0 === $i) {
-        //             if (!$hasOptionOrganization && is_string($value)) {
-        //                 $this->c->organization() = $value;
-        //                 $this->searches['organization'] = $this->c->organization();
-        //             }
-        //         } elseif (is_string($value) && $value) {
-        //             $package[] = Str::slug($value, '-');
-        //         }
-        //     };
-
-        //     if (!$hasOptionPackage && !empty($package)) {
-        //         $this->c->package() = implode('-', $package);
-        //         $this->searches['package'] =  $this->c->package();
-        //     }
-
-        // }
+        if ($hasOptionSkeleton && method_exists($this->c, 'withSkeleton')) {
+            $this->c->withSkeleton();
+        }
 
         if ($hasOptionType && is_string($this->option('type'))) {
             $this->c->setOptions([
@@ -586,73 +600,6 @@ trait PackageConfiguration
                 'config' => $this->c->package(),
             ]);
         }
-
-        // if (empty($this->configuration['config']) && !empty($this->c->package())) {
-        //     $this->c->class() = $this->parseClassInput($this->option('class'));
-        // }
-
-        // $this->resetModelFile()
-
-        // if ($this->hasOption('model-file')
-        //     && $this->option('model-file')
-        // ) {
-        //     $model_file = $this->option('model-file');
-        //     if (file_exists($model_file)) {
-        //         $this->model = json_decode(file_get_contents($model_file), true);
-        //     }
-
-        //     // dump([
-        //     //     '__METHOD__' => __METHOD__,
-        //     //     '$model_file ' => $model_file,
-        //     //     'file_exists($model_file) ' => file_exists($model_file),
-        //     //     '$this->model ' => $this->model,
-        //     // ]);
-        //     if (!empty($this->model->name()) && is_string($this->model->name())) {
-
-        //         if (empty($this->configuration['models'])
-        //             || ! is_array($this->configuration['models'])
-        //         ) {
-        //             $this->configuration['models'] = [];
-        //         }
-        //         $this->configuration['models'][$this->model->name()] = $model_file;
-
-        //         if (empty($this->model->fqdn()) || ! is_string($this->model->fqdn())) {
-
-        //             if (! empty($this->model->namespace())
-        //                 && is_string($this->model->namespace())
-        //                 && ! empty($this->model->name())
-        //                 && is_string($this->model->name())
-        //             ) {
-        //                 $this->model->fqdn() = sprintf(
-        //                     '%1$s\Models\%2$s',
-        //                     trim($this->parseClassInput($this->model->namespace()), '\\/'),
-        //                     trim(Str::of($this->model->name())->studly(), '\\/')
-        //                 );
-        //             }
-        //         }
-
-        //         if (empty($this->c->model())
-        //             && !$hasOptionModel
-        //             && !empty($this->model->fqdn())
-        //             && is_string($this->model->fqdn())
-        //         ) {
-        //             $this->c->model() = $this->parseClassConfig($this->model->fqdn());
-        //             $this->searches['model'] = $this->parseClassInput($this->model->fqdn());
-        //         }
-        //     }
-        // }
-
-        // throw new \Exception('WTF');
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$this->type' => $this->type,
-        //     '$this->c' => $this->c,
-        //     '$this->searches' => $this->searches,
-        //     '$hasOptionModule' => $hasOptionModule,
-        //     '$hasOptionPackage' => $hasOptionPackage,
-        //     '$hasOptionOrganization' => $hasOptionOrganization,
-        //     // '$this->model' => $this->model,
-        // ]);
 
         $this->isReset = true;
     }

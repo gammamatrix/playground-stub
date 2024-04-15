@@ -16,7 +16,7 @@ use Tests\Feature\Playground\Stub\TestCase;
 #[CoversClass(PolicyMakeCommand::class)]
 class ModelTest extends TestCase
 {
-    public function test_command_make_factory_with_force_and_without_skeleton(): void
+    public function test_command_make_policy_with_force_and_without_skeleton(): void
     {
         $command = sprintf(
             'playground:make:policy --force --file %1$s',
@@ -30,7 +30,7 @@ class ModelTest extends TestCase
         $result->assertExitCode(0);
     }
 
-    public function test_command_make_factory_with_force_and_with_skeleton(): void
+    public function test_command_make_policy_with_force_and_with_skeleton(): void
     {
         $command = sprintf(
             'playground:make:policy --skeleton --force --file %1$s',

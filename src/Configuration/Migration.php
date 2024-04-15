@@ -11,6 +11,10 @@ namespace Playground\Stub\Configuration;
  */
 class Migration extends Configuration
 {
+    protected bool $create = false;
+
+    protected bool $update = false;
+
     protected string $table = '';
 
     protected string $model_fqdn = '';
@@ -21,9 +25,9 @@ class Migration extends Configuration
     protected $properties = [
         'class' => '',
         'config' => '',
-        'extends' => '',
-        'fqdn' => '',
-        'extends_use' => '',
+        // 'extends' => '',
+        // 'fqdn' => '',
+        // 'extends_use' => '',
         'model' => '',
         'model_fqdn' => '',
         'module' => '',
@@ -35,7 +39,9 @@ class Migration extends Configuration
         'table' => '',
         'type' => '',
         'models' => [],
-        'uses' => [],
+        // 'uses' => [],
+        'create' => false,
+        'update' => false,
     ];
 
     /**
@@ -65,6 +71,14 @@ class Migration extends Configuration
             && is_string($options['table'])
         ) {
             $this->table = $options['table'];
+        }
+
+        if (array_key_exists('create', $options)) {
+            $this->create = ! empty($options['create']);
+        }
+
+        if (array_key_exists('update', $options)) {
+            $this->update = ! empty($options['update']);
         }
 
         $this->addModels($options);
@@ -99,5 +113,15 @@ class Migration extends Configuration
     public function models(): array
     {
         return $this->models;
+    }
+
+    public function create(): bool
+    {
+        return $this->create;
+    }
+
+    public function update(): bool
+    {
+        return $this->update;
     }
 }
