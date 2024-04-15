@@ -6,6 +6,7 @@
 declare(strict_types=1);
 namespace Tests\Feature\Playground\Stub\Console\Commands\MigrationMakeCommand;
 
+use Illuminate\Support\Facades\Artisan;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Playground\Stub\Console\Commands\MigrationMakeCommand;
 use Tests\Feature\Playground\Stub\TestCase;
@@ -109,6 +110,8 @@ class ModelTest extends TestCase
             'playground:make:migration --skeleton --force --create --file %1$s',
             $this->getResourceFile('migration'),
         );
+        // $result = $this->withoutMockingConsoleOutput()->artisan($command);
+        // dump(Artisan::output());
 
         /**
          * @var \Illuminate\Testing\PendingCommand $result

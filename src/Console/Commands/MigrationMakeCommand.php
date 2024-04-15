@@ -19,7 +19,14 @@ use Symfony\Component\Console\Input\InputOption;
 #[AsCommand(name: 'playground:make:migration')]
 class MigrationMakeCommand extends GeneratorCommand
 {
+    use Building\Migration\BuildColumns;
+    use Building\Migration\BuildDates;
+    use Building\Migration\BuildFlags;
     use Building\Migration\BuildIds;
+    use Building\Migration\BuildJson;
+    use Building\Migration\BuildPermissions;
+    use Building\Migration\BuildStatus;
+    use Building\Migration\BuildUi;
 
     /**
      * @var class-string<Configuration>
@@ -343,250 +350,49 @@ class MigrationMakeCommand extends GeneratorCommand
         }
     }
 
-    protected function buildClass_timestamps(): void
-    {
-        if (! $this->model?->create()?->timestamps()) {
-            return;
-        }
+    // /**
+    //  * @param array<string, mixed> $attributes
+    //  * @param array<int, string> $allowed
+    //  */
+    // protected function buildClass_column_group(string $group, array $attributes, array $allowed = []): void
+    // {
+    //     $i = 0;
+    //     foreach ($attributes as $attribute => $meta) {
 
-        $this->searches['table_timestamps'] = PHP_EOL.PHP_EOL;
+    //         $meta = is_array($meta) ? $meta : [];
+    //         if (in_array($attribute, $this->columns)) {
+    //             $this->components->error(sprintf(
+    //                 'Column [%s] already exists - group [%s]',
+    //                 $attribute,
+    //                 $group
+    //             ));
 
-        $this->searches['table_timestamps'] .= sprintf(
-            '%1$s// Dates',
-            str_repeat(' ', 12)
-        );
+    //             continue;
+    //         }
 
-        $this->searches['table_timestamps'] .= PHP_EOL.PHP_EOL;
+    //         $this->columns[] = $attribute;
 
-        $this->searches['table_timestamps'] .= sprintf(
-            '%1$s$table->timestamps();',
-            str_repeat(' ', 12)
-        );
-    }
+    //         $type = empty($meta['type']) || ! is_string($meta['type']) ? 'string' : $meta['type'];
 
-    protected function buildClass_softDeletes(): void
-    {
-        if (! $this->model?->create()?->softDeletes()) {
-            return;
-        }
+    //         if (in_array($type, [
+    //             'JSON_OBJECT',
+    //             'JSON_ARRAY',
+    //         ])) {
+    //             $this->searches[$group] .= $this->buildClass_json_column($attribute, $meta, $group);
+    //         } else {
+    //             $this->searches[$group] .= $this->buildClass_column($attribute, $meta, $group);
+    //         }
 
-        $this->searches['table_softDeletes'] = PHP_EOL.PHP_EOL;
-
-        $this->searches['table_softDeletes'] .= sprintf(
-            '%1$s$table->softDeletes();',
-            str_repeat(' ', 12)
-        );
-    }
-
-    protected function buildClass_dates(): void
-    {
-        $dates = $this->model?->create()?->dates();
-        if (! $dates) {
-            return;
-        }
-
-        $this->searches['table_dates'] .= PHP_EOL;
-
-        $i = 0;
-        foreach ($dates as $attribute => $meta) {
-            $column = '';
-
-            $column .= sprintf(
-                '%1$s%2$s$table->dateTime(\'%3$s\')',
-                PHP_EOL,
-                str_repeat(' ', 12),
-                $attribute
-            );
-
-            if ($meta->nullable()) {
-                // $column .= '->nullable()->default(null)';
-                $column .= '->nullable()';
-            }
-
-            if ($meta->index()) {
-                $column .= '->index()';
-            }
-
-            $column .= ';';
-
-            $this->searches['table_dates'] .= $column;
-            $i++;
-        }
-    }
-
-    protected function buildClass_permissions(): void
-    {
-        $permissions = $this->model?->create()?->permissions();
-        if (! $permissions) {
-            return;
-        }
-
-        $this->searches['table_permissions'] = PHP_EOL.PHP_EOL;
-
-        $this->searches['table_permissions'] .= sprintf(
-            '%1$s// Permissions',
-            str_repeat(' ', 12)
-        );
-
-        $this->searches['table_permissions'] .= PHP_EOL;
-
-        // if (!empty($this->searches['table_primary'])) {
-        //     $this->searches['table_permissions'] .= PHP_EOL;
-        // }
-
-        $this->buildClass_column_group(
-            'table_permissions',
-            $permissions
-        );
-    }
-
-    protected function buildClass_ui(): void
-    {
-        $ui = $this->model?->create()?->ui();
-        if (! $ui) {
-            return;
-        }
-
-        $this->searches['table_ui'] = PHP_EOL.PHP_EOL;
-
-        $this->searches['table_ui'] .= sprintf(
-            '%1$s// UI',
-            str_repeat(' ', 12)
-        );
-
-        $this->searches['table_ui'] .= PHP_EOL;
-
-        // if (!empty($this->searches['table_primary'])) {
-        //     $this->searches['table_permissions'] .= PHP_EOL;
-        // }
-
-        $this->buildClass_column_group(
-            'table_ui',
-            $ui
-        );
-    }
-
-    protected function buildClass_flags(): void
-    {
-        $flags = $this->model?->create()?->flags();
-        if (! $flags) {
-            return;
-        }
-
-        $this->searches['table_flags'] = PHP_EOL.PHP_EOL;
-
-        $this->searches['table_flags'] .= sprintf(
-            '%1$s// Flags',
-            str_repeat(' ', 12)
-        );
-
-        $this->searches['table_flags'] .= PHP_EOL;
-
-        // if (!empty($this->searches['table_primary'])) {
-        //     $this->searches['table_permissions'] .= PHP_EOL;
-        // }
-
-        $this->buildClass_column_group(
-            'table_flags',
-            $flags
-        );
-    }
-
-    protected function buildClass_status(): void
-    {
-        $status = $this->model?->create()?->status();
-        if (! $status) {
-            return;
-        }
-
-        $this->searches['table_status'] = PHP_EOL.PHP_EOL;
-
-        $this->searches['table_status'] .= sprintf(
-            '%1$s// Status',
-            str_repeat(' ', 12)
-        );
-
-        $this->searches['table_status'] .= PHP_EOL;
-
-        // if (!empty($this->searches['table_primary'])) {
-        //     $this->searches['table_permissions'] .= PHP_EOL;
-        // }
-
-        $this->buildClass_column_group(
-            'table_status',
-            $status
-        );
-    }
-
-    protected function buildClass_columns(): void
-    {
-        $columns = $this->model?->create()?->columns();
-        if (! $columns) {
-            return;
-        }
-
-        $this->searches['table_columns'] = PHP_EOL.PHP_EOL;
-
-        $this->searches['table_columns'] .= sprintf(
-            '%1$s// Strings',
-            str_repeat(' ', 12)
-        );
-
-        $this->searches['table_columns'] .= PHP_EOL;
-
-        // if (!empty($this->searches['table_primary'])) {
-        //     $this->searches['table_permissions'] .= PHP_EOL;
-        // }
-
-        $this->buildClass_column_group(
-            'table_columns',
-            $columns
-        );
-    }
-
-    /**
-     * @param array<string, mixed> $attributes
-     * @param array<int, string> $allowed
-     */
-    protected function buildClass_column_group(string $group, array $attributes, array $allowed = []): void
-    {
-        $i = 0;
-        foreach ($attributes as $attribute => $meta) {
-
-            $meta = is_array($meta) ? $meta : [];
-            if (in_array($attribute, $this->columns)) {
-                $this->components->error(sprintf(
-                    'Column [%s] already exists - group [%s]',
-                    $attribute,
-                    $group
-                ));
-
-                continue;
-            }
-
-            $this->columns[] = $attribute;
-
-            $type = empty($meta['type']) || ! is_string($meta['type']) ? 'string' : $meta['type'];
-
-            if (in_array($type, [
-                'JSON_OBJECT',
-                'JSON_ARRAY',
-            ])) {
-                $this->searches[$group] .= $this->buildClass_json_column($attribute, $meta, $group);
-            } else {
-                $this->searches[$group] .= $this->buildClass_column($attribute, $meta, $group);
-            }
-
-            $i++;
-        }
-    }
+    //         $i++;
+    //     }
+    // }
 
     /**
      * @param array<string, mixed> $meta
      */
     protected function buildClass_column(string $attribute, array $meta, string $group): string
     {
-        // dd([
+        // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$attribute' => $attribute,
         //     '$meta' => $meta,
@@ -594,6 +400,7 @@ class MigrationMakeCommand extends GeneratorCommand
         // ]);
         $allowed = [
             'uuid',
+            'ulid',
             'string',
             'mediumText',
             'boolean',
@@ -739,79 +546,6 @@ class MigrationMakeCommand extends GeneratorCommand
         $column .= ';';
 
         return $column;
-    }
-
-    protected function buildClass_json(): void
-    {
-        $json = $this->model?->create()?->json();
-        if (! $json) {
-            return;
-        }
-        $this->buildClass_uses_add('Illuminate\Database\Query\Expression');
-        // $this->searches['use'] .= 'use Illuminate\Database\Query\Expression;';
-        // $this->searches['use'] .= PHP_EOL;
-
-        $allowed = [
-            'JSON_OBJECT',
-            'JSON_ARRAY',
-        ];
-
-        $this->searches['table_json'] = PHP_EOL.PHP_EOL;
-
-        $this->searches['table_json'] .= sprintf(
-            '%1$s// JSON',
-            str_repeat(' ', 12)
-        );
-
-        $this->searches['table_json'] .= PHP_EOL;
-
-        $i = 0;
-        foreach ($json as $attribute => $meta) {
-            // dump([
-            //     '__METHOD__' => __METHOD__,
-            //     '$attribute' => $attribute,
-            //     '$meta' => $meta,
-            // ]);
-
-            // $type = empty($meta['type'])
-            //     || ! is_string($meta['type'])
-            //     || ! in_array($meta['type'], $allowed)
-            // ? '' : $meta['type'];
-
-            $this->searches['table_json'] .= $this->buildClass_json_column(
-                $attribute,
-                $meta->properties(),
-                'json'
-            );
-            // $column = '';
-
-            // $column .= sprintf(
-            //     '%1$s%2$s$table->json(\'%3$s\')',
-            //     PHP_EOL,
-            //     str_repeat(' ', 12),
-            //     $attribute
-            // );
-
-            // if (! empty($meta['nullable'])) {
-            //     // $column .= '->nullable()->default(null)';
-            //     $column .= '->nullable()';
-            // }
-
-            // if (! empty($type)) {
-            //     $column .= sprintf(
-            //         '->default(new Expression(\'(%1$s())\'))',
-            //         $type
-            //     );
-            // }
-
-            // if (! empty($meta['comment']) && is_string($meta['comment'])) {
-            //     $column .= sprintf('->comment(\'%1$s\')', addslashes($meta['comment']));
-            // }
-            // $column .= ';';
-
-            // $this->searches['table_json'] .= $column;
-            $i++;
-        }
     }
 
     /**

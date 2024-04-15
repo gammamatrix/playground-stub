@@ -16,6 +16,23 @@ class CreateUi extends CreateColumn
      */
     public $allowed_types = [
         'JSON_OBJECT',
+        'JSON_ARRAY',
+        'uuid',
+        'ulid',
         'string',
+        'smallText',
+        'mediumText',
+        'text',
+        'longText',
+        'boolean',
+        'integer',
+        'bigInteger',
+        'mediumInteger',
+        'smallInteger',
+        'tinyInteger',
+        'dateTime',
+        'decimal',
+        'float',
+        'double',
     ];
 }
