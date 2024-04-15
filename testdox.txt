@@ -192,6 +192,10 @@ Instance (Tests\Unit\Playground\Stub\Configuration\Test\Instance)
  [x] Folder is empty by default
  [x] Test with file and skeleton
 
+Model (Tests\Acceptance\Playground\Stub\Console\Commands\PackageMakeCommand\Model)
+ [x] Command make api package with force and without skeleton
+ [x] Command make api package with force and with skeleton
+
 Model (Tests\Feature\Playground\Stub\Console\Commands\ControllerMakeCommand\Model)
  [x] Command make controller with force and without skeleton
  [x] Command make controller with force and with skeleton
@@ -201,8 +205,15 @@ Model (Tests\Feature\Playground\Stub\Console\Commands\FactoryMakeCommand\Model)
  [x] Command make factory with force and with skeleton
 
 Model (Tests\Feature\Playground\Stub\Console\Commands\MigrationMakeCommand\Model)
- [x] Command make factory with force and without skeleton
- [x] Command make factory with force and with skeleton
+ [x] Command make migration with force and without skeleton
+ [x] Command make migration with force and with skeleton
+ [x] Command make create migration with force and without skeleton
+ [x] Command make create migration with force and with skeleton
+ [x] Command make update migration with force and without skeleton
+ [x] Command make update migration with force and with skeleton
+ [x] Command make create migration and load model from migration configuration
+ [x] Command make create migration with bare model skeleton
+ [x] Command make create migration with sparse model skeleton
 
 Model (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Model)
  [x] Command make model with force
@@ -211,12 +222,9 @@ Model (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Model)
  [x] Command make all playground model api with force
  [x] Command make all playground model resource with force
 
-Model (Tests\Feature\Playground\Stub\Console\Commands\PackageMakeCommand\Model)
- [x] Command make api package with force and without skeleton
-
 Model (Tests\Feature\Playground\Stub\Console\Commands\PolicyMakeCommand\Model)
- [x] Command make factory with force and without skeleton
- [x] Command make factory with force and with skeleton
+ [x] Command make policy with force and without skeleton
+ [x] Command make policy with force and with skeleton
 
 Model (Tests\Feature\Playground\Stub\Console\Commands\TestMakeCommand\Model)
  [x] Command make test with force and without skeleton

@@ -1,16 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-14 07:41:40</timestamp>
+  <timestamp>2024-04-15 06:13:26</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>372</methodCount>
-    <crapMethodCount>18</crapMethodCount>
-    <crapLoad>297</crapLoad>
-    <totalCrap>8287.1</totalCrap>
-    <crapMethodPercent>4.84</crapMethodPercent>
+    <methodCount>386</methodCount>
+    <crapMethodCount>15</crapMethodCount>
+    <crapLoad>266</crapLoad>
+    <totalCrap>7739.09</totalCrap>
+    <crapMethodPercent>3.89</crapMethodPercent>
   </stats>
   <methods>
+    <method>
+      <package>Playground\Stub\Building\Migration</package>
+      <className>Playground\Stub\Building\Migration\BuildIds</className>
+      <methodName>buildClass_ids</methodName>
+      <methodSignature>buildClass_ids(): void</methodSignature>
+      <fullMethod>buildClass_ids(): void</fullMethod>
+      <crap>9.24</crap>
+      <complexity>6</complexity>
+      <coverage>55.17</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Migration</package>
+      <className>Playground\Stub\Building\Migration\BuildIds</className>
+      <methodName>buildClass_column_id</methodName>
+      <methodSignature>buildClass_column_id(Playground\Stub\Configuration\Model\CreateId $createId): string</methodSignature>
+      <fullMethod>buildClass_column_id(Playground\Stub\Configuration\Model\CreateId $createId): string</fullMethod>
+      <crap>18.74</crap>
+      <complexity>11</complexity>
+      <coverage>60</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
       <className>Playground\Stub\Configuration\Concerns\Classes</className>
@@ -512,9 +534,9 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
-      <coverage>100</coverage>
+      <crap>7.18</crap>
+      <complexity>7</complexity>
+      <coverage>84.62</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -545,6 +567,28 @@
       <methodName>models</methodName>
       <methodSignature>models(): array</methodSignature>
       <fullMethod>models(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Migration</className>
+      <methodName>create</methodName>
+      <methodSignature>create(): bool</methodSignature>
+      <fullMethod>create(): bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Migration</className>
+      <methodName>update</methodName>
+      <methodSignature>update(): bool</methodSignature>
+      <fullMethod>update(): bool</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -974,9 +1018,9 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>33</crap>
-      <complexity>33</complexity>
-      <coverage>100</coverage>
+      <crap>41.26</crap>
+      <complexity>40</complexity>
+      <coverage>90.77</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1348,8 +1392,107 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>7</crap>
-      <complexity>7</complexity>
+      <crap>14.57</crap>
+      <complexity>14</complexity>
+      <coverage>85.71</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\CreateId</className>
+      <methodName>column</methodName>
+      <methodSignature>column(): string</methodSignature>
+      <fullMethod>column(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\CreateId</className>
+      <methodName>default</methodName>
+      <methodSignature>default(): mixed</methodSignature>
+      <fullMethod>default(): mixed</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\CreateId</className>
+      <methodName>description</methodName>
+      <methodSignature>description(): string</methodSignature>
+      <fullMethod>description(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\CreateId</className>
+      <methodName>icon</methodName>
+      <methodSignature>icon(): string</methodSignature>
+      <fullMethod>icon(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\CreateId</className>
+      <methodName>label</methodName>
+      <methodSignature>label(): string</methodSignature>
+      <fullMethod>label(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\CreateId</className>
+      <methodName>nullable</methodName>
+      <methodSignature>nullable(): bool</methodSignature>
+      <fullMethod>nullable(): bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\CreateId</className>
+      <methodName>index</methodName>
+      <methodSignature>index(): bool</methodSignature>
+      <fullMethod>index(): bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\CreateId</className>
+      <methodName>readOnly</methodName>
+      <methodSignature>readOnly(): bool</methodSignature>
+      <fullMethod>readOnly(): bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\CreateId</className>
+      <methodName>unsigned</methodName>
+      <methodSignature>unsigned(): bool</methodSignature>
+      <fullMethod>unsigned(): bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -2896,6 +3039,17 @@
     <method>
       <package>Playground\Stub\Console\Commands\Concerns</package>
       <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
+      <methodName>initModel</methodName>
+      <methodSignature>initModel(bool $withSkeleton): void</methodSignature>
+      <fullMethod>initModel(bool $withSkeleton): void</fullMethod>
+      <crap>19.12</crap>
+      <complexity>9</complexity>
+      <coverage>50</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
       <methodName>resetModelFile</methodName>
       <methodSignature>resetModelFile(): void</methodSignature>
       <fullMethod>resetModelFile(): void</fullMethod>
@@ -2910,8 +3064,8 @@
       <methodName>resetOptions</methodName>
       <methodSignature>resetOptions(): void</methodSignature>
       <fullMethod>resetOptions(): void</fullMethod>
-      <crap>29</crap>
-      <complexity>29</complexity>
+      <crap>32</crap>
+      <complexity>32</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -3413,12 +3567,23 @@
     <method>
       <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
+      <methodName>prepareOptions</methodName>
+      <methodSignature>prepareOptions(): void</methodSignature>
+      <fullMethod>prepareOptions(): void</fullMethod>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
       <methodName>qualifyClass</methodName>
       <methodSignature>qualifyClass($name): string</methodSignature>
       <fullMethod>qualifyClass($name): string</fullMethod>
-      <crap>14.18</crap>
+      <crap>14.65</crap>
       <complexity>9</complexity>
-      <coverage>60</coverage>
+      <coverage>58.82</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3427,9 +3592,9 @@
       <methodName>buildClass</methodName>
       <methodSignature>buildClass($name): string</methodSignature>
       <fullMethod>buildClass($name): string</fullMethod>
-      <crap>2.95</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>38.1</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3438,20 +3603,9 @@
       <methodName>buildClass_primary</methodName>
       <methodSignature>buildClass_primary(): void</methodSignature>
       <fullMethod>buildClass_primary(): void</fullMethod>
-      <crap>30</crap>
-      <complexity>5</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
-      <methodName>buildClass_ids</methodName>
-      <methodSignature>buildClass_ids(): void</methodSignature>
-      <fullMethod>buildClass_ids(): void</fullMethod>
-      <crap>12</crap>
+      <crap>3.1</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>77.78</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3460,9 +3614,9 @@
       <methodName>buildClass_timestamps</methodName>
       <methodSignature>buildClass_timestamps(): void</methodSignature>
       <fullMethod>buildClass_timestamps(): void</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3471,9 +3625,9 @@
       <methodName>buildClass_softDeletes</methodName>
       <methodSignature>buildClass_softDeletes(): void</methodSignature>
       <fullMethod>buildClass_softDeletes(): void</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3482,10 +3636,10 @@
       <methodName>buildClass_dates</methodName>
       <methodSignature>buildClass_dates(): void</methodSignature>
       <fullMethod>buildClass_dates(): void</fullMethod>
-      <crap>56</crap>
-      <complexity>7</complexity>
-      <coverage>0</coverage>
-      <crapLoad>7</crapLoad>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
@@ -3493,9 +3647,9 @@
       <methodName>buildClass_permissions</methodName>
       <methodSignature>buildClass_permissions(): void</methodSignature>
       <fullMethod>buildClass_permissions(): void</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
-      <coverage>0</coverage>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3504,9 +3658,9 @@
       <methodName>buildClass_ui</methodName>
       <methodSignature>buildClass_ui(): void</methodSignature>
       <fullMethod>buildClass_ui(): void</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
-      <coverage>0</coverage>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3515,9 +3669,9 @@
       <methodName>buildClass_flags</methodName>
       <methodSignature>buildClass_flags(): void</methodSignature>
       <fullMethod>buildClass_flags(): void</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
-      <coverage>0</coverage>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3526,9 +3680,9 @@
       <methodName>buildClass_status</methodName>
       <methodSignature>buildClass_status(): void</methodSignature>
       <fullMethod>buildClass_status(): void</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
-      <coverage>0</coverage>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3537,9 +3691,9 @@
       <methodName>buildClass_columns</methodName>
       <methodSignature>buildClass_columns(): void</methodSignature>
       <fullMethod>buildClass_columns(): void</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
-      <coverage>0</coverage>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3548,10 +3702,10 @@
       <methodName>buildClass_column_group</methodName>
       <methodSignature>buildClass_column_group(string $group, array $attributes, array $allowed): void</methodSignature>
       <fullMethod>buildClass_column_group(string $group, array $attributes, array $allowed): void</fullMethod>
-      <crap>56</crap>
+      <crap>9.45</crap>
       <complexity>7</complexity>
-      <coverage>0</coverage>
-      <crapLoad>7</crapLoad>
+      <coverage>63.16</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
@@ -3559,10 +3713,10 @@
       <methodName>buildClass_column</methodName>
       <methodSignature>buildClass_column(string $attribute, array $meta, string $group): string</methodSignature>
       <fullMethod>buildClass_column(string $attribute, array $meta, string $group): string</fullMethod>
-      <crap>462</crap>
+      <crap>97.96</crap>
       <complexity>21</complexity>
-      <coverage>0</coverage>
-      <crapLoad>21</crapLoad>
+      <coverage>44.12</coverage>
+      <crapLoad>12</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
@@ -3570,10 +3724,10 @@
       <methodName>buildClass_json_column</methodName>
       <methodSignature>buildClass_json_column(string $attribute, array $meta, string $group): string</methodSignature>
       <fullMethod>buildClass_json_column(string $attribute, array $meta, string $group): string</fullMethod>
-      <crap>72</crap>
+      <crap>10.96</crap>
       <complexity>8</complexity>
-      <coverage>0</coverage>
-      <crapLoad>8</crapLoad>
+      <coverage>64.1</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
@@ -3581,9 +3735,9 @@
       <methodName>buildClass_json</methodName>
       <methodSignature>buildClass_json(): void</methodSignature>
       <fullMethod>buildClass_json(): void</fullMethod>
-      <crap>20</crap>
-      <complexity>4</complexity>
-      <coverage>0</coverage>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3592,9 +3746,9 @@
       <methodName>getStub</methodName>
       <methodSignature>getStub(): string</methodSignature>
       <fullMethod>getStub(): string</fullMethod>
-      <crap>3.11</crap>
+      <crap>3</crap>
       <complexity>3</complexity>
-      <coverage>76.92</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
