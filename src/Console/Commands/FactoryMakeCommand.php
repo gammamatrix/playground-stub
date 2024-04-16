@@ -14,7 +14,7 @@ use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputOption;
 
 /**
- * \Playground\Stub\Console\Commands\SeederMakeCommand
+ * \Playground\Stub\Console\Commands\FactoryMakeCommand
  */
 #[AsCommand(name: 'playground:make:factory')]
 class FactoryMakeCommand extends GeneratorCommand
