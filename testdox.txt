@@ -78,6 +78,10 @@ Command (Tests\Feature\Playground\Stub\Console\Commands\SeederMakeCommand\Comman
  [x] Command without options or arguments
  [x] Command skeleton
 
+Command (Tests\Feature\Playground\Stub\Console\Commands\TemplateMakeCommand\Command)
+ [x] Command without options or arguments
+ [x] Command skeleton
+
 Command (Tests\Feature\Playground\Stub\Console\Commands\TestMakeCommand\Command)
  [x] Command without options or arguments
  [x] Command skeleton
@@ -104,6 +108,9 @@ Command (Tests\Unit\Playground\Stub\Console\Commands\RequestMakeCommand\Command)
  [x] Command displays help
 
 Command (Tests\Unit\Playground\Stub\Console\Commands\SeederMakeCommand\Command)
+ [x] Command displays help
+
+Command (Tests\Unit\Playground\Stub\Console\Commands\TemplateMakeCommand\Command)
  [x] Command displays help
 
 Command (Tests\Unit\Playground\Stub\Console\Commands\TestMakeCommand\Command)
@@ -236,6 +243,10 @@ Model (Tests\Feature\Playground\Stub\Console\Commands\PolicyMakeCommand\Model)
 Model (Tests\Feature\Playground\Stub\Console\Commands\RequestMakeCommand\Model)
  [x] Command make request with force and without skeleton
  [x] Command make request with force and with skeleton
+
+Model (Tests\Feature\Playground\Stub\Console\Commands\TemplateMakeCommand\Model)
+ [x] Command make template with force and without skeleton
+ [x] Command make template with force and with skeleton
 
 Model (Tests\Feature\Playground\Stub\Console\Commands\TestMakeCommand\Model)
  [x] Command make test with force and without skeleton
