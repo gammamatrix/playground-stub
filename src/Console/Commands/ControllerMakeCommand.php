@@ -6,8 +6,6 @@
 declare(strict_types=1);
 namespace Playground\Stub\Console\Commands;
 
-// use Illuminate\Console\Concerns\CreatesMatchingTest;
-// use Illuminate\Routing\Console\ControllerMakeCommand as BaseControllerMakeCommand;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
 use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
@@ -27,8 +25,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 #[AsCommand(name: 'playground:make:controller')]
 class ControllerMakeCommand extends GeneratorCommand
 {
-    // use CreatesMatchingTest;
-
     /**
      * @var class-string<Configuration>
      */
