@@ -1,0 +1,41 @@
+<?php
+/**
+ * {{organization}}
+ */
+
+namespace {{ namespace }};
+{{ use }}
+/**
+ * \{{ namespace }}\{{ class }}
+ */
+{{ abstract }}class {{ class }} extends {{ extends }}{{ implements }}
+{
+{{ use_class }}{{ constants }}{{ properties }}{{ authorize }}{{ messages }}
+    public function rules(): array
+    {
+        $rules = parent::rules();
+
+        $user = $this->user();
+
+        if (!empty($user)
+            && method_exists($user, 'isAdmin')
+            && $user->isAdmin()
+        ) {
+            $rules['force'] = ['boolean'];
+        }
+
+        return $rules;
+    }
+{{ methods }}
+    /**
+     * Prepare the data for validation.
+     *
+     * @return void
+     */
+    protected function prepareForValidation()
+    {
+        if (method_exists($this, 'prepareForValidationForSlug')) {
+            $this->prepareForValidationForSlug();
+        }
+    }
+}

@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace Playground\Stub\Console\Commands\Concerns;
 
 use Illuminate\Support\Str;
+use Playground\Stub\Configuration\Model;
 
 /**
  * \Playground\Stub\Console\Commands\Concerns\BuildClassTrait
@@ -57,16 +58,13 @@ trait BuildingClasses
     }
 
     /**
-     * @param array<string, mixed> $modelConfiguration
-     * @return array<string, mixed>
+     * @return ?array<string, mixed>
      */
     protected function buildClass_model_meta(
         string $column,
-        array &$modelConfiguration
+        Model $model
     ): ?array {
-        if (empty($modelConfiguration['create'])
-            || ! is_array($modelConfiguration['create'])
-        ) {
+        if (empty($model->create())) {
             return null;
         }
 
@@ -83,10 +81,10 @@ trait BuildingClasses
         ];
 
         foreach ($sections as $section) {
-            if (! empty($modelConfiguration['create'][$section])
-                && ! empty($modelConfiguration['create'][$section][$column])
+            if (! empty($model->create()->{$section}())
+                && ! empty($model->create()->{$section}()[$column])
             ) {
-                return $modelConfiguration['create'][$section][$column];
+                return $model->create()->{$section}()[$column];
             }
         }
 

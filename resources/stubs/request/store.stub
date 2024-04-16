@@ -1,0 +1,60 @@
+<?php
+/**
+ * {{organization}}
+ */
+
+namespace {{ namespace }};
+{{ use }}
+/**
+ * \{{ namespace }}\{{ class }}
+ */
+class {{ class }} extends {{ extends }}{{ implements }}
+{
+{{ use_class }}{{ constants }}{{ properties }}{{ authorize }}{{ messages }}{{ rules }}{{ methods }}
+
+    /**
+     * Prepare the data for validation.
+     *
+     * @return void
+     */
+    protected function prepareForValidation()
+    {
+        parent::prepareForValidation();
+
+        $input = [];
+
+        if ($this->filled('content')) {
+            $input['content'] = $this->purify($this->input('content'));
+        }
+
+        if ($this->filled('summary')) {
+            $input['summary'] = $this->purify($this->input('summary'));
+        }
+
+        if ($this->filled('description')) {
+            $input['description'] = $this->exorcise($this->input('description'));
+        } elseif ($this->has('description')) {
+            $input['description'] ='';
+        }
+
+        if ($this->filled('introduction')) {
+            $input['introduction'] = $this->exorcise($this->input('introduction'));
+        } elseif ($this->has('introduction')) {
+            $input['introduction'] ='';
+        }
+{{ prepareForValidation }}
+        if (! empty($input)) {
+            $this->merge($input);
+        }
+    }
+
+//    /**
+//      * Handle a passed validation attempt.
+//      *
+//      * @return void
+//      */
+//     protected function passedValidation()
+//     {
+//{{ passedValidation }}
+//     }
+}

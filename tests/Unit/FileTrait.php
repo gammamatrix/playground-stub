@@ -151,6 +151,18 @@ trait FileTrait
             );
 
         //
+        // Requests
+        //
+
+        } elseif (in_array($type, [
+            'request',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/request.json',
+                $package_base
+            );
+
+        //
         // Tests
         //
 
