@@ -163,6 +163,18 @@ trait FileTrait
             );
 
         //
+        // Resources
+        //
+
+        } elseif (in_array($type, [
+            'resource',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/test.resource.json',
+                $package_base
+            );
+
+        //
         // Routes
         //
 

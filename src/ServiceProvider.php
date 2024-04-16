@@ -71,7 +71,7 @@ class ServiceProvider extends AuthServiceProvider
         $commands[] = Console\Commands\PackageMakeCommand::class;
         $commands[] = Console\Commands\PolicyMakeCommand::class;
         $commands[] = Console\Commands\RequestMakeCommand::class;
-        // $commands[] = Console\Commands\ResourceMakeCommand::class;
+        $commands[] = Console\Commands\ResourceMakeCommand::class;
         $commands[] = Console\Commands\RouteMakeCommand::class;
         $commands[] = Console\Commands\TemplateMakeCommand::class;
         $commands[] = Console\Commands\TestMakeCommand::class;
