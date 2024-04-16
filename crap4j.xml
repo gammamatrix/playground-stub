@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-16 06:41:35</timestamp>
+  <timestamp>2024-04-16 07:35:22</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>424</methodCount>
-    <crapMethodCount>22</crapMethodCount>
-    <crapLoad>351</crapLoad>
-    <totalCrap>9189.09</totalCrap>
-    <crapMethodPercent>5.19</crapMethodPercent>
+    <methodCount>447</methodCount>
+    <crapMethodCount>24</crapMethodCount>
+    <crapLoad>381</crapLoad>
+    <totalCrap>9770.3</totalCrap>
+    <crapMethodPercent>5.37</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -2642,6 +2642,138 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Resource</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Resource</className>
+      <methodName>collection</methodName>
+      <methodSignature>collection(): bool</methodSignature>
+      <fullMethod>collection(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Route</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>462</crap>
+      <complexity>21</complexity>
+      <coverage>0</coverage>
+      <crapLoad>21</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Route</className>
+      <methodName>controller</methodName>
+      <methodSignature>controller(): string</methodSignature>
+      <fullMethod>controller(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Route</className>
+      <methodName>model_column</methodName>
+      <methodSignature>model_column(): string</methodSignature>
+      <fullMethod>model_column(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Route</className>
+      <methodName>model_label</methodName>
+      <methodSignature>model_label(): string</methodSignature>
+      <fullMethod>model_label(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Route</className>
+      <methodName>model_slug_plural</methodName>
+      <methodSignature>model_slug_plural(): string</methodSignature>
+      <fullMethod>model_slug_plural(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Route</className>
+      <methodName>module</methodName>
+      <methodSignature>module(): string</methodSignature>
+      <fullMethod>module(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Route</className>
+      <methodName>module_slug</methodName>
+      <methodSignature>module_slug(): string</methodSignature>
+      <fullMethod>module_slug(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Route</className>
+      <methodName>route</methodName>
+      <methodSignature>route(): string</methodSignature>
+      <fullMethod>route(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Route</className>
+      <methodName>route_prefix</methodName>
+      <methodSignature>route_prefix(): string</methodSignature>
+      <fullMethod>route_prefix(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Route</className>
+      <methodName>title</methodName>
+      <methodSignature>title(): string</methodSignature>
+      <fullMethod>title(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
       <className>Playground\Stub\Configuration\Template</className>
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
@@ -4442,6 +4574,127 @@
       <crap>8.33</crap>
       <complexity>8</complexity>
       <coverage>82.76</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\ResourceMakeCommand</className>
+      <methodName>prepareOptions</methodName>
+      <methodSignature>prepareOptions(): void</methodSignature>
+      <fullMethod>prepareOptions(): void</fullMethod>
+      <crap>2.06</crap>
+      <complexity>2</complexity>
+      <coverage>75</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\ResourceMakeCommand</className>
+      <methodName>getStub</methodName>
+      <methodSignature>getStub(): string</methodSignature>
+      <fullMethod>getStub(): string</fullMethod>
+      <crap>4.59</crap>
+      <complexity>4</complexity>
+      <coverage>66.67</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\ResourceMakeCommand</className>
+      <methodName>collection</methodName>
+      <methodSignature>collection(): bool</methodSignature>
+      <fullMethod>collection(): bool</fullMethod>
+      <crap>5.39</crap>
+      <complexity>5</complexity>
+      <coverage>75</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\ResourceMakeCommand</className>
+      <methodName>getDefaultNamespace</methodName>
+      <methodSignature>getDefaultNamespace($rootNamespace): string</methodSignature>
+      <fullMethod>getDefaultNamespace($rootNamespace): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\ResourceMakeCommand</className>
+      <methodName>getConfigurationFilename</methodName>
+      <methodSignature>getConfigurationFilename(): string</methodSignature>
+      <fullMethod>getConfigurationFilename(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\ResourceMakeCommand</className>
+      <methodName>getOptions</methodName>
+      <methodSignature>getOptions(): array</methodSignature>
+      <fullMethod>getOptions(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\RouteMakeCommand</className>
+      <methodName>prepareOptions</methodName>
+      <methodSignature>prepareOptions(): void</methodSignature>
+      <fullMethod>prepareOptions(): void</fullMethod>
+      <crap>54</crap>
+      <complexity>11</complexity>
+      <coverage>29.17</coverage>
+      <crapLoad>8</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\RouteMakeCommand</className>
+      <methodName>getConfigurationFilename</methodName>
+      <methodSignature>getConfigurationFilename(): string</methodSignature>
+      <fullMethod>getConfigurationFilename(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\RouteMakeCommand</className>
+      <methodName>qualifyClass</methodName>
+      <methodSignature>qualifyClass($name): string</methodSignature>
+      <fullMethod>qualifyClass($name): string</fullMethod>
+      <crap>15.66</crap>
+      <complexity>9</complexity>
+      <coverage>56.52</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\RouteMakeCommand</className>
+      <methodName>getStub</methodName>
+      <methodSignature>getStub(): string</methodSignature>
+      <fullMethod>getStub(): string</fullMethod>
+      <crap>5.51</crap>
+      <complexity>5</complexity>
+      <coverage>72.73</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\RouteMakeCommand</className>
+      <methodName>getOptions</methodName>
+      <methodSignature>getOptions(): array</methodSignature>
+      <fullMethod>getOptions(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>

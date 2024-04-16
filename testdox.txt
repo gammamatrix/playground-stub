@@ -74,6 +74,14 @@ Command (Tests\Feature\Playground\Stub\Console\Commands\RequestMakeCommand\Comma
  [x] Command without options or arguments
  [x] Command skeleton
 
+Command (Tests\Feature\Playground\Stub\Console\Commands\ResourceMakeCommand\Command)
+ [x] Command without options or arguments
+ [x] Command skeleton
+
+Command (Tests\Feature\Playground\Stub\Console\Commands\RouteMakeCommand\Command)
+ [x] Command without options or arguments
+ [x] Command skeleton
+
 Command (Tests\Feature\Playground\Stub\Console\Commands\SeederMakeCommand\Command)
  [x] Command without options or arguments
  [x] Command skeleton
@@ -105,6 +113,12 @@ Command (Tests\Unit\Playground\Stub\Console\Commands\PolicyMakeCommand\Command)
  [x] Command displays help
 
 Command (Tests\Unit\Playground\Stub\Console\Commands\RequestMakeCommand\Command)
+ [x] Command displays help
+
+Command (Tests\Unit\Playground\Stub\Console\Commands\ResourceMakeCommand\Command)
+ [x] Command displays help
+
+Command (Tests\Unit\Playground\Stub\Console\Commands\RouteMakeCommand\Command)
  [x] Command displays help
 
 Command (Tests\Unit\Playground\Stub\Console\Commands\SeederMakeCommand\Command)
@@ -243,6 +257,14 @@ Model (Tests\Feature\Playground\Stub\Console\Commands\PolicyMakeCommand\Model)
 Model (Tests\Feature\Playground\Stub\Console\Commands\RequestMakeCommand\Model)
  [x] Command make request with force and without skeleton
  [x] Command make request with force and with skeleton
+
+Model (Tests\Feature\Playground\Stub\Console\Commands\ResourceMakeCommand\Model)
+ [x] Command make resource with force and without skeleton
+ [x] Command make resource with force and with skeleton
+
+Model (Tests\Feature\Playground\Stub\Console\Commands\RouteMakeCommand\Model)
+ [x] Command make route with force and without skeleton
+ [x] Command make route with force and with skeleton
 
 Model (Tests\Feature\Playground\Stub\Console\Commands\TemplateMakeCommand\Model)
  [x] Command make template with force and without skeleton
