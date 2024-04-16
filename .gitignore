@@ -25,8 +25,7 @@ logs
 node_modules
 /hide
 /tmp
-tmp*
-temp*
+tmp-*
 vendor
 ################################################################################
 # Test and Docs ignores

@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace Playground\Stub\Configuration;
 
 /**
- * \Playground\Stub\Migration
+ * \Playground\Stub\Configuration\Migration
  */
 class Migration extends Configuration
 {

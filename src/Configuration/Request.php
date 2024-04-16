@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace Playground\Stub\Configuration;
 
 /**
- * \Playground\Stub\Request
+ * \Playground\Stub\Configuration\Request
  */
 class Request extends Configuration
 {

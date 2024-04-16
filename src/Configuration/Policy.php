@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace Playground\Stub\Configuration;
 
 /**
- * \Playground\Stub\Policy
+ * \Playground\Stub\Configuration\Policy
  */
 class Policy extends Configuration
 {

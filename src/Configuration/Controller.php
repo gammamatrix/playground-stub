@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace Playground\Stub\Configuration;
 
 /**
- * \Playground\Stub\Controller
+ * \Playground\Stub\Configuration\Controller
  */
 class Controller extends Configuration
 {

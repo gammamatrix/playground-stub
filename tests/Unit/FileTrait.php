@@ -158,7 +158,31 @@ trait FileTrait
             'request',
         ])) {
             $file = sprintf(
-                '%1$s/resources/testing/configurations/request.json',
+                '%1$s/resources/testing/configurations/test.request.json',
+                $package_base
+            );
+
+        //
+        // Routes
+        //
+
+        } elseif (in_array($type, [
+            'route',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/test.route.json',
+                $package_base
+            );
+
+        //
+        // Templates
+        //
+
+        } elseif (in_array($type, [
+            'template',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/test.template.json',
                 $package_base
             );
 

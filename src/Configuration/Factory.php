@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace Playground\Stub\Configuration;
 
 /**
- * \Playground\Stub\Factory
+ * \Playground\Stub\Configuration\Factory
  */
 class Factory extends Configuration
 {
