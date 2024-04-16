@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.64029363784666" branch-rate="0" lines-covered="3140" lines-valid="4904" branches-covered="0" branches-valid="0" complexity="1977" version="0.4" timestamp="1713252922">
+<coverage line-rate="0.64056795131846" branch-rate="0" lines-covered="3158" lines-valid="4930" branches-covered="0" branches-valid="0" complexity="1986" version="0.4" timestamp="1713253706">
   <sources>
     <source>/app/src</source>
   </sources>
@@ -5073,6 +5073,36 @@
         <class name="Playground\Stub\Configuration\Seeder" filename="Configuration/Seeder.php" line-rate="0" branch-rate="0" complexity="0">
           <methods/>
           <lines/>
+        </class>
+      </classes>
+    </package>
+    <package name="Configuration/Swagger.php" line-rate="0" branch-rate="0" complexity="4">
+      <classes>
+        <class name="Playground\Stub\Configuration\Swagger" filename="Configuration/Swagger.php" line-rate="0" branch-rate="0" complexity="4">
+          <methods>
+            <method name="setOptions" signature="array $options" line-rate="0" branch-rate="0" complexity="3">
+              <lines>
+                <line number="39" hits="0"/>
+                <line number="41" hits="0"/>
+                <line number="42" hits="0"/>
+                <line number="44" hits="0"/>
+                <line number="47" hits="0"/>
+              </lines>
+            </method>
+            <method name="controller_type" signature="" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="52" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="39" hits="0"/>
+            <line number="41" hits="0"/>
+            <line number="42" hits="0"/>
+            <line number="44" hits="0"/>
+            <line number="47" hits="0"/>
+            <line number="52" hits="0"/>
+          </lines>
         </class>
       </classes>
     </package>
@@ -11732,6 +11762,70 @@
         </class>
       </classes>
     </package>
+    <package name="Console/Commands/SwaggerMakeCommand.php" line-rate="0.89473684210526" branch-rate="0" complexity="5">
+      <classes>
+        <class name="Playground\Stub\Console\Commands\SwaggerMakeCommand" filename="Console/Commands/SwaggerMakeCommand.php" line-rate="0.89473684210526" branch-rate="0" complexity="5">
+          <methods>
+            <method name="getConfigurationFilename" signature="" line-rate="0.88888888888889" branch-rate="0" complexity="2">
+              <lines>
+                <line number="114" hits="4"/>
+                <line number="116" hits="4"/>
+                <line number="117" hits="0"/>
+                <line number="120" hits="4"/>
+                <line number="121" hits="4"/>
+                <line number="122" hits="4"/>
+                <line number="123" hits="4"/>
+                <line number="124" hits="4"/>
+                <line number="125" hits="4"/>
+              </lines>
+            </method>
+            <method name="getOptions" signature="" line-rate="1" branch-rate="0" complexity="1">
+              <lines>
+                <line number="135" hits="5"/>
+                <line number="138" hits="5"/>
+                <line number="139" hits="5"/>
+                <line number="140" hits="5"/>
+                <line number="144" hits="5"/>
+              </lines>
+            </method>
+            <method name="getStub" signature="" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="149" hits="0"/>
+              </lines>
+            </method>
+            <method name="handle" signature="" line-rate="1" branch-rate="0" complexity="1">
+              <lines>
+                <line number="170" hits="4"/>
+                <line number="172" hits="4"/>
+                <line number="174" hits="4"/>
+                <line number="211" hits="4"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="114" hits="4"/>
+            <line number="116" hits="4"/>
+            <line number="117" hits="0"/>
+            <line number="120" hits="4"/>
+            <line number="121" hits="4"/>
+            <line number="122" hits="4"/>
+            <line number="123" hits="4"/>
+            <line number="124" hits="4"/>
+            <line number="125" hits="4"/>
+            <line number="135" hits="5"/>
+            <line number="138" hits="5"/>
+            <line number="139" hits="5"/>
+            <line number="140" hits="5"/>
+            <line number="144" hits="5"/>
+            <line number="149" hits="0"/>
+            <line number="170" hits="4"/>
+            <line number="172" hits="4"/>
+            <line number="174" hits="4"/>
+            <line number="211" hits="4"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
     <package name="Console/Commands/TemplateMakeCommand.php" line-rate="0.5" branch-rate="0" complexity="30">
       <classes>
         <class name="Playground\Stub\Console\Commands\TemplateMakeCommand" filename="Console/Commands/TemplateMakeCommand.php" line-rate="0.5" branch-rate="0" complexity="30">
@@ -12213,46 +12307,47 @@
               <lines>
                 <line number="64" hits="1"/>
                 <line number="66" hits="1"/>
+                <line number="67" hits="1"/>
                 <line number="68" hits="1"/>
                 <line number="69" hits="1"/>
                 <line number="70" hits="1"/>
                 <line number="71" hits="1"/>
-                <line number="72" hits="1"/>
                 <line number="73" hits="1"/>
                 <line number="74" hits="1"/>
                 <line number="75" hits="1"/>
                 <line number="76" hits="1"/>
                 <line number="77" hits="1"/>
                 <line number="78" hits="1"/>
-                <line number="80" hits="1"/>
-                <line number="82" hits="1"/>
+                <line number="79" hits="1"/>
+                <line number="81" hits="1"/>
+                <line number="83" hits="1"/>
               </lines>
             </method>
             <method name="register" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="90" hits="1"/>
                 <line number="91" hits="1"/>
                 <line number="92" hits="1"/>
                 <line number="93" hits="1"/>
+                <line number="94" hits="1"/>
               </lines>
             </method>
             <method name="about" signature="" line-rate="1" branch-rate="0" complexity="6">
               <lines>
-                <line number="98" hits="1"/>
                 <line number="99" hits="1"/>
-                <line number="101" hits="1"/>
-                <line number="103" hits="1"/>
-                <line number="105" hits="1"/>
+                <line number="100" hits="1"/>
+                <line number="102" hits="1"/>
+                <line number="104" hits="1"/>
                 <line number="106" hits="1"/>
                 <line number="107" hits="1"/>
                 <line number="108" hits="1"/>
                 <line number="109" hits="1"/>
                 <line number="110" hits="1"/>
+                <line number="111" hits="1"/>
               </lines>
             </method>
             <method name="version" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="115" hits="1"/>
+                <line number="116" hits="1"/>
               </lines>
             </method>
           </methods>
@@ -12274,34 +12369,35 @@
             <line number="55" hits="1"/>
             <line number="64" hits="1"/>
             <line number="66" hits="1"/>
+            <line number="67" hits="1"/>
             <line number="68" hits="1"/>
             <line number="69" hits="1"/>
             <line number="70" hits="1"/>
             <line number="71" hits="1"/>
-            <line number="72" hits="1"/>
             <line number="73" hits="1"/>
             <line number="74" hits="1"/>
             <line number="75" hits="1"/>
             <line number="76" hits="1"/>
             <line number="77" hits="1"/>
             <line number="78" hits="1"/>
-            <line number="80" hits="1"/>
-            <line number="82" hits="1"/>
-            <line number="90" hits="1"/>
+            <line number="79" hits="1"/>
+            <line number="81" hits="1"/>
+            <line number="83" hits="1"/>
             <line number="91" hits="1"/>
             <line number="92" hits="1"/>
             <line number="93" hits="1"/>
-            <line number="98" hits="1"/>
+            <line number="94" hits="1"/>
             <line number="99" hits="1"/>
-            <line number="101" hits="1"/>
-            <line number="103" hits="1"/>
-            <line number="105" hits="1"/>
+            <line number="100" hits="1"/>
+            <line number="102" hits="1"/>
+            <line number="104" hits="1"/>
             <line number="106" hits="1"/>
             <line number="107" hits="1"/>
             <line number="108" hits="1"/>
             <line number="109" hits="1"/>
             <line number="110" hits="1"/>
-            <line number="115" hits="1"/>
+            <line number="111" hits="1"/>
+            <line number="116" hits="1"/>
           </lines>
         </class>
       </classes>

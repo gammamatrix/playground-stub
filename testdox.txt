@@ -86,6 +86,10 @@ Command (Tests\Feature\Playground\Stub\Console\Commands\SeederMakeCommand\Comman
  [x] Command without options or arguments
  [x] Command skeleton
 
+Command (Tests\Feature\Playground\Stub\Console\Commands\SwaggerMakeCommand\Command)
+ [x] Command without options or arguments
+ [x] Command skeleton
+
 Command (Tests\Feature\Playground\Stub\Console\Commands\TemplateMakeCommand\Command)
  [x] Command without options or arguments
  [x] Command skeleton
@@ -122,6 +126,9 @@ Command (Tests\Unit\Playground\Stub\Console\Commands\RouteMakeCommand\Command)
  [x] Command displays help
 
 Command (Tests\Unit\Playground\Stub\Console\Commands\SeederMakeCommand\Command)
+ [x] Command displays help
+
+Command (Tests\Unit\Playground\Stub\Console\Commands\SwaggerMakeCommand\Command)
  [x] Command displays help
 
 Command (Tests\Unit\Playground\Stub\Console\Commands\TemplateMakeCommand\Command)
@@ -265,6 +272,10 @@ Model (Tests\Feature\Playground\Stub\Console\Commands\ResourceMakeCommand\Model)
 Model (Tests\Feature\Playground\Stub\Console\Commands\RouteMakeCommand\Model)
  [x] Command make route with force and without skeleton
  [x] Command make route with force and with skeleton
+
+Model (Tests\Feature\Playground\Stub\Console\Commands\SwaggerMakeCommand\Model)
+ [x] Command make swagger with force and without skeleton
+ [x] Command make swagger with force and with skeleton
 
 Model (Tests\Feature\Playground\Stub\Console\Commands\TemplateMakeCommand\Model)
  [x] Command make template with force and without skeleton
