@@ -187,6 +187,27 @@ trait FileTrait
             );
 
         //
+        // Swagger
+        //
+
+        } elseif (in_array($type, [
+            'swagger-api',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/test.swagger-api.json',
+                $package_base
+            );
+
+        } elseif (in_array($type, [
+            'swagger',
+            'swagger-resource',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/test.swagger-resource.json',
+                $package_base
+            );
+
+        //
         // Templates
         //
 

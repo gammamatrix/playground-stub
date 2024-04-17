@@ -1,0 +1,21 @@
+{
+    "class": "clients",
+    "controller_type": "playground-api",
+    "extends": "",
+    "name": "Contact",
+    "folder": "contact",
+    "namespace": "Playground/Crm/Api",
+    "model": "Contact",
+    "model_column": "contact",
+    "model_label": "Contact",
+    "model_slug_plural": "contacts",
+    "module": "CRM",
+    "module_slug": "crm",
+    "organization": "Playground",
+    "package": "playground-crm-api",
+    "config": "playground-crm-api",
+    "type": "playground-api",
+    "models": {
+        "Contact": "apis/testing/configurations/test.model.crm.contact.json"
+    }
+}

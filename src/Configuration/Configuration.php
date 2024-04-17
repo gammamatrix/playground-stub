@@ -53,6 +53,10 @@ class Configuration implements
     public function apply(): self
     {
         foreach ($this->properties() as $property => $value) {
+            // dump([
+            //     'static::class' => static::class,
+            //     '$property' => $property,
+            // ]);
             if (method_exists($this, $property)) {
                 $this->properties[$property] = $this->{$property}();
             }
@@ -64,5 +68,15 @@ class Configuration implements
     public function jsonSerialize(): mixed
     {
         return $this->properties;
+    }
+
+    /**
+     * @return array<mixed>
+     */
+    public function toArray(): array
+    {
+        $properties = $this->jsonSerialize();
+
+        return is_array($properties) ? $properties : [];
     }
 }

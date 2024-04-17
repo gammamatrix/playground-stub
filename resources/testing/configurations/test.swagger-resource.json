@@ -1,0 +1,21 @@
+{
+    "class": "clients",
+    "controller_type": "playground-resource",
+    "extends": "",
+    "name": "Contact",
+    "folder": "contact",
+    "namespace": "Playground/Crm/Resource",
+    "model": "Contact",
+    "model_column": "contact",
+    "model_label": "Contact",
+    "model_slug_plural": "contacts",
+    "module": "CRM",
+    "module_slug": "crm",
+    "organization": "Playground",
+    "package": "playground-crm-resource",
+    "config": "playground-crm-resource",
+    "type": "playground-resource",
+    "models": {
+        "Contact": "resources/testing/configurations/test.model.crm.contact.json"
+    }
+}

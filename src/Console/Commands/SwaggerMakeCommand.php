@@ -8,6 +8,7 @@ namespace Playground\Stub\Console\Commands;
 
 // use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Playground\Stub\Building;
 use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
 use Playground\Stub\Configuration\Swagger as Configuration;
 // use Symfony\Component\Yaml\Exception\ParseException;
@@ -21,10 +22,10 @@ use Symfony\Component\Console\Input\InputOption;
 #[AsCommand(name: 'playground:make:swagger')]
 class SwaggerMakeCommand extends GeneratorCommand
 {
-    // use Traits\DocsClassTrait;
-    // use Traits\DocsControllerClassTrait;
-    // use Traits\DocsRequestClassTrait;
-    // use Traits\DocsModelClassTrait;
+    use Building\Swagger\BuildController;
+    use Building\Swagger\BuildModel;
+    use Building\Swagger\BuildRequest;
+    use Building\Swagger\BuildSwagger;
 
     /**
      * @var class-string<Configuration>
@@ -173,42 +174,75 @@ class SwaggerMakeCommand extends GeneratorCommand
 
         $type = $this->getConfigurationType();
 
-        // if ($type === 'api') {
-        //     $api = $this->load_base_file();
-        //     $this->save_base_file();
-        // } elseif ($type === 'controller') {
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$type' => $type,
+        //     '$name' => $name,
+        //     '$this->model' => $this->model,
+        //     '$this->c' => $this->c,
+        //     '$this->searches' => $this->searches,
+        //     '$this->arguments()' => $this->arguments(),
+        //     '$this->options()' => $this->options(),
+        // ]);
 
-        //     if ($this->hasOption('controller-type') && is_string($this->option('controller-type')) ) {
-        //         $this->c->setOptions([
-        //             'controller_type' => $this->option('controller-type'),
-        //         ]);
-        //     }
+        $this->load_base_file();
 
-        //     if (! empty($this->model['create'])) {
-        //         $this->doc_model($this->model);
-        //     }
+        if ($type === 'api') {
+            $this->save_base_file();
+        } elseif (in_array($type, [
+            'controller',
+            'playground-api',
+            'playground-resource',
+        ])) {
 
-        //     $this->doc_controller(
-        //         $this->c->name(),
-        //         $this->c->controller_type(),
-        //     );
+            if ($this->hasOption('controller-type') && is_string($this->option('controller-type')) ) {
+                $this->c->setOptions([
+                    'controller_type' => $this->option('controller-type'),
+                ]);
+            }
 
-        //     $this->save_base_file();
+            if (! empty($this->model?->create())) {
+                $this->doc_model();
+            }
 
-        // } elseif ($type === 'model') {
+            $this->doc_controller();
 
-        //     if (empty($this->model['create'])) {
-        //         $this->components->error('Provide a [--model-file] with a [create] section.');
+            $this->save_base_file();
 
-        //         return 1;
-        //     }
+        } elseif ($type === 'model') {
 
-        //     $model = $this->doc_model($this->model);
+            if (empty($this->model?->create())) {
+                $this->components->error('Provide a [--model-file] with a [create] section.');
 
-        //     $this->save_base_file();
-        // }
+                return true;
+            }
+
+            $this->doc_model();
+
+            $this->save_base_file();
+        }
 
         $this->saveConfiguration();
 
+    }
+
+    public function prepareOptions(): void
+    {
+        $options = $this->options();
+
+        $type = $this->getConfigurationType();
+
+        $this->initModel($this->c->skeleton());
+
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     // '$options' => $options,
+        //     '$type' => $type,
+        //     // '$this->model' => $this->model,
+        //     '!empty($this->model)' => !empty($this->model),
+        //     // '$this->c' => $this->c,
+        //     '$this->c->class()' => $this->c->class(),
+        //     '$this->c->table()' => $this->c->table(),
+        // ]);
     }
 }
