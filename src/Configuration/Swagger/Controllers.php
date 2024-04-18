@@ -33,11 +33,14 @@ class Controllers extends SwaggerConfiguration
         return $this;
     }
 
-    public function pathId(): Controller\PathId
+    /**
+     * @param array<string, mixed> $options
+     */
+    public function pathId(array $options = []): Controller\PathId
     {
         if (empty($this->pathId)) {
-            $this->pathId = new Controller\PathId(null, $this->skeleton());
-            $this->properties['pathId'] = $this->pathId->apply()->properties();
+            $this->pathId = new Controller\PathId($options, $this->skeleton());
+            $this->properties['pathId'] = $this->pathId->apply()->toArray();
         }
 
         return $this->pathId;

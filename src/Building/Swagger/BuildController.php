@@ -35,7 +35,9 @@ trait BuildController
             'resource',
             'api',
         ])) {
+            // Add the tag for the model.
             $this->api->addTag($name);
+
             $this->doc_controller_id($name, $controller_type);
             // $this->doc_controller_index($name, $controller_type);
         }
@@ -54,9 +56,16 @@ trait BuildController
         string $controller_type = ''
     ): void {
 
+        // Initialize the ID path
+        $pathId = $this->api->controllers()->pathId([
+        ]);
+
         $this->doc_controller_id_config($name, $controller_type);
 
-        // $this->doc_request_id($name, $controller_type);
+        // $this->api->controllers()->pathId([
+
+        // ]);
+        $this->doc_request_id($name, $controller_type);
 
         $path = sprintf(
             '/api/%1$s/{id}',
@@ -68,6 +77,7 @@ trait BuildController
         );
 
         $this->api->addPath($path, $file);
+        $this->api->apply();
 
         // dump([
         //     '__METHOD__' => __METHOD__,
@@ -81,7 +91,10 @@ trait BuildController
         //     // '$this->options()' => $this->options(),
         // ]);
 
-        $this->yaml_write($file, $this->api->apply()->toArray());
+        $this->yaml_write(
+            $file,
+            $this->api->controllers()->pathId()->apply()->toArray()
+        );
     }
 
     protected function doc_controller_id_config(
@@ -93,7 +106,7 @@ trait BuildController
             'in' => 'path',
             'name' => 'id',
             'required' => true,
-            'description' => 'The %1$s id.',
+            // 'description' => 'The %1$s id.',
             'schema' => [
                 'type' => 'string',
                 'format' => 'uuid',

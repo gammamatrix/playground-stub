@@ -6,9 +6,9 @@ declare(strict_types=1);
 namespace Playground\Stub\Configuration\Swagger\Controller;
 
 /**
- * \Playground\Stub\Configuration\Swagger\Controller\PathId
+ * \Playground\Stub\Configuration\Swagger\Controller\PathIndex
  */
-class PathId extends Path
+class PathIndex extends Path
 {
     /**
      * @var array<string, mixed>
@@ -16,8 +16,6 @@ class PathId extends Path
     protected $properties = [
         'parameters' => [],
         'getMethod' => null,
-        'deleteMethod' => null,
-        'patchMethod' => null,
-        'putMethod' => null,
+        'postMethod' => null,
     ];
 }
