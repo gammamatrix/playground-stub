@@ -230,13 +230,49 @@ trait BuildController
                 'patch_%1$s',
                 Str::of($name)->lower()->toString()
             ),
+
+            // requestBody:
+            // content:
+            //   application/json:
+            //     schema:
+            //       $ref: ../../requests/page/patch.yml
+            'requestBody' => [
+                'content' => [
+                    'type' => 'application/json',
+                    'schema' => [
+                        '$ref' => sprintf(
+                            '../../requests/%s/patch.yml',
+                            Str::of($name)->lower()->kebab()->toString()
+                        ),
+                    ],
+                ],
+            ],
+
             'responses' => [
                 [
-                    'code' => 204,
+                    'code' => 200,
                     'description' => sprintf(
                         'The %1$s has been patched.',
                         Str::of($name)->lower()->toString()
                     ),
+                    'content' => [
+                        'type' => 'application/json',
+                        'schema' => [
+                            'type' => 'object',
+                            'properties' => [
+                                'data' => [
+                                    '$ref' => sprintf(
+                                        '../../models/%s.yml',
+                                        Str::of($name)->lower()->kebab()->toString()
+                                    ),
+                                ],
+                                'meta' => [
+                                    'type' => 'object',
+
+                                ],
+                            ],
+                        ],
+                    ],
                 ],
                 [
                     'code' => 401,
@@ -283,7 +319,7 @@ trait BuildController
             ],
         ]);
 
-        $patchMethod?->apply();
+        // $patchMethod?->apply();
 
         //     if (! empty($config['get']['responses']) && ! empty($config['get']['responses'][200])) {
         //         $config['get']['responses'][200]['description'] = sprintf(

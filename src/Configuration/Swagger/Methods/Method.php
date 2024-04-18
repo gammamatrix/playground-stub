@@ -17,6 +17,8 @@ class Method extends Configuration\Configuration
 
     protected string $operationId = '';
 
+    protected ?RequestBody $requestBody = null;
+
     /**
      * @var array<int, Response>
      */
@@ -34,6 +36,7 @@ class Method extends Configuration\Configuration
         'tags' => [],
         'summary' => '',
         'operationId' => '',
+        'requestBody' => null,
         'responses' => [],
     ];
 
@@ -54,6 +57,13 @@ class Method extends Configuration\Configuration
             && is_string($options['operationId'])
         ) {
             $this->operationId = $options['operationId'];
+        }
+
+        if (! empty($options['requestBody'])
+            && is_array($options['requestBody'])
+        ) {
+            $this->requestBody = new RequestBody($options['requestBody']);
+            $this->requestBody->apply();
         }
 
         if (! empty($options['responses'])
@@ -104,6 +114,11 @@ class Method extends Configuration\Configuration
         return $this->operationId;
     }
 
+    public function requestBody(): ?RequestBody
+    {
+        return $this->requestBody;
+    }
+
     /**
      * @return array<int, Response>
      */
@@ -135,6 +150,14 @@ class Method extends Configuration\Configuration
             $properties['operationId'] = $this->operationId();
         }
 
+        $requestBody = $this->requestBody();
+
+        if ($requestBodyContent = $requestBody?->content()) {
+            $properties['requestBody'] = [
+                'content' => $requestBodyContent->toArray(),
+            ];
+        }
+
         $responses = $this->responses();
         if ($responses) {
             $properties['responses'] = [];
@@ -153,6 +176,7 @@ class Method extends Configuration\Configuration
         // dump([
         //     '$properties' => $properties,
         //     '$responses' => $responses,
+        //     '$requestBody' => $requestBody,
         // ]);
 
         return $properties;
