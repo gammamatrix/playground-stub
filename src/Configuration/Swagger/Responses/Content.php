@@ -44,6 +44,12 @@ class Content extends Configuration\Configuration
             $this->schema = $options['schema'];
         }
 
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$options' => $options,
+        //     '$this' => $this,
+        // ]);
+
         return $this;
     }
 
@@ -58,5 +64,25 @@ class Content extends Configuration\Configuration
     public function schema(): array
     {
         return $this->schema;
+    }
+
+    public function jsonSerialize(): mixed
+    {
+        $properties = [];
+
+        $schema = $this->schema();
+        $type = $this->type();
+
+        if ($type) {
+            $properties[$type] = [
+                // 'schema' => [],
+            ];
+
+            if ($schema) {
+                $properties[$type]['schema'] = $schema;
+            }
+        }
+
+        return $properties;
     }
 }

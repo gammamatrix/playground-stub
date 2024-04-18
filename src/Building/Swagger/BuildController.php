@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace Playground\Stub\Building\Swagger;
 
 use Illuminate\Support\Str;
+use Playground\Stub\Configuration\Swagger\Controller\PathId;
 
 /**
  * \Playground\Stub\Building\Swagger\BuildController
@@ -51,14 +52,28 @@ trait BuildController
         // }
     }
 
+    protected PathId $pathId;
+
+    /**
+     * @param array<string, mixed> $options
+     */
+    protected function pathId(array $options = []): PathId
+    {
+        if (empty($this->pathId)) {
+            // Initialize the ID path
+            $this->pathId = $this->api->controllers()->pathId($options);
+        }
+
+        return $this->pathId;
+    }
+
     protected function doc_controller_id(
         string $name,
         string $controller_type = ''
     ): void {
 
-        // Initialize the ID path
-        $pathId = $this->api->controllers()->pathId([
-        ]);
+        // No options provided to pathId for now.
+        $this->pathId();
 
         $this->doc_controller_id_config($name, $controller_type);
 
@@ -79,6 +94,8 @@ trait BuildController
         $this->api->addPath($path, $file);
         $this->api->apply();
 
+        $this->pathId()->apply();
+
         // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$controller_type' => $controller_type,
@@ -91,10 +108,7 @@ trait BuildController
         //     // '$this->options()' => $this->options(),
         // ]);
 
-        $this->yaml_write(
-            $file,
-            $this->api->controllers()->pathId()->apply()->toArray()
-        );
+        $this->yaml_write($file, $this->pathId()->toArray());
     }
 
     protected function doc_controller_id_config(
@@ -102,7 +116,7 @@ trait BuildController
         string $controller_type = ''
     ): void {
 
-        $this->api->controllers()->pathId()->addParameter($name, [
+        $this->pathId()->addParameter($name, [
             'in' => 'path',
             'name' => 'id',
             'required' => true,
@@ -113,45 +127,163 @@ trait BuildController
             ],
         ]);
 
-        // if (! empty($config['parameters']) && ! empty($name)) {
+        $getMethod = $this->pathId()->getMethod([
+            'tags' => [
+                Str::of($name)->title()->toString(),
+            ],
+            'summary' => sprintf(
+                'Get a %1$s by id.',
+                Str::of($name)->lower()->toString()
+            ),
+            'operationId' => sprintf(
+                'get_%1$s',
+                Str::of($name)->lower()->toString()
+            ),
+            'responses' => [
+                [
+                    'code' => 200,
+                    'description' => sprintf(
+                        'The %1$s data.',
+                        Str::of($name)->lower()->toString()
+                    ),
+                    'content' => [
+                        'type' => 'application/json',
+                        'schema' => [
+                            'type' => 'object',
+                            'properties' => [
+                                'data' => [
+                                    '$ref' => sprintf(
+                                        '../../models/%s.yml',
+                                        Str::of($name)->lower()->kebab()->toString()
+                                    ),
+                                ],
+                                'meta' => [
+                                    'type' => 'object',
 
-        //     if (! empty($config['parameters'][0])
-        //         && ! empty($config['parameters'][0]['description'])
-        //         && ! empty($config['parameters'][0]['name'])
-        //         && $config['parameters'][0]['name'] === 'id'
-        //     ) {
-        //         $config['parameters'][0]['description'] = sprintf(
-        //             $config['parameters'][0]['description'],
-        //             Str::of($name)->lower()
-        //         );
-        //     }
-        // }
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+                [
+                    'code' => 401,
+                    'description' => 'Unauthorized',
+                ],
+                [
+                    'code' => 403,
+                    'description' => 'Forbidden',
+                ],
+            ],
+        ]);
 
-        // if (! empty($config['get']) && ! empty($name)) {
+        $getMethod?->apply();
 
-        //     if (empty($config['get']['tags']) || ! is_array($config['get']['tags'])) {
-        //         $config['get']['tags'] = [];
-        //     }
+        $deleteMethod = $this->pathId()->deleteMethod([
+            'tags' => [
+                Str::of($name)->title()->toString(),
+            ],
+            'summary' => sprintf(
+                'Delete a %1$s by id.',
+                Str::of($name)->lower()->toString()
+            ),
+            'operationId' => sprintf(
+                'delete_%1$s',
+                Str::of($name)->lower()->toString()
+            ),
+            'responses' => [
+                [
+                    'code' => 204,
+                    'description' => sprintf(
+                        'The %1$s has been deleted.',
+                        Str::of($name)->lower()->toString()
+                    ),
+                ],
+                [
+                    'code' => 401,
+                    'description' => 'Unauthorized',
+                ],
+                [
+                    'code' => 403,
+                    'description' => 'Forbidden',
+                ],
+                [
+                    'code' => 423,
+                    'description' => sprintf(
+                        'The %1$s is locked. Unlock to delete.',
+                        Str::of($name)->lower()->toString()
+                    ),
+                ],
+            ],
+        ]);
 
-        //     $tag = Str::of($name)->title()->toString();
+        $deleteMethod?->apply();
 
-        //     if (! in_array($tag, $config['get']['tags'])) {
-        //         $config['get']['tags'][] = $tag;
-        //     }
+        $patchMethod = $this->pathId()->patchMethod([
+            'tags' => [
+                Str::of($name)->title()->toString(),
+            ],
+            'summary' => sprintf(
+                'Patch a %1$s by id.',
+                Str::of($name)->lower()->toString()
+            ),
+            'operationId' => sprintf(
+                'patch_%1$s',
+                Str::of($name)->lower()->toString()
+            ),
+            'responses' => [
+                [
+                    'code' => 204,
+                    'description' => sprintf(
+                        'The %1$s has been patched.',
+                        Str::of($name)->lower()->toString()
+                    ),
+                ],
+                [
+                    'code' => 401,
+                    'description' => 'Unauthorized',
+                ],
+                [
+                    'code' => 403,
+                    'description' => 'Forbidden',
+                ],
+                [
+                    'code' => 422,
+                    'description' => sprintf(
+                        'The %1$s is locked. Unlock to patch.',
+                        Str::of($name)->lower()->toString()
+                    ),
+                    'content' => [
+                        'type' => 'application/json',
+                        'schema' => [
+                            'type' => 'object',
+                            'properties' => [
+                                'errors' => [
+                                    'type' => 'object',
+                                    'properties' => [
+                                        'title' => [
+                                            'type' => 'array',
+                                            'items' => [
+                                                'type' => 'string',
+                                                'example' => 'The title field is required.',
+                                            ],
+                                        ],
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+                [
+                    'code' => 423,
+                    'description' => sprintf(
+                        'The %1$s is locked. Unlock to patch.',
+                        Str::of($name)->lower()->toString()
+                    ),
+                ],
+            ],
+        ]);
 
-        //     if (! empty($config['get']['summary'])) {
-        //         $config['get']['summary'] = sprintf(
-        //             $config['get']['summary'],
-        //             Str::of($name)->lower()
-        //         );
-        //     }
-
-        //     if (! empty($config['get']['operationId'])) {
-        //         $config['get']['operationId'] = sprintf(
-        //             $config['get']['operationId'],
-        //             Str::of($name)->snake()
-        //         );
-        //     }
+        $patchMethod?->apply();
 
         //     if (! empty($config['get']['responses']) && ! empty($config['get']['responses'][200])) {
         //         $config['get']['responses'][200]['description'] = sprintf(
@@ -163,7 +295,6 @@ trait BuildController
         //             Str::of($name)->kebab()
         //         );
         //     }
-        // }
 
         // if (! empty($config['delete']) && ! empty($name)) {
 

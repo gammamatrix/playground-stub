@@ -22,7 +22,7 @@ class Response extends Configuration\Configuration
      * @var array<string, mixed>
      */
     protected $properties = [
-        'code' => 200,
+        // 'code' => 200,
         'description' => '',
         'content' => null,
     ];
@@ -53,6 +53,12 @@ class Response extends Configuration\Configuration
         ) {
             $this->description = $options['description'];
         }
+
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$options' => $options,
+        //     '$this' => $this,
+        // ]);
 
         return $this;
     }
