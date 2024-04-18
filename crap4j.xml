@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-18 21:36:12</timestamp>
+  <timestamp>2024-04-18 22:04:33</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>551</methodCount>
-    <crapMethodCount>39</crapMethodCount>
-    <crapLoad>572</crapLoad>
-    <totalCrap>13358.14</totalCrap>
-    <crapMethodPercent>7.08</crapMethodPercent>
+    <methodCount>558</methodCount>
+    <crapMethodCount>40</crapMethodCount>
+    <crapLoad>581</crapLoad>
+    <totalCrap>13500.14</totalCrap>
+    <crapMethodPercent>7.17</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -3533,14 +3533,58 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Swagger\Methods</package>
+      <className>Playground\Stub\Configuration\Swagger\Methods\Content</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Swagger\Methods</package>
+      <className>Playground\Stub\Configuration\Swagger\Methods\Content</className>
+      <methodName>type</methodName>
+      <methodSignature>type(): string</methodSignature>
+      <fullMethod>type(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Swagger\Methods</package>
+      <className>Playground\Stub\Configuration\Swagger\Methods\Content</className>
+      <methodName>schema</methodName>
+      <methodSignature>schema(): array</methodSignature>
+      <fullMethod>schema(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Swagger\Methods</package>
+      <className>Playground\Stub\Configuration\Swagger\Methods\Content</className>
+      <methodName>jsonSerialize</methodName>
+      <methodSignature>jsonSerialize(): mixed</methodSignature>
+      <fullMethod>jsonSerialize(): mixed</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Swagger\Methods</package>
       <className>Playground\Stub\Configuration\Swagger\Methods\Method</className>
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>240</crap>
-      <complexity>15</complexity>
+      <crap>306</crap>
+      <complexity>17</complexity>
       <coverage>0</coverage>
-      <crapLoad>15</crapLoad>
+      <crapLoad>17</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration\Swagger\Methods</package>
@@ -3578,6 +3622,17 @@
     <method>
       <package>Playground\Stub\Configuration\Swagger\Methods</package>
       <className>Playground\Stub\Configuration\Swagger\Methods\Method</className>
+      <methodName>requestBody</methodName>
+      <methodSignature>requestBody(): ?Playground\Stub\Configuration\Swagger\Methods\RequestBody</methodSignature>
+      <fullMethod>requestBody(): ?Playground\Stub\Configuration\Swagger\Methods\RequestBody</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Swagger\Methods</package>
+      <className>Playground\Stub\Configuration\Swagger\Methods\Method</className>
       <methodName>responses</methodName>
       <methodSignature>responses(): array</methodSignature>
       <fullMethod>responses(): array</fullMethod>
@@ -3603,8 +3658,30 @@
       <methodName>jsonSerialize</methodName>
       <methodSignature>jsonSerialize(): mixed</methodSignature>
       <fullMethod>jsonSerialize(): mixed</fullMethod>
-      <crap>42</crap>
-      <complexity>6</complexity>
+      <crap>56</crap>
+      <complexity>7</complexity>
+      <coverage>0</coverage>
+      <crapLoad>7</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Swagger\Methods</package>
+      <className>Playground\Stub\Configuration\Swagger\Methods\RequestBody</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Swagger\Methods</package>
+      <className>Playground\Stub\Configuration\Swagger\Methods\RequestBody</className>
+      <methodName>content</methodName>
+      <methodSignature>content(): ?Playground\Stub\Configuration\Swagger\Methods\Content</methodSignature>
+      <fullMethod>content(): ?Playground\Stub\Configuration\Swagger\Methods\Content</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
