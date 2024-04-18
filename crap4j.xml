@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-18 07:27:22</timestamp>
+  <timestamp>2024-04-18 21:36:12</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>542</methodCount>
-    <crapMethodCount>38</crapMethodCount>
-    <crapLoad>556</crapLoad>
-    <totalCrap>13048.14</totalCrap>
-    <crapMethodPercent>7.01</crapMethodPercent>
+    <methodCount>551</methodCount>
+    <crapMethodCount>39</crapMethodCount>
+    <crapLoad>572</crapLoad>
+    <totalCrap>13358.14</totalCrap>
+    <crapMethodPercent>7.08</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -283,6 +283,17 @@
       <fullMethod>doc_controller(): void</fullMethod>
       <crap>12</crap>
       <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Swagger</package>
+      <className>Playground\Stub\Building\Swagger\BuildController</className>
+      <methodName>pathId</methodName>
+      <methodSignature>pathId(array $options): Playground\Stub\Configuration\Swagger\Controller\PathId</methodSignature>
+      <fullMethod>pathId(array $options): Playground\Stub\Configuration\Swagger\Controller\PathId</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -3521,6 +3532,83 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
+      <package>Playground\Stub\Configuration\Swagger\Methods</package>
+      <className>Playground\Stub\Configuration\Swagger\Methods\Method</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>240</crap>
+      <complexity>15</complexity>
+      <coverage>0</coverage>
+      <crapLoad>15</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Swagger\Methods</package>
+      <className>Playground\Stub\Configuration\Swagger\Methods\Method</className>
+      <methodName>addResponse</methodName>
+      <methodSignature>addResponse(array $meta): self</methodSignature>
+      <fullMethod>addResponse(array $meta): self</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Swagger\Methods</package>
+      <className>Playground\Stub\Configuration\Swagger\Methods\Method</className>
+      <methodName>summary</methodName>
+      <methodSignature>summary(): string</methodSignature>
+      <fullMethod>summary(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Swagger\Methods</package>
+      <className>Playground\Stub\Configuration\Swagger\Methods\Method</className>
+      <methodName>operationId</methodName>
+      <methodSignature>operationId(): string</methodSignature>
+      <fullMethod>operationId(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Swagger\Methods</package>
+      <className>Playground\Stub\Configuration\Swagger\Methods\Method</className>
+      <methodName>responses</methodName>
+      <methodSignature>responses(): array</methodSignature>
+      <fullMethod>responses(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Swagger\Methods</package>
+      <className>Playground\Stub\Configuration\Swagger\Methods\Method</className>
+      <methodName>tags</methodName>
+      <methodSignature>tags(): array</methodSignature>
+      <fullMethod>tags(): array</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Swagger\Methods</package>
+      <className>Playground\Stub\Configuration\Swagger\Methods\Method</className>
+      <methodName>jsonSerialize</methodName>
+      <methodSignature>jsonSerialize(): mixed</methodSignature>
+      <fullMethod>jsonSerialize(): mixed</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
       <package>Playground\Stub\Configuration\Swagger</package>
       <className>Playground\Stub\Configuration\Swagger\Path</className>
       <methodName>setOptions</methodName>
@@ -3583,6 +3671,17 @@
       <fullMethod>schema(): array</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Swagger\Responses</package>
+      <className>Playground\Stub\Configuration\Swagger\Responses\Content</className>
+      <methodName>jsonSerialize</methodName>
+      <methodSignature>jsonSerialize(): mixed</methodSignature>
+      <fullMethod>jsonSerialize(): mixed</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
