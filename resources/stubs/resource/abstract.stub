@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Carbon;
 
-class {{ class }} extends JsonResource
-{{{class_keys}}
+abstract class {{ class }} extends JsonResource
+{
     /**
      * Transform the resource into an array.
      *

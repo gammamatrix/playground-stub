@@ -28,23 +28,17 @@ class ResourceMakeCommand extends GeneratorCommand
      */
     protected ConfigurationContract $c;
 
-    // const CONFIGURATION = [
-    //     'class' => '',
-    //     'collection' => false,
-    //     'module' => '',
-    //     'module_slug' => '',
-    //     'namespace' => 'App',
-    //     'organization' => '',
-    //     'package' => 'app',
-    // ];
-
     const SEARCH = [
         'class' => '',
+        'class_keys' => '',
+        'keys' => '',
         'module' => '',
         'module_slug' => '',
         'namespace' => 'App',
         'organization' => '',
         'package' => 'app',
+        'extends' => 'JsonResource',
+        'extends_use' => 'Illuminate\Http\Resources\Json\JsonResource',
     ];
 
     /**
@@ -94,9 +88,11 @@ class ResourceMakeCommand extends GeneratorCommand
 
         if ($type === 'abstract') {
             $template = 'resource/abstract.stub';
+        } elseif ($type === 'abstract-keys') {
+            $template = 'resource/abstract.keys.stub';
         } elseif ($type === 'keys') {
             $template = 'resource/resource.keys.stub';
-        } elseif ($this->collection()) {
+        } elseif ($this->collection() | $type === 'collection') {
             $template = 'resource/collection.stub';
         }
 
@@ -128,21 +124,11 @@ class ResourceMakeCommand extends GeneratorCommand
             'collection' => $this->collection,
         ]);
 
+        $this->searches['extends'] = 'ResourceCollection';
+        $this->searches['extends_use'] = 'Illuminate\Http\Resources\Json\ResourceCollection';
+
         return $this->collection;
     }
-
-    // /**
-    //  * Resolve the fully-qualified path to the stub.
-    //  *
-    //  * @param  string  $stub
-    //  * @return string
-    //  */
-    // protected function resolveStubPath($stub)
-    // {
-    //     return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
-    //                     ? $customPath
-    //                     : __DIR__.$stub;
-    // }
 
     /**
      * Get the default namespace for the class.
@@ -152,21 +138,7 @@ class ResourceMakeCommand extends GeneratorCommand
     protected function getDefaultNamespace($rootNamespace): string
     {
         return $this->parseClassInput($rootNamespace).'\\Http\\Resources';
-        // return $rootNamespace.'\Http\Resources';
     }
-
-    // /**
-    //  * Get the console command options.
-    //  *
-    //  * @return array
-    //  */
-    // protected function getOptions()
-    // {
-    //     return [
-    //         ['force', 'f', InputOption::VALUE_NONE, 'Create the class even if the resource already exists'],
-    //         ['collection', 'c', InputOption::VALUE_NONE, 'Create a resource collection'],
-    //     ];
-    // }
 
     protected function getConfigurationFilename(): string
     {
@@ -180,6 +152,15 @@ class ResourceMakeCommand extends GeneratorCommand
     }
 
     /**
+     * @var array<int, string>
+     */
+    protected array $options_type_suggested = [
+        'abstract',
+        'keys',
+        'collection',
+    ];
+
+    /**
      * Get the console command arguments.
      *
      * @return array<int, mixed>
@@ -188,17 +169,9 @@ class ResourceMakeCommand extends GeneratorCommand
     {
         $options = parent::getOptions();
 
-        // $options[] = ['model', 'm', InputOption::VALUE_OPTIONAL, 'The model that the policy applies to'],;
-        // $options[] = ['guard', 'g', InputOption::VALUE_OPTIONAL, 'The guard that the policy relies on'];
         $options[] = ['collection', null, InputOption::VALUE_NONE, 'Create a resource collection'];
         $options[] = ['skeleton', null, InputOption::VALUE_NONE, 'Create the skeleton for the resource type'];
 
         return $options;
-
-        // return [
-        //     ['force', 'f', InputOption::VALUE_NONE, 'Create the class even if the resource already exists'],
-        //     // ['model', 'm', InputOption::VALUE_OPTIONAL, 'The model that the resource applies to'],
-        //     ['collection', 'c', InputOption::VALUE_NONE, 'Create a resource collection'],
-        // ];
     }
 }

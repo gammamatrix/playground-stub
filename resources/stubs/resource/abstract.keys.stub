@@ -6,12 +6,23 @@
 declare(strict_types=1);
 namespace {{ namespace }};
 
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Carbon;
 
+/**
+ * \{{ namespace }}\{{ class }}
+ */
 class {{ class }} extends JsonResource
-{{{class_keys}}
+{
+    /**
+     * @var array<int, string>
+     */
+    protected array $keys = [
+{{keys}}
+    ];
+
     /**
      * Transform the resource into an array.
      *
@@ -19,7 +30,9 @@ class {{ class }} extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        // $user = $request->user();
+
+        return Arr::only(parent::toArray($request), $this->keys);
     }
 
     /**
@@ -37,3 +50,4 @@ class {{ class }} extends JsonResource
         ];
     }
 }
+

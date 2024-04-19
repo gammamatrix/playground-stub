@@ -11,17 +11,14 @@ use Playground\Stub\Console\Commands\ResourceMakeCommand;
 use Tests\Feature\Playground\Stub\TestCase;
 
 /**
- * \Tests\Feature\Playground\Stub\Console\Commands\ResourceMakeCommand\ModelTest
+ * \Tests\Feature\Playground\Stub\Console\Commands\ResourceMakeCommand\KeysTest
  */
 #[CoversClass(ResourceMakeCommand::class)]
-class ModelTest extends TestCase
+class KeysTest extends TestCase
 {
-    public function test_command_make_resource_with_force_and_without_skeleton(): void
+    public function test_command_make_keys_resource_with_force_and_without_skeleton(): void
     {
-        $command = sprintf(
-            'playground:make:resource --force --file %1$s',
-            $this->getResourceFile('resource')
-        );
+        $command = 'playground:make:resource testing --force --type keys';
 
         /**
          * @var \Illuminate\Testing\PendingCommand $result
@@ -30,12 +27,9 @@ class ModelTest extends TestCase
         $result->assertExitCode(0);
     }
 
-    public function test_command_make_resource_with_force_and_with_skeleton(): void
+    public function test_command_make_keys_resource_with_force_and_with_skeleton(): void
     {
-        $command = sprintf(
-            'playground:make:resource --skeleton --force --file %1$s',
-            $this->getResourceFile('resource')
-        );
+        $command = 'playground:make:resource testing --skeleton --force --type keys';
 
         /**
          * @var \Illuminate\Testing\PendingCommand $result
