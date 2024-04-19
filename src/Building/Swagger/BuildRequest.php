@@ -20,7 +20,7 @@ trait BuildRequest
 
         $model = $this->model;
         $create = $model?->create();
-        if (!$model || !$create) {
+        if (! $model || ! $create) {
             return;
         }
 

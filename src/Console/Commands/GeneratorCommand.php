@@ -271,4 +271,9 @@ abstract class GeneratorCommand extends Command
 
         return is_string($name) ? $name : null;
     }
+
+    protected function getStub()
+    {
+        return '';
+    }
 }

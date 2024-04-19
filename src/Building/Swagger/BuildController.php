@@ -77,9 +77,6 @@ trait BuildController
 
         $this->doc_controller_id_config($name, $controller_type);
 
-        // $this->api->controllers()->pathId([
-
-        // ]);
         $this->doc_request_id($name, $controller_type);
 
         $path = sprintf(

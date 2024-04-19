@@ -106,7 +106,7 @@ class SwaggerMakeCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $type = 'Docs';
+    protected $type = 'Swagger';
 
     protected string $path_destination_folder = 'docs';
 
@@ -145,11 +145,6 @@ class SwaggerMakeCommand extends GeneratorCommand
         return $options;
     }
 
-    protected function getStub()
-    {
-        return '';
-    }
-
     /**
      * Execute the console command.
      *
@@ -173,17 +168,6 @@ class SwaggerMakeCommand extends GeneratorCommand
         $name = $this->getNameInput();
 
         $type = $this->getConfigurationType();
-
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$type' => $type,
-        //     '$name' => $name,
-        //     '$this->model' => $this->model,
-        //     '$this->c' => $this->c,
-        //     '$this->searches' => $this->searches,
-        //     '$this->arguments()' => $this->arguments(),
-        //     '$this->options()' => $this->options(),
-        // ]);
 
         $this->load_base_file();
 
@@ -233,16 +217,5 @@ class SwaggerMakeCommand extends GeneratorCommand
         $type = $this->getConfigurationType();
 
         $this->initModel($this->c->skeleton());
-
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     // '$options' => $options,
-        //     '$type' => $type,
-        //     // '$this->model' => $this->model,
-        //     '!empty($this->model)' => !empty($this->model),
-        //     // '$this->c' => $this->c,
-        //     '$this->c->class()' => $this->c->class(),
-        //     '$this->c->table()' => $this->c->table(),
-        // ]);
     }
 }
