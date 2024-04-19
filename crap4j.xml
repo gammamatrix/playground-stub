@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-18 22:04:33</timestamp>
+  <timestamp>2024-04-19 01:44:13</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>558</methodCount>
-    <crapMethodCount>40</crapMethodCount>
-    <crapLoad>581</crapLoad>
-    <totalCrap>13500.14</totalCrap>
-    <crapMethodPercent>7.17</crapMethodPercent>
+    <methodCount>559</methodCount>
+    <crapMethodCount>37</crapMethodCount>
+    <crapLoad>526</crapLoad>
+    <totalCrap>12392.19</totalCrap>
+    <crapMethodPercent>6.62</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -281,9 +281,9 @@
       <methodName>doc_controller</methodName>
       <methodSignature>doc_controller(): void</methodSignature>
       <fullMethod>doc_controller(): void</fullMethod>
-      <crap>12</crap>
+      <crap>3.03</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>84.62</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -292,9 +292,9 @@
       <methodName>pathId</methodName>
       <methodSignature>pathId(array $options): Playground\Stub\Configuration\Swagger\Controller\PathId</methodSignature>
       <fullMethod>pathId(array $options): Playground\Stub\Configuration\Swagger\Controller\PathId</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -303,9 +303,9 @@
       <methodName>doc_controller_id</methodName>
       <methodSignature>doc_controller_id(string $name, string $controller_type): void</methodSignature>
       <fullMethod>doc_controller_id(string $name, string $controller_type): void</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -314,9 +314,9 @@
       <methodName>doc_controller_id_config</methodName>
       <methodSignature>doc_controller_id_config(string $name, string $controller_type): void</methodSignature>
       <fullMethod>doc_controller_id_config(string $name, string $controller_type): void</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -325,10 +325,21 @@
       <methodName>doc_model</methodName>
       <methodSignature>doc_model(): ?array</methodSignature>
       <fullMethod>doc_model(): ?array</fullMethod>
-      <crap>506</crap>
-      <complexity>22</complexity>
-      <coverage>0</coverage>
-      <crapLoad>22</crapLoad>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>96</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Swagger</package>
+      <className>Playground\Stub\Building\Swagger\BuildModel</className>
+      <methodName>doc_model_columns</methodName>
+      <methodSignature>doc_model_columns(string $name, Playground\Stub\Configuration\Model\Create $create): array</methodSignature>
+      <fullMethod>doc_model_columns(string $name, Playground\Stub\Configuration\Model\Create $create): array</fullMethod>
+      <crap>18</crap>
+      <complexity>18</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Building\Swagger</package>
@@ -336,10 +347,10 @@
       <methodName>doc_model_column</methodName>
       <methodSignature>doc_model_column(string $name, string $column, array $meta, string $section): void</methodSignature>
       <fullMethod>doc_model_column(string $name, string $column, array $meta, string $section): void</fullMethod>
-      <crap>462</crap>
+      <crap>23.88</crap>
       <complexity>21</complexity>
-      <coverage>0</coverage>
-      <crapLoad>21</crapLoad>
+      <coverage>81.31</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Building\Swagger</package>
@@ -347,9 +358,9 @@
       <methodName>doc_model_primary</methodName>
       <methodSignature>doc_model_primary(string $name, mixed $primary): void</methodSignature>
       <fullMethod>doc_model_primary(string $name, mixed $primary): void</fullMethod>
-      <crap>30</crap>
+      <crap>8.12</crap>
       <complexity>5</complexity>
-      <coverage>0</coverage>
+      <coverage>50</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -358,10 +369,10 @@
       <methodName>doc_model_ids</methodName>
       <methodSignature>doc_model_ids(string $name, array $ids): void</methodSignature>
       <fullMethod>doc_model_ids(string $name, array $ids): void</fullMethod>
-      <crap>132</crap>
+      <crap>11.33</crap>
       <complexity>11</complexity>
-      <coverage>0</coverage>
-      <crapLoad>11</crapLoad>
+      <coverage>86.05</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Building\Swagger</package>
@@ -369,9 +380,9 @@
       <methodName>doc_model_softDeletes</methodName>
       <methodSignature>doc_model_softDeletes(string $name): void</methodSignature>
       <fullMethod>doc_model_softDeletes(string $name): void</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -380,9 +391,9 @@
       <methodName>doc_model_timestamps</methodName>
       <methodSignature>doc_model_timestamps(string $name): void</methodSignature>
       <fullMethod>doc_model_timestamps(string $name): void</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -391,9 +402,9 @@
       <methodName>doc_model_dates</methodName>
       <methodSignature>doc_model_dates(string $name, array $dates): void</methodSignature>
       <fullMethod>doc_model_dates(string $name, array $dates): void</fullMethod>
-      <crap>12</crap>
+      <crap>3</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -402,9 +413,9 @@
       <methodName>doc_request_id</methodName>
       <methodSignature>doc_request_id(string $name, string $controller_type): void</methodSignature>
       <fullMethod>doc_request_id(string $name, string $controller_type): void</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
+      <crap>8</crap>
+      <complexity>8</complexity>
+      <coverage>96.88</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -424,9 +435,9 @@
       <methodName>save_base_file</methodName>
       <methodSignature>save_base_file(): ?string</methodSignature>
       <fullMethod>save_base_file(): ?string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -435,9 +446,9 @@
       <methodName>load_base_file</methodName>
       <methodSignature>load_base_file(): Playground\Stub\Configuration\Swagger\Api</methodSignature>
       <fullMethod>load_base_file(): Playground\Stub\Configuration\Swagger\Api</fullMethod>
-      <crap>4.84</crap>
+      <crap>4</crap>
       <complexity>4</complexity>
-      <coverage>62.5</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -446,9 +457,9 @@
       <methodName>yaml_read</methodName>
       <methodSignature>yaml_read(string $file): ?array</methodSignature>
       <fullMethod>yaml_read(string $file): ?array</fullMethod>
-      <crap>20</crap>
+      <crap>8.74</crap>
       <complexity>4</complexity>
-      <coverage>0</coverage>
+      <coverage>33.33</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -457,9 +468,9 @@
       <methodName>yaml_write</methodName>
       <methodSignature>yaml_write(string $file, array $contents): ?string</methodSignature>
       <fullMethod>yaml_write(string $file, array $contents): ?string</fullMethod>
-      <crap>6</crap>
+      <crap>2.13</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>68.42</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5924,9 +5935,9 @@
       <methodName>handle</methodName>
       <methodSignature>handle()</methodSignature>
       <fullMethod>handle()</fullMethod>
-      <crap>17.99</crap>
+      <crap>10.65</crap>
       <complexity>8</complexity>
-      <coverage>46.15</coverage>
+      <coverage>65.38</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
