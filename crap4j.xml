@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-19 01:44:13</timestamp>
+  <timestamp>2024-04-19 17:48:38</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>559</methodCount>
     <crapMethodCount>37</crapMethodCount>
     <crapLoad>526</crapLoad>
-    <totalCrap>12392.19</totalCrap>
+    <totalCrap>12389.53</totalCrap>
     <crapMethodPercent>6.62</crapMethodPercent>
   </stats>
   <methods>
@@ -5216,6 +5216,17 @@
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\GeneratorCommand</className>
+      <methodName>getStub</methodName>
+      <methodSignature>getStub()</methodSignature>
+      <fullMethod>getStub()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
       <methodName>getOptions</methodName>
       <methodSignature>getOptions(): array</methodSignature>
@@ -5902,9 +5913,9 @@
       <methodName>getConfigurationFilename</methodName>
       <methodSignature>getConfigurationFilename(): string</methodSignature>
       <fullMethod>getConfigurationFilename(): string</fullMethod>
-      <crap>2.01</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>88.89</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5921,23 +5932,12 @@
     <method>
       <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\SwaggerMakeCommand</className>
-      <methodName>getStub</methodName>
-      <methodSignature>getStub()</methodSignature>
-      <fullMethod>getStub()</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\SwaggerMakeCommand</className>
       <methodName>handle</methodName>
       <methodSignature>handle()</methodSignature>
       <fullMethod>handle()</fullMethod>
-      <crap>10.65</crap>
+      <crap>8</crap>
       <complexity>8</complexity>
-      <coverage>65.38</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
