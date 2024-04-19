@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-19 17:48:38</timestamp>
+  <timestamp>2024-04-19 20:19:35</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>559</methodCount>
-    <crapMethodCount>37</crapMethodCount>
-    <crapLoad>526</crapLoad>
-    <totalCrap>12389.53</totalCrap>
-    <crapMethodPercent>6.62</crapMethodPercent>
+    <methodCount>562</methodCount>
+    <crapMethodCount>36</crapMethodCount>
+    <crapLoad>518</crapLoad>
+    <totalCrap>12353.62</totalCrap>
+    <crapMethodPercent>6.41</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -2885,9 +2885,31 @@
     <method>
       <package>Playground\Stub\Configuration</package>
       <className>Playground\Stub\Configuration\Route</className>
+      <methodName>addModels</methodName>
+      <methodSignature>addModels(array $options): self</methodSignature>
+      <fullMethod>addModels(array $options): self</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Route</className>
       <methodName>controller</methodName>
       <methodSignature>controller(): string</methodSignature>
       <fullMethod>controller(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Route</className>
+      <methodName>models</methodName>
+      <methodSignature>models(): array</methodSignature>
+      <fullMethod>models(): array</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -4197,8 +4219,8 @@
       <methodName>getPath</methodName>
       <methodSignature>getPath($name): string</methodSignature>
       <fullMethod>getPath($name): string</fullMethod>
-      <crap>3.24</crap>
-      <complexity>3</complexity>
+      <crap>2.11</crap>
+      <complexity>2</complexity>
       <coverage>70</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -4582,9 +4604,9 @@
       <methodName>loadOptionsIntoConfiguration</methodName>
       <methodSignature>loadOptionsIntoConfiguration(mixed $configuration): void</methodSignature>
       <fullMethod>loadOptionsIntoConfiguration(mixed $configuration): void</fullMethod>
-      <crap>2</crap>
+      <crap>2.15</crap>
       <complexity>2</complexity>
-      <coverage>100</coverage>
+      <coverage>66.67</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4703,9 +4725,9 @@
       <methodName>resetFile</methodName>
       <methodSignature>resetFile(): void</methodSignature>
       <fullMethod>resetFile(): void</fullMethod>
-      <crap>7.34</crap>
+      <crap>7.58</crap>
       <complexity>7</complexity>
-      <coverage>80.95</coverage>
+      <coverage>77.27</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5836,10 +5858,10 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>54</crap>
-      <complexity>11</complexity>
-      <coverage>29.17</coverage>
-      <crapLoad>8</crapLoad>
+      <crap>7</crap>
+      <complexity>7</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
@@ -5858,9 +5880,9 @@
       <methodName>qualifyClass</methodName>
       <methodSignature>qualifyClass($name): string</methodSignature>
       <fullMethod>qualifyClass($name): string</fullMethod>
-      <crap>15.66</crap>
-      <complexity>9</complexity>
-      <coverage>56.52</coverage>
+      <crap>6</crap>
+      <complexity>6</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5869,9 +5891,9 @@
       <methodName>getStub</methodName>
       <methodSignature>getStub(): string</methodSignature>
       <fullMethod>getStub(): string</fullMethod>
-      <crap>5.51</crap>
-      <complexity>5</complexity>
-      <coverage>72.73</coverage>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5880,6 +5902,17 @@
       <methodName>getOptions</methodName>
       <methodSignature>getOptions(): array</methodSignature>
       <fullMethod>getOptions(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\RouteMakeCommand</className>
+      <methodName>getPath</methodName>
+      <methodSignature>getPath($name): string</methodSignature>
+      <fullMethod>getPath($name): string</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
