@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-19 20:19:35</timestamp>
+  <timestamp>2024-04-19 20:43:49</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>562</methodCount>
     <crapMethodCount>36</crapMethodCount>
     <crapLoad>518</crapLoad>
-    <totalCrap>12353.62</totalCrap>
+    <totalCrap>12347.97</totalCrap>
     <crapMethodPercent>6.41</crapMethodPercent>
   </stats>
   <methods>
+    <method>
+      <package>Playground\Stub\Building\Migration</package>
+      <className>Playground\Stub\Building\Migration\BuildColumns</className>
+      <methodName>buildClass_column</methodName>
+      <methodSignature>buildClass_column(string $attribute, array $meta, string $group): string</methodSignature>
+      <fullMethod>buildClass_column(string $attribute, array $meta, string $group): string</fullMethod>
+      <crap>53.74</crap>
+      <complexity>21</complexity>
+      <coverage>57.97</coverage>
+      <crapLoad>9</crapLoad>
+    </method>
     <method>
       <package>Playground\Stub\Building\Migration</package>
       <className>Playground\Stub\Building\Migration\BuildColumns</className>
@@ -101,6 +112,17 @@
     </method>
     <method>
       <package>Playground\Stub\Building\Migration</package>
+      <className>Playground\Stub\Building\Migration\BuildJson</className>
+      <methodName>buildClass_json_column</methodName>
+      <methodSignature>buildClass_json_column(string $attribute, array $meta, string $group): string</methodSignature>
+      <fullMethod>buildClass_json_column(string $attribute, array $meta, string $group): string</fullMethod>
+      <crap>10.96</crap>
+      <complexity>8</complexity>
+      <coverage>64.1</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Migration</package>
       <className>Playground\Stub\Building\Migration\BuildPermissions</className>
       <methodName>buildClass_permissions</methodName>
       <methodSignature>buildClass_permissions(): void</methodSignature>
@@ -108,6 +130,17 @@
       <crap>8.2</crap>
       <complexity>6</complexity>
       <coverage>60.61</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Migration</package>
+      <className>Playground\Stub\Building\Migration\BuildPrimary</className>
+      <methodName>buildClass_primary</methodName>
+      <methodSignature>buildClass_primary(): void</methodSignature>
+      <fullMethod>buildClass_primary(): void</fullMethod>
+      <crap>3.1</crap>
+      <complexity>3</complexity>
+      <coverage>77.78</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5286,9 +5319,9 @@
       <methodName>qualifyClass</methodName>
       <methodSignature>qualifyClass($name): string</methodSignature>
       <fullMethod>qualifyClass($name): string</fullMethod>
-      <crap>14.65</crap>
+      <crap>9</crap>
       <complexity>9</complexity>
-      <coverage>58.82</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5300,39 +5333,6 @@
       <crap>2</crap>
       <complexity>2</complexity>
       <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
-      <methodName>buildClass_primary</methodName>
-      <methodSignature>buildClass_primary(): void</methodSignature>
-      <fullMethod>buildClass_primary(): void</fullMethod>
-      <crap>3.1</crap>
-      <complexity>3</complexity>
-      <coverage>77.78</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
-      <methodName>buildClass_column</methodName>
-      <methodSignature>buildClass_column(string $attribute, array $meta, string $group): string</methodSignature>
-      <fullMethod>buildClass_column(string $attribute, array $meta, string $group): string</fullMethod>
-      <crap>53.74</crap>
-      <complexity>21</complexity>
-      <coverage>57.97</coverage>
-      <crapLoad>9</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
-      <methodName>buildClass_json_column</methodName>
-      <methodSignature>buildClass_json_column(string $attribute, array $meta, string $group): string</methodSignature>
-      <fullMethod>buildClass_json_column(string $attribute, array $meta, string $group): string</fullMethod>
-      <crap>10.96</crap>
-      <complexity>8</complexity>
-      <coverage>64.1</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>

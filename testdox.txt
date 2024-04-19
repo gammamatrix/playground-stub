@@ -58,6 +58,8 @@ Command (Tests\Feature\Playground\Stub\Console\Commands\FactoryMakeCommand\Comma
 Command (Tests\Feature\Playground\Stub\Console\Commands\MigrationMakeCommand\Command)
  [x] Command without options or arguments
  [x] Command skeleton
+ [x] Command skeleton with invalid table parameter
+ [x] Command skeleton with invalid table in file
 
 Command (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Command)
  [x] Command without options or arguments
