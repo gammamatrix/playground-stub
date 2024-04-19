@@ -62,6 +62,14 @@ trait FileTrait
                 $package_base
             );
 
+        } elseif (in_array($type, [
+            'migration-invalid-table',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/test.migration.invalid.table.json',
+                $package_base
+            );
+
         //
         // Models
         //

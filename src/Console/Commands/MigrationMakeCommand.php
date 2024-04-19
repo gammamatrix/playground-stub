@@ -25,6 +25,7 @@ class MigrationMakeCommand extends GeneratorCommand
     use Building\Migration\BuildIds;
     use Building\Migration\BuildJson;
     use Building\Migration\BuildPermissions;
+    use Building\Migration\BuildPrimary;
     use Building\Migration\BuildStatus;
     use Building\Migration\BuildUi;
 
@@ -219,8 +220,9 @@ class MigrationMakeCommand extends GeneratorCommand
             $table = $this->c->table();
             if (! preg_match('/^[a-z][a-z0-9_]+$/i', $table)) {
                 $this->components->error(sprintf(
-                    'Invalid table name [%s] in configuration',
-                    $table
+                    'Invalid table name [%s] in configuration, using argument [%s] to generate',
+                    $table,
+                    $name
                 ));
                 $table = Str::snake(Str::pluralStudly(class_basename($table)));
             }
@@ -231,7 +233,7 @@ class MigrationMakeCommand extends GeneratorCommand
             $table = $this->option('table');
             if (! preg_match('/^[a-z][a-z0-9_]+$/i', $table)) {
                 $this->components->error(sprintf(
-                    'Invalid table name [%s] using argument [%s] to generate',
+                    'Invalid table name [%s], using argument [%s] to generate',
                     $table,
                     $name
                 ));
@@ -241,9 +243,8 @@ class MigrationMakeCommand extends GeneratorCommand
             $table = Str::snake(Str::pluralStudly(class_basename($name)));
         }
 
-        if ($this->c->class()) {
-            $class = $this->c->class();
-        } else {
+        $class = $this->c->class();
+        if (! $class) {
             $class = sprintf(
                 '%1$s_%2$s_%3$s_%4$s_table',
                 date('Y_m_d'),
@@ -322,232 +323,6 @@ class MigrationMakeCommand extends GeneratorCommand
         return parent::buildClass($name);
     }
 
-    protected function buildClass_primary(): void
-    {
-        $primary = $this->model?->create()?->primary();
-
-        $this->searches['table_primary'] = PHP_EOL;
-
-        $this->searches['table_primary'] .= sprintf(
-            '%1$s// Primary key',
-            str_repeat(' ', 12)
-        );
-
-        $this->searches['table_primary'] .= PHP_EOL.PHP_EOL;
-
-        if ($primary === 'uuid') {
-            $this->searches['table_primary'] .= sprintf(
-                '%1$s$table->uuid(\'id\')->primary();',
-                str_repeat(' ', 12)
-            );
-        } elseif ($primary === 'increments') {
-            $this->searches['table_primary'] .= sprintf(
-                '%1$s$table->id();',
-                str_repeat(' ', 12)
-            );
-        } else {
-            $this->searches['table_primary'] = '';
-        }
-    }
-
-    // /**
-    //  * @param array<string, mixed> $attributes
-    //  * @param array<int, string> $allowed
-    //  */
-    // protected function buildClass_column_group(string $group, array $attributes, array $allowed = []): void
-    // {
-    //     $i = 0;
-    //     foreach ($attributes as $attribute => $meta) {
-
-    //         $meta = is_array($meta) ? $meta : [];
-    //         if (in_array($attribute, $this->columns)) {
-    //             $this->components->error(sprintf(
-    //                 'Column [%s] already exists - group [%s]',
-    //                 $attribute,
-    //                 $group
-    //             ));
-
-    //             continue;
-    //         }
-
-    //         $this->columns[] = $attribute;
-
-    //         $type = empty($meta['type']) || ! is_string($meta['type']) ? 'string' : $meta['type'];
-
-    //         if (in_array($type, [
-    //             'JSON_OBJECT',
-    //             'JSON_ARRAY',
-    //         ])) {
-    //             $this->searches[$group] .= $this->buildClass_json_column($attribute, $meta, $group);
-    //         } else {
-    //             $this->searches[$group] .= $this->buildClass_column($attribute, $meta, $group);
-    //         }
-
-    //         $i++;
-    //     }
-    // }
-
-    /**
-     * @param array<string, mixed> $meta
-     */
-    protected function buildClass_column(string $attribute, array $meta, string $group): string
-    {
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$attribute' => $attribute,
-        //     '$meta' => $meta,
-        //     '$group' => $group,
-        // ]);
-        $allowed = [
-            'uuid',
-            'ulid',
-            'string',
-            'mediumText',
-            'boolean',
-            'integer',
-            'bigInteger',
-            'mediumInteger',
-            'smallInteger',
-            'tinyInteger',
-            'dateTime',
-            'decimal',
-            'float',
-            'double',
-        ];
-
-        $type = empty($meta['type']) || ! is_string($meta['type']) ? '' : $meta['type'];
-
-        if (! $type || ! in_array($meta['type'], $allowed)) {
-            $this->components->error(sprintf(
-                '[%s]: Invalid column [%s] type: [%s] ',
-                $group,
-                $attribute,
-                $type
-            ));
-
-            return sprintf(
-                '%1$s%2$s// SKIPPED: invalid column [%3$s] type: %4$s',
-                PHP_EOL,
-                str_repeat(' ', 12),
-                $attribute,
-                $type
-            );
-        }
-
-        if (in_array($type, [
-            'decimal',
-            'float',
-            'double',
-        ])) {
-            $column = sprintf(
-                '%1$s%2$s$table->%3$s(\'%4$s\', %5$d, %6$d)',
-                PHP_EOL,
-                str_repeat(' ', 12),
-                $type,
-                $attribute,
-                empty($meta['precision']) || ! is_numeric($meta['precision']) || $meta['precision'] < 1 ? 8 : intval($meta['precision']),
-                empty($meta['scale']) || ! is_numeric($meta['scale']) || $meta['scale'] < 1 ? 2 : intval($meta['scale'])
-            );
-        } else {
-            $column = sprintf(
-                '%1$s%2$s$table->%3$s(\'%4$s\')',
-                PHP_EOL,
-                str_repeat(' ', 12),
-                $type,
-                $attribute
-            );
-        }
-
-        if (! empty($meta['nullable'])) {
-            // $column .= '->nullable()->default(null)';
-            $column .= '->nullable()';
-        }
-
-        if (array_key_exists('default', $meta)) {
-            if (is_null($meta['default'])) {
-                $column .= '->default(null)';
-            } elseif (is_bool($meta['default'])) {
-                $column .= sprintf('->default(%1$d)', $meta['default'] ? 1 : 0);
-            } elseif (is_numeric($meta['default'])) {
-                $column .= sprintf('->default(%1$d)', $meta['default']);
-            } elseif (is_string($meta['default'])) {
-                $column .= sprintf('->default(\'%1$s\')', $meta['default']);
-            }
-        }
-
-        if (! empty($meta['unsigned'])) {
-            $column .= '->unsigned()';
-        }
-
-        if (! empty($meta['index'])) {
-            $column .= '->index()';
-        }
-
-        $column .= ';';
-
-        return $column;
-    }
-
-    /**
-     * @param array<string, mixed> $meta
-     */
-    protected function buildClass_json_column(string $attribute, array $meta, string $group): string
-    {
-        $allowed = [
-            'JSON_OBJECT',
-            'JSON_ARRAY',
-        ];
-
-        $type = empty($meta['type'])
-            || ! is_string($meta['type'])
-            || ! in_array($meta['type'], $allowed)
-            ? '' : $meta['type'];
-
-        if (! $type) {
-            $this->components->error(sprintf(
-                '[%s]: Invalid column [%s] type: %s',
-                $group,
-                $attribute,
-                $type
-            ));
-
-            return sprintf(
-                '%1$s%2$s// SKIPPED: invalid column [%3$s] type: [%4$s]',
-                PHP_EOL,
-                str_repeat(' ', 12),
-                $attribute,
-                $type
-            );
-        }
-
-        $column = '';
-
-        $column .= sprintf(
-            '%1$s%2$s$table->json(\'%3$s\')',
-            PHP_EOL,
-            str_repeat(' ', 12),
-            $attribute
-        );
-
-        if (! empty($meta['nullable'])) {
-            // $column .= '->nullable()->default(null)';
-            $column .= '->nullable()';
-        }
-
-        $column .= sprintf(
-            '->default(new Expression(\'(%1$s())\'))',
-            $type
-        );
-
-        if (! empty($meta['comment']) && is_string($meta['comment'])) {
-            $column .= sprintf('->comment(\'%1$s\')', addslashes($meta['comment']));
-        }
-
-        $column .= ';';
-
-        return $column;
-    }
-
     /**
      * Get the stub file for the generator.
      */
@@ -563,80 +338,6 @@ class MigrationMakeCommand extends GeneratorCommand
 
         return $this->resolveStubPath($template);
     }
-
-    // /**
-    //  * Execute the console command.
-    //  *
-    //  * @return void
-    //  */
-    // public function handle()
-    // {
-    //     // It's possible for the developer to specify the tables to modify in this
-    //     // schema operation. The developer may also specify if this table needs
-    //     // to be freshly created so we can create the appropriate migrations.
-    //     $name = Str::snake(trim($this->input->getArgument('name')));
-
-    //     $table = $this->input->getOption('table');
-
-    //     $create = $this->input->getOption('create') ?: false;
-
-    //     // If no table was given as an option but a create option is given then we
-    //     // will use the "create" option as the table name. This allows the devs
-    //     // to pass a table name into this option as a short-cut for creating.
-    //     if (! $table && is_string($create)) {
-    //         $table = $create;
-
-    //         $create = true;
-    //     }
-
-    //     // Next, we will attempt to guess the table name if this the migration has
-    //     // "create" in the name. This will allow us to provide a convenient way
-    //     // of creating migrations that create new tables for the application.
-    //     if (! $table) {
-    //         [$table, $create] = TableGuesser::guess($name);
-    //     }
-
-    //     // Now we are ready to write the migration out to disk. Once we've written
-    //     // the migration out, we will dump-autoload for the entire framework to
-    //     // make sure that the migrations are registered by the class loaders.
-    //     $this->writeMigration($name, $table, $create);
-    // }
-
-    // /**
-    //  * Write the migration file to disk.
-    //  *
-    //  * @param  string  $name
-    //  * @param  string  $table
-    //  * @param  bool  $create
-    //  * @return void
-    //  */
-    // protected function writeMigration($name, $table, $create)
-    // {
-    //     $file = $this->creator->create(
-    //         $name,
-    //         $this->getMigrationPath(),
-    //         $table,
-    //         $create
-    //     );
-
-    //     $this->components->info(sprintf('Migration [%s] created successfully.', $file));
-    // }
-
-    // /**
-    //  * Get migration path (either specified by '--path' option or default location).
-    //  *
-    //  * @return string
-    //  */
-    // protected function getMigrationPath()
-    // {
-    //     if (! is_null($targetPath = $this->input->getOption('path'))) {
-    //         return ! $this->usingRealPath()
-    //                         ? $this->laravel->basePath().'/'.$targetPath
-    //                         : $targetPath;
-    //     }
-
-    //     return parent::getMigrationPath();
-    // }
 
     // /**
     //  * Prompt for missing input arguments using the returned questions.

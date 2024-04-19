@@ -101,7 +101,7 @@ class InstanceTest extends TestCase
         $this->assertSame('crm', $instance->module_slug());
         $this->assertSame('', $instance->fqdn());
         $this->assertSame('Playground/Crm', $instance->namespace());
-        $this->assertSame('2020_01_02_100001_create_crm_contact_table', $instance->name());
+        $this->assertSame('Contacts', $instance->name());
         $this->assertSame('', $instance->class());
         $this->assertSame('crm_contacts', $instance->table());
         $this->assertSame('playground-model', $instance->type());
