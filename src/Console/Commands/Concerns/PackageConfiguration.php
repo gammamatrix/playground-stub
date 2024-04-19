@@ -387,6 +387,8 @@ trait PackageConfiguration
             $file = $this->option('file');
             $pathInApp = base_path($file);
             $pathInPackage = sprintf('%1$s/%2$s', dirname(dirname(dirname(__DIR__))), $file);
+        } else {
+            return;
         }
 
         if ($this->files->exists($pathInApp)) {

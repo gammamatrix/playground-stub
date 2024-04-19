@@ -190,6 +190,10 @@ abstract class Command extends BaseGeneratorCommand
      */
     protected function readJsonFileAsArray(string $file, bool $required = true, string $name = 'file'): array
     {
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$file' => $file,
+        // ]);
         if (empty($file)) {
             throw new \RuntimeException(__('playground-stub::stub.Command.json.file.required'));
         }
@@ -369,7 +373,7 @@ abstract class Command extends BaseGeneratorCommand
         $path = sprintf(
             '%1$s/%2$s.php',
             $this->folder(),
-            is_string($this->c->class()) ? $this->c->class() : 'SomeClass'
+            $this->c->class()
         );
         // dump([
         //     '__METHOD__' => __METHOD__,
@@ -430,6 +434,33 @@ abstract class Command extends BaseGeneratorCommand
         ];
     }
 
+    // /**
+    //  * Adds an option.
+    //  *
+    //  * @param $shortcut The shortcuts, can be null, a string of shortcuts delimited by | or an array of shortcuts
+    //  * @param $mode     The option mode: One of the InputOption::VALUE_* constants
+    //  * @param $default  The default value (must be null for InputOption::VALUE_NONE)
+    //  * @param array|\Closure(CompletionInput,CompletionSuggestions):list<string|Suggestion> $suggestedValues The values used for input completion
+    //  *
+    //  * @return $this
+    //  *
+    //  * @throws InvalidArgumentException If option mode is invalid or incompatible
+    //  */
+    // public function addOption(string $name, string|array|null $shortcut = null, ?int $mode = null, string $description = '', mixed $default = null, array|\Closure $suggestedValues = []): static
+    // {
+    //     $this->definition->addOption(new InputOption($name, $shortcut, $mode, $description, $default, $suggestedValues));
+    //     $this->fullDefinition?->addOption(new InputOption($name, $shortcut, $mode, $description, $default, $suggestedValues));
+
+    //     return $this;
+    // }
+
+    protected ?string $options_type_default = null;
+
+    /**
+     * @var array<int, string>
+     */
+    protected array $options_type_suggested = [];
+
     /**
      * Get the console command arguments.
      *
@@ -443,7 +474,7 @@ abstract class Command extends BaseGeneratorCommand
             ['model',           'm',  InputOption::VALUE_OPTIONAL, 'The model that the '.strtolower($this->type).' applies to'],
             ['module',          null, InputOption::VALUE_OPTIONAL, 'The module that the '.strtolower($this->type).' belongs to'],
             ['namespace',       null, InputOption::VALUE_OPTIONAL, 'The namespace of the '.strtolower($this->type)],
-            ['type',            null, InputOption::VALUE_OPTIONAL, 'The configuration type of the '.strtolower($this->type)],
+            ['type',            null, InputOption::VALUE_OPTIONAL, 'The configuration type of the '.strtolower($this->type), $this->options_type_default, $this->options_type_suggested],
             ['organization',    null, InputOption::VALUE_OPTIONAL, 'The organization of the '.strtolower($this->type)],
             ['package',         null, InputOption::VALUE_OPTIONAL, 'The package of the '.strtolower($this->type)],
             ['preload',         null,  InputOption::VALUE_NONE,    'Preload the existing configuration file for the '.strtolower($this->type)],

@@ -30,6 +30,11 @@ class Route extends Configuration
     protected string $title = '';
 
     /**
+     * @var array<string, string>
+     */
+    protected array $models = [];
+
+    /**
      * @var array<string, mixed>
      */
     protected $properties = [
@@ -46,6 +51,7 @@ class Route extends Configuration
         'controller' => '',
         'extends' => '',
         // 'folder' => '',
+        'models' => [],
         'model' => '',
         'model_column' => '',
         'model_label' => '',
@@ -124,12 +130,38 @@ class Route extends Configuration
             $this->title = $options['title'];
         }
 
+        $this->addModels($options);
+
+        return $this;
+    }
+
+    /**
+     * @param array<string, mixed> $options
+     */
+    public function addModels(array $options): self
+    {
+        if (! empty($options['models'])
+            && is_array($options['models'])
+        ) {
+            foreach ($options['models'] as $key => $file) {
+                $this->addMappedClassTo('models', $key, $file);
+            }
+        }
+
         return $this;
     }
 
     public function controller(): string
     {
         return $this->controller;
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public function models(): array
+    {
+        return $this->models;
     }
 
     public function model_column(): string

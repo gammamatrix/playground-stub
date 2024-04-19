@@ -33,4 +33,13 @@ class CommandTest extends TestCase
         $result = $this->artisan('playground:make:route testing --skeleton --force');
         $result->assertExitCode(0);
     }
+
+    public function test_command_with_options(): void
+    {
+        /**
+         * @var \Illuminate\Testing\PendingCommand $result
+         */
+        $result = $this->artisan('playground:make:route testing --skeleton --force --type site --route demo --prefix example');
+        $result->assertExitCode(0);
+    }
 }

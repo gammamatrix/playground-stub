@@ -29,29 +29,29 @@ class RouteMakeCommand extends GeneratorCommand
      */
     protected ConfigurationContract $c;
 
-    const CONFIGURATION = [
-        'class' => '',
-        'controller' => '',
-        'extends' => '',
-        'name' => '',
-        'folder' => '',
-        'namespace' => 'App',
-        'model' => '',
-        'model_column' => '',
-        'model_label' => '',
-        'model_slug_plural' => '',
-        'module' => '',
-        'module_slug' => '',
-        'organization' => '',
-        'package' => '',
-        'config' => '',
-        'type' => '',
-        'route' => '',
-        'route_prefix' => '',
-        // 'base_route' => 'welcome',
-        'title' => '',
-        // stubs/route/playground/resource-index-section.stub
-    ];
+    // const CONFIGURATION = [
+    //     'class' => '',
+    //     'controller' => '',
+    //     'extends' => '',
+    //     'name' => '',
+    //     'folder' => '',
+    //     'namespace' => 'App',
+    //     'model' => '',
+    //     'model_column' => '',
+    //     'model_label' => '',
+    //     'model_slug_plural' => '',
+    //     'module' => '',
+    //     'module_slug' => '',
+    //     'organization' => '',
+    //     'package' => '',
+    //     'config' => '',
+    //     'type' => '',
+    //     'route' => '',
+    //     'route_prefix' => '',
+    //     // 'base_route' => 'welcome',
+    //     'title' => '',
+    //     // stubs/route/playground/resource-index-section.stub
+    // ];
 
     const SEARCH = [
         'route' => '',
@@ -108,7 +108,7 @@ class RouteMakeCommand extends GeneratorCommand
         // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$options' => $options,
-        //     '$this->configuration' => $this->configuration,
+        //     '$this->c' => $this->c,
         //     '$this->searches' => $this->searches,
         // ]);
 
@@ -124,56 +124,28 @@ class RouteMakeCommand extends GeneratorCommand
         if (! empty($options['prefix']) && is_string($options['prefix'])) {
             // NOTE this might need slash handling
             $this->c->setOptions([
-                'route_prefix' => $options['route_prefix'],
+                'route_prefix' => $options['prefix'],
             ]);
             $this->searches['route_prefix'] = $this->c->route_prefix();
         }
 
-        if (! empty($options['title']) && is_string($options['title'])) {
-            $this->c->setOptions([
-                'title' => $options['title'],
-            ]);
-            $this->searches['title'] = $this->c->title();
-        }
-
-        if (! empty($this->configuration['config']) && is_string($this->configuration['config'])) {
-            $this->searches['config'] = Str::of($this->configuration['config'])->snake()->replace('-', '_')->toString();
-        }
-
-        if (! empty($options['extends']) && is_string($options['extends'])) {
-            $this->c->setOptions([
-                'extends' => $options['extends'],
-            ]);
-            $this->searches['extends'] = $this->c->extends();
-        }
-
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     'test_1' => empty($this->configuration['config']),
-        //     'test_2' => empty($this->configuration['config']) && !empty($options['package']),
-        //     'test_3' => empty($this->configuration['config']) && !empty($options['package']) && is_string($options['package']),
-        //     '$type' => $type,
-        //     '$this->configuration' => $this->configuration,
-        //     '$this->searches' => $this->searches,
-        //     '$this->options()' => $this->options(),
-        // ]);
-
-        // if (empty($this->configuration['config'])
-        //     && !empty($options['package'])
-        //     && is_string($options['package'])
-        // ) {
-        //     $this->configuration['config'] = Str::of($options['package'])->snake()->toString();
-        //     $this->searches['config'] = $this->configuration['config'];
-        // } else {
-        //     $this->configuration['config'] = '';
-        //     $this->searches['config'] = '';
+        // if (! empty($options['title']) && is_string($options['title'])) {
+        //     $this->c->setOptions([
+        //         'title' => $options['title'],
+        //     ]);
+        //     $this->searches['title'] = $this->c->title();
         // }
 
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$this->configuration' => $this->configuration,
-        //     '$this->searches' => $this->searches,
-        // ]);
+        if (in_array($type, [
+            'playground-api',
+            'playground-resource',
+        ])) {
+            $this->initModel($this->c->skeleton());
+            if (! $this->model) {
+                throw new \RuntimeException('Provide a [--model-file] with a [create] section.');
+            }
+        }
+
     }
 
     protected function getConfigurationFilename(): string
@@ -185,18 +157,6 @@ class RouteMakeCommand extends GeneratorCommand
         );
     }
 
-    // /**
-    //  * Build the class with the given name.
-    //  *
-    //  * @param  string  $name
-    //  * @return string
-    //  */
-    // protected function buildClass($name)
-    // {
-    //     // $this->buildClass_model($name);
-    //     return parent::buildClass($name);
-    // }
-
     /**
      * Parse the class name and format according to the root namespace.
      *
@@ -205,10 +165,6 @@ class RouteMakeCommand extends GeneratorCommand
     protected function qualifyClass($name): string
     {
         $type = $this->getConfigurationType();
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$type' => $type,
-        // ]);
 
         if (! $this->c->folder()) {
             $this->c->setOptions([
@@ -230,17 +186,7 @@ class RouteMakeCommand extends GeneratorCommand
             $this->searches['model_slug_plural'] = $this->c->model_slug_plural();
         }
 
-        if ($type === 'site') {
-            $this->c->setOptions([
-                'class' => $this->c->model_column(),
-                'route_prefix' => $this->c->module_slug(),
-            ]);
-        } elseif ($type === 'playground') {
-            $this->c->setOptions([
-                'class' => $this->c->model_slug_plural(),
-                'route_prefix' => $this->c->module_slug(),
-            ]);
-        } elseif ($type === 'playground-resource-index') {
+        if ($type === 'playground-resource-index') {
             $this->c->setOptions([
                 'class' => $this->c->module_slug(),
                 'route_prefix' => sprintf(
@@ -255,14 +201,6 @@ class RouteMakeCommand extends GeneratorCommand
                     'resource/%1$s/%2$s',
                     $this->c->module_slug(),
                     $this->c->model_slug_plural()
-                ),
-            ]);
-        } elseif ($type === 'playground-api-index') {
-            $this->c->setOptions([
-                'class' => $this->c->module_slug(),
-                'route_prefix' => sprintf(
-                    'api/%1$s',
-                    $this->c->module_slug()
                 ),
             ]);
         } elseif ($type === 'playground-api') {
@@ -291,28 +229,38 @@ class RouteMakeCommand extends GeneratorCommand
         // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$type' => $type,
-        //     '$this->configuration' => $this->configuration,
+        //     '$this->c' => $this->c,
         //     '$this->searches' => $this->searches,
         //     '$this->options()' => $this->options(),
         // ]);
         return $this->c->class();
     }
 
+    // protected ?string $options_type_default = 'site';
+
+    /**
+     * @var array<int, string>
+     */
+    protected array $options_type_suggested = [
+        'site',
+        'playground-resource-index',
+        'playground-resource',
+        'playground-api',
+    ];
+
     /**
      * Get the stub file for the generator.
      */
     protected function getStub(): string
     {
-        $route = 'route/playground-resource-index.php.stub';
+        $route = 'route/site.php.stub';
 
         $type = $this->getConfigurationType();
 
-        if ($type === 'site') {
+        if ($type === 'playground-resource-index') {
             $route = 'route/playground-resource-index.php.stub';
-        } elseif ($type === 'playground') {
-            $route = 'route/playground-resource-index.php.stub';
-        } elseif ($type === 'playground-resource-index') {
-            $route = 'route/playground-resource-index.php.stub';
+        } elseif ($type === 'playground-api') {
+            $route = 'route/playground-api.php.stub';
         } elseif ($type === 'playground-resource') {
             $route = 'route/playground-resource.php.stub';
         }
@@ -327,15 +275,48 @@ class RouteMakeCommand extends GeneratorCommand
      */
     protected function getOptions(): array
     {
-        $options = parent::getOptions();
+        // $options = parent::getOptions();
+        $options = [
+            ['force',           'f',  InputOption::VALUE_NONE,     'Create the class even if the '.strtolower($this->type).' already exists'],
+            ['interactive',     'i',  InputOption::VALUE_NONE,     'Use interactive mode to create the class even for the '.strtolower($this->type)],
+            // ['model',           'm',  InputOption::VALUE_OPTIONAL, 'The model that the '.strtolower($this->type).' applies to'],
+            ['module',          null, InputOption::VALUE_OPTIONAL, 'The module that the '.strtolower($this->type).' belongs to'],
+            ['namespace',       null, InputOption::VALUE_OPTIONAL, 'The namespace of the '.strtolower($this->type)],
+            ['type',            null, InputOption::VALUE_OPTIONAL, 'The configuration type of the '.strtolower($this->type), $this->options_type_default, $this->options_type_suggested],
+            ['organization',    null, InputOption::VALUE_OPTIONAL, 'The organization of the '.strtolower($this->type)],
+            ['package',         null, InputOption::VALUE_OPTIONAL, 'The package of the '.strtolower($this->type)],
+            ['preload',         null,  InputOption::VALUE_NONE,    'Preload the existing configuration file for the '.strtolower($this->type)],
+            ['skeleton',        null, InputOption::VALUE_NONE,     'Create the skeleton for the '.strtolower($this->type).' type'],
+            // ['class',           null, InputOption::VALUE_OPTIONAL, 'The class name of the '.strtolower($this->type)],
+            // ['extends',         null, InputOption::VALUE_OPTIONAL, 'The class that gets extended for the '.strtolower($this->type)],
+            ['file',            null, InputOption::VALUE_OPTIONAL, 'The configuration file of the '.strtolower($this->type)],
+            ['model-file',      null, InputOption::VALUE_OPTIONAL, 'The configuration file of the model for the '.strtolower($this->type)],
+        ];
 
-        // $options[] = ['model', 'm', InputOption::VALUE_OPTIONAL, 'The model that the route applies to'],;
         $options[] = ['route', null, InputOption::VALUE_OPTIONAL, 'The base route for breadcrumbs.'];
-        $options[] = ['title', null, InputOption::VALUE_OPTIONAL, 'The title of the base route for breadcrumbs.'];
+        // $options[] = ['title', null, InputOption::VALUE_OPTIONAL, 'The title of the base route for breadcrumbs.'];
         $options[] = ['prefix', null, InputOption::VALUE_OPTIONAL, 'The prefix slug for the route.'];
-        // $options[] = ['roles-action', null, InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY, 'The roles for action.'];
-        // $options[] = ['roles-view', null, InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY, 'The roles to view.'];
 
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$options' => $options,
+        // ]);
         return $options;
+    }
+
+    /**
+     * Get the destination class path.
+     *
+     * @param  string  $name
+     */
+    protected function getPath($name): string
+    {
+        $path = sprintf(
+            '%1$s/%2$s.php',
+            $this->folder(),
+            Str::of($this->c->name())->kebab()->toString()
+        );
+
+        return $this->laravel->storagePath().$path;
     }
 }
