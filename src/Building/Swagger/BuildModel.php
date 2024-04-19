@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace Playground\Stub\Building\Swagger;
 
 use Illuminate\Support\Str;
+use Playground\Stub\Configuration\Model\Create;
 use Playground\Stub\Configuration\Model\CreateDate;
 use Playground\Stub\Configuration\Model\CreateId;
 
@@ -27,6 +28,8 @@ trait BuildModel
      */
     public function doc_model(): ?array
     {
+        $this->build_model_properties = [];
+
         $name = $this->model?->name();
         $create = $this->model?->create();
         if (is_null($this->model) || ! $create || ! $name) {
@@ -41,6 +44,31 @@ trait BuildModel
             empty($this->configuration['module']) ? '' : $this->configuration['module'].' ',
             Str::of($name)->toString()
         );
+
+        $columns = $this->doc_model_columns($name, $create);
+
+        $ref = sprintf(
+            'models/%1$s.yml',
+            Str::of($name)->kebab()->toString()
+        );
+
+        $this->api->components()->addSchema($name, $ref);
+
+        $this->yaml_write($ref, [
+            'description' => $this->build_model_description,
+            'type' => 'object',
+            'properties' => $columns,
+        ]);
+
+        return $columns;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function doc_model_columns(string $name, Create $create): array
+    {
+        $this->build_model_properties = [];
 
         if ($create->primary()) {
             $this->doc_model_primary($name, $create->primary());
@@ -97,19 +125,6 @@ trait BuildModel
                 $this->doc_model_column($name, $column, $meta->properties(), 'json');
             }
         }
-
-        $ref = sprintf(
-            'models/%1$s.yml',
-            Str::of($name)->kebab()->toString()
-        );
-
-        $this->api->components()->addSchema($name, $ref);
-
-        $this->yaml_write($ref, [
-            'description' => $this->build_model_description,
-            'properties' => $this->build_model_properties,
-            'type' => 'object',
-        ]);
 
         return $this->build_model_properties;
     }

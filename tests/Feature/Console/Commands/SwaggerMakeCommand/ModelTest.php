@@ -20,7 +20,7 @@ class ModelTest extends TestCase
     {
         $command = sprintf(
             'playground:make:swagger --force --file %1$s',
-            $this->getResourceFile('swagger-model')
+            $this->getResourceFile('swagger-resource')
         );
 
         /**
@@ -34,7 +34,7 @@ class ModelTest extends TestCase
     {
         $command = sprintf(
             'playground:make:swagger --skeleton --force --file %1$s',
-            $this->getResourceFile('swagger-model')
+            $this->getResourceFile('swagger-resource')
         );
 
         /**

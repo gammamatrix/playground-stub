@@ -84,7 +84,7 @@ trait BuildingClasses
             if (! empty($model->create()->{$section}())
                 && ! empty($model->create()->{$section}()[$column])
             ) {
-                return $model->create()->{$section}()[$column];
+                return $model->create()->{$section}()[$column]->toArray();
             }
         }
 
