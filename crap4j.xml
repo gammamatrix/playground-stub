@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-19 20:43:49</timestamp>
+  <timestamp>2024-04-19 23:45:22</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>562</methodCount>
     <crapMethodCount>36</crapMethodCount>
     <crapLoad>518</crapLoad>
-    <totalCrap>12347.97</totalCrap>
+    <totalCrap>12347.93</totalCrap>
     <crapMethodPercent>6.41</crapMethodPercent>
   </stats>
   <methods>
@@ -5792,9 +5792,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>2.06</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>75</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5803,9 +5803,9 @@
       <methodName>getStub</methodName>
       <methodSignature>getStub(): string</methodSignature>
       <fullMethod>getStub(): string</fullMethod>
-      <crap>4.59</crap>
-      <complexity>4</complexity>
-      <coverage>66.67</coverage>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5814,9 +5814,9 @@
       <methodName>collection</methodName>
       <methodSignature>collection(): bool</methodSignature>
       <fullMethod>collection(): bool</fullMethod>
-      <crap>5.39</crap>
+      <crap>5</crap>
       <complexity>5</complexity>
-      <coverage>75</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
