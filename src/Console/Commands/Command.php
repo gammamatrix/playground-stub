@@ -147,7 +147,8 @@ abstract class Command extends BaseGeneratorCommand
             } else {
                 $path = sprintf(
                     '%1$s/%2$s',
-                    Str::of($stub_path)->finish('/')->toString(),
+                    // Str::of($stub_path)->finish('/')->toString(),
+                    Str::of($stub_path)->toString(),
                     $stub
                 );
             }
@@ -162,11 +163,11 @@ abstract class Command extends BaseGeneratorCommand
         }
 
         if (! file_exists($path)) {
-            Log::error(__('playground-stub::stub.Command.stub.missing'), [
-                '$stub_path' => $stub_path,
-                '$stub' => $stub,
-                '$path' => $path,
-            ]);
+            $this->components->error(__('playground-stub::stub.Command.stub.missing', [
+                'stub_path' => is_string($stub_path) ? $stub_path : gettype($stub_path),
+                'stub' => $stub,
+                'path' => $path,
+            ]));
         }
 
         return $path;

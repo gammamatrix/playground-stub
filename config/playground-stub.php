@@ -51,5 +51,8 @@ return [
 
     'paths' => [
         'stubs' => env('PLAYGROUND_STUB_PATHS_STUBS', ''),
+        // 'stubs' => env('PLAYGROUND_STUB_PATHS_STUBS', '/tmp/does-not-exist'),
+        // 'stubs' => env('PLAYGROUND_STUB_PATHS_STUBS', '/tmp'),
+
     ],
 ];

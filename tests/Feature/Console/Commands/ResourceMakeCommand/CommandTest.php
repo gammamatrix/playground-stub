@@ -23,7 +23,7 @@ class CommandTest extends TestCase
          */
         $result = $this->artisan('playground:make:resource');
         $result->assertExitCode(1);
-        $result->expectsOutputToContain( __('playground-stub::stub.GeneratorCommand.input.error'));
+        $result->expectsOutputToContain(__('playground-stub::stub.GeneratorCommand.input.error'));
     }
 
     public function test_command_skeleton(): void
