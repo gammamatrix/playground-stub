@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-20 02:30:49</timestamp>
+  <timestamp>2024-04-20 07:34:20</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>562</methodCount>
     <crapMethodCount>35</crapMethodCount>
     <crapLoad>491</crapLoad>
-    <totalCrap>11499.13</totalCrap>
+    <totalCrap>11431.09</totalCrap>
     <crapMethodPercent>6.23</crapMethodPercent>
   </stats>
   <methods>
@@ -171,9 +171,9 @@
       <methodName>buildClass_form</methodName>
       <methodSignature>buildClass_form(string $name): void</methodSignature>
       <fullMethod>buildClass_form(string $name): void</fullMethod>
-      <crap>6.75</crap>
-      <complexity>5</complexity>
-      <coverage>58.82</coverage>
+      <crap>4.49</crap>
+      <complexity>4</complexity>
+      <coverage>68.75</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -182,9 +182,9 @@
       <methodName>buildClass_rules_constant</methodName>
       <methodSignature>buildClass_rules_constant(Playground\Stub\Configuration\Model $model): void</methodSignature>
       <fullMethod>buildClass_rules_constant(Playground\Stub\Configuration\Model $model): void</fullMethod>
-      <crap>42</crap>
+      <crap>11.53</crap>
       <complexity>6</complexity>
-      <coverage>0</coverage>
+      <coverage>46.43</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -193,9 +193,9 @@
       <methodName>buildClass_rules_constant_for_return_url</methodName>
       <methodSignature>buildClass_rules_constant_for_return_url(int $indent): string</methodSignature>
       <fullMethod>buildClass_rules_constant_for_return_url(int $indent): string</fullMethod>
-      <crap>6</crap>
+      <crap>2.08</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>73.33</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -212,12 +212,23 @@
     <method>
       <package>Playground\Stub\Building\Request</package>
       <className>Playground\Stub\Building\Request\BuildRequest</className>
+      <methodName>buildClass_slug_table</methodName>
+      <methodSignature>buildClass_slug_table(): void</methodSignature>
+      <fullMethod>buildClass_slug_table(): void</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Request</package>
+      <className>Playground\Stub\Building\Request\BuildRequest</className>
       <methodName>buildClass_index</methodName>
       <methodSignature>buildClass_index(string $name): void</methodSignature>
       <fullMethod>buildClass_index(string $name): void</fullMethod>
-      <crap>30</crap>
+      <crap>12.41</crap>
       <complexity>5</complexity>
-      <coverage>0</coverage>
+      <coverage>33.33</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4538,9 +4549,9 @@
       <methodName>interactivePromptForNamespace</methodName>
       <methodSignature>interactivePromptForNamespace(): string</methodSignature>
       <fullMethod>interactivePromptForNamespace(): string</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>90</coverage>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4549,9 +4560,9 @@
       <methodName>interactivePromptForOrganization</methodName>
       <methodSignature>interactivePromptForOrganization(): string</methodSignature>
       <fullMethod>interactivePromptForOrganization(): string</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>90</coverage>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4560,9 +4571,9 @@
       <methodName>interactivePromptForPackage</methodName>
       <methodSignature>interactivePromptForPackage(): string</methodSignature>
       <fullMethod>interactivePromptForPackage(): string</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>90</coverage>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5693,20 +5704,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>8.59</crap>
+      <crap>5</crap>
       <complexity>5</complexity>
-      <coverage>47.62</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\RequestMakeCommand</className>
-      <methodName>buildClass_slug_table</methodName>
-      <methodSignature>buildClass_slug_table(): void</methodSignature>
-      <fullMethod>buildClass_slug_table(): void</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5715,9 +5715,9 @@
       <methodName>getConfigurationFilename</methodName>
       <methodSignature>getConfigurationFilename(): string</methodSignature>
       <fullMethod>getConfigurationFilename(): string</fullMethod>
-      <crap>3.71</crap>
+      <crap>3</crap>
       <complexity>3</complexity>
-      <coverage>57.14</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5726,9 +5726,9 @@
       <methodName>getStub</methodName>
       <methodSignature>getStub(): string</methodSignature>
       <fullMethod>getStub(): string</fullMethod>
-      <crap>9.71</crap>
+      <crap>9</crap>
       <complexity>9</complexity>
-      <coverage>79.41</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5737,9 +5737,9 @@
       <methodName>folder</methodName>
       <methodSignature>folder(): string</methodSignature>
       <fullMethod>folder(): string</fullMethod>
-      <crap>7.46</crap>
+      <crap>5</crap>
       <complexity>5</complexity>
-      <coverage>53.85</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5770,9 +5770,9 @@
       <methodName>buildClass</methodName>
       <methodSignature>buildClass($name): string</methodSignature>
       <fullMethod>buildClass($name): string</fullMethod>
-      <crap>8.33</crap>
-      <complexity>8</complexity>
-      <coverage>82.76</coverage>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>

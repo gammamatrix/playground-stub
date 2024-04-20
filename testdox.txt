@@ -1,3 +1,11 @@
+Abstract (Tests\Feature\Playground\Stub\Console\Commands\RequestMakeCommand\Abstract)
+ [x] Command make abstract request with force and without skeleton
+ [x] Command make abstract request with force and with skeleton
+ [x] Command make abstract index request with force and without skeleton
+ [x] Command make abstract index request with force and with skeleton
+ [x] Command make abstract store request with force and without skeleton
+ [x] Command make abstract store request with force and with skeleton
+
 Abstract (Tests\Feature\Playground\Stub\Console\Commands\ResourceMakeCommand\Abstract)
  [x] Command make abstract resource with force and without skeleton
  [x] Command make abstract resource with force and with skeleton
@@ -173,9 +181,32 @@ Command (Tests\Unit\Playground\Stub\Console\Commands\TestMakeCommand\Command)
 Configuration (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Configuration)
  [x] Command with file skeleton and force
 
+Crud (Tests\Feature\Playground\Stub\Console\Commands\RequestMakeCommand\Crud)
+ [x] Command make destroy request with force and without skeleton
+ [x] Command make destroy request with force and with skeleton
+ [x] Command make index request with force and without skeleton
+ [x] Command make index request with force and with skeleton
+ [x] Command make store request with force and without skeleton
+ [x] Command make store request with force and with skeleton
+ [x] Command make update request with force and without skeleton
+ [x] Command make update request with force and with skeleton
+ [x] Command make other request with force and without skeleton
+ [x] Command make other request with force and with skeleton
+ [x] Command make default request with force and without skeleton
+ [x] Command make default request with force and with skeleton
+
+File (Tests\Feature\Playground\Stub\Console\Commands\RequestMakeCommand\File)
+ [x] Command make request with force and without skeleton
+ [x] Command make request with force and with skeleton
+
 File (Tests\Feature\Playground\Stub\Console\Commands\RouteMakeCommand\File)
  [x] Command make route with force and without skeleton
  [x] Command make route with force and with skeleton
+
+Index (Tests\Feature\Playground\Stub\Console\Commands\RequestMakeCommand\Index)
+ [x] Command make FormRequest
+ [x] Command make AbstractIndexRequest
+ [x] Command make AbstractStoreRequest
 
 Instance (Tests\Unit\Playground\Stub\Configuration\Configuration\Instance)
  [x] Instance
@@ -304,8 +335,10 @@ Model (Tests\Feature\Playground\Stub\Console\Commands\PolicyMakeCommand\Model)
  [x] Command make policy with force and with skeleton
 
 Model (Tests\Feature\Playground\Stub\Console\Commands\RequestMakeCommand\Model)
- [x] Command make request with force and without skeleton
- [x] Command make request with force and with skeleton
+ [x] Command make CreateRequest with force and without skeleton
+ [x] Command make IndexRequest with force and with skeleton
+ [x] Command make IndexRequest with force and with skeleton without model file
+ [x] Command make IndexRequest under Subfolder with force and with skeleton without model file
 
 Model (Tests\Feature\Playground\Stub\Console\Commands\SwaggerMakeCommand\Model)
  [x] Command make swagger with force and without skeleton
