@@ -216,8 +216,8 @@ class TemplateMakeCommand extends GeneratorCommand
      */
     public function handle()
     {
-        if (parent::handle() === false && ! $this->option('force')) {
-            return false;
+        if (parent::handle()) {
+            return $this->return_status;
         }
 
         $type = $this->getConfigurationType();
@@ -227,6 +227,8 @@ class TemplateMakeCommand extends GeneratorCommand
         }
 
         $this->saveConfiguration();
+
+        return $this->return_status;
     }
 
     protected function handle_playground_resource(): void

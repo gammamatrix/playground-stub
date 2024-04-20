@@ -34,6 +34,8 @@ trait PackageConfiguration
 
     protected ?Model $model = null;
 
+    protected ?bool $return_status = null;
+
     // /**
     //  * @var array<string, mixed>
     //  */
@@ -224,6 +226,7 @@ trait PackageConfiguration
         $this->get_configuration(true);
         $this->searches = $this->get_search();
         $this->path_to_configuration = null;
+        $this->return_status = null;
 
         $this->resetName();
         $this->resetNamespace();

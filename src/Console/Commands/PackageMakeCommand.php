@@ -139,8 +139,8 @@ class PackageMakeCommand extends GeneratorCommand
      */
     public function handle()
     {
-        if (parent::handle() === false && ! $this->option('force')) {
-            return false;
+        if (parent::handle()) {
+            return $this->return_status;
         }
 
         if ($this->hasOption('factories')
@@ -184,6 +184,8 @@ class PackageMakeCommand extends GeneratorCommand
         $this->handle_controllers();
 
         $this->saveConfiguration();
+
+        return $this->return_status;
     }
 
     protected function getConfigurationFilename(): string

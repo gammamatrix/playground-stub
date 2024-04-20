@@ -70,7 +70,15 @@ trait FileTrait
                 $package_base
             );
 
-        //
+        } elseif (in_array($type, [
+            'migration-empty-name',
+        ])) {
+            $file = sprintf(
+                '%1$s/resources/testing/configurations/test.migration.empty.name.json',
+                $package_base
+            );
+
+            //
         // Models
         //
 

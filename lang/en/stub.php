@@ -49,4 +49,13 @@ return [
     'Model.Scope.ignored' => 'Adding a Scope to [:name] is limited to [sort] at this time.',
 
     'Model.Sorting.invalid' => 'Adding a sortable column to [:name] requires a column [:column] to be provided - index[:i]',
+
+    /*
+    |--------------------------------------------------------------------------
+    | GeneratorCommand Language Lines
+    |--------------------------------------------------------------------------
+    |
+    |
+    */
+    'GeneratorCommand.input.error' => 'Please provide a name for the package or provide a configuration with [--file]',
 ];

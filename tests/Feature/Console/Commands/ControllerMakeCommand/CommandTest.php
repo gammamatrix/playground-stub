@@ -27,7 +27,8 @@ class CommandTest extends TestCase
          * @var \Illuminate\Testing\PendingCommand $result
          */
         $result = $this->artisan('playground:make:controller');
-        $result->assertExitCode(0);
+        $result->assertExitCode(1);
+        $result->expectsOutputToContain( __('playground-stub::stub.GeneratorCommand.input.error'));
     }
 
     public function test_command_skeleton(): void

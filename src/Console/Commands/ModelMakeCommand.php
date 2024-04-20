@@ -142,8 +142,8 @@ class ModelMakeCommand extends GeneratorCommand
      */
     public function handle()
     {
-        if (parent::handle() === false && ! $this->option('force')) {
-            return false;
+        if (parent::handle()) {
+            return $this->return_status;
         }
 
         // $this->createAll = $this->hasOption('all') && $this->option('all');
@@ -291,6 +291,8 @@ class ModelMakeCommand extends GeneratorCommand
         }
 
         $this->saveConfiguration();
+
+        return $this->return_status;
     }
 
     /**

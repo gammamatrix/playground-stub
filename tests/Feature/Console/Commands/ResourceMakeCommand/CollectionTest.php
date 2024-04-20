@@ -51,7 +51,7 @@ class CollectionTest extends TestCase
 
     public function test_command_make_named_collection_resource_with_option_with_force_and_with_skeleton(): void
     {
-        $command = 'playground:make:resource Testing --skeleton --collection';
+        $command = 'playground:make:resource Testing --skeleton --force --collection';
 
         /**
          * @var \Illuminate\Testing\PendingCommand $result
@@ -62,7 +62,7 @@ class CollectionTest extends TestCase
 
     public function test_command_make_collection_resource_with_option_with_force_and_with_skeleton(): void
     {
-        $command = 'playground:make:resource Testing --skeleton --collection';
+        $command = 'playground:make:resource Testing --skeleton --force --collection';
 
         /**
          * @var \Illuminate\Testing\PendingCommand $result

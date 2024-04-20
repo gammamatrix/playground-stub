@@ -44,9 +44,21 @@ class ResourceTest extends TestCase
         $result->assertExitCode(0);
     }
 
-    public function test_command_make_playground_resource_template_with_force_and_without_skeleton_without_file(): void
+    public function test_command_make_playground_resource_template_without_name_with_force_and_without_skeleton_without_file(): void
     {
         $command = 'playground:make:template --force --type playground-resource';
+
+        /**
+         * @var \Illuminate\Testing\PendingCommand $result
+         */
+        $result = $this->artisan($command);
+        $result->assertExitCode(1);
+        $result->expectsOutputToContain( __('playground-stub::stub.GeneratorCommand.input.error'));
+    }
+
+    public function test_command_make_playground_resource_template_with_force_and_without_skeleton_without_file(): void
+    {
+        $command = 'playground:make:template testing --force --type playground-resource';
 
         /**
          * @var \Illuminate\Testing\PendingCommand $result
@@ -57,7 +69,7 @@ class ResourceTest extends TestCase
 
     public function test_command_make_playground_resource_template_with_force_and_with_skeleton_without_file(): void
     {
-        $command = 'playground:make:template --skeleton --force --type playground-resource';
+        $command = 'playground:make:template testing --skeleton --force --type playground-resource';
 
         /**
          * @var \Illuminate\Testing\PendingCommand $result
@@ -96,7 +108,7 @@ class ResourceTest extends TestCase
 
     public function test_command_make_playground_resource_index_template_with_force_and_without_skeleton_without_file(): void
     {
-        $command = 'playground:make:template --force --type playground-resource-index';
+        $command = 'playground:make:template testing --force --type playground-resource-index';
 
         /**
          * @var \Illuminate\Testing\PendingCommand $result
@@ -107,7 +119,7 @@ class ResourceTest extends TestCase
 
     public function test_command_make_playground_resource_index_template_with_force_and_with_skeleton_without_file(): void
     {
-        $command = 'playground:make:template --skeleton --force --type playground-resource-index';
+        $command = 'playground:make:template testing --skeleton --force --type playground-resource-index';
 
         /**
          * @var \Illuminate\Testing\PendingCommand $result

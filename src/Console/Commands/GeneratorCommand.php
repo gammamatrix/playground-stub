@@ -16,6 +16,8 @@ abstract class GeneratorCommand extends Command
      *
      * @return bool|null
      *
+     * @link https://tldp.org/LDP/abs/html/exitcodes.html TRUE (1) is an error. FALSE and NULL (0) is a success
+     *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function handle()
@@ -33,23 +35,26 @@ abstract class GeneratorCommand extends Command
         if (empty($name)) {
             if ($this->hasOption('file') && $this->option('file')) {
                 $this->components->error(sprintf('Please provide a valid configuration for [--file %s]', static::class));
+                $this->return_status = true;
 
-                return false;
+                return $this->return_status;
             }
 
-            $error = 'Please provide a name for the package or provide a configuration with [--file]';
+            $error = __('playground-stub::stub.GeneratorCommand.input.error');
 
             // Check if interactive
             if ($this->interactive && $this->hasOption('interactive') && $this->option('interactive')) {
                 $name = $this->interactive();
-                dump([
-                    '__METHOD__' => __METHOD__,
-                    '$name' => $name,
-                ]);
+                // dump([
+                //     '__METHOD__' => __METHOD__,
+                //     '$name' => $name,
+                // ]);
                 if (! $name) {
                     $this->components->error('Interactive mode was canceled');
 
-                    return false;
+                    $this->return_status = true;
+
+                    return $this->return_status;
                 }
             } else {
                 if ($this->interactive) {
@@ -57,7 +62,9 @@ abstract class GeneratorCommand extends Command
                 }
                 $this->components->error($error);
 
-                return false;
+                $this->return_status = true;
+
+                return $this->return_status;
             }
         }
 
@@ -73,7 +80,9 @@ abstract class GeneratorCommand extends Command
         if ($this->isReservedName($name)) {
             $this->components->error('The name "'.$name.'" is reserved by PHP.');
 
-            return false;
+            $this->return_status = true;
+
+            return $this->return_status;
         }
 
         $this->qualifiedName = $this->qualifyClass($name);
@@ -102,7 +111,9 @@ abstract class GeneratorCommand extends Command
              $this->alreadyExists($name)) {
             $this->components->error($this->type.' already exists.');
 
-            return false;
+            $this->return_status = true;
+
+            return $this->return_status;
         }
 
         // Next, we will generate the path to the location where this class' file should get
@@ -123,6 +134,8 @@ abstract class GeneratorCommand extends Command
         if ($this->saveConfiguration) {
             $this->saveConfiguration();
         }
+
+        return $this->return_status;
     }
 
     public function handleName(string $name): string
@@ -244,36 +257,10 @@ abstract class GeneratorCommand extends Command
      */
     protected function getNameInput(): ?string
     {
-        $name = $this->hasArgument('name') ? $this->argument('name') : null;
-        if (is_string($name)) {
-            $name = trim($name);
-        }
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$this->folder' => $this->folder,
-        //     '$name' => $name,
-        //     'rootNamespace()' => $this->rootNamespace(),
-        // ]);
-
-        if (empty($name) && ! empty($this->c->name())) {
-            $name = $this->c->name();
-        }
-
-        if (is_string($name) && empty($this->c->name())) {
-            $this->c->setOptions([
-                'name' => $name,
-            ]);
-        }
-
         $this->applyConfigurationToSearch();
 
         $this->prepareOptions();
 
-        return is_string($name) ? $name : null;
-    }
-
-    protected function getStub()
-    {
-        return '';
+        return $this->c->name();
     }
 }

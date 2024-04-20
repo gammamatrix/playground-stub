@@ -165,10 +165,7 @@ class MigrationMakeCommand extends GeneratorCommand
     {
         $this->columns = [];
 
-        if (parent::handle() === false && ! $this->option('force')) {
-            return false;
-        }
-
+        return parent::handle();
     }
 
     public function prepareOptions(): void

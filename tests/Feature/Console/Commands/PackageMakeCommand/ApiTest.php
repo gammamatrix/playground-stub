@@ -11,10 +11,10 @@ use Playground\Stub\Console\Commands\PackageMakeCommand;
 use Tests\Feature\Playground\Stub\TestCase;
 
 /**
- * \Tests\Feature\Playground\Stub\Console\Commands\PackageMakeCommand\ModelTest
+ * \Tests\Feature\Playground\Stub\Console\Commands\PackageMakeCommand\ApiTest
  */
 #[CoversClass(PackageMakeCommand::class)]
-class ModelTest extends TestCase
+class ApiTest extends TestCase
 {
     public function test_command_make_api_package_with_force_and_without_skeleton(): void
     {

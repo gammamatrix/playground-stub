@@ -52,11 +52,7 @@ trait BuildSwagger
 
     public function load_base_file(): Api
     {
-        $file = sprintf(
-            '%1$s/docs/api.yml',
-            $this->getPackageFolder()
-            // $this->getResourcePackageFolder()
-        );
+        $file = $this->getStub();
 
         $path_docs_api = $this->laravel->storagePath().$file;
         $api = null;

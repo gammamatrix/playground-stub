@@ -197,8 +197,9 @@ class SwaggerMakeCommand extends GeneratorCommand
 
             if (empty($this->model?->create())) {
                 $this->components->error('Provide a [--model-file] with a [create] section.');
+                $this->return_status = true;
 
-                return true;
+                return $this->return_status;
             }
 
             $this->doc_model();
@@ -208,6 +209,7 @@ class SwaggerMakeCommand extends GeneratorCommand
 
         $this->saveConfiguration();
 
+        return $this->return_status;
     }
 
     public function prepareOptions(): void
@@ -217,5 +219,14 @@ class SwaggerMakeCommand extends GeneratorCommand
         $type = $this->getConfigurationType();
 
         $this->initModel($this->c->skeleton());
+    }
+
+    protected function getStub()
+    {
+        return sprintf(
+            '%1$s/docs/api.yml',
+            $this->getPackageFolder()
+            // $this->getResourcePackageFolder()
+        );
     }
 }

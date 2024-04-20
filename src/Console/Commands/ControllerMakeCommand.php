@@ -600,14 +600,14 @@ class ControllerMakeCommand extends GeneratorCommand
      */
     public function handle()
     {
-        if (parent::handle() === false && ! $this->option('force')) {
-            return false;
+        if (parent::handle()) {
+            return $this->return_status;
         }
 
         if ($this->option('skeleton')) {
             $this->skeleton();
 
-            return null;
+            return $this->return_status;
         }
 
         if (! empty($this->c->policies()

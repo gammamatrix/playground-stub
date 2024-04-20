@@ -17,7 +17,7 @@ use Tests\Feature\Playground\Stub\TestCase;
 #[CoversClass(MigrationMakeCommand::class)]
 class ModelTest extends TestCase
 {
-    public function test_command_make_migration_with_force_and_without_skeleton(): void
+    public function test_command_make_migration_without_name_with_force_and_without_skeleton(): void
     {
         $command = sprintf(
             'playground:make:migration --force --model-file %1$s',
@@ -28,7 +28,8 @@ class ModelTest extends TestCase
          * @var \Illuminate\Testing\PendingCommand $result
          */
         $result = $this->artisan($command);
-        $result->assertExitCode(0);
+        $result->assertExitCode(1);
+        $result->expectsOutputToContain( __('playground-stub::stub.GeneratorCommand.input.error'));
     }
 
     public function test_command_make_migration_with_force_and_with_skeleton(): void
@@ -49,7 +50,7 @@ class ModelTest extends TestCase
     public function test_command_make_create_migration_with_force_and_without_skeleton(): void
     {
         $command = sprintf(
-            'playground:make:migration --force --create --model-file %1$s',
+            'playground:make:migration testing --force --create --model-file %1$s',
             $this->getResourceFile('model-crm-contact')
         );
 
@@ -60,10 +61,25 @@ class ModelTest extends TestCase
         $result->assertExitCode(0);
     }
 
+    public function test_command_make_create_migration_without_name_with_force_and_without_skeleton(): void
+    {
+        $command = sprintf(
+            'playground:make:migration --force --create --model-file %1$s',
+            $this->getResourceFile('model-crm-contact')
+        );
+
+        /**
+         * @var \Illuminate\Testing\PendingCommand $result
+         */
+        $result = $this->artisan($command);
+        $result->assertExitCode(1);
+        $result->expectsOutputToContain( __('playground-stub::stub.GeneratorCommand.input.error'));
+    }
+
     public function test_command_make_create_migration_with_force_and_with_skeleton(): void
     {
         $command = sprintf(
-            'playground:make:migration --skeleton --force --create --file %1$s --model-file %2$s',
+            'playground:make:migration testing --skeleton --force --create --file %1$s --model-file %2$s',
             $this->getResourceFile('migration'),
             $this->getResourceFile('model-crm-contact')
         );
@@ -78,7 +94,7 @@ class ModelTest extends TestCase
     public function test_command_make_update_migration_with_force_and_without_skeleton(): void
     {
         $command = sprintf(
-            'playground:make:migration --force --update --model-file %1$s',
+            'playground:make:migration testing --force --update --model-file %1$s',
             $this->getResourceFile('model-crm-contact')
         );
 
