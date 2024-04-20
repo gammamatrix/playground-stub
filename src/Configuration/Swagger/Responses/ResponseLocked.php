@@ -6,9 +6,9 @@ declare(strict_types=1);
 namespace Playground\Stub\Configuration\Swagger\Responses;
 
 /**
- * \Playground\Stub\Configuration\Swagger\Responses\ResponseNoContent
+ * \Playground\Stub\Configuration\Swagger\Responses\ResponseLocked
  */
-class ResponseNoContent extends Response
+class ResponseLocked extends Response
 {
     protected int $code = 423;
 

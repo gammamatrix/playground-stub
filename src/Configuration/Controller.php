@@ -84,6 +84,34 @@ class Controller extends Configuration
     protected string $view = '';
 
     /**
+     * @param array<string, mixed> $options
+     */
+    public function setOptions(array $options = []): self
+    {
+        parent::setOptions($options);
+
+        $this->addModels($options);
+
+        return $this;
+    }
+
+    /**
+     * @param array<string, mixed> $options
+     */
+    public function addModels(array $options): self
+    {
+        if (! empty($options['models'])
+            && is_array($options['models'])
+        ) {
+            foreach ($options['models'] as $key => $file) {
+                $this->addMappedClassTo('models', $key, $file);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
      * @return array<string, string>
      */
     public function models(): array

@@ -8,6 +8,7 @@ namespace Playground\Stub\Console\Commands;
 
 use Illuminate\Support\Str;
 use InvalidArgumentException;
+use Playground\Stub\Building;
 use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
 use Playground\Stub\Configuration\Controller as Configuration;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -25,6 +26,16 @@ use Symfony\Component\Console\Output\OutputInterface;
 #[AsCommand(name: 'playground:make:controller')]
 class ControllerMakeCommand extends GeneratorCommand
 {
+    use Building\Controller\MakeCommands;
+    use Building\Controller\Skeletons\BuildPolicies;
+
+    // use Building\Controller\Skeletons\BuildPostman;
+    use Building\Controller\Skeletons\BuildRequests;
+    use Building\Controller\Skeletons\BuildResources;
+    use Building\Controller\Skeletons\BuildRoutes;
+    use Building\Controller\Skeletons\BuildSwagger;
+    use Building\Controller\Skeletons\BuildTemplates;
+
     /**
      * @var class-string<Configuration>
      */
@@ -282,12 +293,12 @@ class ControllerMakeCommand extends GeneratorCommand
             $this->searches['view'] = $this->c->view();
 
         }
-        // dd([
+        // dump([
         //     '__METHOD__' => __METHOD__,
-        //     '$this->configuration' => $this->configuration,
+        //     '$this->c' => $this->c,
         //     '$this->searches' => $this->searches,
-        //     // '$this->arguments()' => $this->arguments(),
-        //     // '$this->options()' => $this->options(),
+        //     '$this->arguments()' => $this->arguments(),
+        //     '$this->options()' => $this->options(),
         // ]);
     }
 
@@ -595,17 +606,23 @@ class ControllerMakeCommand extends GeneratorCommand
     //     return [$storeRequestClass, $updateRequestClass];
     // }
 
-    /**
-     * Execute the console command.
-     */
-    public function handle()
-    {
-        if (parent::handle()) {
-            return $this->return_status;
-        }
+    // /**
+    //  * Execute the console command.
+    //  */
+    // public function handle()
+    // {
+    //     if (parent::handle()) {
+    //         return $this->return_status;
+    //     }
 
+    // }
+
+    public function finish(): ?bool
+    {
         if ($this->option('skeleton')) {
             $this->skeleton();
+
+            $this->saveConfiguration();
 
             return $this->return_status;
         }
@@ -619,119 +636,24 @@ class ControllerMakeCommand extends GeneratorCommand
         if (! empty($this->c->requests())
             && is_array($this->c->requests())
         ) {
-            // $this->handle_requests($this->c->requests());
+            $this->handle_requests($this->c->requests());
         }
 
         if (! empty($this->c->resources())
             && is_array($this->c->resources())
         ) {
-            // $this->handle_resources($this->c->resources());
+            $this->handle_resources($this->c->resources());
         }
 
-        if (! empty($this->c->transformers())
-            && is_array($this->c->transformers())
-        ) {
-            // $this->handle_transformers($this->c->transformers());
-        }
-    }
-
-    /**
-     * @param array<int, string> $policies
-     */
-    public function handle_policies(array $policies): void
-    {
-        $params = [
-            '--file' => '',
-        ];
-
-        if ($this->hasOption('force') && $this->option('force')) {
-            $params['--force'] = true;
-        }
-
-        if ($this->hasOption('model-file') && $this->option('model-file')) {
-            $params['--model-file'] = $this->option('model-file');
-        }
-
-        foreach ($policies as $policy) {
-            $params['--file'] = $policy;
-            $this->call('playground:make:policy', $params);
-        }
-
-        // if (! class_exists($parentModelClass) &&
-        //     confirm("A {$parentModelClass} model does not exist. Do you want to generate it?", default: true)) {
-        //     $this->call('playground:make:model', ['name' => $parentModelClass]);
+        // if (! empty($this->c->transformers())
+        //     && is_array($this->c->transformers())
+        // ) {
+        //     $this->handle_transformers($this->c->transformers());
         // }
-    }
 
-    /**
-     * @param array<int, string> $requests
-     */
-    public function handle_requests(array $requests): void
-    {
-        $params = [
-            '--file' => '',
-        ];
+        $this->saveConfiguration();
 
-        if ($this->hasOption('force') && $this->option('force')) {
-            $params['--force'] = true;
-        }
-
-        if ($this->hasOption('model-file') && $this->option('model-file')) {
-            $params['--model-file'] = $this->option('model-file');
-        }
-
-        foreach ($requests as $request) {
-            if (is_string($request) && $request) {
-                $params['--file'] = $request;
-                $this->call('playground:make:request', $params);
-            }
-        }
-    }
-
-    /**
-     * @param array<int, string> $resources
-     */
-    public function handle_resources(array $resources): void
-    {
-        $params = [
-            '--file' => '',
-        ];
-
-        if ($this->hasOption('force') && $this->option('force')) {
-            $params['--force'] = true;
-        }
-
-        if ($this->hasOption('model-file') && $this->option('model-file')) {
-            $params['--model-file'] = $this->option('model-file');
-        }
-
-        foreach ($resources as $resource) {
-            $params['--file'] = $resource;
-            $this->call('playground:make:resource', $params);
-        }
-    }
-
-    /**
-     * @param array<int, string> $transformers
-     */
-    public function handle_transformers(array $transformers): void
-    {
-        $params = [
-            '--file' => '',
-        ];
-
-        if ($this->hasOption('force') && $this->option('force')) {
-            $params['--force'] = true;
-        }
-
-        if ($this->hasOption('model-file') && $this->option('model-file')) {
-            $params['--model-file'] = $this->option('model-file');
-        }
-
-        foreach ($transformers as $transformer) {
-            $params['--file'] = $transformer;
-            $this->call('playground:make:transformer', $params);
-        }
+        return $this->return_status;
     }
 
     /**
@@ -741,774 +663,14 @@ class ControllerMakeCommand extends GeneratorCommand
     {
         $type = $this->getConfigurationType();
 
-        // $this->skeleton_requests($type);
+        $this->skeleton_requests($type);
         $this->skeleton_policy($type);
-        // $this->skeleton_resources($type);
-        // $this->skeleton_routes($type);
-        // $this->skeleton_templates($type);
-        // $this->skeleton_docs($type);
+        $this->skeleton_resources($type);
+        $this->skeleton_routes($type);
+        $this->skeleton_templates($type);
+        $this->skeleton_swagger($type);
 
         $this->saveConfiguration();
-    }
-
-    public function skeleton_docs(string $type): void
-    {
-        $force = $this->hasOption('force') && $this->option('force');
-        $model = $this->hasOption('model') ? $this->option('model') : '';
-        $module = $this->hasOption('module') ? $this->option('module') : '';
-        $name = $this->argument('name');
-        $namespace = $this->hasOption('namespace') ? $this->option('namespace') : '';
-        $organization = $this->hasOption('organization') ? $this->option('organization') : '';
-        $package = $this->hasOption('package') ? $this->option('package') : '';
-
-        $layout = 'playground::layouts.site';
-
-        if (empty($model) && ! empty($this->c->model()) && is_string($this->c->model())) {
-            $model = $this->c->model();
-        }
-
-        if (empty($module) && ! empty($this->c->module()) && is_string($this->c->module())) {
-            $module = $this->c->module();
-        }
-
-        if (empty($namespace) && ! empty($this->c->namespace()) && is_string($this->c->namespace())) {
-            $namespace = $this->c->namespace();
-        }
-
-        if (empty($package) && ! empty($this->c->package()) && is_string($this->c->package())) {
-            $package = $this->c->package();
-        }
-
-        if (empty($organization) && ! empty($this->c->organization()) && is_string($this->c->organization())) {
-            $organization = $this->c->organization();
-        }
-
-        $options = [
-            'name' => $name,
-            '--namespace' => $namespace,
-            '--force' => $force,
-            '--package' => $package,
-            '--organization' => $organization,
-            '--model' => $model,
-            '--module' => $module,
-            // '--preload' => true,
-            // '--type' => $type,
-            '--type' => '',
-        ];
-
-        if ($this->hasOption('model-file') && $this->option('model-file')) {
-            $options['--model-file'] = $this->option('model-file');
-        }
-
-        if ($type === 'api') {
-        } elseif ($type === 'resource') {
-        } elseif ($type === 'playground-resource') {
-        } elseif ($type === 'playground-api') {
-        }
-
-        $options['--type'] = 'model';
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$options' => $options,
-        // ]);
-
-        if (empty($this->call('playground:make:docs', $options))) {
-
-            // $file_model = sprintf(
-            //     '%1$s%2$s/%3$s/docs.model.json',
-            //     $this->laravel->storagePath(),
-            //     $path_resources_packages,
-            //     Str::of($name)->kebab(),
-            // );
-            // if (! in_array($file_model, $this->c->docs())) {
-            //     $this->c->docs()[] = $file_model;
-            // }
-            // dump([
-            //     '__METHOD__' => __METHOD__,
-            //     '$path_resources_packages' => $path_resources_packages,
-            //     '$file_model' => $file_model,
-            //     '$this->configuration' => $this->configuration,
-            // ]);
-        }
-
-        // art playground:make:controller Board --namespace GammaMatrix/Playground/Matrix/Resource --class BoardController --module Matrix --skeleton --force --type playground-resource --model-file vendor/gammamatrix/playground-stub/resources/playground/matrix/model.board.json
-        // art playground:make:controller Board --namespace GammaMatrix/Playground/Matrix/Resource --class BoardController --module Matrix --skeleton --force --type playground-resource --model-file vendor/gammamatrix/playground-stub/resources/playground/matrix/model.board.json
-        // art playground:make:controller Epic --namespace GammaMatrix/Playground/Matrix/Resource --class EpicController --module Matrix --skeleton --force --type playground-resource --model-file vendor/gammamatrix/playground-stub/resources/playground/matrix/model.epic.json
-        // art playground:make:docs Board --type controller --controller-type playground-resource --namespace GammaMatrix/Playground/Matrix/Resource --model-file vendor/gammamatrix/playground-stub/resources/playground/matrix/model.board.json --preload --module Matrix
-        $options['--type'] = 'controller';
-
-        if (! empty($this->c->type())) {
-            $options['--controller-type'] = $this->c->type();
-        }
-
-        // $path_resources_packages = $this->getResourcePackageFolder();
-
-        if (empty($this->call('playground:make:docs', $options))) {
-
-            // $file_api = sprintf(
-            //     '%1$s%2$s/docs.controller.json',
-            //     $this->laravel->storagePath(),
-            //     $path_resources_packages
-            // );
-            // if (! in_array($file_api, $this->c->docs())) {
-            //     $this->c->docs()[] = $file_api;
-            // }
-        }
-    }
-
-    public function skeleton_policy(string $type): void
-    {
-        $force = $this->hasOption('force') && $this->option('force');
-        $file = $this->option('file');
-        // $module = $this->hasOption('module') ? $this->option('module') : '';
-        // $name = $this->argument('name');
-        // $namespace = $this->hasOption('namespace') ? $this->option('namespace') : '';
-        // $organization = $this->hasOption('organization') ? $this->option('organization') : '';
-        // $package = $this->hasOption('package') ? $this->option('package') : '';
-
-        // $layout = 'playground::layouts.site';
-
-        // if (empty($model) && ! empty($this->c->model()) && is_string($this->c->model())) {
-        //     $model = $this->c->model();
-        // }
-
-        // if (empty($module) && ! empty($this->c->module()) && is_string($this->c->module())) {
-        //     $module = $this->c->module();
-        // }
-
-        // if (empty($namespace) && ! empty($this->c->namespace()) && is_string($this->c->namespace())) {
-        //     $namespace = $this->c->namespace();
-        // }
-
-        // if (empty($package) && ! empty($this->c->package()) && is_string($this->c->package())) {
-        //     $package = $this->c->package();
-        // }
-
-        // if (empty($organization) && ! empty($this->c->organization()) && is_string($this->c->organization())) {
-        //     $organization = $this->c->organization();
-        // }
-
-        $params = [
-            'name' => $this->c->name(),
-            '--class' => Str::of(class_basename($this->qualifiedName))
-                ->studly()->finish('Policy')->toString(),
-            '--namespace' => $this->c->namespace(),
-            '--force' => $force,
-            '--package' => $this->c->package(),
-            '--organization' => $this->c->organization(),
-            '--model' => $this->c->model(),
-            '--module' => $this->c->module(),
-            '--type' => $this->c->type(),
-        ];
-
-        if (! empty($file) && is_string($file)) {
-            $params['--model-file'] = $file;
-        }
-
-        // $options = [
-        //     'name' => $name,
-        //     '--namespace' => $namespace,
-        //     '--force' => $force,
-        //     '--package' => $package,
-        //     '--organization' => $organization,
-        //     '--model' => $model,
-        //     '--module' => $module,
-        //     '--type' => $type,
-        //     '--class' => sprintf('%1$sPolicy', $name),
-        // ];
-
-        // if ($this->hasOption('model-file') && $this->option('model-file')) {
-        //     $options['--model-file'] = $this->option('model-file');
-        // }
-
-        if ($type === 'api') {
-        } elseif ($type === 'resource') {
-        } elseif ($type === 'playground-resource') {
-            $params['--roles-action'] = [
-                'publisher',
-                'manager',
-                'admin',
-                'root',
-            ];
-            $params['--roles-view'] = [
-                'user',
-                'staff',
-                'publisher',
-                'manager',
-                'admin',
-                'root',
-            ];
-        } elseif ($type === 'playground-api') {
-            $params['--roles-action'] = [
-                'publisher',
-                'manager',
-                'admin',
-                'root',
-            ];
-            $params['--roles-view'] = [
-                'user',
-                'staff',
-                'publisher',
-                'manager',
-                'admin',
-                'root',
-            ];
-        }
-
-        if (empty($this->call('playground:make:policy', $params))) {
-
-            $path_resources_packages = $this->getResourcePackageFolder();
-
-            $file = sprintf(
-                '%1$s%2$s/%3$s/policy.json',
-                $this->laravel->storagePath(),
-                $path_resources_packages,
-                Str::of($this->c->name())->kebab()
-            );
-
-            // dd([
-            //     '__METHOD__' => __METHOD__,
-            //     '$file' => $file,
-            //     '$path_resources_packages' => $path_resources_packages,
-            //     '$this->configuration' => $this->configuration,
-            //     '$this->laravel->storagePath()' => $this->laravel->storagePath(),
-            // ]);
-
-            if (! in_array($file, $this->c->policies())) {
-                $this->c->policies()[] = $file;
-            }
-        }
-    }
-
-    public function skeleton_requests(string $type): void
-    {
-        $requests = [];
-
-        $force = $this->hasOption('force') && $this->option('force');
-        $model = $this->c->model();
-        $module = $this->c->module();
-        $name = $this->c->name();
-        $namespace = $this->c->namespace();
-        $organization = $this->c->organization();
-        $package = $this->c->package();
-
-        $extends = '';
-
-        if ($type === 'api') {
-            $requests['destroy'] = [
-                '--type' => 'destroy',
-                '--class' => 'DestroyRequest',
-            ];
-            $requests['index'] = [
-                '--type' => 'index',
-                '--class' => 'IndexRequest',
-            ];
-            $requests['restore'] = [
-                '--type' => 'restore',
-                '--class' => 'RestoreRequest',
-            ];
-            $requests['show'] = [
-                '--type' => 'show',
-                '--class' => 'ShowRequest',
-            ];
-            $requests['store'] = [
-                '--type' => 'store',
-                '--class' => 'StoreRequest',
-            ];
-            $requests['update'] = [
-                '--type' => 'update',
-                '--class' => 'UpdateRequest',
-            ];
-        } elseif ($type === 'playground-api') {
-
-            if ($namespace) {
-                // $extends = sprintf('%1$s/Http/Requests/%2$s/FormRequest', $namespace, $name);
-                $extends = sprintf('%1$s/Http/Requests/FormRequest', $namespace);
-            }
-
-            $requests['destroy'] = [
-                '--type' => 'destroy',
-                '--class' => 'DestroyRequest',
-            ];
-            $requests['index'] = [
-                '--type' => 'index',
-                '--class' => 'IndexRequest',
-                '--extends' => 'GammaMatrix/Playground/Matrix/Resource/Http/Requests/AbstractIndexRequest',
-            ];
-            $requests['lock'] = [
-                '--type' => 'lock',
-                '--class' => 'LockRequest',
-            ];
-            $requests['restore'] = [
-                '--type' => 'restore',
-                '--class' => 'RestoreRequest',
-            ];
-            $requests['show'] = [
-                '--type' => 'show',
-                '--class' => 'ShowRequest',
-            ];
-            $requests['store'] = [
-                '--type' => 'store',
-                '--class' => 'StoreRequest',
-                '--extends' => 'GammaMatrix/Playground/Matrix/Resource/Http/Requests/AbstractStoreRequest',
-            ];
-            $requests['unlock'] = [
-                '--type' => 'unlock',
-                '--class' => 'UnlockRequest',
-            ];
-            $requests['update'] = [
-                '--type' => 'update',
-                '--class' => 'UpdateRequest',
-                '--extends' => 'GammaMatrix/Playground/Matrix/Resource/Http/Requests/AbstractUpdateRequest',
-            ];
-        } elseif ($type === 'playground-resource') {
-
-            if ($namespace) {
-                // $extends = sprintf('%1$s/Http/Requests/%2$s/FormRequest', $namespace, $name);
-                $extends = sprintf('%1$s/Http/Requests/FormRequest', $namespace);
-            }
-
-            $requests['create'] = [
-                '--type' => 'create',
-                '--class' => 'CreateRequest',
-            ];
-            $requests['destroy'] = [
-                '--type' => 'destroy',
-                '--class' => 'DestroyRequest',
-            ];
-            $requests['edit'] = [
-                '--type' => 'edit',
-                '--class' => 'EditRequest',
-            ];
-            $requests['index'] = [
-                '--type' => 'index',
-                '--class' => 'IndexRequest',
-                '--extends' => 'GammaMatrix/Playground/Matrix/Resource/Http/Requests/AbstractIndexRequest',
-            ];
-            $requests['lock'] = [
-                '--type' => 'lock',
-                '--class' => 'LockRequest',
-            ];
-            $requests['restore'] = [
-                '--type' => 'restore',
-                '--class' => 'RestoreRequest',
-            ];
-            $requests['show'] = [
-                '--type' => 'show',
-                '--class' => 'ShowRequest',
-            ];
-            $requests['store'] = [
-                '--type' => 'store',
-                '--class' => 'StoreRequest',
-                '--extends' => 'GammaMatrix/Playground/Matrix/Resource/Http/Requests/AbstractStoreRequest',
-            ];
-            $requests['unlock'] = [
-                '--type' => 'unlock',
-                '--class' => 'UnlockRequest',
-            ];
-            $requests['update'] = [
-                '--type' => 'update',
-                '--class' => 'UpdateRequest',
-                '--extends' => 'GammaMatrix/Playground/Matrix/Resource/Http/Requests/AbstractUpdateRequest',
-            ];
-        } elseif ($type === 'resource') {
-            $requests['create'] = [
-                '--type' => 'create',
-                '--class' => 'CreateRequest',
-            ];
-            $requests['destroy'] = [
-                '--type' => 'destroy',
-                '--class' => 'DestroyRequest',
-            ];
-            $requests['edit'] = [
-                '--type' => 'edit',
-                '--class' => 'EditRequest',
-            ];
-            $requests['index'] = [
-                '--type' => 'index',
-                '--class' => 'IndexRequest',
-            ];
-            $requests['restore'] = [
-                '--type' => 'restore',
-                '--class' => 'RestoreRequest',
-            ];
-            $requests['show'] = [
-                '--type' => 'show',
-                '--class' => 'ShowRequest',
-            ];
-            $requests['store'] = [
-                '--type' => 'store',
-                '--class' => 'StoreRequest',
-            ];
-            $requests['update'] = [
-                '--type' => 'update',
-                '--class' => 'UpdateRequest',
-            ];
-        } else {
-            $requests = [
-                'index' => [
-                    '--type' => 'index',
-                    '--class' => 'IndexRequest',
-                ],
-            ];
-        }
-
-        foreach ($requests as $request) {
-            if ($force) {
-                $request['--force'] = true;
-            }
-            if ($namespace) {
-                $request['--namespace'] = $namespace;
-            }
-            if ($package) {
-                $request['--package'] = $package;
-            }
-            if ($organization) {
-                $request['--organization'] = $organization;
-            }
-            if ($model) {
-                $request['--model'] = $model;
-            }
-            if ($extends && empty($request['--extends'])) {
-                $request['--extends'] = $extends;
-            }
-            if ($this->hasOption('model-file') && $this->option('model-file')) {
-                $request['--model-file'] = $this->option('model-file');
-            }
-            $request['--skeleton'] = true;
-            $request['--module'] = $module;
-            // $request = array_merge([
-            //     'name' => $this->argument('name'),
-            // ], $request);
-            $request['name'] = $this->c->name();
-            // dump([
-            //     '__METHOD__' => __METHOD__,
-            //     '$request' => $request,
-            // ]);
-            if (empty($this->call('playground:make:request', $request))) {
-
-                $path_resources_packages = $this->getResourcePackageFolder();
-
-                // $file_request = ('vendor/gammamatrix/playground-stub/resources/playground/matrix/resource/version/request.test.json');
-                $file_request = sprintf(
-                    '%1$s%2$s/%3$s',
-                    $this->laravel->storagePath(),
-                    $path_resources_packages,
-                    $this->getConfigurationFilename_for_request($this->c->name(), $request['--type'])
-                );
-
-                // dd([
-                //     '__METHOD__' => __METHOD__,
-                //     '$file_request' => $file_request,
-                //     '$path_resources_packages' => $path_resources_packages,
-                //     '$this->configuration' => $this->configuration,
-                //     '$this->laravel->storagePath()' => $this->laravel->storagePath(),
-                // ]);
-
-                if (! in_array($file_request, $this->c->requests())) {
-                    $this->c->requests()[] = $file_request;
-                }
-            }
-            // dd([
-            //     '__METHOD__' => __METHOD__,
-            //     '$this->configuration' => $this->configuration,
-            // ]);
-        }
-    }
-
-    public function skeleton_resources(string $type): void
-    {
-        $resources = [];
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$type' => $type,
-        // ]);
-
-        $force = $this->hasOption('force') && $this->option('force');
-        $name = $this->c->name();
-
-        // $layout = 'playground::layouts.site';
-
-        $model = $this->c->model();
-        $module = $this->c->module();
-        $namespace = $this->c->namespace();
-        $package = $this->c->package();
-        $organization = $this->c->organization();
-        $extends = $this->c->organization();
-
-        if ($type === 'resource') {
-            $resources['resource'] = [
-                '--class' => Str::of($name)->studly()->finish('Resource'),
-                'name' => $name,
-            ];
-            $resources['collection'] = [
-                '--class' => Str::of($name)->studly()->finish('Collection'),
-                '--collection' => true,
-                'name' => $name.'Collection',
-                // 'name' => $name,
-            ];
-        } elseif ($type === 'playground-resource') {
-            $resources['resource'] = [
-                '--class' => Str::of($name)->studly()->finish('Resource'),
-                'name' => $name,
-            ];
-            $resources['collection'] = [
-                '--class' => Str::of($name)->studly()->finish('Collection'),
-                '--collection' => true,
-                'name' => $name.'Collection',
-                // 'name' => $name,
-            ];
-        }
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$type' => $type,
-        //     '$resources' => $resources,
-        // ]);
-
-        foreach ($resources as $resource_type => $resource) {
-            // dump([
-            //     '__METHOD__' => __METHOD__,
-            //     '$resource_type' => $resource_type,
-            //     '$resource' => $resource,
-            // ]);
-            if ($force) {
-                $resource['--force'] = true;
-            }
-            if ($namespace) {
-                $resource['--namespace'] = $namespace;
-            }
-            if ($package) {
-                $resource['--package'] = $package;
-            }
-            if ($organization) {
-                $resource['--organization'] = $organization;
-            }
-            if ($model) {
-                $resource['--model'] = $model;
-            }
-            if ($extends) {
-                $resource['--extends'] = $extends;
-            }
-            if ($this->hasOption('model-file') && $this->option('model-file')) {
-                $resource['--model-file'] = $this->option('model-file');
-            }
-            $resource['--module'] = $module;
-            $resource['--skeleton'] = true;
-            // $resource = array_merge([
-            //     'name' => $this->argument('name'),
-            // ], $resource);
-            // $resource['name'] = $name;
-            // dump([
-            //     '__METHOD__' => __METHOD__,
-            //     '$resource' => $resource,
-            // ]);
-            if (empty($this->call('playground:make:resource', $resource))) {
-
-                $path_resources_packages = $this->getResourcePackageFolder();
-
-                // $file_resource = ('vendor/gammamatrix/playground-stub/resources/playground/matrix/resource/version/resource.test.json');
-                $file_resource = sprintf(
-                    '%1$s%2$s/%3$s',
-                    $this->laravel->storagePath(),
-                    $path_resources_packages,
-                    $this->getConfigurationFilename_for_resource($name, $resource_type)
-                );
-
-                // dd([
-                //     '__METHOD__' => __METHOD__,
-                //     '$file_resource' => $file_resource,
-                //     '$path_resources_packages' => $path_resources_packages,
-                //     '$this->configuration' => $this->configuration,
-                //     '$this->laravel->storagePath()' => $this->laravel->storagePath(),
-                // ]);
-
-                if (! in_array($file_resource, $this->c->resources())) {
-                    $this->c->resources()[] = $file_resource;
-                }
-            }
-        }
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$this->configuration' => $this->configuration,
-        //     '$type' => $type,
-        // ]);
-    }
-
-    public function skeleton_routes(string $type): void
-    {
-        $force = $this->hasOption('force') && $this->option('force');
-        $model = $this->hasOption('model') ? $this->option('model') : '';
-        $module = $this->hasOption('module') ? $this->option('module') : '';
-        $name = $this->argument('name');
-        $namespace = $this->hasOption('namespace') ? $this->option('namespace') : '';
-        $organization = $this->hasOption('organization') ? $this->option('organization') : '';
-        $package = $this->hasOption('package') ? $this->option('package') : '';
-
-        // $layout = 'playground::layouts.site';
-
-        if (empty($model) && ! empty($this->c->model()) && is_string($this->c->model())) {
-            $model = $this->c->model();
-        }
-
-        if (empty($module) && ! empty($this->c->module()) && is_string($this->c->module())) {
-            $module = $this->c->module();
-        }
-
-        if (empty($namespace) && ! empty($this->c->namespace()) && is_string($this->c->namespace())) {
-            $namespace = $this->c->namespace();
-        }
-
-        if (empty($package) && ! empty($this->c->package()) && is_string($this->c->package())) {
-            $package = $this->c->package();
-        }
-
-        if (empty($organization) && ! empty($this->c->organization()) && is_string($this->c->organization())) {
-            $organization = $this->c->organization();
-        }
-
-        $options = [
-            'name' => $name,
-            '--namespace' => $namespace,
-            '--force' => $force,
-            '--package' => $package,
-            '--organization' => $organization,
-            '--model' => $model,
-            '--module' => $module,
-            '--type' => $type,
-            '--class' => $name,
-            '--title' => Str::of($this->c->name())->snake()->replace('_', ' ')->title()->toString(),
-            // '--config' => Str::of($package)->snake()->toString(),
-        ];
-
-        if ($this->hasOption('model-file') && $this->option('model-file')) {
-            $options['--model-file'] = $this->option('model-file');
-        }
-
-        if (! empty($this->c->route()) && is_string($this->c->route())) {
-            $options['--route'] = $this->c->route();
-        }
-
-        if ($type === 'api') {
-        } elseif ($type === 'resource') {
-        } elseif ($type === 'playground-resource') {
-        } elseif ($type === 'playground-resource-index') {
-        } elseif ($type === 'playground-api') {
-        }
-
-        if (empty($this->call('playground:make:route', $options))) {
-
-            $path_resources_templates = $this->getResourcePackageFolder();
-
-            $file_request = sprintf(
-                '%1$s%2$s/%3$s/route.json',
-                $this->laravel->storagePath(),
-                $path_resources_templates,
-                Str::of($this->c->name())->kebab()
-            );
-
-            // dump([
-            //     '__METHOD__' => __METHOD__,
-            //     '$options' => $options,
-            //     '$file_request' => $file_request,
-            //     // '$path_resources_templates' => $path_resources_templates,
-            //     // '$this->configuration' => $this->configuration,
-            //     // '$this->laravel->storagePath()' => $this->laravel->storagePath(),
-            // ]);
-
-            if (! in_array($file_request, $this->c->templates())) {
-                $this->c->templates()[] = $file_request;
-            }
-        }
-    }
-
-    public function skeleton_templates(string $type): void
-    {
-        $force = $this->hasOption('force') && $this->option('force');
-        $model = $this->hasOption('model') ? $this->option('model') : '';
-        $module = $this->hasOption('module') ? $this->option('module') : '';
-        $name = $this->argument('name');
-        $namespace = $this->hasOption('namespace') ? $this->option('namespace') : '';
-        $organization = $this->hasOption('organization') ? $this->option('organization') : '';
-        $package = $this->hasOption('package') ? $this->option('package') : '';
-
-        // $layout = 'playground::layouts.site';
-
-        if (empty($model) && ! empty($this->c->model()) && is_string($this->c->model())) {
-            $model = $this->c->model();
-        }
-
-        if (empty($module) && ! empty($this->c->module()) && is_string($this->c->module())) {
-            $module = $this->c->module();
-        }
-
-        if (empty($namespace) && ! empty($this->c->namespace()) && is_string($this->c->namespace())) {
-            $namespace = $this->c->namespace();
-        }
-
-        if (empty($package) && ! empty($this->c->package()) && is_string($this->c->package())) {
-            $package = $this->c->package();
-        }
-
-        if (empty($organization) && ! empty($this->c->organization()) && is_string($this->c->organization())) {
-            $organization = $this->c->organization();
-        }
-
-        $layout = 'playground::layouts.site';
-
-        $options = [
-            'name' => $name,
-            '--namespace' => $namespace,
-            '--force' => $force,
-            '--package' => $package,
-            '--organization' => $organization,
-            '--model' => $model,
-            '--module' => $module,
-            '--type' => $type,
-            '--class' => $name,
-            '--title' => Str::of($this->c->name())->snake()->replace('_', ' ')->title()->toString(),
-            // '--config' => Str::of($package)->snake()->toString(),
-            '--extends' => $layout,
-        ];
-
-        if ($this->hasOption('model-file') && $this->option('model-file')) {
-            $options['--model-file'] = $this->option('model-file');
-        }
-
-        if (! empty($this->c->route()) && is_string($this->c->route())) {
-            $options['--route'] = $this->c->route();
-        }
-
-        if ($type === 'api') {
-        } elseif ($type === 'resource') {
-        } elseif ($type === 'playground-resource') {
-        } elseif ($type === 'playground-resource-index') {
-        } elseif ($type === 'playground-api') {
-        }
-
-        if (empty($this->call('playground:make:template', $options))) {
-
-            $path_resources_templates = $this->getResourcePackageFolder();
-
-            $file_request = sprintf(
-                '%1$s%2$s/%3$s/template.json',
-                $this->laravel->storagePath(),
-                $path_resources_templates,
-                Str::of($this->c->name())->kebab()
-            );
-
-            // dump([
-            //     '__METHOD__' => __METHOD__,
-            //     '$options' => $options,
-            //     '$file_request' => $file_request,
-            //     // '$path_resources_templates' => $path_resources_templates,
-            //     // '$this->configuration' => $this->configuration,
-            //     // '$this->laravel->storagePath()' => $this->laravel->storagePath(),
-            // ]);
-
-            if (! in_array($file_request, $this->c->templates())) {
-                $this->c->templates()[] = $file_request;
-            }
-        }
     }
 
     protected function getConfigurationFilename_for_request(string $name, string $type): string

@@ -380,6 +380,12 @@ trait PackageConfiguration
         //         $this->files->json($this->option('file'))
         //     );
         // }
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     // '$this->searches' => $this->searches,
+        //     '$this->c' => $this->c,
+        //     '$this->options()' => $this->options(),
+        // ]);
 
         if ($this->hasOption('file')
             && $this->option('file')
@@ -405,7 +411,29 @@ trait PackageConfiguration
             $this->components->error(sprintf('Unable to find %s [%s] in the app [%s] or package [%s]', $this->type, $file, $pathInApp, $pathInPackage));
         }
 
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$this->c' => $this->c,
+        //     '$file' => $file,
+        //     '$pathInApp' => $pathInApp,
+        //     '$pathInPackage' => $pathInPackage,
+        //     '$payload' => $payload,
+        // ]);
         $this->loadOptionsIntoConfiguration($payload);
+    }
+
+    public function getModelFile(): ?string
+    {
+        $model = method_exists($this->c, 'model') ? $this->c->model() : '';
+        $models = method_exists($this->c, 'models') ? $this->c->models() : [];
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$this->c' => $this->c,
+        //     '$model' => $model,
+        //     '$models' => $models,
+        // ]);
+
+        return ! empty($model) && ! empty($models[$model]) ? $models[$model] : null;
     }
 
     /**

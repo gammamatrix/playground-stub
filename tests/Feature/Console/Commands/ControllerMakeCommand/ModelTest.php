@@ -6,6 +6,7 @@
 declare(strict_types=1);
 namespace Tests\Feature\Playground\Stub\Console\Commands\ControllerMakeCommand;
 
+use Illuminate\Support\Facades\Artisan;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Playground\Stub\Console\Commands\Command;
 use Playground\Stub\Console\Commands\ControllerMakeCommand;
@@ -37,9 +38,12 @@ class ModelTest extends TestCase
     public function test_command_make_controller_with_force_and_with_skeleton(): void
     {
         $command = sprintf(
-            'playground:make:controller --skeleton --force --file %1$s',
+            'playground:make:controller --skeleton --force --file "%1$s"',
             $this->getResourceFile('controller-playground-resource')
         );
+        // dump($command);
+        // $result = $this->withoutMockingConsoleOutput()->artisan('playground:make:controller testing --skeleton --force');
+        // dump(Artisan::output());
 
         /**
          * @var \Illuminate\Testing\PendingCommand $result
