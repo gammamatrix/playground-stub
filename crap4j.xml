@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-20 07:55:06</timestamp>
+  <timestamp>2024-04-20 19:24:16</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>560</methodCount>
-    <crapMethodCount>35</crapMethodCount>
-    <crapLoad>491</crapLoad>
-    <totalCrap>11422.53</totalCrap>
-    <crapMethodPercent>6.25</crapMethodPercent>
+    <methodCount>562</methodCount>
+    <crapMethodCount>36</crapMethodCount>
+    <crapLoad>498</crapLoad>
+    <totalCrap>11383.24</totalCrap>
+    <crapMethodPercent>6.41</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -347,9 +347,31 @@
       <methodName>handle_requests</methodName>
       <methodSignature>handle_requests(): void</methodSignature>
       <fullMethod>handle_requests(): void</fullMethod>
-      <crap>42</crap>
+      <crap>6</crap>
       <complexity>6</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Policy</package>
+      <className>Playground\Stub\Building\Policy\BuildRoles</className>
+      <methodName>make_roles_to_view</methodName>
+      <methodSignature>make_roles_to_view(array $searches): string</methodSignature>
+      <fullMethod>make_roles_to_view(array $searches): string</fullMethod>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Policy</package>
+      <className>Playground\Stub\Building\Policy\BuildRoles</className>
+      <methodName>make_roles_for_action</methodName>
+      <methodSignature>make_roles_for_action(array $searches): string</methodSignature>
+      <fullMethod>make_roles_for_action(array $searches): string</fullMethod>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2712,10 +2734,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>46.52</crap>
-      <complexity>46</complexity>
-      <coverage>93.75</coverage>
-      <crapLoad>0</crapLoad>
+      <crap>55.68</crap>
+      <complexity>51</complexity>
+      <coverage>87.84</coverage>
+      <crapLoad>7</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration</package>
@@ -2753,9 +2775,53 @@
     <method>
       <package>Playground\Stub\Configuration</package>
       <className>Playground\Stub\Configuration\Package</className>
-      <methodName>factories</methodName>
-      <methodSignature>factories(): bool</methodSignature>
-      <fullMethod>factories(): bool</fullMethod>
+      <methodName>withControllers</methodName>
+      <methodSignature>withControllers(): bool</methodSignature>
+      <fullMethod>withControllers(): bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>withFactories</methodName>
+      <methodSignature>withFactories(): bool</methodSignature>
+      <fullMethod>withFactories(): bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>withMigrations</methodName>
+      <methodSignature>withMigrations(): bool</methodSignature>
+      <fullMethod>withMigrations(): bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>withModels</methodName>
+      <methodSignature>withModels(): bool</methodSignature>
+      <fullMethod>withModels(): bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Package</className>
+      <methodName>withPolicies</methodName>
+      <methodSignature>withPolicies(): bool</methodSignature>
+      <fullMethod>withPolicies(): bool</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -4373,9 +4439,9 @@
       <methodName>buildClass</methodName>
       <methodSignature>buildClass($name): string</methodSignature>
       <fullMethod>buildClass($name): string</fullMethod>
-      <crap>4.1</crap>
+      <crap>4</crap>
       <complexity>4</complexity>
-      <coverage>81.82</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4392,28 +4458,6 @@
     <method>
       <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\Command</className>
-      <methodName>readJsonFileAsArray</methodName>
-      <methodSignature>readJsonFileAsArray(string $file, bool $required, string $name): array</methodSignature>
-      <fullMethod>readJsonFileAsArray(string $file, bool $required, string $name): array</fullMethod>
-      <crap>9.4</crap>
-      <complexity>8</complexity>
-      <coverage>72</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\Command</className>
-      <methodName>disk</methodName>
-      <methodSignature>disk(): Illuminate\Filesystem\FilesystemAdapter</methodSignature>
-      <fullMethod>disk(): Illuminate\Filesystem\FilesystemAdapter</fullMethod>
-      <crap>12</crap>
-      <complexity>3</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\Command</className>
       <methodName>getDefaultNamespace</methodName>
       <methodSignature>getDefaultNamespace($rootNamespace)</methodSignature>
       <fullMethod>getDefaultNamespace($rootNamespace)</fullMethod>
@@ -4425,23 +4469,12 @@
     <method>
       <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\Command</className>
-      <methodName>getNamespace</methodName>
-      <methodSignature>getNamespace($name)</methodSignature>
-      <fullMethod>getNamespace($name)</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\Command</className>
       <methodName>rootNamespace</methodName>
       <methodSignature>rootNamespace()</methodSignature>
       <fullMethod>rootNamespace()</fullMethod>
-      <crap>7.04</crap>
-      <complexity>7</complexity>
-      <coverage>90.91</coverage>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4450,9 +4483,9 @@
       <methodName>getPath</methodName>
       <methodSignature>getPath($name): string</methodSignature>
       <fullMethod>getPath($name): string</fullMethod>
-      <crap>2.11</crap>
-      <complexity>2</complexity>
-      <coverage>70</coverage>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4491,23 +4524,12 @@
     <method>
       <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\Command</className>
-      <methodName>promptForMissingArgumentsUsing</methodName>
-      <methodSignature>promptForMissingArgumentsUsing(): array</methodSignature>
-      <fullMethod>promptForMissingArgumentsUsing(): array</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\Command</className>
       <methodName>qualifyClass</methodName>
       <methodSignature>qualifyClass($name): string</methodSignature>
       <fullMethod>qualifyClass($name): string</fullMethod>
-      <crap>3.01</crap>
-      <complexity>3</complexity>
-      <coverage>88.89</coverage>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4574,6 +4596,17 @@
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands\Concerns</package>
+      <className>Playground\Stub\Console\Commands\Concerns\Files</className>
+      <methodName>readJsonFileAsArray</methodName>
+      <methodSignature>readJsonFileAsArray(string $file, bool $required, string $name): array</methodSignature>
+      <fullMethod>readJsonFileAsArray(string $file, bool $required, string $name): array</fullMethod>
+      <crap>9.4</crap>
+      <complexity>8</complexity>
+      <coverage>72</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5260,23 +5293,23 @@
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\FactoryMakeCommand</className>
-      <methodName>getPath</methodName>
-      <methodSignature>getPath($name): string</methodSignature>
-      <fullMethod>getPath($name): string</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
+      <className>Playground\Stub\Console\Commands\GeneratorCommand</className>
+      <methodName>handle</methodName>
+      <methodSignature>handle()</methodSignature>
+      <fullMethod>handle()</fullMethod>
+      <crap>14</crap>
+      <complexity>14</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\GeneratorCommand</className>
-      <methodName>handle</methodName>
-      <methodSignature>handle()</methodSignature>
-      <fullMethod>handle()</fullMethod>
-      <crap>15</crap>
-      <complexity>15</complexity>
+      <methodName>finish</methodName>
+      <methodSignature>finish(): ?bool</methodSignature>
+      <fullMethod>finish(): ?bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -5525,12 +5558,23 @@
     <method>
       <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\PackageMakeCommand</className>
-      <methodName>handle</methodName>
-      <methodSignature>handle()</methodSignature>
-      <fullMethod>handle()</fullMethod>
-      <crap>13.12</crap>
-      <complexity>9</complexity>
-      <coverage>62.96</coverage>
+      <methodName>prepareOptions</methodName>
+      <methodSignature>prepareOptions(): void</methodSignature>
+      <fullMethod>prepareOptions(): void</fullMethod>
+      <crap>14</crap>
+      <complexity>14</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\PackageMakeCommand</className>
+      <methodName>finish</methodName>
+      <methodSignature>finish(): ?bool</methodSignature>
+      <fullMethod>finish(): ?bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5550,9 +5594,9 @@
       <methodName>getStub</methodName>
       <methodSignature>getStub(): string</methodSignature>
       <fullMethod>getStub(): string</fullMethod>
-      <crap>4.07</crap>
-      <complexity>4</complexity>
-      <coverage>83.33</coverage>
+      <crap>7</crap>
+      <complexity>7</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5651,28 +5695,6 @@
       <fullMethod>getOptions(): array</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\PolicyMakeCommand</className>
-      <methodName>make_roles_to_view</methodName>
-      <methodSignature>make_roles_to_view(array $searches): string</methodSignature>
-      <fullMethod>make_roles_to_view(array $searches): string</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\PolicyMakeCommand</className>
-      <methodName>make_roles_for_action</methodName>
-      <methodSignature>make_roles_for_action(array $searches): string</methodSignature>
-      <fullMethod>make_roles_for_action(array $searches): string</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>

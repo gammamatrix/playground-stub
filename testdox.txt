@@ -195,6 +195,10 @@ Crud (Tests\Feature\Playground\Stub\Console\Commands\RequestMakeCommand\Crud)
  [x] Command make default request with force and without skeleton
  [x] Command make default request with force and with skeleton
 
+File (Tests\Feature\Playground\Stub\Console\Commands\PolicyMakeCommand\File)
+ [x] Command make policy with force and without skeleton
+ [x] Command make policy with force and with skeleton
+
 File (Tests\Feature\Playground\Stub\Console\Commands\RequestMakeCommand\File)
  [x] Command make request with force and without skeleton
  [x] Command make request with force and with skeleton
@@ -330,10 +334,6 @@ Model (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Model)
  [x] Command make all playground model api with force
  [x] Command make all playground model resource with force
 
-Model (Tests\Feature\Playground\Stub\Console\Commands\PolicyMakeCommand\Model)
- [x] Command make policy with force and without skeleton
- [x] Command make policy with force and with skeleton
-
 Model (Tests\Feature\Playground\Stub\Console\Commands\RequestMakeCommand\Model)
  [x] Command make CreateRequest with force and without skeleton
  [x] Command make IndexRequest with force and with skeleton
@@ -364,6 +364,32 @@ Options (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Options
  [x] Command make model with model type
  [x] Command make model with api controller option
  [x] Command make model with resource controller option
+
+Options (Tests\Feature\Playground\Stub\Console\Commands\PackageMakeCommand\Options)
+ [x] Command make package with force and with factories
+ [x] Command make package with force with factories and with skeleton
+ [x] Command make package with force and with factories without file
+ [x] Command make package with force with factories and with skeleton without file
+ [x] Command make package with force and with policies
+ [x] Command make package with force with policies and with skeleton
+ [x] Command make package with force and with policies without file
+ [x] Command make package with force with policies and with skeleton without file
+ [x] Command make package with force and with controllers
+ [x] Command make package with force with controllers and with skeleton
+ [x] Command make package with force and with controllers without file
+ [x] Command make package with force with controllers and with skeleton without file
+ [x] Command make package with force and with migrations
+ [x] Command make package with force with migrations and with skeleton
+ [x] Command make package with force and with migrations without file
+ [x] Command make package with force with migrations and with skeleton without file
+ [x] Command make package with force and with models
+ [x] Command make package with force with models and with skeleton
+ [x] Command make package with force and with models without file
+ [x] Command make package with force with models and with skeleton without file
+ [x] Command make package with force and with license
+ [x] Command make package with force with license and with skeleton
+ [x] Command make package with force and with license without file
+ [x] Command make package with force with license and with skeleton without file
 
 Options (Tests\Feature\Playground\Stub\Console\Commands\TemplateMakeCommand\Options)
  [x] Command with options
@@ -431,4 +457,38 @@ Sorting (Tests\Unit\Playground\Stub\Configuration\Model\Sorting)
  [x] AddSortable without column
  [x] AddSortable with index
  [x] AddSortable without index
+
+Types (Tests\Feature\Playground\Stub\Console\Commands\PackageMakeCommand\Types)
+ [x] Command make package with force and with playground type
+ [x] Command make package with force with playground type and with skeleton
+ [x] Command make package with force and with playground type without file
+ [x] Command make package with force with playground type and with skeleton without file
+ [x] Command make package with force and with playground model type
+ [x] Command make package with force with playground model type and with skeleton
+ [x] Command make package with force and with playground model type without file
+ [x] Command make package with force with playground model type and with skeleton without file
+ [x] Command make package with force and with playground api type
+ [x] Command make package with force with playground api type and with skeleton
+ [x] Command make package with force and with playground api type without file
+ [x] Command make package with force with playground api type and with skeleton without file
+ [x] Command make package with force and with playground resource type
+ [x] Command make package with force with playground resource type and with skeleton
+ [x] Command make package with force and with playground resource type without file
+ [x] Command make package with force with playground resource type and with skeleton without file
+ [x] Command make package with force and with api type
+ [x] Command make package with force with api type and with skeleton
+ [x] Command make package with force and with api type without file
+ [x] Command make package with force with api type and with skeleton without file
+ [x] Command make package with force and with resource type
+ [x] Command make package with force with resource type and with skeleton
+ [x] Command make package with force and with resource type without file
+ [x] Command make package with force with resource type and with skeleton without file
+ [x] Command make package with force and with default type
+ [x] Command make package with force with default type and with skeleton
+ [x] Command make package with force and with default type without file
+ [x] Command make package with force with default type and with skeleton without file
+ [x] Command make package with force and with default type with policies
+ [x] Command make package with force with playground model type and with skeleton with policies
+ [x] Command make package with force and with playground model type without file with policies
+ [x] Command make package with force with playground model type and with skeleton without file with policies
 
