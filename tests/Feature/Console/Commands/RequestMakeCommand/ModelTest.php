@@ -11,17 +11,14 @@ use Playground\Stub\Console\Commands\RequestMakeCommand;
 use Tests\Feature\Playground\Stub\TestCase;
 
 /**
- * \Tests\Feature\Playground\Stub\Console\Commands\RequestMakeCommand\ModelTest
+ * \Tests\Feature\Playground\Stub\Console\Commands\RequestMakeCommand\AbstractTest
  */
 #[CoversClass(RequestMakeCommand::class)]
 class ModelTest extends TestCase
 {
-    public function test_command_make_request_with_force_and_without_skeleton(): void
+    public function test_command_make_CreateRequest_with_force_and_without_skeleton(): void
     {
-        $command = sprintf(
-            'playground:make:request --force --file %1$s',
-            $this->getResourceFile('request')
-        );
+        $command = 'playground:make:request CreateRequest --type create --class CreateRequest --force --namespace Acme/Testing/Resource --package acme-testing-resource --model Acme/Testing/Models/Rocket --extends Acme/Testing/Resource/Http/Requests/FormRequest --model-file resources/testing/configurations/model.rocket.json --skeleton';
 
         /**
          * @var \Illuminate\Testing\PendingCommand $result
@@ -30,12 +27,31 @@ class ModelTest extends TestCase
         $result->assertExitCode(0);
     }
 
-    public function test_command_make_request_with_force_and_with_skeleton(): void
+    public function test_command_make_IndexRequest_with_force_and_with_skeleton(): void
     {
-        $command = sprintf(
-            'playground:make:request --skeleton --force --file %1$s',
-            $this->getResourceFile('request')
-        );
+        $command = 'playground:make:request IndexRequest --type index --class IndexRequest --force --namespace Acme/Testing/Resource --package acme-testing-resource --model Acme/Testing/Models/Rocket --extends Acme/Testing/Resource/Http/Requests/FormRequest --model-file resources/testing/configurations/model.rocket.json --skeleton';
+
+        /**
+         * @var \Illuminate\Testing\PendingCommand $result
+         */
+        $result = $this->artisan($command);
+        $result->assertExitCode(0);
+    }
+
+    public function test_command_make_IndexRequest_with_force_and_with_skeleton_without_model_file(): void
+    {
+        $command = 'playground:make:request IndexRequest --type index --class IndexRequest --force --namespace Acme/Testing/Resource --package acme-testing-resource --model Acme/Testing/Models/Rocket --extends Acme/Testing/Resource/Http/Requests/FormRequest --skeleton';
+
+        /**
+         * @var \Illuminate\Testing\PendingCommand $result
+         */
+        $result = $this->artisan($command);
+        $result->assertExitCode(0);
+    }
+
+    public function test_command_make_IndexRequest_under_Subfolder_with_force_and_with_skeleton_without_model_file(): void
+    {
+        $command = 'playground:make:request Subfolder --type index --class IndexRequest --force --namespace Acme/Testing/Resource --package acme-testing-resource --model Acme/Testing/Models/Rocket --extends Acme/Testing/Resource/Http/Requests/FormRequest --skeleton';
 
         /**
          * @var \Illuminate\Testing\PendingCommand $result

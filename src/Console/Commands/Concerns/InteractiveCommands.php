@@ -126,10 +126,6 @@ trait InteractiveCommands
         //     '$namespace' => $namespace,
         // ]);
 
-        if (empty($namespace)) {
-            return '';
-        }
-
         $this->setConfigurationByKey('namespace', $namespace);
 
         return $namespace;
@@ -152,10 +148,6 @@ trait InteractiveCommands
         //     '$organization' => $organization,
         // ]);
 
-        if (empty($organization)) {
-            return '';
-        }
-
         $this->setConfigurationByKey('organization', $organization);
 
         return $organization;
@@ -177,10 +169,6 @@ trait InteractiveCommands
         //     '__METHOD__' => __METHOD__,
         //     '$package' => $package,
         // ]);
-
-        if (empty($package)) {
-            return '';
-        }
 
         $this->setConfigurationByKey('package', $package);
 

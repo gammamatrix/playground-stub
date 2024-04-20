@@ -16,7 +16,7 @@ trait BuildRequest
 {
     protected function buildClass_form(string $name): void
     {
-        $modelConfiguration = $this->getModelConfiguration();
+        $model = $this->model;
 
         if (in_array($this->configurationType, [
             'update',
@@ -25,10 +25,9 @@ trait BuildRequest
             $this->buildClass_slug_table();
         }
 
-        if (! empty($modelConfiguration['fillable'])
-            && is_array($modelConfiguration['fillable'])
-        ) {
-            $this->buildClass_rules_constant($modelConfiguration);
+        $fillable = $model?->fillable();
+        if (! empty($fillable)) {
+            $this->buildClass_rules_constant($model);
         }
 
         // Types: store
@@ -37,7 +36,6 @@ trait BuildRequest
             'abstract-store',
         ])) {
             $this->c->setOptions([
-                'slug' => ! empty($this->option('with-slug')),
                 'store' => ! empty($this->option('with-store')),
             ]);
             $this->createStoreTraits();
@@ -223,6 +221,23 @@ trait BuildRequest
         // ]);
 
         return $rules;
+    }
+
+    public function buildClass_slug_table(): void
+    {
+        if (in_array($this->searches['extends'], [
+            'AbstractStoreRequest',
+            'AbstractUpdateRequest',
+        ])) {
+            if (! empty($this->searches['properties'])) {
+                $this->searches['properties'] .= PHP_EOL;
+            }
+            $this->searches['properties'] .= sprintf(
+                '%2$s    protected string $slug_table = \'%1$s\';',
+                $this->model['table'] ?? '',
+                PHP_EOL
+            );
+        }
     }
 
     protected function buildClass_index(string $name): void

@@ -146,51 +146,9 @@ class RequestMakeCommand extends GeneratorCommand
         $this->searches['extends'] = $this->parseClassInput($this->c->extends());
     }
 
-    public function buildClass_slug_table(): void
-    {
-        if (in_array($this->searches['extends'], [
-            'AbstractStoreRequest',
-            'AbstractUpdateRequest',
-        ])) {
-            if (! empty($this->searches['properties'])) {
-                $this->searches['properties'] .= PHP_EOL;
-            }
-            $this->searches['properties'] .= sprintf(
-                '%2$s    protected string $slug_table = \'%1$s\';',
-                $this->model['table'] ?? '',
-                PHP_EOL
-            );
-            // $this->searches['properties'] .= PHP_EOL;
-            // dd([
-            //     '__METHOD__' => __METHOD__,
-            //     '$this->configurationType' => $this->configurationType,
-            //     // '$this->arguments()' => $this->arguments(),
-            //     // '$this->options()' => $this->options(),
-            //     // '$this->option(type)' => $this->option('type'),
-            //     // '$this->configuration' => $this->configuration,
-            //     '$this->searches' => $this->searches,
-            //     '$this->model' => $this->model,
-            //     // '$this->searches[table]' => $this->searches['table'],
-            //     // '$this->searches[extends]' => $this->searches['extends'],
-            //     // '$this->useSubfolder' => $this->useSubfolder,
-            // ]);
-        }
-    }
-
     protected function getConfigurationFilename(): string
     {
         $this->configurationType = $this->getConfigurationType();
-
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$this->configurationType' => $this->configurationType,
-        //     '$this->arguments()' => $this->arguments(),
-        //     '$this->options()' => $this->options(),
-        //     '$this->option(type)' => $this->option('type'),
-        //     '$this->configuration' => $this->configuration,
-        //     '$this->searches' => $this->searches,
-        //     '$this->useSubfolder' => $this->useSubfolder,
-        // ]);
 
         if ($this->useSubfolder) {
             return sprintf(
@@ -204,10 +162,22 @@ class RequestMakeCommand extends GeneratorCommand
                 '%1$s.%2$s.json',
                 Str::of($this->getType())->kebab(),
                 Str::of($this->c->name())->kebab(),
-                // $this->configurationType ? '.'.Str::of($this->configurationType)->kebab() : ''
             );
         }
     }
+
+    /**
+     * @var array<int, string>
+     */
+    protected array $options_type_suggested = [
+        'abstract',
+        'abstract-index',
+        'abstract-store',
+        'destroy',
+        'index',
+        'store',
+        'update',
+    ];
 
     /**
      * Get the stub file for the generator.
@@ -252,16 +222,6 @@ class RequestMakeCommand extends GeneratorCommand
             // $this->useSubfolder = true;
         }
 
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$template' => $template,
-        //     '$this->configurationType' => $this->configurationType,
-        //     '$this->arguments()' => $this->arguments(),
-        //     '$this->options()' => $this->options(),
-        //     '$this->option(type)' => $this->option('type'),
-        //     '$this->configuration' => $this->configuration,
-        //     '$this->searches' => $this->searches,
-        // ]);
         return $this->resolveStubPath($template);
     }
 
@@ -292,14 +252,6 @@ class RequestMakeCommand extends GeneratorCommand
             }
         }
 
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     // '$this->option(type)' => $this->option('type'),
-        //     // '$this->searches' => $this->searches,
-        //     '$this->folder' => $this->folder,
-        //     '$this->useSubfolder' => $this->useSubfolder,
-        // ]);
-
         return $this->folder;
     }
 
@@ -311,11 +263,7 @@ class RequestMakeCommand extends GeneratorCommand
     protected function getDefaultNamespace($rootNamespace): string
     {
         $this->useSubfolder = $this->c->class() !== $this->c->name();
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$rootNamespace' => $rootNamespace,
-        //     '$this->useSubfolder' => $this->useSubfolder,
-        // ]);
+
         if ($this->useSubfolder) {
             return rtrim(sprintf(
                 '%1$s\\Http\\Requests\\%2$s',
@@ -328,7 +276,6 @@ class RequestMakeCommand extends GeneratorCommand
                 $rootNamespace
             ), '\\');
         }
-        // return $rootNamespace.'\Http\Requests';
     }
 
     /**
@@ -340,8 +287,6 @@ class RequestMakeCommand extends GeneratorCommand
     {
         $options = parent::getOptions();
 
-        // $options[] = ['model', 'm', InputOption::VALUE_OPTIONAL, 'The model that the policy applies to'],;
-        // $options[] = ['guard', 'g', InputOption::VALUE_OPTIONAL, 'The guard that the policy relies on'];
         $options[] = ['with-pagination', null, InputOption::VALUE_NONE, 'Create the pagination traits along with the request type'];
         $options[] = ['with-store', null, InputOption::VALUE_NONE, 'Create the store slug traits along with the request type'];
         $options[] = ['skeleton', null, InputOption::VALUE_NONE, 'Create the skeleton for the request type'];
@@ -361,15 +306,11 @@ class RequestMakeCommand extends GeneratorCommand
     protected function buildClass($name): string
     {
         $model = $this->c->model();
-        if (! $model) {
-            $model = $this->hasOption('model')
-                && is_string($this->option('model'))
-                ? class_basename($this->option('model'))
-                : '';
-            $this->c->setOptions([
-                'model' => $model,
-            ]);
-        }
+        $model = class_basename($model);
+
+        $this->c->setOptions([
+            'model' => $model,
+        ]);
 
         if ($this->hasOption('abstract') && $this->option('abstract')) {
             $this->c->setOptions([
@@ -389,39 +330,16 @@ class RequestMakeCommand extends GeneratorCommand
             rtrim($this->c->name(), '\\')
         );
 
-        if (in_array($this->configurationType, [
+        if (in_array($this->c->type(), [
             'index',
             'abstract-index',
         ])) {
             $this->buildClass_index($name);
         }
 
-        // if (in_array($this->configurationType, [
-        //     'create',
-        //     'edit',
-        //     'abstract-store',
-        //     'store',
-        //     'update',
-        // ])) {
-        //     $this->buildClass_form($name);
-        // }
         $this->buildClass_form($name);
 
         $this->buildClass_uses($name);
-
-        // $this->searches['namespacedResource'] = sprintf(
-        //     '%1$s\Http\Resources\%2$s',
-        //     rtrim($this->c->namespace(), '\\'),
-        //     rtrim($this->c->name(), '\\'),
-
-        // );
-
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$name' => $name,
-        //     '$this->searches' => $this->searches,
-        //     '$this->useSubfolder' => $this->useSubfolder,
-        // ]);
 
         return parent::buildClass($name);
     }
