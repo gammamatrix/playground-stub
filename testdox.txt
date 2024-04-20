@@ -458,6 +458,10 @@ Sorting (Tests\Unit\Playground\Stub\Configuration\Model\Sorting)
  [x] AddSortable with index
  [x] AddSortable without index
 
+Stub (Tests\Feature\Playground\Stub\Console\Commands\ResourceMakeCommand\Stub)
+ [x] Command with invalid stubs path in the config
+ [x] Command with invalid path to stub in the config
+
 Types (Tests\Feature\Playground\Stub\Console\Commands\PackageMakeCommand\Types)
  [x] Command make package with force and with playground type
  [x] Command make package with force with playground type and with skeleton

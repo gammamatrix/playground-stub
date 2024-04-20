@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-20 19:24:16</timestamp>
+  <timestamp>2024-04-20 20:57:39</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>562</methodCount>
     <crapMethodCount>36</crapMethodCount>
     <crapLoad>498</crapLoad>
-    <totalCrap>11383.24</totalCrap>
+    <totalCrap>11378.07</totalCrap>
     <crapMethodPercent>6.41</crapMethodPercent>
   </stats>
   <methods>
@@ -4450,9 +4450,9 @@
       <methodName>resolveStubPath</methodName>
       <methodSignature>resolveStubPath($stub): string</methodSignature>
       <fullMethod>resolveStubPath($stub): string</fullMethod>
-      <crap>12.17</crap>
-      <complexity>6</complexity>
-      <coverage>44.44</coverage>
+      <crap>7</crap>
+      <complexity>7</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
