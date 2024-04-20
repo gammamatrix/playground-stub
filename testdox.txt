@@ -28,6 +28,10 @@ Add To Use (Tests\Unit\Playground\Stub\Configuration\Configuration\AddToUse)
  [x] AddToUse without key and succeed
  [x] AddToUse with key and succeed
 
+Api (Tests\Acceptance\Playground\Stub\Console\Commands\PackageMakeCommand\Api)
+ [x] Command make api package with force and without skeleton
+ [x] Command make api package with force and with skeleton
+
 Api (Tests\Feature\Playground\Stub\Console\Commands\RouteMakeCommand\Api)
  [x] Command make playground api route with force and without skeleton
  [x] Command make api route with force and with skeleton
@@ -70,13 +74,17 @@ Command (Tests\Feature\Playground\Stub\Console\Commands\FactoryMakeCommand\Comma
 
 Command (Tests\Feature\Playground\Stub\Console\Commands\MigrationMakeCommand\Command)
  [x] Command without options or arguments
+ [x] Command with reserved name
  [x] Command skeleton
+ [x] Command skeleton without force
  [x] Command skeleton with invalid table parameter
  [x] Command skeleton with invalid table in file
+ [x] Command skeleton with empty name in file
 
 Command (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Command)
  [x] Command without options or arguments
  [x] Command skeleton
+ [x] Command with invalid file
 
 Command (Tests\Feature\Playground\Stub\Console\Commands\PackageMakeCommand\Command)
  [x] Command without options or arguments
@@ -256,13 +264,13 @@ Instance (Tests\Unit\Playground\Stub\Configuration\Test\Instance)
  [x] Folder is empty by default
  [x] Test with file and skeleton
 
+Interactive (Tests\Feature\Playground\Stub\Console\Commands\MigrationMakeCommand\Interactive)
+ [x] Command with interactive option
+ [x] Command with interactive option and cancel
+
 Keys (Tests\Feature\Playground\Stub\Console\Commands\ResourceMakeCommand\Keys)
  [x] Command make keys resource with force and without skeleton
  [x] Command make keys resource with force and with skeleton
-
-Model (Tests\Acceptance\Playground\Stub\Console\Commands\PackageMakeCommand\Model)
- [x] Command make api package with force and without skeleton
- [x] Command make api package with force and with skeleton
 
 Model (Tests\Feature\Playground\Stub\Console\Commands\ControllerMakeCommand\Model)
  [x] Command make controller with force and without skeleton
@@ -273,9 +281,10 @@ Model (Tests\Feature\Playground\Stub\Console\Commands\FactoryMakeCommand\Model)
  [x] Command make factory with force and with skeleton
 
 Model (Tests\Feature\Playground\Stub\Console\Commands\MigrationMakeCommand\Model)
- [x] Command make migration with force and without skeleton
+ [x] Command make migration without name with force and without skeleton
  [x] Command make migration with force and with skeleton
  [x] Command make create migration with force and without skeleton
+ [x] Command make create migration without name with force and without skeleton
  [x] Command make create migration with force and with skeleton
  [x] Command make update migration with force and without skeleton
  [x] Command make update migration with force and with skeleton
@@ -352,6 +361,7 @@ Resource (Tests\Feature\Playground\Stub\Console\Commands\SwaggerMakeCommand\Reso
 Resource (Tests\Feature\Playground\Stub\Console\Commands\TemplateMakeCommand\Resource)
  [x] Command make playground resource template with force and without skeleton
  [x] Command make playground resource template with force and with skeleton
+ [x] Command make playground resource template without name with force and without skeleton without file
  [x] Command make playground resource template with force and without skeleton without file
  [x] Command make playground resource template with force and with skeleton without file
  [x] Command make playground resource index template with force and without skeleton

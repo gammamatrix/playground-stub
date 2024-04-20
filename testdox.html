@@ -86,6 +86,11 @@
             <li class="success">AddToUse without key and succeed</li>
             <li class="success">AddToUse with key and succeed</li>
         </ul>
+        <h2>Api (Tests\Acceptance\Playground\Stub\Console\Commands\PackageMakeCommand\Api)</h2>
+        <ul>
+            <li class="success">Command make api package with force and without skeleton</li>
+            <li class="success">Command make api package with force and with skeleton</li>
+        </ul>
         <h2>Api (Tests\Feature\Playground\Stub\Console\Commands\RouteMakeCommand\Api)</h2>
         <ul>
             <li class="success">Command make playground api route with force and without skeleton</li>
@@ -137,14 +142,18 @@
         <h2>Command (Tests\Feature\Playground\Stub\Console\Commands\MigrationMakeCommand\Command)</h2>
         <ul>
             <li class="success">Command without options or arguments</li>
+            <li class="success">Command with reserved name</li>
             <li class="success">Command skeleton</li>
+            <li class="success">Command skeleton without force</li>
             <li class="success">Command skeleton with invalid table parameter</li>
             <li class="success">Command skeleton with invalid table in file</li>
+            <li class="success">Command skeleton with empty name in file</li>
         </ul>
         <h2>Command (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Command)</h2>
         <ul>
             <li class="success">Command without options or arguments</li>
             <li class="success">Command skeleton</li>
+            <li class="success">Command with invalid file</li>
         </ul>
         <h2>Command (Tests\Feature\Playground\Stub\Console\Commands\PackageMakeCommand\Command)</h2>
         <ul>
@@ -359,15 +368,15 @@
             <li class="success">Folder is empty by default</li>
             <li class="success">Test with file and skeleton</li>
         </ul>
+        <h2>Interactive (Tests\Feature\Playground\Stub\Console\Commands\MigrationMakeCommand\Interactive)</h2>
+        <ul>
+            <li class="success">Command with interactive option</li>
+            <li class="success">Command with interactive option and cancel</li>
+        </ul>
         <h2>Keys (Tests\Feature\Playground\Stub\Console\Commands\ResourceMakeCommand\Keys)</h2>
         <ul>
             <li class="success">Command make keys resource with force and without skeleton</li>
             <li class="success">Command make keys resource with force and with skeleton</li>
-        </ul>
-        <h2>Model (Tests\Acceptance\Playground\Stub\Console\Commands\PackageMakeCommand\Model)</h2>
-        <ul>
-            <li class="success">Command make api package with force and without skeleton</li>
-            <li class="success">Command make api package with force and with skeleton</li>
         </ul>
         <h2>Model (Tests\Feature\Playground\Stub\Console\Commands\ControllerMakeCommand\Model)</h2>
         <ul>
@@ -381,9 +390,10 @@
         </ul>
         <h2>Model (Tests\Feature\Playground\Stub\Console\Commands\MigrationMakeCommand\Model)</h2>
         <ul>
-            <li class="success">Command make migration with force and without skeleton</li>
+            <li class="success">Command make migration without name with force and without skeleton</li>
             <li class="success">Command make migration with force and with skeleton</li>
             <li class="success">Command make create migration with force and without skeleton</li>
+            <li class="success">Command make create migration without name with force and without skeleton</li>
             <li class="success">Command make create migration with force and with skeleton</li>
             <li class="success">Command make update migration with force and without skeleton</li>
             <li class="success">Command make update migration with force and with skeleton</li>
@@ -472,6 +482,7 @@
         <ul>
             <li class="success">Command make playground resource template with force and without skeleton</li>
             <li class="success">Command make playground resource template with force and with skeleton</li>
+            <li class="success">Command make playground resource template without name with force and without skeleton without file</li>
             <li class="success">Command make playground resource template with force and without skeleton without file</li>
             <li class="success">Command make playground resource template with force and with skeleton without file</li>
             <li class="success">Command make playground resource index template with force and without skeleton</li>

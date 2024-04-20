@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-20 00:33:16</timestamp>
+  <timestamp>2024-04-20 02:30:49</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>562</methodCount>
-    <crapMethodCount>36</crapMethodCount>
-    <crapLoad>518</crapLoad>
-    <totalCrap>12307.35</totalCrap>
-    <crapMethodPercent>6.41</crapMethodPercent>
+    <crapMethodCount>35</crapMethodCount>
+    <crapLoad>491</crapLoad>
+    <totalCrap>11499.13</totalCrap>
+    <crapMethodPercent>6.23</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -4197,9 +4197,9 @@
       <methodName>readJsonFileAsArray</methodName>
       <methodSignature>readJsonFileAsArray(string $file, bool $required, string $name): array</methodSignature>
       <fullMethod>readJsonFileAsArray(string $file, bool $required, string $name): array</fullMethod>
-      <crap>10.99</crap>
+      <crap>9.4</crap>
       <complexity>8</complexity>
-      <coverage>64</coverage>
+      <coverage>72</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4505,9 +4505,9 @@
       <methodName>interactive</methodName>
       <methodSignature>interactive(): string</methodSignature>
       <fullMethod>interactive(): string</fullMethod>
-      <crap>42</crap>
+      <crap>6</crap>
       <complexity>6</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4516,9 +4516,9 @@
       <methodName>interactivePromptInput</methodName>
       <methodSignature>interactivePromptInput(string $label, string $placeholder, string $default, string $hint): string</methodSignature>
       <fullMethod>interactivePromptInput(string $label, string $placeholder, string $default, string $hint): string</fullMethod>
-      <crap>12</crap>
+      <crap>3</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4527,10 +4527,10 @@
       <methodName>interactivePromptForName</methodName>
       <methodSignature>interactivePromptForName(): string</methodSignature>
       <fullMethod>interactivePromptForName(): string</fullMethod>
-      <crap>702</crap>
+      <crap>26</crap>
       <complexity>26</complexity>
-      <coverage>0</coverage>
-      <crapLoad>27</crapLoad>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands\Concerns</package>
@@ -4538,9 +4538,9 @@
       <methodName>interactivePromptForNamespace</methodName>
       <methodSignature>interactivePromptForNamespace(): string</methodSignature>
       <fullMethod>interactivePromptForNamespace(): string</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>90</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4549,9 +4549,9 @@
       <methodName>interactivePromptForOrganization</methodName>
       <methodSignature>interactivePromptForOrganization(): string</methodSignature>
       <fullMethod>interactivePromptForOrganization(): string</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>90</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4560,9 +4560,9 @@
       <methodName>interactivePromptForPackage</methodName>
       <methodSignature>interactivePromptForPackage(): string</methodSignature>
       <fullMethod>interactivePromptForPackage(): string</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>90</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4637,9 +4637,9 @@
       <methodName>loadOptionsIntoConfiguration</methodName>
       <methodSignature>loadOptionsIntoConfiguration(mixed $configuration): void</methodSignature>
       <fullMethod>loadOptionsIntoConfiguration(mixed $configuration): void</fullMethod>
-      <crap>2.15</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>66.67</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4659,9 +4659,9 @@
       <methodName>getConfigurationByKeyAsString</methodName>
       <methodSignature>getConfigurationByKeyAsString(string $key, string $default): string</methodSignature>
       <fullMethod>getConfigurationByKeyAsString(string $key, string $default): string</fullMethod>
-      <crap>12</crap>
+      <crap>3</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4692,9 +4692,9 @@
       <methodName>setConfigurationByKey</methodName>
       <methodSignature>setConfigurationByKey(string $key, mixed $value, bool $addable): void</methodSignature>
       <fullMethod>setConfigurationByKey(string $key, mixed $value, bool $addable): void</fullMethod>
-      <crap>42</crap>
+      <crap>8.69</crap>
       <complexity>6</complexity>
-      <coverage>0</coverage>
+      <coverage>57.89</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4725,9 +4725,9 @@
       <methodName>reset</methodName>
       <methodSignature>reset(): void</methodSignature>
       <fullMethod>reset(): void</fullMethod>
-      <crap>3.01</crap>
+      <crap>3</crap>
       <complexity>3</complexity>
-      <coverage>91.67</coverage>
+      <coverage>92.31</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4749,7 +4749,7 @@
       <fullMethod>resetNamespace(): void</fullMethod>
       <crap>22</crap>
       <complexity>22</complexity>
-      <coverage>98.11</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4758,9 +4758,9 @@
       <methodName>resetFile</methodName>
       <methodSignature>resetFile(): void</methodSignature>
       <fullMethod>resetFile(): void</fullMethod>
-      <crap>7.58</crap>
+      <crap>7.29</crap>
       <complexity>7</complexity>
-      <coverage>77.27</coverage>
+      <coverage>81.82</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4769,9 +4769,9 @@
       <methodName>initModel</methodName>
       <methodSignature>initModel(bool $withSkeleton, bool $reload): void</methodSignature>
       <fullMethod>initModel(bool $withSkeleton, bool $reload): void</fullMethod>
-      <crap>14.01</crap>
+      <crap>8.05</crap>
       <complexity>8</complexity>
-      <coverage>54.55</coverage>
+      <coverage>90.91</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5000,8 +5000,8 @@
       <methodName>handle</methodName>
       <methodSignature>handle()</methodSignature>
       <fullMethod>handle()</fullMethod>
-      <crap>12.05</crap>
-      <complexity>12</complexity>
+      <crap>11.04</crap>
+      <complexity>11</complexity>
       <coverage>92.86</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -5220,9 +5220,9 @@
       <methodName>handle</methodName>
       <methodSignature>handle()</methodSignature>
       <fullMethod>handle()</fullMethod>
-      <crap>23.33</crap>
+      <crap>15</crap>
       <complexity>15</complexity>
-      <coverage>66.67</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5264,20 +5264,9 @@
       <methodName>getNameInput</methodName>
       <methodSignature>getNameInput(): ?string</methodSignature>
       <fullMethod>getNameInput(): ?string</fullMethod>
-      <crap>9</crap>
-      <complexity>8</complexity>
-      <coverage>75</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\GeneratorCommand</className>
-      <methodName>getStub</methodName>
-      <methodSignature>getStub()</methodSignature>
-      <fullMethod>getStub()</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5297,8 +5286,8 @@
       <methodName>handle</methodName>
       <methodSignature>handle()</methodSignature>
       <fullMethod>handle()</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
+      <crap>1</crap>
+      <complexity>1</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -5352,8 +5341,8 @@
       <methodName>handle</methodName>
       <methodSignature>handle()</methodSignature>
       <fullMethod>handle()</fullMethod>
-      <crap>32</crap>
-      <complexity>32</complexity>
+      <crap>31</crap>
+      <complexity>31</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -5484,9 +5473,9 @@
       <methodName>handle</methodName>
       <methodSignature>handle()</methodSignature>
       <fullMethod>handle()</fullMethod>
-      <crap>15.69</crap>
-      <complexity>10</complexity>
-      <coverage>61.54</coverage>
+      <crap>13.12</crap>
+      <complexity>9</complexity>
+      <coverage>62.96</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5986,6 +5975,17 @@
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\SwaggerMakeCommand</className>
+      <methodName>getStub</methodName>
+      <methodSignature>getStub()</methodSignature>
+      <fullMethod>getStub()</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\TemplateMakeCommand</className>
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
@@ -6023,8 +6023,8 @@
       <methodName>handle</methodName>
       <methodSignature>handle()</methodSignature>
       <fullMethod>handle()</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
+      <crap>3</crap>
+      <complexity>3</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
