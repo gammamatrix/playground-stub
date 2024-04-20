@@ -29,37 +29,36 @@ class TemplateMakeCommand extends GeneratorCommand
      */
     protected ConfigurationContract $c;
 
-    /**
-     * @var array<string, mixed>
-     */
-    const CONFIGURATION = [
-        'class' => '',
-        'extends' => '',
-        'name' => '',
-        'folder' => '',
-        'namespace' => 'App',
-        'model' => '',
-        'model_column' => '',
-        'model_label' => '',
-        'module' => '',
-        'module_slug' => '',
-        'organization' => '',
-        'package' => '',
-        'config' => '',
-        'type' => '',
-        'route' => 'welcome',
-        // 'base_route' => 'welcome',
-        'title' => '',
-        // stubs/template/playground/resource-index-section.stub
-        'sections' => [
-            //     // 'title' => '',
-            //     // 'subtitle' => '',
-            //     // 'text' => '',
-            //     // 'route' => '',
-            //     // 'route_label' => '',
-        ],
-        'HasOne' => [],
-    ];
+    // /**
+    //  * @var array<string, mixed>
+    //  */
+    // const CONFIGURATION = [
+    //     'class' => '',
+    //     'extends' => '',
+    //     'name' => '',
+    //     'folder' => '',
+    //     'namespace' => 'App',
+    //     'model' => '',
+    //     'model_column' => '',
+    //     'model_label' => '',
+    //     'module' => '',
+    //     'module_slug' => '',
+    //     'organization' => '',
+    //     'package' => '',
+    //     'config' => '',
+    //     'type' => '',
+    //     'route' => 'welcome',
+    //     // 'base_route' => 'welcome',
+    //     'title' => '',
+    //     // stubs/template/playground/resource-index-section.stub
+    //     'sections' => [
+    //         //     // 'title' => '',
+    //         //     // 'subtitle' => '',
+    //         //     // 'text' => '',
+    //         //     // 'route' => '',
+    //         //     // 'route_label' => '',
+    //     ],
+    // ];
 
     /**
      * @var array<string, string>
@@ -138,10 +137,6 @@ class TemplateMakeCommand extends GeneratorCommand
             $this->searches['title'] = $this->c->title();
         }
 
-        if (! empty($this->configuration['config']) && is_string($this->configuration['config'])) {
-            $this->searches['config'] = Str::of($this->configuration['config'])->snake()->replace('-', '_')->toString();
-        }
-
         if (! empty($options['extends']) && is_string($options['extends'])) {
             $this->c->setOptions([
                 'extends' => $options['extends'],
@@ -159,18 +154,6 @@ class TemplateMakeCommand extends GeneratorCommand
         );
     }
 
-    // /**
-    //  * Build the class with the given name.
-    //  *
-    //  * @param  string  $name
-    //  * @return string
-    //  */
-    // protected function buildClass($name)
-    // {
-    //     // $this->buildClass_model($name);
-    //     return parent::buildClass($name);
-    // }
-
     /**
      * Parse the class name and format according to the root namespace.
      *
@@ -179,10 +162,6 @@ class TemplateMakeCommand extends GeneratorCommand
     protected function qualifyClass($name): string
     {
         $type = $this->getConfigurationType();
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$type' => $type,
-        // ]);
 
         if (empty($this->configuration['folder'])) {
             $this->c->setOptions([
@@ -316,6 +295,16 @@ class TemplateMakeCommand extends GeneratorCommand
     }
 
     /**
+     * @var array<int, string>
+     */
+    protected array $options_type_suggested = [
+        'site',
+        'playground',
+        'playground-resource-index',
+        'playground-resource',
+    ];
+
+    /**
      * Get the console command arguments.
      *
      * @return array<int, mixed>
@@ -324,12 +313,9 @@ class TemplateMakeCommand extends GeneratorCommand
     {
         $options = parent::getOptions();
 
-        // $options[] = ['model', 'm', InputOption::VALUE_OPTIONAL, 'The model that the template applies to'],;
         $options[] = ['route', null, InputOption::VALUE_OPTIONAL, 'The base route for breadcrumbs.'];
-        $options[] = ['title', null, InputOption::VALUE_OPTIONAL, 'The title of the base route for breadcrumbs.'];
+        $options[] = ['title', null, InputOption::VALUE_OPTIONAL, 'The title of the route for breadcrumbs.'];
         $options[] = ['config', null, InputOption::VALUE_OPTIONAL, 'The config name that will be snake case.'];
-        // $options[] = ['roles-action', null, InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY, 'The roles for action.'];
-        // $options[] = ['roles-view', null, InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY, 'The roles to view.'];
 
         return $options;
     }

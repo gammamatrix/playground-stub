@@ -11,7 +11,7 @@ use Playground\Stub\Console\Commands\TemplateMakeCommand;
 use Tests\Feature\Playground\Stub\TestCase;
 
 /**
- * \Tests\Feature\Playground\Stub\Console\Commands\TemplateMakeCommand
+ * \Tests\Feature\Playground\Stub\Console\Commands\TemplateMakeCommand\CommandTest
  */
 #[CoversClass(TemplateMakeCommand::class)]
 class CommandTest extends TestCase

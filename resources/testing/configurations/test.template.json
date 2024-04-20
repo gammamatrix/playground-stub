@@ -12,13 +12,10 @@
     "name": "Rocket",
     "folder": "",
     "class": "",
-    "type": "playground-model",
+    "type": "",
     "extends": "",
     "implements": [],
     "properties": [],
     "setup": [],
-    "tests": [],
-    "models": {
-        "Rocket": "tmp-testing-model.acme.rocket.json"
-    }
+    "tests": []
 }
