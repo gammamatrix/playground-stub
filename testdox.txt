@@ -305,10 +305,6 @@ Model (Tests\Feature\Playground\Stub\Console\Commands\SwaggerMakeCommand\Model)
  [x] Command make swagger model with force and with skeleton
  [x] Command make swagger model without model file
 
-Model (Tests\Feature\Playground\Stub\Console\Commands\TemplateMakeCommand\Model)
- [x] Command make template with force and without skeleton
- [x] Command make template with force and with skeleton
-
 Model (Tests\Feature\Playground\Stub\Console\Commands\TestMakeCommand\Model)
  [x] Command make test with force and without skeleton
  [x] Command make test with force and with skeleton
@@ -326,6 +322,9 @@ Options (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Options
  [x] Command make model with model type
  [x] Command make model with api controller option
  [x] Command make model with resource controller option
+
+Options (Tests\Feature\Playground\Stub\Console\Commands\TemplateMakeCommand\Options)
+ [x] Command with options
 
 Properties (Tests\Unit\Playground\Stub\Configuration\Configuration\Properties)
  [x] Properties
@@ -350,11 +349,31 @@ Resource (Tests\Feature\Playground\Stub\Console\Commands\SwaggerMakeCommand\Reso
  [x] Command make swagger with force and without skeleton
  [x] Command make swagger with force and with skeleton
 
+Resource (Tests\Feature\Playground\Stub\Console\Commands\TemplateMakeCommand\Resource)
+ [x] Command make playground resource template with force and without skeleton
+ [x] Command make playground resource template with force and with skeleton
+ [x] Command make playground resource template with force and without skeleton without file
+ [x] Command make playground resource template with force and with skeleton without file
+ [x] Command make playground resource index template with force and without skeleton
+ [x] Command make playground resource index template with force and with skeleton
+ [x] Command make playground resource index template with force and without skeleton without file
+ [x] Command make playground resource index template with force and with skeleton without file
+
 Scopes (Tests\Unit\Playground\Stub\Configuration\Model\Scopes)
  [x] AddScopes with sort
  [x] AddScope with invalid scope
  [x] AddScope for sort without meta
  [x] AddScope unsupported scope and ignore
+
+Site (Tests\Feature\Playground\Stub\Console\Commands\TemplateMakeCommand\Site)
+ [x] Command make site template with force and without skeleton
+ [x] Command make site template with force and with skeleton
+ [x] Command make site template with force and without skeleton without file
+ [x] Command make site template with force and with skeleton without file
+ [x] Command make playground template with force and without skeleton
+ [x] Command make playground template with force and with skeleton
+ [x] Command make playground template with force and without skeleton without file
+ [x] Command make playground template with force and with skeleton without file
 
 Skeleton (Tests\Unit\Playground\Stub\Configuration\Configuration\Skeleton)
  [x] Skeleton

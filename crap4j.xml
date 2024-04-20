@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-19 23:45:22</timestamp>
+  <timestamp>2024-04-20 00:33:16</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>562</methodCount>
     <crapMethodCount>36</crapMethodCount>
     <crapLoad>518</crapLoad>
-    <totalCrap>12347.93</totalCrap>
+    <totalCrap>12307.35</totalCrap>
     <crapMethodPercent>6.41</crapMethodPercent>
   </stats>
   <methods>
@@ -5990,9 +5990,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>34.95</crap>
-      <complexity>9</complexity>
-      <coverage>31.58</coverage>
+      <crap>7</crap>
+      <complexity>7</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -6012,9 +6012,9 @@
       <methodName>qualifyClass</methodName>
       <methodSignature>qualifyClass($name): string</methodSignature>
       <fullMethod>qualifyClass($name): string</fullMethod>
-      <crap>9.36</crap>
+      <crap>7</crap>
       <complexity>7</complexity>
-      <coverage>63.64</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -6023,9 +6023,9 @@
       <methodName>handle</methodName>
       <methodSignature>handle()</methodSignature>
       <fullMethod>handle()</fullMethod>
-      <crap>4.07</crap>
+      <crap>4</crap>
       <complexity>4</complexity>
-      <coverage>83.33</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -6034,9 +6034,9 @@
       <methodName>handle_playground_resource</methodName>
       <methodSignature>handle_playground_resource(): void</methodSignature>
       <fullMethod>handle_playground_resource(): void</fullMethod>
-      <crap>12</crap>
+      <crap>3</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -6045,9 +6045,9 @@
       <methodName>getStub</methodName>
       <methodSignature>getStub(): string</methodSignature>
       <fullMethod>getStub(): string</fullMethod>
-      <crap>6.2</crap>
+      <crap>5</crap>
       <complexity>5</complexity>
-      <coverage>63.64</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
