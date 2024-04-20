@@ -131,9 +131,12 @@ abstract class GeneratorCommand extends Command
 
         $this->components->info(sprintf('%s [%s] created successfully.', $info, $path));
 
-        if ($this->saveConfiguration) {
-            $this->saveConfiguration();
-        }
+        return $this->finish();
+    }
+
+    public function finish(): ?bool
+    {
+        $this->saveConfiguration();
 
         return $this->return_status;
     }

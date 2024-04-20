@@ -7,9 +7,7 @@ declare(strict_types=1);
 namespace Playground\Stub\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand as BaseGeneratorCommand;
-use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
 use Symfony\Component\Console\Input\InputArgument;
@@ -22,6 +20,7 @@ use Symfony\Component\Console\Input\InputOption;
 abstract class Command extends BaseGeneratorCommand
 {
     use Concerns\BuildingClasses;
+    use Concerns\Files;
     use Concerns\InteractiveCommands;
     use Concerns\PackageConfiguration;
 
@@ -113,21 +112,15 @@ abstract class Command extends BaseGeneratorCommand
     protected function buildClass($name): string
     {
         if (empty($this->searches['namespacedUserModel'])) {
+            $this->searches['rootNamespace'] = $this->rootNamespace();
+            $this->searches['DummyRootNamespace'] = $this->rootNamespace();
             $userProviderModel = $this->userProviderModel();
-            if (is_string($userProviderModel)) {
+            if (is_string($userProviderModel) && $userProviderModel) {
                 $this->searches['namespacedUserModel'] = $userProviderModel;
                 $this->searches['NamespacedDummyUserModel'] = $userProviderModel;
             }
         }
 
-        if (empty($this->searches['namespacedUserModel'])) {
-            $this->searches['rootNamespace'] = $this->rootNamespace();
-            $this->searches['DummyRootNamespace'] = $this->rootNamespace();
-        }
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$this->getStub()' => $this->getStub(),
-        // ]);
         $stub = $this->files->get($this->getStub());
         $this->search_and_replace($stub);
 
@@ -180,131 +173,6 @@ abstract class Command extends BaseGeneratorCommand
     }
 
     /**
-     * Load a JSON file.
-     *
-     * Path priority for relative files:
-     * - base_path($file)
-     * - base_path($file)
-     *
-     * @return array<string, mixed>
-     */
-    protected function readJsonFileAsArray(string $file, bool $required = true, string $name = 'file'): array
-    {
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$file' => $file,
-        // ]);
-        if (empty($file)) {
-            throw new \RuntimeException(__('playground-stub::stub.Command.json.file.required'));
-        }
-
-        $stringable = Str::of($file);
-
-        if (! $stringable->endsWith('.json')) {
-            throw new \RuntimeException(__('playground-stub::stub.Command.json.file.json', [
-                'file' => $file,
-            ]));
-        }
-
-        $pathInApp = '';
-        $pathInPackage = '';
-
-        $payload = null;
-        // $contents = null;
-
-        // Check relative paths
-        if (! $stringable->startsWith('/')) {
-
-            $pathInApp = base_path($file);
-            $pathInPackage = sprintf('%1$s/%2$s', dirname(dirname(dirname(__DIR__))), $file);
-
-            if ($this->files->exists($pathInApp)) {
-                $this->components->info(sprintf('Loading %s [%s] from the app [%s]', $name, $file, $pathInApp));
-                // $contents = file_get_contents($pathInApp);
-                $payload = $this->files->json($pathInApp);
-            } elseif ($this->files->exists($pathInPackage)) {
-                $this->components->info(sprintf('Loading %s [%s] from the package [%s]', $name, $file, $pathInApp));
-                // $contents = file_get_contents($pathInPackage);
-                $payload = $this->files->json($pathInPackage);
-            } else {
-                $this->components->error(sprintf('Unable to find %s [%s] in the app [%s] or package [%s]', $name, $file, $pathInApp, $pathInPackage));
-            }
-
-        } else {
-            if ($this->files->exists($file)) {
-                $this->components->info(sprintf('Loading %s [%s]', $name, $file));
-                // $contents = file_get_contents($file);
-                $payload = $this->files->json($file);
-            } else {
-                $this->components->error(sprintf('Unable to find %s [%s]', $name, $file));
-            }
-        }
-
-        // // NOTE: An empty file is not necessarily an error when building skeletons.
-        // if ($contents === false) {
-        //     if ($required) {
-        //         throw new \RuntimeException(__('playground-stub::stub.Command.json.file.invalid', [
-        //             'file' => $file,
-        //         ]));
-        //     }
-        // } elseif (! is_null($contents)) {
-        //     $payload = json_decode($contents, true);
-        //     if (json_last_error() && $required) {
-        //         Log::debug(__METHOD__, [
-        //             'file' => $file,
-        //             'json_last_error_msg()' => json_last_error_msg(),
-        //         ]);
-        //         throw new \RuntimeException(__('playground-stub::stub.Command.json.file.invalid', [
-        //             'file' => $file,
-        //         ]));
-        //     }
-        // }
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     'dir' => dirname(dirname(dirname(__DIR__))),
-        //     '$file' => $file,
-        //     '$required' => $required,
-        //     '$pathInApp' => $pathInApp,
-        //     '$pathInPackage' => $pathInPackage,
-        //     // '$contents' => $contents,
-        //     '$payload' => $payload,
-        // ]);
-
-        return is_array($payload) ? $payload : [];
-    }
-
-    /**
-     * Create the stub directory in storage for the generated code.
-     */
-    protected function disk(): FilesystemAdapter
-    {
-        $disk = config('playground-stub.disk');
-        $disk = empty($disk) || ! is_string($disk) ? 'local' : $disk;
-
-        return Storage::disk($disk);
-    }
-
-    // /**
-    //  * Create the stub directory in storage for the generated code.
-    //  */
-    // protected function createStubDirectory(): void
-    // {
-    //     if (!$this->disk()->exists('stub')) {
-    //         $this->disk()->makeDirectory('stub');
-    //     }
-    // }
-
-    // /**
-    //  * Create the stub directory in storage for the generated code.
-    //  */
-    // protected function createTypeDirectory(): void
-    // {
-    //     if (!$this->disk()->exists('stub')) {
-    //         $this->disk()->makeDirectory('stub');
-    //     }
-    // }
-
-    /**
      * Get the default namespace for the class.
      *
      * @param  string  $rootNamespace
@@ -312,24 +180,19 @@ abstract class Command extends BaseGeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        // throw new \Exception('DOH!');
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$rootNamespace' => $rootNamespace,
-        // ]);
         return $this->parseClassInput($rootNamespace);
     }
 
-    /**
-     * Get the full namespace for a given class, without the class name.
-     *
-     * @param  string  $name
-     * @return string
-     */
-    protected function getNamespace($name)
-    {
-        return trim(implode('\\', array_slice(explode('\\', $name), 0, -1)), '\\');
-    }
+    // /**
+    //  * Get the full namespace for a given class, without the class name.
+    //  *
+    //  * @param  string  $name
+    //  * @return string
+    //  */
+    // protected function getNamespace($name)
+    // {
+    //     return trim(implode('\\', array_slice(explode('\\', $name), 0, -1)), '\\');
+    // }
 
     /**
      * Get the root namespace for the class.
@@ -338,80 +201,38 @@ abstract class Command extends BaseGeneratorCommand
      */
     protected function rootNamespace()
     {
-        $rootNamespace = '';
+        $rootNamespace = $this->laravel->getNamespace();
         if ($this->hasOption('namespace') && $this->option('namespace')) {
             $rootNamespace = $this->parseClassInput($this->option('namespace'));
-        } elseif (! empty($this->c->namespace()
-            && is_string($this->c->namespace()))
-        ) {
+        } elseif ($this->c->namespace()) {
             $rootNamespace = $this->parseClassInput($this->c->namespace());
         }
 
-        if (empty($rootNamespace)) {
-            $rootNamespace = $this->laravel->getNamespace();
-        } else {
-            if (! str_ends_with($rootNamespace, '\\')) {
-                $rootNamespace .= '\\';
-            }
+        if (! str_ends_with($rootNamespace, '\\')) {
+            $rootNamespace .= '\\';
         }
 
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$rootNamespace' => $rootNamespace,
-        // ]);
         return $rootNamespace;
     }
 
+    /**
+     * Get the destination class path.
+     *
+     * @param  string  $name
+     */
     protected function getPath($name): string
     {
-        if (empty($this->c->package())) {
-            $this->c->setOptions([
-                'package' => 'app',
-            ]);
-        }
-
         $path = sprintf(
             '%1$s/%2$s.php',
             $this->folder(),
             $this->c->class()
         );
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$this->folder' => $this->folder,
-        //     '$this->configuration[package]' => $this->c->package(),
-        //     '$name' => $name,
-        //     '$path' => $path,
-        //     'rootNamespace()' => $this->rootNamespace(),
-        // ]);
 
         return $this->laravel->storagePath().$path;
     }
 
-    // protected function getDestinationPath(): string
-    // {
-    //     $path = static::PATH_DESTINATION;
-
-    //     if (! empty($this->c->package())) {
-    //         $path .= '/'.ltrim($this->c->package(), '/');
-    //     }
-
-    //     if (static::PATH_DESTINATION_FOLDER) {
-    //         $path .= '/'.ltrim(static::PATH_DESTINATION_FOLDER, '/');
-    //     }
-
-    //     return $path;
-    // }
-
     protected function search_and_replace(string &$stub): self
     {
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$this->folder' => $this->folder,
-        //     '$this->searches' => $this->searches,
-        //     '$this->configuration' => $this->configuration,
-        //     // '$this->configuration[package]' => $this->c->package(),
-        //     'rootNamespace()' => $this->rootNamespace(),
-        // ]);
         foreach ($this->searches as $search => $value) {
             $stub = str_replace([
                 sprintf('{{%1$s}}', $search),
@@ -486,26 +307,26 @@ abstract class Command extends BaseGeneratorCommand
         ];
     }
 
-    /**
-     * Prompt for missing input arguments using the returned questions.
-     *
-     * @return array<int, mixed>
-     */
-    protected function promptForMissingArgumentsUsing(): array
-    {
-        return [];
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$this->option(file)' => $this->option('file'),
-        //     '$this->hasOption(file)' => $this->hasOption('file'),
-        // ]);
+    // /**
+    //  * Prompt for missing input arguments using the returned questions.
+    //  *
+    //  * @return array<int, mixed>
+    //  */
+    // protected function promptForMissingArgumentsUsing(): array
+    // {
+    //     return [];
+    //     // dd([
+    //     //     '__METHOD__' => __METHOD__,
+    //     //     '$this->option(file)' => $this->option('file'),
+    //     //     '$this->hasOption(file)' => $this->hasOption('file'),
+    //     // ]);
 
-        // if ($this->hasOption('file') && $this->option('file')) {
-        //     return [];
-        // }
+    //     // if ($this->hasOption('file') && $this->option('file')) {
+    //     //     return [];
+    //     // }
 
-        // return parent::promptForMissingArgumentsUsing();
-    }
+    //     // return parent::promptForMissingArgumentsUsing();
+    // }
 
     protected bool $qualifiedNameStudly = true;
 
@@ -538,9 +359,9 @@ abstract class Command extends BaseGeneratorCommand
             $this->searches['class'] = $this->c->class();
         }
 
-        if (Str::startsWith($name, $rootNamespace)) {
-            return $name;
-        }
+        // if (Str::startsWith($name, $rootNamespace)) {
+        //     return $name;
+        // }
 
         return $this->getDefaultNamespace(trim($rootNamespace, '\\')).'\\'.$name;
         // return $this->qualifyClass(

@@ -226,34 +226,21 @@ class FactoryMakeCommand extends GeneratorCommand
         // );
     }
 
-    /**
-     * Get the destination class path.
-     *
-     * @param  string  $name
-     */
-    protected function getPath($name): string
-    {
-        // $name = (string) Str::of($name)->replaceFirst($this->rootNamespace(), '')->finish('Factory');
-        $path = sprintf(
-            '%1$s/%2$s.php',
-            $this->folder(),
-            $this->c->class()
-        );
+    // /**
+    //  * Get the destination class path.
+    //  *
+    //  * @param  string  $name
+    //  */
+    // protected function getPath($name): string
+    // {
+    //     $path = sprintf(
+    //         '%1$s/%2$s.php',
+    //         $this->folder(),
+    //         $this->c->class()
+    //     );
 
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$this->configuration[class]' => $this->configuration['class'],
-        //     // '$this->configuration' => $this->configuration,
-        //     // '$this->model' => $this->model,
-        //     '$this->folder' => $this->folder,
-        //     // '$this->configuration[package]' => $this->configuration['package'],
-        //     '$name' => $name,
-        //     '$path' => $path,
-        //     'rootNamespace()' => $this->rootNamespace(),
-        // ]);
-        return $this->laravel->storagePath().$path;
-        // return $this->laravel->databasePath().'/factories/'.str_replace('\\', '/', $name).'.php';
-    }
+    //     return $this->laravel->storagePath().$path;
+    // }
 
     // /**
     //  * Guess the model name from the Factory name or return a default model name.

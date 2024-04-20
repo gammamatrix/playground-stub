@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace Playground\Stub\Console\Commands;
 
 use Illuminate\Support\Str;
+use Playground\Stub\Building;
 use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
 use Playground\Stub\Configuration\Policy as Configuration;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -23,6 +24,8 @@ use function Laravel\Prompts\suggest;
 #[AsCommand(name: 'playground:make:policy')]
 class PolicyMakeCommand extends GeneratorCommand
 {
+    use Building\Policy\BuildRoles;
+
     /**
      * @var class-string<Configuration>
      */
@@ -112,11 +115,6 @@ class PolicyMakeCommand extends GeneratorCommand
                 }
             }
         }
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     '$this->c' => $this->c,
-        //     '$this->options()' => $this->options(),
-        // ]);
     }
 
     protected function getConfigurationFilename(): string
@@ -143,12 +141,6 @@ class PolicyMakeCommand extends GeneratorCommand
         $this->make_roles_for_action($this->searches);
 
         return parent::buildClass($name);
-
-        // $stub = $this->replaceUserNamespace(
-        //     parent::buildClass($name)
-        // );
-
-        // return $model ? $this->replaceModel($stub, $model) : $stub;
     }
 
     protected function buildClass_user_model(): void
@@ -161,27 +153,6 @@ class PolicyMakeCommand extends GeneratorCommand
         $this->searches['NamespacedDummyUserModel'] = $upm;
         $this->searches['namespacedUserModel'] = $upm;
     }
-
-    // /**
-    //  * Replace the User model namespace.
-    //  *
-    //  * @param  string  $stub
-    //  * @return string
-    //  */
-    // protected function replaceUserNamespace($stub)
-    // {
-    //     $model = $this->userProviderModel();
-
-    //     if (! $model) {
-    //         return $stub;
-    //     }
-
-    //     return str_replace(
-    //         $this->laravel->getNamespace().'User',
-    //         $model,
-    //         $stub
-    //     );
-    // }
 
     protected function userProviderModelGuard(mixed $guard): string
     {
@@ -212,65 +183,6 @@ class PolicyMakeCommand extends GeneratorCommand
         return $upm && is_string($upm) ? $upm : 'App\\Models\\User';
     }
 
-    // /**
-    //  * Replace the model for the given stub.
-    //  *
-    //  * @param  string  $stub
-    //  * @param  string  $model
-    //  * @return string
-    //  */
-    // protected function replaceModel($stub, $model)
-    // {
-    //     $model = str_replace('/', '\\', $model);
-    //     dd([
-    //         '__METHOD__' => __METHOD__,
-    //         '$model' => $model,
-    //     ]);
-
-    //     if (str_starts_with($model, '\\')) {
-    //         $namespacedModel = trim($model, '\\');
-    //     } else {
-    //         $namespacedModel = $this->qualifyModel($model);
-    //     }
-
-    //     $model = class_basename(trim($model, '\\'));
-
-    //     $dummyUser = class_basename($this->userProviderModel());
-
-    //     $dummyModel = Str::camel($model) === 'user' ? 'model' : $model;
-
-    //     $replace = [
-    //         'NamespacedDummyModel' => $namespacedModel,
-    //         '{{ namespacedModel }}' => $namespacedModel,
-    //         '{{namespacedModel}}' => $namespacedModel,
-    //         'DummyModel' => $model,
-    //         '{{ model }}' => $model,
-    //         '{{model}}' => $model,
-    //         'dummyModel' => Str::camel($dummyModel),
-    //         '{{ modelVariable }}' => Str::camel($dummyModel),
-    //         '{{modelVariable}}' => Str::camel($dummyModel),
-    //         'DummyUser' => $dummyUser,
-    //         '{{ user }}' => $dummyUser,
-    //         '{{user}}' => $dummyUser,
-    //         '$user' => '$'.Str::camel($dummyUser),
-    //     ];
-
-    //     $stub = str_replace(
-    //         array_keys($replace),
-    //         array_values($replace),
-    //         $stub
-    //     );
-
-    //     return preg_replace(
-    //         vsprintf('/use %s;[\r\n]+use %s;/', [
-    //             preg_quote($namespacedModel, '/'),
-    //             preg_quote($namespacedModel, '/'),
-    //         ]),
-    //         "use {$namespacedModel};",
-    //         $stub
-    //     );
-    // }
-
     /**
      * Get the stub file for the generator.
      *
@@ -295,23 +207,6 @@ class PolicyMakeCommand extends GeneratorCommand
         return $this->resolveStubPath($template);
     }
 
-    // /**
-    //  * Resolve the fully-qualified path to the stub.
-    //  *
-    //  * @param  string  $stub
-    //  * @return string
-    //  */
-    // protected function resolveStubPath($stub): string
-    // {
-    //     $file = $this->laravel->basePath(sprintf('%1$s/%2$s', static::STUBS, $stub));
-    //     dump([
-    //         '__METHOD__' => __METHOD__,
-    //         '$file' => $file,
-    //     ]);
-
-    //     return $file;
-    // }
-
     /**
      * Get the default namespace for the class.
      *
@@ -321,7 +216,6 @@ class PolicyMakeCommand extends GeneratorCommand
     protected function getDefaultNamespace($rootNamespace)
     {
         return $this->parseClassInput($rootNamespace).'\\Policies';
-        // return $rootNamespace.'\Policies';
     }
 
     /**
@@ -333,18 +227,11 @@ class PolicyMakeCommand extends GeneratorCommand
     {
         $options = parent::getOptions();
 
-        // $options[] = ['model', 'm', InputOption::VALUE_OPTIONAL, 'The model that the policy applies to'],;
         $options[] = ['guard', 'g', InputOption::VALUE_OPTIONAL, 'The guard that the policy relies on'];
         $options[] = ['roles-action', null, InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY, 'The roles for action.'];
         $options[] = ['roles-view', null, InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY, 'The roles to view.'];
 
         return $options;
-
-        // return [
-        //     ['force', 'f', InputOption::VALUE_NONE, 'Create the class even if the policy already exists'],
-        //     ['model', 'm', InputOption::VALUE_OPTIONAL, 'The model that the policy applies to'],
-        //     ['guard', 'g', InputOption::VALUE_OPTIONAL, 'The guard that the policy relies on'],
-        // ];
     }
 
     // /**
@@ -385,76 +272,4 @@ class PolicyMakeCommand extends GeneratorCommand
     //     //     ->values()
     //     //     ->all();
     // }
-
-    /**
-     * @param array<string, string> $searches
-     */
-    protected function make_roles_to_view(array &$searches): string
-    {
-        $indent = '    ';
-
-        $content = '';
-
-        $rolesToView = $this->c->rolesToView();
-        if (! empty($rolesToView)) {
-            foreach ($rolesToView as $i => $role) {
-                $content .= sprintf('%2$s\'%3$s\'%4$s%1$s',
-                    PHP_EOL,
-                    str_repeat($indent, 2),
-                    $role,
-                    (count($rolesToView) - 2) >= $i ? ',' : ''
-                );
-                // $content = trim($content, ',');
-            }
-        }
-
-        if (! empty($content)) {
-            $searches['rolesToView'] = sprintf(
-                '%1$s%3$s%2$s',
-                PHP_EOL,
-                str_repeat($indent, 1),
-                $content
-            );
-        } else {
-            $searches['rolesToView'] = '';
-        }
-
-        return $searches['rolesToView'];
-    }
-
-    /**
-     * @param array<string, string> $searches
-     */
-    protected function make_roles_for_action(array &$searches): string
-    {
-        $indent = '    ';
-
-        $content = '';
-
-        $rolesForAction = $this->c->rolesForAction();
-        if (! empty($rolesForAction)) {
-            foreach ($rolesForAction as $i => $role) {
-                $content .= sprintf('%2$s\'%3$s\'%4$s%1$s',
-                    PHP_EOL,
-                    str_repeat($indent, 2),
-                    $role,
-                    (count($rolesForAction) - 2) >= $i ? ',' : ''
-                );
-                // $content = trim($content, ',');
-            }
-        }
-
-        if (! empty($content)) {
-            $searches['rolesForAction'] = sprintf(
-                '%1$s%3$s%2$s',
-                PHP_EOL,
-                str_repeat($indent, 1),
-                $content
-            );
-        } else {
-            $searches['rolesForAction'] = '';
-        }
-
-        return $searches['rolesForAction'];
-    }
 }

@@ -27,7 +27,11 @@ class Package extends Configuration
         'organization' => '',
         'package' => '',
         // properties
-        'factories' => false,
+        'withControllers' => false,
+        'withFactories' => false,
+        'withMigrations' => false,
+        'withModels' => false,
+        'withPolicies' => false,
         'package_name' => '',
         // 'package_autoload' => '',
         'package_description' => '',
@@ -52,7 +56,15 @@ class Package extends Configuration
 
     protected string $class = 'ServiceProvider';
 
-    protected bool $factories = false;
+    protected bool $withControllers = false;
+
+    protected bool $withFactories = false;
+
+    protected bool $withMigrations = false;
+
+    protected bool $withModels = false;
+
+    protected bool $withPolicies = false;
 
     protected string $package_name = '';
 
@@ -131,6 +143,26 @@ class Package extends Configuration
     public function setOptions(array $options = []): self
     {
         parent::setOptions($options);
+
+        if (array_key_exists('withControllers', $options)) {
+            $this->withControllers = ! empty($options['withControllers']);
+        }
+
+        if (array_key_exists('withFactories', $options)) {
+            $this->withFactories = ! empty($options['withFactories']);
+        }
+
+        if (array_key_exists('withMigrations', $options)) {
+            $this->withMigrations = ! empty($options['withMigrations']);
+        }
+
+        if (array_key_exists('withModels', $options)) {
+            $this->withModels = ! empty($options['withModels']);
+        }
+
+        if (array_key_exists('withPolicies', $options)) {
+            $this->withPolicies = ! empty($options['withPolicies']);
+        }
 
         if (! empty($options['package_name'])
             && is_string($options['package_name'])
@@ -344,9 +376,29 @@ class Package extends Configuration
         return $this;
     }
 
-    public function factories(): bool
+    public function withControllers(): bool
     {
-        return $this->factories;
+        return $this->withControllers;
+    }
+
+    public function withFactories(): bool
+    {
+        return $this->withFactories;
+    }
+
+    public function withMigrations(): bool
+    {
+        return $this->withMigrations;
+    }
+
+    public function withModels(): bool
+    {
+        return $this->withModels;
+    }
+
+    public function withPolicies(): bool
+    {
+        return $this->withPolicies;
     }
 
     public function package_name(): string

@@ -22,6 +22,7 @@ class ModelTest extends TestCase
             'playground:make:swagger --force --type model --file %1$s',
             $this->getResourceFile('swagger-resource')
         );
+        // \Log::debug($command);
 
         /**
          * @var \Illuminate\Testing\PendingCommand $result

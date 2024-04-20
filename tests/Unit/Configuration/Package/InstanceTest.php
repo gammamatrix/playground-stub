@@ -39,7 +39,11 @@ class InstanceTest extends TestCase
         'organization' => '',
         'package' => '',
         // properties
-        'factories' => false,
+        'withControllers' => false,
+        'withFactories' => false,
+        'withMigrations' => false,
+        'withModels' => false,
+        'withPolicies' => false,
         'package_name' => '',
         // 'package_autoload' => '',
         'package_description' => '',
@@ -149,7 +153,11 @@ class InstanceTest extends TestCase
         ], $instance->models());
         $this->assertSame([], $instance->policies());
         $this->assertSame([], $instance->routes());
-        $this->assertFalse($instance->factories());
+        $this->assertFalse($instance->withControllers());
+        $this->assertFalse($instance->withFactories());
+        $this->assertFalse($instance->withMigrations());
+        $this->assertFalse($instance->withModels());
+        $this->assertFalse($instance->withPolicies());
     }
 
     public function test_package_for_api_with_file_and_skeleton(): void
@@ -222,7 +230,11 @@ class InstanceTest extends TestCase
         $this->assertSame([
             'vendor/gammamatrix/playground-stub/resources/playground/cms/route.snippet.json',
         ], $instance->routes());
-        $this->assertFalse($instance->factories());
+        $this->assertFalse($instance->withControllers());
+        $this->assertFalse($instance->withFactories());
+        $this->assertFalse($instance->withMigrations());
+        $this->assertFalse($instance->withModels());
+        $this->assertFalse($instance->withPolicies());
     }
 
     public function test_addKeyword_with_invalid_keyword_and_log_message(): void

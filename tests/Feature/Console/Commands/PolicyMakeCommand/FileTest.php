@@ -11,10 +11,10 @@ use Playground\Stub\Console\Commands\PolicyMakeCommand;
 use Tests\Feature\Playground\Stub\TestCase;
 
 /**
- * \Tests\Feature\Playground\Stub\Console\Commands\PolicyMakeCommand\ModelTest
+ * \Tests\Feature\Playground\Stub\Console\Commands\PolicyMakeCommand\FileTest
  */
 #[CoversClass(PolicyMakeCommand::class)]
-class ModelTest extends TestCase
+class FileTest extends TestCase
 {
     public function test_command_make_policy_with_force_and_without_skeleton(): void
     {

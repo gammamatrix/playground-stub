@@ -35,7 +35,31 @@ class ServiceProvider extends AuthServiceProvider
      */
     public function boot()
     {
-        // $config = config($this->package);
+        $config = config($this->package);
+
+        if (!empty($config) && $this->app->runningInConsole()) {
+
+            // Publish configuration
+            $this->publishes([
+                dirname(__DIR__).'/config/{{ package }}.php'
+                    => config_path('{{ package }}.php')
+            ], 'playground-config');
+
+            // Load migrations
+            if (!empty($config['load'])
+                && !empty($config['load']['migrations'])
+            ) {
+               $this->loadMigrationsFrom(dirname(__DIR__). '/database/migrations');
+            }
+        }
+
+        $this->loadViewsFrom(
+            dirname(__DIR__) . '/resources/views',
+            '{{ package }}'
+        );
+
+        // { {routes} }
+        // $this->loadRoutesFrom(dirname(__DIR__) . '/routes/matrix.php');
 
         AboutCommand::add('{{ organization }}', fn () => [
             $this->package => $this->version(),
@@ -49,6 +73,10 @@ class ServiceProvider extends AuthServiceProvider
      */
     public function register()
     {
+        $this->mergeConfigFrom(
+            dirname(__DIR__) . '/config/{{ package }}.php',
+            '{{ package }}'
+        );
     }
 
     public function version()

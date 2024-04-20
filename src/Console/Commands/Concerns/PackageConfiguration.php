@@ -63,8 +63,6 @@ trait PackageConfiguration
 
     protected string $configurationType = '';
 
-    protected bool $saveConfiguration = true;
-
     protected ?string $path_to_configuration = null;
 
     protected function getModelConfiguration(): ?Model

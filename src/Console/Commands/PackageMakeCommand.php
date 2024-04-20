@@ -111,7 +111,17 @@ class PackageMakeCommand extends GeneratorCommand
      */
     protected $type = 'Package';
 
-    protected bool $saveConfiguration = false;
+    /**
+     * @var array<int, string>
+     */
+    protected array $options_type_suggested = [
+        'api',
+        'policies',
+        'resource',
+        'playground',
+        'playground-api',
+        'playground-resource',
+    ];
 
     /**
      * Autoloading for the package.
@@ -131,28 +141,25 @@ class PackageMakeCommand extends GeneratorCommand
     {
         $options = parent::getOptions();
 
+        $options[] = ['controllers', null, InputOption::VALUE_NONE, 'The '.strtolower($this->type).' will have controllers.'];
         $options[] = ['factories', null, InputOption::VALUE_NONE, 'The '.strtolower($this->type).' will have model factories.'];
+        $options[] = ['migrations', null, InputOption::VALUE_NONE, 'The '.strtolower($this->type).' will have model migrations.'];
+        $options[] = ['models', null, InputOption::VALUE_NONE, 'The '.strtolower($this->type).' will have models.'];
+        $options[] = ['policies', null, InputOption::VALUE_NONE, 'The '.strtolower($this->type).' will have model policies.'];
         $options[] = ['license', null, InputOption::VALUE_OPTIONAL, 'The '.strtolower($this->type).' license.'];
 
         return $options;
     }
 
-    /**
-     * Execute the console command.
-     */
-    public function handle()
+    public function prepareOptions(): void
     {
-        if (parent::handle()) {
-            return $this->return_status;
-        }
-
-        if ($this->hasOption('factories')
-            && $this->option('factories')
-        ) {
-            $this->c->setOptions([
-                'factories' => true,
-            ]);
-        }
+        // if ($this->hasOption('factories')
+        //     && $this->option('factories')
+        // ) {
+        //     $this->c->setOptions([
+        //         'factories' => true,
+        //     ]);
+        // }
 
         if ($this->hasOption('license')
             && is_string($this->option('license'))
@@ -163,27 +170,47 @@ class PackageMakeCommand extends GeneratorCommand
             ]);
             $this->searches['package_license'] = $this->c->package_license();
         }
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$his->option(license)' => $this->option('license'),
-        //     '$this->searches[package_license]' => $this->searches['package_license'],
-        // ]);
 
+        if ($this->hasOption('controllers') && $this->option('controllers')) {
+            $this->c->setOptions([
+                'withControllers' => true,
+            ]);
+        }
+
+        if ($this->hasOption('factories') && $this->option('factories')) {
+            $this->c->setOptions([
+                'withFactories' => true,
+            ]);
+        }
+
+        if ($this->hasOption('migrations') && $this->option('migrations')) {
+            $this->c->setOptions([
+                'withMigrations' => true,
+            ]);
+        }
+
+        if ($this->hasOption('models') && $this->option('models')) {
+            $this->c->setOptions([
+                'withModels' => true,
+            ]);
+        }
+
+        if ($this->hasOption('policies') && $this->option('policies')) {
+            $this->c->setOptions([
+                'withPolicies' => true,
+            ]);
+        }
+    }
+
+    public function finish(): ?bool
+    {
         $this->createComposerJson($this->searches, $this->autoload);
         $this->createConfig($this->searches);
         $this->createSkeleton($this->searches);
 
-        if ($this->hasOption('policies')
-            && is_array($this->option('policies'))
-        ) {
-            $this->c->setOptions([
-                'policies' => $this->option('policies'),
-            ]);
-        }
-
         $this->handle_models();
         $this->handle_policies();
-        // $this->handle_requests();
+        $this->handle_requests();
         $this->handle_controllers();
 
         $this->saveConfiguration();
@@ -200,30 +227,6 @@ class PackageMakeCommand extends GeneratorCommand
         );
     }
 
-    // /**
-    //  * Build the class with the given name.
-    //  *
-    //  * @param  string  $name
-    //  *
-    //  * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
-    //  */
-    // protected function buildClass($name): string
-    // {
-    //     if (empty($this->searches['namespace'])) {
-    //         $this->searches['namespace'] = $this->getNamespace($name);
-    //     }
-
-    //     if (empty($this->searches['organization'])
-    //         && $this->hasOption('organization')
-    //         && $this->option('organization')
-    //         && is_string($this->option('organization'))
-    //     ) {
-    //         $this->searches['organization'] = $this->option('organization');
-    //     }
-
-    //     return parent::buildClass($name);
-    // }
-
     /**
      * Get the stub file for the generator.
      */
@@ -234,33 +237,28 @@ class PackageMakeCommand extends GeneratorCommand
         $type = $this->getConfigurationType();
 
         if (in_array($type, [
-            'policies',
-            'api',
-            'resource',
-        ])) {
-            $template = 'service-provider/ServiceProvider-policies.stub';
-        } elseif (in_array($type, [
             'playground',
         ])) {
             $template = 'service-provider/ServiceProvider-playground.stub';
         } elseif (in_array($type, [
+            'playground-model',
+        ])) {
+            $template = 'service-provider/ServiceProvider-playground-model.stub';
+        } elseif (in_array($type, [
             'playground-api',
+        ])) {
+            $template = 'service-provider/ServiceProvider-playground-api.stub';
+        } elseif (in_array($type, [
             'playground-resource',
         ])) {
-            $template = 'service-provider/ServiceProvider-playground-policies.stub';
+            $template = 'service-provider/ServiceProvider-playground-resource.stub';
+        } elseif ($this->c->policies() || in_array($type, [
+            'api',
+            'resource',
+        ])) {
+            $template = 'service-provider/ServiceProvider-policies.stub';
         }
 
         return $this->resolveStubPath($template);
     }
-
-    // /**
-    //  * Get the full namespace for a given class, without the class name.
-    //  *
-    //  * @param  string  $name
-    //  */
-    // protected function getNamespace($name): string
-    // {
-    //     return trim(implode('\\', explode('\\', $name)), '\\');
-    //     // return trim(implode('\\', array_slice(explode('\\', $name), 0, -1)), '\\');
-    // }
 }
