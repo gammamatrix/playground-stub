@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace Playground\Stub\Console\Commands;
 
 use Illuminate\Support\Str;
+use Playground\Stub\Building;
 use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
 // use Symfony\Component\Console\Input\InputArgument;
 use Playground\Stub\Configuration\Package as Configuration;
@@ -19,8 +20,10 @@ use Symfony\Component\Console\Input\InputOption;
 #[AsCommand(name: 'playground:make:package')]
 class PackageMakeCommand extends GeneratorCommand
 {
-    use Concerns\ComposerJson;
-    use Concerns\PackageSkeleton;
+    use Building\Package\BuildComposer;
+    use Building\Package\BuildConfig;
+    use Building\Package\BuildSkeleton;
+    use Building\Package\MakeCommands;
 
     /**
      * @var class-string<Configuration>
@@ -197,136 +200,29 @@ class PackageMakeCommand extends GeneratorCommand
         );
     }
 
-    public function handle_controllers(): void
-    {
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$controllers' => $controllers,
-        // ]);
+    // /**
+    //  * Build the class with the given name.
+    //  *
+    //  * @param  string  $name
+    //  *
+    //  * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+    //  */
+    // protected function buildClass($name): string
+    // {
+    //     if (empty($this->searches['namespace'])) {
+    //         $this->searches['namespace'] = $this->getNamespace($name);
+    //     }
 
-        $params = [
-            '--file' => '',
-        ];
+    //     if (empty($this->searches['organization'])
+    //         && $this->hasOption('organization')
+    //         && $this->option('organization')
+    //         && is_string($this->option('organization'))
+    //     ) {
+    //         $this->searches['organization'] = $this->option('organization');
+    //     }
 
-        if ($this->hasOption('force') && $this->option('force')) {
-            $params['--force'] = true;
-        }
-
-        foreach ($this->c->controllers() as $controller) {
-            if (is_string($controller) && $controller) {
-                $params['--file'] = $controller;
-                $this->call('playground:make:controller', $params);
-            }
-        }
-    }
-
-    public function handle_models(): void
-    {
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     // '$his->option(license)' => $this->option('license'),
-        //     '$models' => $models,
-        // ]);
-
-        $params = [
-            '--file' => '',
-        ];
-
-        if ($this->hasOption('force') && $this->option('force')) {
-            $params['--force'] = true;
-        }
-
-        foreach ($this->c->models() as $model) {
-            if (is_string($model) && $model) {
-                $params['--file'] = $model;
-                $this->call('playground:make:model', $params);
-            }
-        }
-    }
-
-    public function handle_policies(): void
-    {
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     // '$his->option(license)' => $this->option('license'),
-        //     '$policies' => $policies,
-        // ]);
-
-        $params = [
-            '--file' => '',
-        ];
-
-        if ($this->hasOption('force') && $this->option('force')) {
-            $params['--force'] = true;
-        }
-
-        foreach ($this->c->policies() as $policy) {
-            // $file = sprintf('', $policy);
-            // dd([
-            //     '__METHOD__' => __METHOD__,
-            //     // '$his->option(license)' => $this->option('license'),
-            //     '$policy' => $policy,
-            // ]);
-            $params['--file'] = $policy;
-            $this->call('playground:make:policy', $params);
-        }
-
-        // if (! class_exists($parentModelClass) &&
-        //     confirm("A {$parentModelClass} model does not exist. Do you want to generate it?", default: true)) {
-        //     $this->call('playground:make:model', ['name' => $parentModelClass]);
-        // }
-    }
-
-    public function handle_requests(): void
-    {
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$requests' => $requests,
-        // ]);
-
-        $params = [
-            '--file' => '',
-        ];
-
-        if ($this->hasOption('force') && $this->option('force')) {
-            $params['--force'] = true;
-        }
-
-        foreach ($this->c->requests() as $request) {
-            if (is_string($request) && $request) {
-                $params['--file'] = $request;
-                // dump([
-                //     '__METHOD__' => __METHOD__,
-                //     '$request' => $request,
-                // ]);
-                $this->call('playground:make:request', $params);
-            }
-        }
-    }
-
-    /**
-     * Build the class with the given name.
-     *
-     * @param  string  $name
-     *
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
-     */
-    protected function buildClass($name): string
-    {
-        if (empty($this->searches['namespace'])) {
-            $this->searches['namespace'] = $this->getNamespace($name);
-        }
-
-        if (empty($this->searches['organization'])
-            && $this->hasOption('organization')
-            && $this->option('organization')
-            && is_string($this->option('organization'))
-        ) {
-            $this->searches['organization'] = $this->option('organization');
-        }
-
-        return parent::buildClass($name);
-    }
+    //     return parent::buildClass($name);
+    // }
 
     /**
      * Get the stub file for the generator.
@@ -358,56 +254,13 @@ class PackageMakeCommand extends GeneratorCommand
     }
 
     // /**
-    //  * Get the destination class path.
+    //  * Get the full namespace for a given class, without the class name.
     //  *
     //  * @param  string  $name
-    //  * @return string
     //  */
-    // protected function getPath($name)
+    // protected function getNamespace($name): string
     // {
-    //     dd([
-    //         '__METHOD__' => __METHOD__,
-    //         '$name' => $name,
-    //         'rootNamespace()' => $this->rootNamespace(),
-    //     ]);
-    //     $name = 'ServiceProvider';
-    //     if (empty($this->searches['package'])) {
-    //         $this->searches['package'] = Str::of($name)
-    //             ->replaceFirst($this->rootNamespace(), '')
-    //             ->replace('\\', '-')->ltrim('-')->slug('-')
-    //             ->toString()
-    //         ;
-    //     }
-
-    //     $this->folder = sprintf(
-    //         '%1$s/%2$s',
-    //         $this->getDestinationPath(),
-    //         $this->searches['package']
-    //     );
-
-    //     $path = sprintf(
-    //         '%1$s/src/ServiceProvider.php',
-    //         $this->folder
-    //     );
-    //     // dd([
-    //     //     '__METHOD__' => __METHOD__,
-    //     //     '$destinationPath' => $destinationPath,
-    //     //     '$name' => $name,
-    //     //     '$path' => $path,
-    //     //     'rootNamespace()' => $this->rootNamespace(),
-    //     // ]);
-
-    //     return $this->laravel->storagePath().$path;
+    //     return trim(implode('\\', explode('\\', $name)), '\\');
+    //     // return trim(implode('\\', array_slice(explode('\\', $name), 0, -1)), '\\');
     // }
-
-    /**
-     * Get the full namespace for a given class, without the class name.
-     *
-     * @param  string  $name
-     */
-    protected function getNamespace($name): string
-    {
-        return trim(implode('\\', explode('\\', $name)), '\\');
-        // return trim(implode('\\', array_slice(explode('\\', $name), 0, -1)), '\\');
-    }
 }

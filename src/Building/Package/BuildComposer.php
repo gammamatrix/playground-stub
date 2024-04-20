@@ -4,15 +4,15 @@
  */
 
 declare(strict_types=1);
-namespace Playground\Stub\Console\Commands\Concerns;
+namespace Playground\Stub\Building\Package;
 
 // use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 /**
- * \Playground\Stub\Console\Commands\Concerns\ComposerJson
+ * \Playground\Stub\Building\Package\BuildComposer
  */
-trait ComposerJson
+trait BuildComposer
 {
     // "autoload": {
     //     "psr-4": {
