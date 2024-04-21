@@ -14,12 +14,12 @@ use Playground\Stub\Console\Commands\GeneratorCommand;
 use Tests\Feature\Playground\Stub\TestCase;
 
 /**
- * \Tests\Feature\Playground\Stub\Console\Commands\ControllerMakeCommand\ModelTest
+ * \Tests\Feature\Playground\Stub\Console\Commands\ControllerMakeCommand\FileTest
  */
 #[CoversClass(Command::class)]
 #[CoversClass(GeneratorCommand::class)]
 #[CoversClass(ControllerMakeCommand::class)]
-class ModelTest extends TestCase
+class FileTest extends TestCase
 {
     public function test_command_make_controller_with_force_and_without_skeleton(): void
     {

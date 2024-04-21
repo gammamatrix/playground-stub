@@ -187,7 +187,8 @@ class ControllerMakeCommand extends GeneratorCommand
         if (! $this->c->extends()) {
             $this->c->setOptions([
                 'extends' => 'Controller',
-                'extends_use' => 'App/Http/Controllers/Controller',
+                // 'extends_use' => 'App/Http/Controllers/Controller',
+                'extends_use' => '',
             ]);
         }
 
@@ -312,6 +313,20 @@ class ControllerMakeCommand extends GeneratorCommand
     }
 
     /**
+     * @var array<int, string>
+     */
+    protected array $options_type_suggested = [
+        // 'abstract',
+        // 'playground',
+        'api',
+        'fractal-api',
+        'playground-api',
+        'resource',
+        'fractal-resource',
+        'playground-resource',
+    ];
+
+    /**
      * Get the stub file for the generator.
      */
     protected function getStub(): string
@@ -411,16 +426,26 @@ class ControllerMakeCommand extends GeneratorCommand
 
         $this->buildClass_model($name);
 
+        // $this->searches['namespacedRequest'] = $this->parseClassInput(sprintf(
+        //     '%1$s\Http\Requests\%2$s',
+        //     rtrim($this->c->namespace(), '\\'),
+        //     rtrim($this->c->name(), '\\')
+        // ));
+
+        // $this->searches['namespacedResource'] = $this->parseClassInput(sprintf(
+        //     '%1$s\Http\Resources\%2$s',
+        //     rtrim($this->c->namespace(), '\\'),
+        //     rtrim($this->c->name(), '\\')
+        // ));
+
         $this->searches['namespacedRequest'] = $this->parseClassInput(sprintf(
-            '%1$s\Http\Requests\%2$s',
-            rtrim($this->c->namespace(), '\\'),
-            rtrim($this->c->name(), '\\')
+            '%1$s\Http\Requests',
+            rtrim($this->c->namespace(), '\\')
         ));
 
         $this->searches['namespacedResource'] = $this->parseClassInput(sprintf(
-            '%1$s\Http\Resources\%2$s',
-            rtrim($this->c->namespace(), '\\'),
-            rtrim($this->c->name(), '\\')
+            '%1$s\Http\Resources',
+            rtrim($this->c->namespace(), '\\')
         ));
 
         if (in_array($this->c->type(), [

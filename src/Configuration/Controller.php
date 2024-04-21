@@ -19,10 +19,10 @@ class Controller extends Configuration
         'module' => '',
         'module_slug' => '',
         'name' => '',
-        'namespace' => 'App',
+        'namespace' => '',
         'model' => '',
         'organization' => '',
-        'package' => 'app',
+        'package' => '',
         'type' => '',
         'models' => [],
         'policies' => [],
@@ -36,6 +36,8 @@ class Controller extends Configuration
         // 'extends_use' => 'App\Http\Controllers\Controller',
         'slug' => '',
         'slug_plural' => '',
+        'module_route' => '',
+        'privilege' => '',
         'route' => '',
         'view' => '',
         'uses' => [],
@@ -79,6 +81,10 @@ class Controller extends Configuration
 
     protected string $slug_plural = '';
 
+    protected string $module_route = '';
+
+    protected string $privilege = '';
+
     protected string $route = '';
 
     protected string $view = '';
@@ -89,6 +95,34 @@ class Controller extends Configuration
     public function setOptions(array $options = []): self
     {
         parent::setOptions($options);
+
+        // if (array_key_exists('withPolicies', $options)) {
+        //     $this->withPolicies = ! empty($options['withPolicies']);
+        // }
+
+        if (! empty($options['module_route'])
+            && is_string($options['module_route'])
+        ) {
+            $this->module_route = $options['module_route'];
+        }
+
+        if (! empty($options['route'])
+            && is_string($options['route'])
+        ) {
+            $this->route = $options['route'];
+        }
+
+        if (! empty($options['privilege'])
+            && is_string($options['privilege'])
+        ) {
+            $this->privilege = $options['privilege'];
+        }
+
+        if (! empty($options['view'])
+            && is_string($options['view'])
+        ) {
+            $this->view = $options['view'];
+        }
 
         $this->addModels($options);
 
@@ -179,9 +213,19 @@ class Controller extends Configuration
         return $this->slug_plural;
     }
 
+    public function module_route(): string
+    {
+        return $this->module_route;
+    }
+
     public function route(): string
     {
         return $this->route;
+    }
+
+    public function privilege(): string
+    {
+        return $this->privilege;
     }
 
     public function view(): string

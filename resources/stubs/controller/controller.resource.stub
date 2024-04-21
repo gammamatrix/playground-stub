@@ -3,46 +3,40 @@
  * {{organization}}
  */
 
+declare(strict_types=1);
 namespace {{ namespace }};
-{{ use }}use {{ namespacedRequest }}\CreateRequest;
-use {{ namespacedRequest }}\DestroyRequest;
-use {{ namespacedRequest }}\EditRequest;
-use {{ namespacedRequest }}\IndexRequest;
-use {{ namespacedRequest }}\LockRequest;
-use {{ namespacedRequest }}\RestoreRequest;
-use {{ namespacedRequest }}\ShowRequest;
-use {{ namespacedRequest }}\StoreRequest;
-use {{ namespacedRequest }}\UnlockRequest;
-use {{ namespacedRequest }}\UpdateRequest;
-use {{ namespacedResource }}\{{ model }} as {{ model }}Resource;
-use {{ namespacedResource }}\{{ model }}Collection;
+
+{{ use }}use {{ namespacedRequest }};
+use {{ namespacedResource }};
 use {{ namespacedModel }};
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\View\View;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Auth;
 
 /**
  * \{{ namespace }}\{{ class }}
  */
 class {{ class }} extends {{ extends }}{{ implements }}
 {
-{{ use_class }}{{ constants }}{{ properties }}    public array $packageInfo = [
-        'model_attribute'     => '{{model_attribute}}',
-        'model_label'         => '{{model_label}}',
-        'model_label_plural'  => '{{model_label_plural}}',
-        'model_route'         => '{{model_route}}',
-        'model_slug'          => '{{model_slug}}',
-        'model_slug_plural'   => '{{model_slug_plural}}',
-        'module_label'        => '{{module_label}}',
+{{ use_class }}{{ constants }}{{ properties }}    /**
+     * @var array<string, string>
+     */
+    public array $packageInfo = [
+        'model_attribute' => '{{model_attribute}}',
+        'model_label' => '{{model_label}}',
+        'model_label_plural' => '{{model_label_plural}}',
+        'model_route' => '{{model_route}}',
+        'model_slug' => '{{model_slug}}',
+        'model_slug_plural' => '{{model_slug_plural}}',
+        'module_label' => '{{module_label}}',
         'module_label_plural' => '{{module_label_plural}}',
-        'module_route'        => '{{module_route}}',
-        'module_slug'         => '{{module_slug}}',
-        'table'               => '{{table}}',
-        'view'                => '{{view}}',
+        'module_route' => '{{module_route}}',
+        'module_slug' => '{{module_slug}}',
+        'privilege' => '{{module_privilege}}',
+        'table' => '{{table}}',
+        'view' => '{{view}}',
     ];
 
     /**
@@ -51,20 +45,21 @@ class {{ class }} extends {{ extends }}{{ implements }}
      * @route GET /resource/{{module_slug}}/{{model_slug_plural}}/create {{model_route}}.create
      */
     public function create(
-        CreateRequest $request
+        Requests\{{ model }}\CreateRequest $request
     ): JsonResponse|View {
+
         $validated = $request->validated();
 
-        $user = Auth::getUser();
+        $user = $request->user();
 
         ${{model_slug}} = new {{model}}($validated);
 
         $meta = [
-            'session_user_id' => $user->id,
-            'id'              => null,
-            'timestamp'       => Carbon::now()->toJson(),
-            'validated'       => $validated,
-            'info'            => $this->packageInfo,
+            'session_user_id' => $user?->id,
+            'id' => null,
+            'timestamp' => Carbon::now()->toJson(),
+            'validated' => $validated,
+            'info' => $this->packageInfo,
         ];
 
         $meta['input'] = $request->input();
@@ -82,19 +77,16 @@ class {{ class }} extends {{ extends }}{{ implements }}
 
         $flash = ${{model_slug}}->toArray();
 
-        if (!empty($validated['_return_url'])) {
+        if (! empty($validated['_return_url'])) {
             $flash['_return_url'] = $validated['_return_url'];
             $data['_return_url'] = $validated['_return_url'];
         }
 
-        if (!$request->session()->has('errors')) {
+        if (! $request->session()->has('errors')) {
             session()->flashInput($flash);
         }
 
-        return view(
-            '{{ view }}/form',
-            $data
-        );
+        return view(sprintf('%1$s/form', $this->packageInfo['view']), $data);
     }
 
     /**
@@ -104,18 +96,19 @@ class {{ class }} extends {{ extends }}{{ implements }}
      */
     public function edit(
         {{ model }} ${{model_slug}},
-        EditRequest $request
+        Requests\{{ model }}\EditRequest $request
     ): JsonResponse|View {
+
         $validated = $request->validated();
 
-        $user = Auth::getUser();
+        $user = $request->user();
 
         $meta = [
-            'session_user_id' => $user->id,
-            'id'              => ${{model_slug}}->id,
-            'timestamp'       => Carbon::now()->toJson(),
-            'validated'       => $validated,
-            'info'            => $this->packageInfo,
+            'session_user_id' => $user?->id,
+            'id' => ${{model_slug}}->id,
+            'timestamp' => Carbon::now()->toJson(),
+            'validated' => $validated,
+            'info' => $this->packageInfo,
         ];
 
         $meta['input'] = $request->input();
@@ -133,17 +126,14 @@ class {{ class }} extends {{ extends }}{{ implements }}
 
         $flash = ${{model_slug}}->toArray();
 
-        if (!empty($validated['_return_url'])) {
+        if (! empty($validated['_return_url'])) {
             $flash['_return_url'] = $validated['_return_url'];
             $data['_return_url'] = $validated['_return_url'];
         }
 
         session()->flashInput($flash);
 
-        return view(
-            '{{ view }}/form',
-            $data
-        );
+        return view(sprintf('%1$s/form', $this->packageInfo['view']), $data);
     }
 
     /**
@@ -153,8 +143,9 @@ class {{ class }} extends {{ extends }}{{ implements }}
      */
     public function destroy(
         {{ model }} ${{model_slug}},
-        DestroyRequest $request
+        Requests\{{ model }}\DestroyRequest $request
     ): Response|RedirectResponse {
+
         $validated = $request->validated();
 
         if (empty($validated['force'])) {
@@ -169,11 +160,11 @@ class {{ class }} extends {{ extends }}{{ implements }}
 
         $returnUrl = $validated['_return_url'] ?? '';
 
-        if ($returnUrl) {
+        if ($returnUrl && is_string($returnUrl)) {
             return redirect($returnUrl);
         }
 
-        return redirect(route('{{model_route}}'));
+        return redirect(route($this->packageInfo['model_route']));
     }
 
     /**
@@ -183,34 +174,38 @@ class {{ class }} extends {{ extends }}{{ implements }}
      */
     public function lock(
         {{ model }} ${{model_slug}},
-        LockRequest $request
-    ): JsonResponse|RedirectResponse {
+        Requests\{{ model }}\LockRequest $request
+    ): JsonResponse|RedirectResponse|Resources\{{ model }} {
+
         $validated = $request->validated();
 
-        $user = Auth::getUser();
+        $user = $request->user();
 
         ${{model_slug}}->locked = true;
 
         ${{model_slug}}->save();
 
         $meta = [
-            'session_user_id' => $user->id,
-            'id'              => ${{model_slug}}->id,
-            'timestamp'       => Carbon::now()->toJson(),
-            'info'            => $this->packageInfo,
+            'session_user_id' => $user?->id,
+            'id' => ${{model_slug}}->id,
+            'timestamp' => Carbon::now()->toJson(),
+            'info' => $this->packageInfo,
         ];
 
         if ($request->expectsJson()) {
-            return new {{ model }}Resource(${{model_slug}});
+            return (new Resources\{{ model }}(${{model_slug}}))->response($request);
         }
 
         $returnUrl = $validated['_return_url'] ?? '';
 
-        if ($returnUrl) {
+        if ($returnUrl && is_string($returnUrl)) {
             return redirect($returnUrl);
         }
 
-        return redirect(route('{{model_route}}.show', ['{{model_slug}}' => ${{model_slug}}->id]));
+        return redirect(route(sprintf(
+            '%1$s.show',
+            $this->packageInfo['model_route']
+        ), ['{{model_slug}}' => ${{model_slug}}->id]));
     }
 
     /**
@@ -219,9 +214,10 @@ class {{ class }} extends {{ extends }}{{ implements }}
      * @route GET /resource/{{module_slug}} {{model_route}}
      */
     public function index(
-        IndexRequest $request
-    ): JsonResponse|View {
-        $user = Auth::getUser();
+        Requests\{{ model }}\IndexRequest $request
+    ): JsonResponse|View|Resources\{{ model }}Collection {
+
+        $user = $request->user();
 
         $validated = $request->validated();
 
@@ -229,7 +225,7 @@ class {{ class }} extends {{ extends }}{{ implements }}
 
         $query->sort($validated['sort'] ?? null);
 
-        if (!empty($validated['filter']) && is_array($validated['filter'])) {
+        if (! empty($validated['filter']) && is_array($validated['filter'])) {
 
             $query->filterTrash($validated['filter']['trash'] ?? null);
 
@@ -254,28 +250,26 @@ class {{ class }} extends {{ extends }}{{ implements }}
             );
         }
 
-        $paginator = $query->paginate($validated['perPage'] ?? null);
+        $perPage = ! empty($validated['perPage']) && is_int($validated['perPage']) ? $validated['perPage'] : null;
+        $paginator = $query->paginate($perPage);
 
         $paginator->appends($validated);
 
         if ($request->expectsJson()) {
-            return (new {{ model }}Collection($paginator))->additional(['meta' => [
-                'session_user_id' => $user->id,
-                'validated'       => $validated,
-            ]]);
+            return (new Resources\BacklogCollection($paginator))->response($request);
         }
 
         $meta = [
-            'session_user_id' => $user->id,
-            'columns'         => $request->getPaginationColumns(),
-            'dates'           => $request->getPaginationDates(),
-            'flags'           => $request->getPaginationFlags(),
-            'ids'             => $request->getPaginationIds(),
-            'rules'           => $request->rules(),
-            'sortable'        => $request->getSortable(),
-            'timestamp'       => Carbon::now()->toJson(),
-            'validated'       => $validated,
-            'info'            => $this->packageInfo,
+            'session_user_id' => $user?->id,
+            'columns' => $request->getPaginationColumns(),
+            'dates' => $request->getPaginationDates(),
+            'flags' => $request->getPaginationFlags(),
+            'ids' => $request->getPaginationIds(),
+            'rules' => $request->rules(),
+            'sortable' => $request->getSortable(),
+            'timestamp' => Carbon::now()->toJson(),
+            'validated' => $validated,
+            'info' => $this->packageInfo,
         ];
 
         $data = [
@@ -283,10 +277,7 @@ class {{ class }} extends {{ extends }}{{ implements }}
             'meta' => $meta,
         ];
 
-        return view(
-            '{{ view }}/index',
-            $data
-        );
+        return view(sprintf('%1$s/index', $this->packageInfo['view']), $data);
     }
 
     /**
@@ -296,25 +287,29 @@ class {{ class }} extends {{ extends }}{{ implements }}
      */
     public function restore(
         {{ model }} ${{model_slug}},
-        RestoreRequest $request
-    ): JsonResponse|RedirectResponse {
+        Requests\{{ model }}\RestoreRequest $request
+    ): JsonResponse|RedirectResponse|Resources\{{ model }} {
+
         $validated = $request->validated();
 
-        $user = Auth::getUser();
+        $user = $request->user();
 
         ${{model_slug}}->restore();
 
         if ($request->expectsJson()) {
-            return new {{ model }}Resource(${{model_slug}});
+            return (new Resources\{{ model }}(${{model_slug}}))->response($request);
         }
 
         $returnUrl = $validated['_return_url'] ?? '';
 
-        if ($returnUrl) {
+        if ($returnUrl && is_string($returnUrl)) {
             return redirect($returnUrl);
         }
 
-        return redirect(route('{{model_route}}.show', ['{{model_slug}}' => ${{model_slug}}->id]));
+        return redirect(route(sprintf(
+            '%1$s.show',
+            $this->packageInfo['model_route']
+        ), ['{{model_slug}}' => ${{model_slug}}->id]));
     }
 
     /**
@@ -324,22 +319,23 @@ class {{ class }} extends {{ extends }}{{ implements }}
      */
     public function show(
         {{ model }} ${{model_slug}},
-        ShowRequest $request
-    ): JsonResponse|View {
+        Requests\{{ model }}\ShowRequest $request
+    ): JsonResponse|View|Resources\{{ model }} {
+
         $validated = $request->validated();
 
-        $user = Auth::getUser();
+        $user = $request->user();
 
         $meta = [
-            'session_user_id' => $user->id,
-            'id'              => ${{model_slug}}->id,
-            'timestamp'       => Carbon::now()->toJson(),
-            'validated'       => $validated,
-            'info'            => $this->packageInfo,
+            'session_user_id' => $user?->id,
+            'id' => ${{model_slug}}->id,
+            'timestamp' => Carbon::now()->toJson(),
+            'validated' => $validated,
+            'info' => $this->packageInfo,
         ];
 
         if ($request->expectsJson()) {
-            return new {{ model }}Resource(${{model_slug}});
+            return (new Resources\{{ model }}(${{model_slug}}))->response($request);
         }
 
         $meta['input'] = $request->input();
@@ -350,39 +346,40 @@ class {{ class }} extends {{ extends }}{{ implements }}
             'meta' => $meta,
         ];
 
-        return view(
-            '{{ view }}/detail',
-            $data
-        );
+        return view(sprintf('%1$s/detail', $this->packageInfo['view']), $data);
     }
 
-   /**
+    /**
      * Store a newly created API {{model_label}} resource in storage.
      *
      * @route POST /resource/{{module_slug}} {{model_route}}.post
      */
     public function store(
-        StoreRequest $request
-    ): Response|JsonResponse|RedirectResponse {
+        Requests\{{ model }}\StoreRequest $request
+    ): Response|JsonResponse|RedirectResponse|Resources\{{ model }} {
+
         $validated = $request->validated();
 
-        $user = Auth::getUser();
+        $user = $request->user();
 
         ${{model_slug}} = new {{ model }}($validated);
 
         ${{model_slug}}->save();
 
         if ($request->expectsJson()) {
-            return new {{ model }}Resource(${{model_slug}});
+            return (new Resources\{{ model }}(${{model_slug}}))->response($request);
         }
 
-        $returnUrl = $validated['return_url'] ?? '';
+        $returnUrl = $validated['_return_url'] ?? '';
 
-        if ($returnUrl) {
+        if ($returnUrl && is_string($returnUrl)) {
             return redirect($returnUrl);
         }
 
-        return redirect(route('{{model_route}}.show', ['{{model_slug}}' => ${{model_slug}}->id]));
+        return redirect(route(sprintf(
+            '%1$s.show',
+            $this->packageInfo['model_route']
+        ), ['{{model_slug}}' => ${{model_slug}}->id]));
     }
 
     /**
@@ -392,27 +389,31 @@ class {{ class }} extends {{ extends }}{{ implements }}
      */
     public function unlock(
         {{ model }} ${{model_slug}},
-        UnlockRequest $request
-    ): JsonResponse|RedirectResponse {
+        Requests\{{ model }}\UnlockRequest $request
+    ): JsonResponse|RedirectResponse|Resources\{{ model }} {
+
         $validated = $request->validated();
 
-        $user = Auth::getUser();
+        $user = $request->user();
 
         ${{model_slug}}->locked = false;
 
         ${{model_slug}}->save();
 
         if ($request->expectsJson()) {
-            return new {{ model }}Resource(${{model_slug}});
+            return (new Resources\{{ model }}(${{model_slug}}))->response($request);
         }
 
-        $returnUrl = $validated['return_url'] ?? '';
+        $returnUrl = $validated['_return_url'] ?? '';
 
-        if ($returnUrl) {
+        if ($returnUrl && is_string($returnUrl)) {
             return redirect($returnUrl);
         }
 
-        return redirect(route('{{model_route}}.show', ['{{model_slug}}' => ${{model_slug}}->id]));
+        return redirect(route(sprintf(
+            '%1$s.show',
+            $this->packageInfo['model_route']
+        ), ['{{model_slug}}' => ${{model_slug}}->id]));
     }
 
     /**
@@ -422,24 +423,28 @@ class {{ class }} extends {{ extends }}{{ implements }}
      */
     public function update(
         {{ model }} ${{model_slug}},
-        UpdateRequest $request
-    ): JsonResponse|RedirectResponse {
+        Requests\{{ model }}\UpdateRequest $request
+    ): JsonResponse|RedirectResponse|Resources\{{ model }} {
+
         $validated = $request->validated();
 
-        $user = Auth::getUser();
+        $user = $request->user();
 
         ${{model_slug}}->update($validated);
 
         if ($request->expectsJson()) {
-            return new {{ model }}Resource(${{model_slug}});
+            return (new Resources\{{ model }}(${{model_slug}}))->response($request);
         }
 
-        $returnUrl = $validated['return_url'] ?? '';
+        $returnUrl = $validated['_return_url'] ?? '';
 
-        if ($returnUrl) {
+        if ($returnUrl && is_string($returnUrl)) {
             return redirect($returnUrl);
         }
 
-        return redirect(route('{{model_route}}.show', ['{{model_slug}}' => ${{model_slug}}->id]));
+        return redirect(route(sprintf(
+            '%1$s.show',
+            $this->packageInfo['model_route']
+        ), ['{{model_slug}}' => ${{model_slug}}->id]));
     }{{ relationships }}{{ actions }}{{ methods }}
 }

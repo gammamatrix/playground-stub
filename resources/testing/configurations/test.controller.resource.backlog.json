@@ -6,12 +6,13 @@
     "package": "playground-matrix-resource",
     "name": "Backlog",
     "slug": "backlog",
-    "route": "matrix.resource.backlogs",
+    "route": "playground.matrix.resource.backlogs",
     "module": "Matrix",
     "module_label": "Matrix",
     "module_slug": "matrix",
     "view": "playground-matrix-resource::backlog",
     "model": "Backlog",
+    "privilege": "playground-matrix-resource:backlog",
     "table": "matrix_backlogs",
     "models": {
         "Backlog": "resources/configurations/playground-matrix/model.backlog.json"

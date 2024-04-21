@@ -56,9 +56,9 @@ trait PackageConfiguration
         'class' => '',
         'model' => '',
         'name' => '',
-        'namespace' => 'App',
+        'namespace' => '',
         'organization' => '',
-        'package' => 'app',
+        'package' => '',
     ];
 
     protected string $configurationType = '';
@@ -104,8 +104,8 @@ trait PackageConfiguration
                     if (in_array($search, [
                         'namespace',
                     ])) {
-                        $this->searches[$search] = $this->parseClassInput($properties[$search]);
-                        // $this->searches[$search] = $this->parseClassInput($this->getDefaultNamespace($properties[$search]));
+                        // $this->searches[$search] = $this->parseClassInput($properties[$search]);
+                        $this->searches[$search] = $this->parseClassInput($this->getDefaultNamespace($properties[$search]));
                     } elseif (in_array($search, [
                         'class',
                         'model_fqdn',
@@ -310,14 +310,14 @@ trait PackageConfiguration
             $this->c->namespace()
         );
 
-        // $this->c->setOptions([
-        //     'namespace' => $this->parseClassConfig($namespace),
-        // ]);
-        // $this->searches['namespace'] = $this->parseClassInput(
-        //     $this->getDefaultNamespace(
-        //         $this->c->namespace()
-        //     )
-        // );
+        $this->c->setOptions([
+            'namespace' => $this->parseClassConfig($namespace),
+        ]);
+        $this->searches['namespace'] = $this->parseClassInput(
+            $this->getDefaultNamespace(
+                $this->c->namespace()
+            )
+        );
 
         $namespace_exploded = [];
 

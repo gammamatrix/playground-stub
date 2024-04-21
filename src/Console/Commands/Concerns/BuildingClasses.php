@@ -161,6 +161,10 @@ trait BuildingClasses
         $this->searches['model_label'] = $this->searches['modelLabel'];
         $this->searches['model_label_plural'] = Str::of($this->searches['modelLabel'])->plural()->toString();
 
+        if (method_exists($this->c, 'privilege')) {
+            $this->searches['module_privilege'] = $this->c->privilege();
+        }
+
         if (array_key_exists('route', $this->searches)) {
             $this->searches['model_route'] = $this->searches['route'];
         }
