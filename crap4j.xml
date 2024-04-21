@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-20 23:26:52</timestamp>
+  <timestamp>2024-04-21 21:01:50</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>565</methodCount>
-    <crapMethodCount>32</crapMethodCount>
-    <crapLoad>374</crapLoad>
-    <totalCrap>7685.66</totalCrap>
-    <crapMethodPercent>5.66</crapMethodPercent>
+    <methodCount>567</methodCount>
+    <crapMethodCount>33</crapMethodCount>
+    <crapLoad>384</crapLoad>
+    <totalCrap>7782.85</totalCrap>
+    <crapMethodPercent>5.82</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -96,7 +96,7 @@
       <fullMethod>skeleton_routes(string $type): void</fullMethod>
       <crap>34</crap>
       <complexity>34</complexity>
-      <coverage>96.15</coverage>
+      <coverage>98.08</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -118,7 +118,7 @@
       <fullMethod>skeleton_templates(string $type): void</fullMethod>
       <crap>33</crap>
       <complexity>33</complexity>
-      <coverage>96</coverage>
+      <coverage>98</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -787,9 +787,9 @@
       <methodName>init_swagger_api</methodName>
       <methodSignature>init_swagger_api(): void</methodSignature>
       <fullMethod>init_swagger_api(): void</fullMethod>
-      <crap>3</crap>
+      <crap>3.14</crap>
       <complexity>3</complexity>
-      <coverage>100</coverage>
+      <coverage>75</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1150,10 +1150,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
+      <crap>90</crap>
+      <complexity>9</complexity>
       <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
+      <crapLoad>9</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration</package>
@@ -1279,9 +1279,31 @@
     <method>
       <package>Playground\Stub\Configuration</package>
       <className>Playground\Stub\Configuration\Controller</className>
+      <methodName>module_route</methodName>
+      <methodSignature>module_route(): string</methodSignature>
+      <fullMethod>module_route(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Controller</className>
       <methodName>route</methodName>
       <methodSignature>route(): string</methodSignature>
       <fullMethod>route(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Controller</className>
+      <methodName>privilege</methodName>
+      <methodSignature>privilege(): string</methodSignature>
+      <fullMethod>privilege(): string</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -4692,9 +4714,9 @@
       <methodName>buildClass_model</methodName>
       <methodSignature>buildClass_model(string $name): void</methodSignature>
       <fullMethod>buildClass_model(string $name): void</fullMethod>
-      <crap>21.2</crap>
-      <complexity>21</complexity>
-      <coverage>92.31</coverage>
+      <crap>22.08</crap>
+      <complexity>22</complexity>
+      <coverage>94.44</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -4991,7 +5013,7 @@
       <fullMethod>resetNamespace(): void</fullMethod>
       <crap>22</crap>
       <complexity>22</complexity>
-      <coverage>100</coverage>
+      <coverage>98.36</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5176,10 +5198,10 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>52.48</crap>
+      <crap>56.06</crap>
       <complexity>25</complexity>
-      <coverage>64.71</coverage>
-      <crapLoad>9</crapLoad>
+      <coverage>63.24</coverage>
+      <crapLoad>10</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
@@ -5957,9 +5979,9 @@
       <methodName>getDefaultNamespace</methodName>
       <methodSignature>getDefaultNamespace($rootNamespace): string</methodSignature>
       <fullMethod>getDefaultNamespace($rootNamespace): string</fullMethod>
-      <crap>4</crap>
+      <crap>4.59</crap>
       <complexity>4</complexity>
-      <coverage>100</coverage>
+      <coverage>66.67</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>

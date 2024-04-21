@@ -195,6 +195,10 @@ Crud (Tests\Feature\Playground\Stub\Console\Commands\RequestMakeCommand\Crud)
  [x] Command make default request with force and without skeleton
  [x] Command make default request with force and with skeleton
 
+File (Tests\Feature\Playground\Stub\Console\Commands\ControllerMakeCommand\File)
+ [x] Command make controller with force and without skeleton
+ [x] Command make controller with force and with skeleton
+
 File (Tests\Feature\Playground\Stub\Console\Commands\PolicyMakeCommand\File)
  [x] Command make policy with force and without skeleton
  [x] Command make policy with force and with skeleton
@@ -306,10 +310,6 @@ Interactive (Tests\Feature\Playground\Stub\Console\Commands\MigrationMakeCommand
 Keys (Tests\Feature\Playground\Stub\Console\Commands\ResourceMakeCommand\Keys)
  [x] Command make keys resource with force and without skeleton
  [x] Command make keys resource with force and with skeleton
-
-Model (Tests\Feature\Playground\Stub\Console\Commands\ControllerMakeCommand\Model)
- [x] Command make controller with force and without skeleton
- [x] Command make controller with force and with skeleton
 
 Model (Tests\Feature\Playground\Stub\Console\Commands\FactoryMakeCommand\Model)
  [x] Command make factory with force and without skeleton
