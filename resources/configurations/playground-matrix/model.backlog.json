@@ -5,15 +5,19 @@
     "module_slug": "matrix",
     "fqdn": "Playground/Matrix/Models/Backlog",
     "namespace": "Playground/Matrix",
-    "model": "Playground/Matrix/Models/Backlog",
+    "model": "Backlog",
+    "model_plural": "Backlog",
+    "model_singular": "Backlog",
+    "model_slug": "backlog",
     "name": "Backlog",
     "class": "Backlog",
-    "type": "playground-model",
+    "type": "model",
     "table": "matrix_backlogs",
     "extends": "AbstractModel",
     "implements": [],
     "factory": false,
     "migration": false,
+    "playground": true,
     "policy": false,
     "seed": false,
     "test": false,
@@ -821,7 +825,7 @@
         ]
     },
     "models": {
-        "Backlog": "tmp-testing-model.backlog.json"
+        "Backlog": "resources/configurations/playground-matrix/model.backlog.json"
     },
     "sortable": [
         {
@@ -1725,6 +1729,6 @@
         }
     },
     "uses": [
-        "Illuminate\\Database\\Eloquent\\Relations\\HasOne"
+        "Illuminate/Database/Eloquent/Relations/HasOne"
     ]
 }

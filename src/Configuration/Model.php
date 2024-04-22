@@ -37,28 +37,32 @@ class Model extends Configuration
         'package' => '',
         // properties
         'model' => '',
+        'model_plural' => '',
+        'model_singular' => '',
+        'model_slug' => '',
         'type' => '',
         'table' => '',
         'controller' => false,
         'factory' => false,
         'migration' => false,
+        'playground' => false,
         'policy' => false,
         'requests' => false,
         'seed' => false,
         'test' => false,
-        // "organization": "GammaMatrix",
-        // "package": "playground-matrix",
-        // "module": "Matrix",
-        // "module_slug": "matrix",
-        // "fqdn": "GammaMatrix/Playground/Matrix/Models/Backlog",
-        // "namespace": "GammaMatrix/Playground/Matrix",
-        // "name": "Backlog",
-        // "class": "Backlog",
-        // "model": "GammaMatrix/Playground/Matrix/Models/Backlog",
-        // "type": "playground-resource",
-        // "table": "matrix_backlogs",
-        // "extends": "AbstractModel",
-        // "implements": [],
+        // 'organization': 'GammaMatrix',
+        // 'package': 'playground-matrix',
+        // 'module': 'Matrix',
+        // 'module_slug': 'matrix',
+        // 'fqdn': 'GammaMatrix/Playground/Matrix/Models/Backlog',
+        // 'namespace': 'GammaMatrix/Playground/Matrix',
+        // 'name': 'Backlog',
+        // 'class': 'Backlog',
+        // 'model': 'GammaMatrix/Playground/Matrix/Models/Backlog',
+        // 'type': 'playground-resource',
+        // 'table': 'matrix_backlogs',
+        // 'extends': 'AbstractModel',
+        // 'implements': [],
         'extends' => '',
         'implements' => [],
         'HasOne' => [],
@@ -77,6 +81,8 @@ class Model extends Configuration
     protected string $model = '';
 
     protected string $type = '';
+
+    protected bool $playground = false;
 
     protected string $table = '';
 
@@ -105,6 +111,10 @@ class Model extends Configuration
         //     '$options' => $options,
         // ]);
         parent::setOptions($options);
+
+        if (array_key_exists('playground', $options)) {
+            $this->playground = ! empty($options['playground']);
+        }
 
         if (! empty($options['model'])
             && is_string($options['model'])
@@ -135,7 +145,11 @@ class Model extends Configuration
         $this->addModels($options);
 
         // Create should be called after other options are set.
-        $this->addCreate($options);
+        if (! empty($options['create'])
+            && is_array($options['create'])
+        ) {
+            $this->addCreate($options);
+        }
 
         return $this;
     }
@@ -146,6 +160,11 @@ class Model extends Configuration
     public function attributes(): array
     {
         return $this->attributes;
+    }
+
+    public function playground(): bool
+    {
+        return $this->playground;
     }
 
     /**

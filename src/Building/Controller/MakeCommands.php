@@ -24,8 +24,14 @@ trait MakeCommands
             $params['--force'] = true;
         }
 
+        $modelFile = $this->getModelFile();
+
         if ($this->hasOption('model-file') && $this->option('model-file')) {
             $params['--model-file'] = $this->option('model-file');
+        } else {
+            if ($modelFile) {
+                $params['--model-file'] = $modelFile;
+            }
         }
 
         foreach ($policies as $policy) {
@@ -52,8 +58,14 @@ trait MakeCommands
             $params['--force'] = true;
         }
 
+        $modelFile = $this->getModelFile();
+
         if ($this->hasOption('model-file') && $this->option('model-file')) {
             $params['--model-file'] = $this->option('model-file');
+        } else {
+            if ($modelFile) {
+                $params['--model-file'] = $modelFile;
+            }
         }
 
         foreach ($requests as $request) {
@@ -77,8 +89,14 @@ trait MakeCommands
             $params['--force'] = true;
         }
 
+        $modelFile = $this->getModelFile();
+
         if ($this->hasOption('model-file') && $this->option('model-file')) {
             $params['--model-file'] = $this->option('model-file');
+        } else {
+            if ($modelFile) {
+                $params['--model-file'] = $modelFile;
+            }
         }
 
         foreach ($resources as $resource) {
@@ -100,8 +118,14 @@ trait MakeCommands
             $params['--force'] = true;
         }
 
+        $modelFile = $this->getModelFile();
+
         if ($this->hasOption('model-file') && $this->option('model-file')) {
             $params['--model-file'] = $this->option('model-file');
+        } else {
+            if ($modelFile) {
+                $params['--model-file'] = $modelFile;
+            }
         }
 
         foreach ($transformers as $transformer) {

@@ -3,24 +3,26 @@
  * {{organization}}
  */
 
+declare(strict_types=1);
 namespace {{ namespace }};
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use {{ model_fqdn }};
 
 /**
  * \{{ namespace }}\{{ class }}
  *
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\{{ model_fqdn }}>
+ * @extends Factory<{{ model }}>
  */
 class {{ class }} extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
-     * @var string
+     * @var class-string<{{ model }}>
      */
-    protected $model = \{{ model_fqdn }}::class;
+    protected $model = {{ model }}::class;
 
     /**
      * Define the model's default state.
@@ -29,16 +31,15 @@ class {{ class }} extends Factory
      */
     public function definition(): array
     {
-        $title = $this->faker->bs;
+        $title = $this->faker->sentence(3);
         return [
-            'label' => fake()->bs,
+            'label' => $this->faker->sentence(3),
             'title' => $title,
             'slug' => Str::slug($title, '-'),
             'description' => $this->faker->sentence(3),
             'introduction' => $this->faker->sentence(3),
             'content' => $this->faker->sentence(3),
-            'summary' => $this->faker->sentence(3),
-{{ columns }}
+            'summary' => $this->faker->sentence(3),{{ columns }}
         ];
     }
 }

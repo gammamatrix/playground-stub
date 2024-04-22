@@ -3,6 +3,7 @@
  * {{organization}}
  */
 
+declare(strict_types=1);
 namespace {{ namespace }};
 {{ use }}
 /**
@@ -10,5 +11,5 @@ namespace {{ namespace }};
  */
 abstract class {{ class }} extends {{ extends }}{{ implements }}
 {
-{{ use_class }}{{ attributes }}{{ casts }}{{ fillable }}{{ perPage }}{{ HasOne }}{{ HasMany }}{{ scopes }}{{ filters }}
+{{ use_class }}{{ property_table }}{{ attributes }}{{ casts }}{{ fillable }}{{ perPage }}{{ HasOne }}{{ HasMany }}{{ scopes }}{{ filters }}
 }

@@ -23,16 +23,19 @@ trait Creating
     /**
      * @param array<string, mixed> $options
      */
-    public function addCreate(array $options): self
+    public function addCreate(array $options = []): self
     {
+        $this->create = new Model\Create(null, $this->skeleton());
+
+        $this->create->setParent($this);
+
         if (! empty($options['create'])
             && is_array($options['create'])
         ) {
-            // $this->create = new Model\Create($options['create'], $this->skeleton());
-            // $this->create->setParent($this)->apply();
-            $this->create = new Model\Create(null, $this->skeleton());
-            $this->create->setParent($this)->setOptions($options['create'])->apply();
+            $this->create->setOptions($options['create']);
         }
+
+        $this->create->apply();
 
         return $this;
     }

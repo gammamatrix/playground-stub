@@ -107,6 +107,17 @@ class TestMakeCommand extends GeneratorCommand
             'suite' => $this->suite,
         ]);
 
+        $this->type = 'Test';
+        if ($this->suite) {
+            $this->type = Str::of(
+                $this->suite
+            )->replace('-', ' ')->ucfirst()->finish(' Test')->toString();
+        }
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$this->suite' => $this->suite,
+        //     '$this->type' => $this->type,
+        // ]);
         $this->c->setOptions([
             'folder' => Str::of($this->suite)->title()->toString(),
         ]);
