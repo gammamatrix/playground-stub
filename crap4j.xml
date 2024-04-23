@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-23 17:42:57</timestamp>
+  <timestamp>2024-04-23 22:53:20</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>582</methodCount>
+    <methodCount>605</methodCount>
     <crapMethodCount>31</crapMethodCount>
-    <crapLoad>351</crapLoad>
-    <totalCrap>7313.67</totalCrap>
-    <crapMethodPercent>5.33</crapMethodPercent>
+    <crapLoad>350</crapLoad>
+    <totalCrap>7513.63</totalCrap>
+    <crapMethodPercent>5.12</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -182,10 +182,10 @@
       <methodName>buildClass_column</methodName>
       <methodSignature>buildClass_column(string $attribute, array $meta, string $group): string</methodSignature>
       <fullMethod>buildClass_column(string $attribute, array $meta, string $group): string</fullMethod>
-      <crap>53.74</crap>
+      <crap>37.33</crap>
       <complexity>21</complexity>
-      <coverage>57.97</coverage>
-      <crapLoad>9</crapLoad>
+      <coverage>66.67</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Building\Migration</package>
@@ -332,6 +332,28 @@
     </method>
     <method>
       <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\BuildAttributes</className>
+      <methodName>buildClass_attributes</methodName>
+      <methodSignature>buildClass_attributes(): void</methodSignature>
+      <fullMethod>buildClass_attributes(): void</fullMethod>
+      <crap>11.21</crap>
+      <complexity>11</complexity>
+      <coverage>88</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\BuildCasts</className>
+      <methodName>buildClass_casts</methodName>
+      <methodSignature>buildClass_casts(): void</methodSignature>
+      <fullMethod>buildClass_casts(): void</fullMethod>
+      <crap>10.93</crap>
+      <complexity>10</complexity>
+      <coverage>78.95</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
       <className>Playground\Stub\Building\Model\BuildCreate</className>
       <methodName>buildClass_model_create</methodName>
       <methodSignature>buildClass_model_create(string $name, string $type): void</methodSignature>
@@ -339,6 +361,149 @@
       <crap>3.85</crap>
       <complexity>3</complexity>
       <coverage>54.55</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\BuildDocBlock</className>
+      <methodName>buildClass_docblock</methodName>
+      <methodSignature>buildClass_docblock(): void</methodSignature>
+      <fullMethod>buildClass_docblock(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\BuildDocBlock</className>
+      <methodName>buildClass_docblock_properties</methodName>
+      <methodSignature>buildClass_docblock_properties(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_properties(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\BuildDocBlock</className>
+      <methodName>buildClass_docblock_ids</methodName>
+      <methodSignature>buildClass_docblock_ids(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_ids(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>9.02</crap>
+      <complexity>9</complexity>
+      <coverage>94.12</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\BuildDocBlock</className>
+      <methodName>buildClass_docblock_dates</methodName>
+      <methodSignature>buildClass_docblock_dates(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_dates(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\BuildDocBlock</className>
+      <methodName>buildClass_docblock_permissions</methodName>
+      <methodSignature>buildClass_docblock_permissions(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_permissions(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\BuildDocBlock</className>
+      <methodName>buildClass_docblock_status</methodName>
+      <methodSignature>buildClass_docblock_status(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_status(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>5.2</crap>
+      <complexity>5</complexity>
+      <coverage>80</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\BuildDocBlock</className>
+      <methodName>buildClass_docblock_flags</methodName>
+      <methodSignature>buildClass_docblock_flags(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_flags(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>95</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\BuildDocBlock</className>
+      <methodName>buildClass_docblock_matrix</methodName>
+      <methodSignature>buildClass_docblock_matrix(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_matrix(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>66.52</crap>
+      <complexity>8</complexity>
+      <coverage>2.94</coverage>
+      <crapLoad>8</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\BuildDocBlock</className>
+      <methodName>buildClass_docblock_columns</methodName>
+      <methodSignature>buildClass_docblock_columns(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_columns(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>8.2</crap>
+      <complexity>8</complexity>
+      <coverage>85.29</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\BuildDocBlock</className>
+      <methodName>buildClass_docblock_ui</methodName>
+      <methodSignature>buildClass_docblock_ui(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_ui(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>7.06</crap>
+      <complexity>7</complexity>
+      <coverage>89.29</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\BuildDocBlock</className>
+      <methodName>buildClass_docblock_json</methodName>
+      <methodSignature>buildClass_docblock_json(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_docblock_json(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>8.04</crap>
+      <complexity>8</complexity>
+      <coverage>91.18</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\BuildFillable</className>
+      <methodName>buildClass_fillable</methodName>
+      <methodSignature>buildClass_fillable(): void</methodSignature>
+      <fullMethod>buildClass_fillable(): void</fullMethod>
+      <crap>14.98</crap>
+      <complexity>13</complexity>
+      <coverage>77.27</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\BuildPerPage</className>
+      <methodName>buildClass_perPage</methodName>
+      <methodSignature>buildClass_perPage(): void</methodSignature>
+      <fullMethod>buildClass_perPage(): void</fullMethod>
+      <crap>9.06</crap>
+      <complexity>5</complexity>
+      <coverage>45.45</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -394,6 +559,17 @@
       <crap>10.86</crap>
       <complexity>10</complexity>
       <coverage>79.49</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\BuildTable</className>
+      <methodName>buildClass_table_property</methodName>
+      <methodSignature>buildClass_table_property(): void</methodSignature>
+      <fullMethod>buildClass_table_property(): void</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1018,8 +1194,8 @@
       <methodName>load_base_file</methodName>
       <methodSignature>load_base_file(): Playground\Stub\Configuration\Swagger\Api</methodSignature>
       <fullMethod>load_base_file(): Playground\Stub\Configuration\Swagger\Api</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
+      <crap>5</crap>
+      <complexity>5</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -1091,7 +1267,7 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Properties</className>
+      <className>Playground\Stub\Configuration\Concerns\PrimaryProperties</className>
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
@@ -1102,7 +1278,7 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Properties</className>
+      <className>Playground\Stub\Configuration\Concerns\PrimaryProperties</className>
       <methodName>class</methodName>
       <methodSignature>class(): string</methodSignature>
       <fullMethod>class(): string</fullMethod>
@@ -1113,7 +1289,7 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Properties</className>
+      <className>Playground\Stub\Configuration\Concerns\PrimaryProperties</className>
       <methodName>config</methodName>
       <methodSignature>config(): string</methodSignature>
       <fullMethod>config(): string</fullMethod>
@@ -1124,7 +1300,7 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Properties</className>
+      <className>Playground\Stub\Configuration\Concerns\PrimaryProperties</className>
       <methodName>fqdn</methodName>
       <methodSignature>fqdn(): string</methodSignature>
       <fullMethod>fqdn(): string</fullMethod>
@@ -1135,7 +1311,7 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Properties</className>
+      <className>Playground\Stub\Configuration\Concerns\PrimaryProperties</className>
       <methodName>model</methodName>
       <methodSignature>model(): string</methodSignature>
       <fullMethod>model(): string</fullMethod>
@@ -1146,7 +1322,7 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Properties</className>
+      <className>Playground\Stub\Configuration\Concerns\PrimaryProperties</className>
       <methodName>module</methodName>
       <methodSignature>module(): string</methodSignature>
       <fullMethod>module(): string</fullMethod>
@@ -1157,7 +1333,7 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Properties</className>
+      <className>Playground\Stub\Configuration\Concerns\PrimaryProperties</className>
       <methodName>module_slug</methodName>
       <methodSignature>module_slug(): string</methodSignature>
       <fullMethod>module_slug(): string</fullMethod>
@@ -1168,7 +1344,7 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Properties</className>
+      <className>Playground\Stub\Configuration\Concerns\PrimaryProperties</className>
       <methodName>name</methodName>
       <methodSignature>name(): string</methodSignature>
       <fullMethod>name(): string</fullMethod>
@@ -1179,7 +1355,7 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Properties</className>
+      <className>Playground\Stub\Configuration\Concerns\PrimaryProperties</className>
       <methodName>namespace</methodName>
       <methodSignature>namespace(): string</methodSignature>
       <fullMethod>namespace(): string</fullMethod>
@@ -1190,7 +1366,7 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Properties</className>
+      <className>Playground\Stub\Configuration\Concerns\PrimaryProperties</className>
       <methodName>organization</methodName>
       <methodSignature>organization(): string</methodSignature>
       <fullMethod>organization(): string</fullMethod>
@@ -1201,7 +1377,7 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Properties</className>
+      <className>Playground\Stub\Configuration\Concerns\PrimaryProperties</className>
       <methodName>package</methodName>
       <methodSignature>package(): string</methodSignature>
       <fullMethod>package(): string</fullMethod>
@@ -1212,7 +1388,7 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Properties</className>
+      <className>Playground\Stub\Configuration\Concerns\PrimaryProperties</className>
       <methodName>type</methodName>
       <methodSignature>type(): string</methodSignature>
       <fullMethod>type(): string</fullMethod>
@@ -1223,7 +1399,7 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Properties</className>
+      <className>Playground\Stub\Configuration\Concerns\PrimaryProperties</className>
       <methodName>uses</methodName>
       <methodSignature>uses(): array</methodSignature>
       <fullMethod>uses(): array</fullMethod>
@@ -1234,7 +1410,7 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Properties</className>
+      <className>Playground\Stub\Configuration\Concerns\PrimaryProperties</className>
       <methodName>extends</methodName>
       <methodSignature>extends(): string</methodSignature>
       <fullMethod>extends(): string</fullMethod>
@@ -1245,10 +1421,43 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
-      <className>Playground\Stub\Configuration\Concerns\Properties</className>
+      <className>Playground\Stub\Configuration\Concerns\PrimaryProperties</className>
       <methodName>extends_use</methodName>
       <methodSignature>extends_use(): string</methodSignature>
       <fullMethod>extends_use(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Concerns</package>
+      <className>Playground\Stub\Configuration\Concerns\PrimaryProperties</className>
+      <methodName>properties</methodName>
+      <methodSignature>properties(): array</methodSignature>
+      <fullMethod>properties(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Concerns</package>
+      <className>Playground\Stub\Configuration\Concerns\Properties</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Concerns</package>
+      <className>Playground\Stub\Configuration\Concerns\Properties</className>
+      <methodName>type</methodName>
+      <methodSignature>type(): string</methodSignature>
+      <fullMethod>type(): string</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -1313,10 +1522,10 @@
       <package>Playground\Stub\Configuration</package>
       <className>Playground\Stub\Configuration\Configuration</className>
       <methodName>__construct</methodName>
-      <methodSignature>__construct(mixed $options, bool $skeleton)</methodSignature>
-      <fullMethod>__construct(mixed $options, bool $skeleton)</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
+      <methodSignature>__construct(mixed $options)</methodSignature>
+      <fullMethod>__construct(mixed $options)</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -1678,9 +1887,9 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>14.51</crap>
-      <complexity>14</complexity>
-      <coverage>86.21</coverage>
+      <crap>22.5</crap>
+      <complexity>20</complexity>
+      <coverage>81.58</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1986,8 +2195,8 @@
       <methodName>addCreate</methodName>
       <methodSignature>addCreate(array $options): self</methodSignature>
       <fullMethod>addCreate(array $options): self</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
+      <crap>4</crap>
+      <complexity>4</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -2008,8 +2217,8 @@
       <methodName>addFilters</methodName>
       <methodSignature>addFilters(array $options): self</methodSignature>
       <fullMethod>addFilters(array $options): self</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
+      <crap>4</crap>
+      <complexity>4</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -2151,9 +2360,9 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>41.26</crap>
-      <complexity>40</complexity>
-      <coverage>90.77</coverage>
+      <crap>45.88</crap>
+      <complexity>43</complexity>
+      <coverage>88.41</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2231,6 +2440,17 @@
       <crap>4</crap>
       <complexity>4</complexity>
       <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\Create</className>
+      <methodName>addMatrix</methodName>
+      <methodSignature>addMatrix(string $column, mixed $meta): self</methodSignature>
+      <fullMethod>addMatrix(string $column, mixed $meta): self</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2390,6 +2610,17 @@
     <method>
       <package>Playground\Stub\Configuration\Model</package>
       <className>Playground\Stub\Configuration\Model\Create</className>
+      <methodName>matrix</methodName>
+      <methodSignature>matrix(): array</methodSignature>
+      <fullMethod>matrix(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\Create</className>
       <methodName>ui</methodName>
       <methodSignature>ui(): array</methodSignature>
       <fullMethod>ui(): array</fullMethod>
@@ -2415,9 +2646,9 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>12</crap>
-      <complexity>12</complexity>
-      <coverage>100</coverage>
+      <crap>35.46</crap>
+      <complexity>27</complexity>
+      <coverage>77.36</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2426,9 +2657,9 @@
       <methodName>apply</methodName>
       <methodSignature>apply(): self</methodSignature>
       <fullMethod>apply(): self</fullMethod>
-      <crap>5</crap>
+      <crap>5.12</crap>
       <complexity>5</complexity>
-      <coverage>100</coverage>
+      <coverage>83.33</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2437,9 +2668,9 @@
       <methodName>jsonSerialize</methodName>
       <methodSignature>jsonSerialize(): mixed</methodSignature>
       <fullMethod>jsonSerialize(): mixed</fullMethod>
-      <crap>3</crap>
+      <crap>3.14</crap>
       <complexity>3</complexity>
-      <coverage>100</coverage>
+      <coverage>75</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2448,6 +2679,17 @@
       <methodName>column</methodName>
       <methodSignature>column(): string</methodSignature>
       <fullMethod>column(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\CreateColumn</className>
+      <methodName>comment</methodName>
+      <methodSignature>comment(): string</methodSignature>
+      <fullMethod>comment(): string</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -2517,6 +2759,28 @@
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\CreateColumn</className>
+      <methodName>precision</methodName>
+      <methodSignature>precision(): ?int</methodSignature>
+      <fullMethod>precision(): ?int</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\CreateColumn</className>
+      <methodName>scale</methodName>
+      <methodSignature>scale(): ?int</methodSignature>
+      <fullMethod>scale(): ?int</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3522,6 +3786,50 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\PrimaryConfiguration</className>
+      <methodName>__construct</methodName>
+      <methodSignature>__construct(mixed $options, bool $skeleton)</methodSignature>
+      <fullMethod>__construct(mixed $options, bool $skeleton)</fullMethod>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\PrimaryConfiguration</className>
+      <methodName>apply</methodName>
+      <methodSignature>apply(): self</methodSignature>
+      <fullMethod>apply(): self</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\PrimaryConfiguration</className>
+      <methodName>jsonSerialize</methodName>
+      <methodSignature>jsonSerialize(): mixed</methodSignature>
+      <fullMethod>jsonSerialize(): mixed</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\PrimaryConfiguration</className>
+      <methodName>toArray</methodName>
+      <methodSignature>toArray(): array</methodSignature>
+      <fullMethod>toArray(): array</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
       <className>Playground\Stub\Configuration\Request</className>
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
@@ -3867,8 +4175,8 @@
       <methodName>components</methodName>
       <methodSignature>components(): Playground\Stub\Configuration\Swagger\Components</methodSignature>
       <fullMethod>components(): Playground\Stub\Configuration\Swagger\Components</fullMethod>
-      <crap>6</crap>
-      <complexity>2</complexity>
+      <crap>12</crap>
+      <complexity>3</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -3878,8 +4186,8 @@
       <methodName>controllers</methodName>
       <methodSignature>controllers(): Playground\Stub\Configuration\Swagger\Controllers</methodSignature>
       <fullMethod>controllers(): Playground\Stub\Configuration\Swagger\Controllers</fullMethod>
-      <crap>6</crap>
-      <complexity>2</complexity>
+      <crap>12</crap>
+      <complexity>3</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -4833,8 +5141,8 @@
       <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\Command</className>
       <methodName>get_configuration</methodName>
-      <methodSignature>get_configuration(bool $reset): Playground\Stub\Configuration\Contracts\Configuration</methodSignature>
-      <fullMethod>get_configuration(bool $reset): Playground\Stub\Configuration\Contracts\Configuration</fullMethod>
+      <methodSignature>get_configuration(bool $reset): Playground\Stub\Configuration\Contracts\PrimaryConfiguration</methodSignature>
+      <fullMethod>get_configuration(bool $reset): Playground\Stub\Configuration\Contracts\PrimaryConfiguration</fullMethod>
       <crap>3</crap>
       <complexity>3</complexity>
       <coverage>100</coverage>
@@ -5036,61 +5344,6 @@
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands\Concerns</package>
-      <className>Playground\Stub\Console\Commands\Concerns\Models</className>
-      <methodName>buildClass_table</methodName>
-      <methodSignature>buildClass_table(): void</methodSignature>
-      <fullMethod>buildClass_table(): void</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands\Concerns</package>
-      <className>Playground\Stub\Console\Commands\Concerns\Models</className>
-      <methodName>buildClass_perPage</methodName>
-      <methodSignature>buildClass_perPage(): void</methodSignature>
-      <fullMethod>buildClass_perPage(): void</fullMethod>
-      <crap>9.06</crap>
-      <complexity>5</complexity>
-      <coverage>45.45</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands\Concerns</package>
-      <className>Playground\Stub\Console\Commands\Concerns\Models</className>
-      <methodName>buildClass_attributes</methodName>
-      <methodSignature>buildClass_attributes(): void</methodSignature>
-      <fullMethod>buildClass_attributes(): void</fullMethod>
-      <crap>11.21</crap>
-      <complexity>11</complexity>
-      <coverage>88</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands\Concerns</package>
-      <className>Playground\Stub\Console\Commands\Concerns\Models</className>
-      <methodName>buildClass_casts</methodName>
-      <methodSignature>buildClass_casts(): void</methodSignature>
-      <fullMethod>buildClass_casts(): void</fullMethod>
-      <crap>10.93</crap>
-      <complexity>10</complexity>
-      <coverage>78.95</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands\Concerns</package>
-      <className>Playground\Stub\Console\Commands\Concerns\Models</className>
-      <methodName>buildClass_fillable</methodName>
-      <methodSignature>buildClass_fillable(): void</methodSignature>
-      <fullMethod>buildClass_fillable(): void</fullMethod>
-      <crap>14.98</crap>
-      <complexity>13</complexity>
-      <coverage>77.27</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5350,8 +5603,8 @@
       <package>Playground\Stub\Console\Commands\Concerns</package>
       <className>Playground\Stub\Console\Commands\Concerns\PackageConfiguration</className>
       <methodName>saveConfiguration</methodName>
-      <methodSignature>saveConfiguration(): Playground\Stub\Configuration\Contracts\Configuration</methodSignature>
-      <fullMethod>saveConfiguration(): Playground\Stub\Configuration\Contracts\Configuration</fullMethod>
+      <methodSignature>saveConfiguration(): Playground\Stub\Configuration\Contracts\PrimaryConfiguration</methodSignature>
+      <fullMethod>saveConfiguration(): Playground\Stub\Configuration\Contracts\PrimaryConfiguration</fullMethod>
       <crap>2</crap>
       <complexity>2</complexity>
       <coverage>100</coverage>

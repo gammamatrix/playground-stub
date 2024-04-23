@@ -12,26 +12,26 @@ Abstract (Tests\Feature\Playground\Stub\Console\Commands\ResourceMakeCommand\Abs
  [x] Command make abstract keys resource with force and without skeleton
  [x] Command make abstract keys resource with force and with skeleton
 
-Add Class File To (Tests\Unit\Playground\Stub\Configuration\Configuration\AddClassFileTo)
+Add Class File To (Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration\AddClassFileTo)
  [x] AddClassFileTo without property
  [x] AddClassFileTo without file
  [x] AddClassFileTo with missing property
  [x] AddClassFileTo with valid parameters and succeed
 
-Add Class To (Tests\Unit\Playground\Stub\Configuration\Configuration\AddClassTo)
+Add Class To (Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration\AddClassTo)
  [x] AddClassTo without property
  [x] AddClassTo without fqdn
  [x] AddClassTo with missing property
  [x] AddClassTo with valid parameters and succeed
 
-Add Mapped Class To (Tests\Unit\Playground\Stub\Configuration\Configuration\AddMappedClassTo)
+Add Mapped Class To (Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration\AddMappedClassTo)
  [x] AddMappedClassTo without property
  [x] AddMappedClassTo without key
  [x] AddMappedClassTo without value
  [x] AddMappedClassTo with missing property
  [x] AddMappedClassTo with valid parameters and succeed
 
-Add To Use (Tests\Unit\Playground\Stub\Configuration\Configuration\AddToUse)
+Add To Use (Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration\AddToUse)
  [x] AddToUse without class
  [x] AddToUse without key and succeed
  [x] AddToUse with key and succeed
@@ -219,9 +219,6 @@ Index (Tests\Feature\Playground\Stub\Console\Commands\RequestMakeCommand\Index)
 Instance (Tests\Unit\Playground\Stub\Configuration\Configuration\Instance)
  [x] Instance
  [x] Instance apply without options
- [x] Folder is empty by default
- [x] Folder with empty setFolder
- [x] Folder with path for setFolder
 
 Instance (Tests\Unit\Playground\Stub\Configuration\Factory\Instance)
  [x] Instance
@@ -237,12 +234,12 @@ Instance (Tests\Unit\Playground\Stub\Configuration\Migration\Instance)
 
 Instance (Tests\Unit\Playground\Stub\Configuration\Model\CreateColumn\Instance)
  [x] Instance
- [x] Model with file and skeleton jsonSerialize
+ [x] Model with file jsonSerialize
  [x] SetOptions unsupported primary and log message
 
 Instance (Tests\Unit\Playground\Stub\Configuration\Model\Create\Instance)
  [x] Instance
- [x] Model with file and skeleton
+ [x] Model with file
  [x] SetOptions unsupported primary and ignore
  [x] AddId with empty column
  [x] AddUnique with empty column
@@ -261,7 +258,7 @@ Instance (Tests\Unit\Playground\Stub\Configuration\Model\Filter\Instance)
 Instance (Tests\Unit\Playground\Stub\Configuration\Model\Filters\Instance)
  [x] Instance
  [x] Instance apply without options
- [x] Model with file and skeleton
+ [x] Model with file
  [x] SetOptions with builder in options
  [x] AddId with empty meta
  [x] AddDate with empty meta
@@ -296,6 +293,13 @@ Instance (Tests\Unit\Playground\Stub\Configuration\Policy\Instance)
  [x] Instance apply without options
  [x] Folder is empty by default
  [x] Test with file and skeleton
+
+Instance (Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration\Instance)
+ [x] Instance
+ [x] Instance apply without options
+ [x] Folder is empty by default
+ [x] Folder with empty setFolder
+ [x] Folder with path for setFolder
 
 Instance (Tests\Unit\Playground\Stub\Configuration\Test\Instance)
  [x] Instance
@@ -399,6 +403,11 @@ Properties (Tests\Unit\Playground\Stub\Configuration\Configuration\Properties)
  [x] Properties with all options without apply
  [x] Properties with all options with apply
 
+Properties (Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration\Properties)
+ [x] Properties
+ [x] Properties with all options without apply
+ [x] Properties with all options with apply
+
 Relationships (Tests\Unit\Playground\Stub\Configuration\Model\Relationships)
  [x] AddRelationships for HasOne with invalid accessor
  [x] AddRelationships for HasMany with invalid accessor
@@ -444,7 +453,7 @@ Site (Tests\Feature\Playground\Stub\Console\Commands\TemplateMakeCommand\Site)
  [x] Command make playground template with force and without skeleton without file
  [x] Command make playground template with force and with skeleton without file
 
-Skeleton (Tests\Unit\Playground\Stub\Configuration\Configuration\Skeleton)
+Skeleton (Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration\Skeleton)
  [x] Skeleton
  [x] Skeleton withSkeleton
  [x] Skeleton option as false

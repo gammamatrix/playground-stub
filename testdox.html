@@ -67,21 +67,21 @@
             <li class="success">Command make abstract keys resource with force and without skeleton</li>
             <li class="success">Command make abstract keys resource with force and with skeleton</li>
         </ul>
-        <h2>Add Class File To (Tests\Unit\Playground\Stub\Configuration\Configuration\AddClassFileTo)</h2>
+        <h2>Add Class File To (Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration\AddClassFileTo)</h2>
         <ul>
             <li class="success">AddClassFileTo without property</li>
             <li class="success">AddClassFileTo without file</li>
             <li class="success">AddClassFileTo with missing property</li>
             <li class="success">AddClassFileTo with valid parameters and succeed</li>
         </ul>
-        <h2>Add Class To (Tests\Unit\Playground\Stub\Configuration\Configuration\AddClassTo)</h2>
+        <h2>Add Class To (Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration\AddClassTo)</h2>
         <ul>
             <li class="success">AddClassTo without property</li>
             <li class="success">AddClassTo without fqdn</li>
             <li class="success">AddClassTo with missing property</li>
             <li class="success">AddClassTo with valid parameters and succeed</li>
         </ul>
-        <h2>Add Mapped Class To (Tests\Unit\Playground\Stub\Configuration\Configuration\AddMappedClassTo)</h2>
+        <h2>Add Mapped Class To (Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration\AddMappedClassTo)</h2>
         <ul>
             <li class="success">AddMappedClassTo without property</li>
             <li class="success">AddMappedClassTo without key</li>
@@ -89,7 +89,7 @@
             <li class="success">AddMappedClassTo with missing property</li>
             <li class="success">AddMappedClassTo with valid parameters and succeed</li>
         </ul>
-        <h2>Add To Use (Tests\Unit\Playground\Stub\Configuration\Configuration\AddToUse)</h2>
+        <h2>Add To Use (Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration\AddToUse)</h2>
         <ul>
             <li class="success">AddToUse without class</li>
             <li class="success">AddToUse without key and succeed</li>
@@ -319,9 +319,6 @@
         <ul>
             <li class="success">Instance</li>
             <li class="success">Instance apply without options</li>
-            <li class="success">Folder is empty by default</li>
-            <li class="success">Folder with empty setFolder</li>
-            <li class="success">Folder with path for setFolder</li>
         </ul>
         <h2>Instance (Tests\Unit\Playground\Stub\Configuration\Factory\Instance)</h2>
         <ul>
@@ -340,13 +337,13 @@
         <h2>Instance (Tests\Unit\Playground\Stub\Configuration\Model\CreateColumn\Instance)</h2>
         <ul>
             <li class="success">Instance</li>
-            <li class="success">Model with file and skeleton jsonSerialize</li>
+            <li class="success">Model with file jsonSerialize</li>
             <li class="success">SetOptions unsupported primary and log message</li>
         </ul>
         <h2>Instance (Tests\Unit\Playground\Stub\Configuration\Model\Create\Instance)</h2>
         <ul>
             <li class="success">Instance</li>
-            <li class="success">Model with file and skeleton</li>
+            <li class="success">Model with file</li>
             <li class="success">SetOptions unsupported primary and ignore</li>
             <li class="success">AddId with empty column</li>
             <li class="success">AddUnique with empty column</li>
@@ -367,7 +364,7 @@
         <ul>
             <li class="success">Instance</li>
             <li class="success">Instance apply without options</li>
-            <li class="success">Model with file and skeleton</li>
+            <li class="success">Model with file</li>
             <li class="success">SetOptions with builder in options</li>
             <li class="success">AddId with empty meta</li>
             <li class="success">AddDate with empty meta</li>
@@ -405,6 +402,14 @@
             <li class="success">Instance apply without options</li>
             <li class="success">Folder is empty by default</li>
             <li class="success">Test with file and skeleton</li>
+        </ul>
+        <h2>Instance (Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration\Instance)</h2>
+        <ul>
+            <li class="success">Instance</li>
+            <li class="success">Instance apply without options</li>
+            <li class="success">Folder is empty by default</li>
+            <li class="success">Folder with empty setFolder</li>
+            <li class="success">Folder with path for setFolder</li>
         </ul>
         <h2>Instance (Tests\Unit\Playground\Stub\Configuration\Test\Instance)</h2>
         <ul>
@@ -521,6 +526,12 @@
             <li class="success">Properties with all options without apply</li>
             <li class="success">Properties with all options with apply</li>
         </ul>
+        <h2>Properties (Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration\Properties)</h2>
+        <ul>
+            <li class="success">Properties</li>
+            <li class="success">Properties with all options without apply</li>
+            <li class="success">Properties with all options with apply</li>
+        </ul>
         <h2>Relationships (Tests\Unit\Playground\Stub\Configuration\Model\Relationships)</h2>
         <ul>
             <li class="success">AddRelationships for HasOne with invalid accessor</li>
@@ -572,7 +583,7 @@
             <li class="success">Command make playground template with force and without skeleton without file</li>
             <li class="success">Command make playground template with force and with skeleton without file</li>
         </ul>
-        <h2>Skeleton (Tests\Unit\Playground\Stub\Configuration\Configuration\Skeleton)</h2>
+        <h2>Skeleton (Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration\Skeleton)</h2>
         <ul>
             <li class="success">Skeleton</li>
             <li class="success">Skeleton withSkeleton</li>
