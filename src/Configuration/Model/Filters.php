@@ -6,11 +6,15 @@ declare(strict_types=1);
  */
 namespace Playground\Stub\Configuration\Model;
 
+use Playground\Stub\Configuration;
+
 /**
  * \Playground\Stub\Configuration\Model\Filters
  */
-class Filters extends ModelConfiguration
+class Filters extends ModelConfiguration implements Configuration\Contracts\WithSkeleton
 {
+    use Configuration\Concerns\WithSkeleton;
+
     protected ?string $builder = null;
 
     /**
@@ -246,7 +250,7 @@ class Filters extends ModelConfiguration
 
         $meta['handler'] = 'ids';
 
-        $this->ids[$i] = new Filter(null, $this->skeleton());
+        $this->ids[$i] = new Filter(null);
         $this->ids[$i]->setParent($this)->setOptions($meta)->apply();
 
         return $this;
@@ -262,7 +266,7 @@ class Filters extends ModelConfiguration
 
         $meta['handler'] = 'dates';
 
-        $this->dates[$i] = new Filter(null, $this->skeleton());
+        $this->dates[$i] = new Filter(null);
         $this->dates[$i]->setParent($this)->setOptions($meta)->apply();
 
         return $this;
@@ -278,7 +282,7 @@ class Filters extends ModelConfiguration
 
         $meta['handler'] = 'flags';
 
-        $this->flags[$i] = new Filter(null, $this->skeleton());
+        $this->flags[$i] = new Filter(null);
         $this->flags[$i]->setParent($this)->setOptions($meta)->apply();
 
         return $this;
@@ -307,7 +311,7 @@ class Filters extends ModelConfiguration
 
         $meta['handler'] = 'columns';
 
-        $this->columns[$i] = new Filter(null, $this->skeleton());
+        $this->columns[$i] = new Filter(null);
         $this->columns[$i]->setParent($this)->setOptions($meta)->apply();
 
         return $this;
@@ -323,7 +327,7 @@ class Filters extends ModelConfiguration
 
         $meta['handler'] = 'permissions';
 
-        $this->permissions[$i] = new Filter(null, $this->skeleton());
+        $this->permissions[$i] = new Filter(null);
         $this->permissions[$i]->setParent($this)->setOptions($meta)->apply();
 
         return $this;
@@ -339,7 +343,7 @@ class Filters extends ModelConfiguration
 
         $meta['handler'] = 'status';
 
-        $this->status[$i] = new Filter(null, $this->skeleton());
+        $this->status[$i] = new Filter(null);
         $this->status[$i]->setParent($this)->setOptions($meta)->apply();
 
         return $this;
@@ -355,7 +359,7 @@ class Filters extends ModelConfiguration
 
         $meta['handler'] = 'ui';
 
-        $this->ui[$i] = new Filter(null, $this->skeleton());
+        $this->ui[$i] = new Filter(null);
         $this->ui[$i]->setParent($this)->setOptions($meta)->apply();
 
         return $this;
@@ -371,7 +375,7 @@ class Filters extends ModelConfiguration
 
         $meta['handler'] = 'json';
 
-        $this->json[$i] = new Filter(null, $this->skeleton());
+        $this->json[$i] = new Filter(null);
         $this->json[$i]->setParent($this)->setOptions($meta)->apply();
 
         return $this;

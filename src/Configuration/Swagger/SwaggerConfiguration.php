@@ -10,9 +10,11 @@ use Playground\Stub\Configuration;
 /**
  * \Playground\Stub\Configuration\Swagger\SwaggerConfiguration
  */
-class SwaggerConfiguration extends Configuration\Configuration
+class SwaggerConfiguration extends Configuration\Configuration implements Configuration\Contracts\WithSkeleton
 {
-    protected ?Api $_parent = null;
+    use Configuration\Concerns\WithSkeleton;
+
+    private ?Api $_parent = null;
 
     public function getParent(): ?Api
     {

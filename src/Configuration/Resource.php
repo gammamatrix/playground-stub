@@ -9,7 +9,7 @@ namespace Playground\Stub\Configuration;
 /**
  * \Playground\Stub\Configuration\Resource
  */
-class Resource extends Configuration
+class Resource extends PrimaryConfiguration
 {
     protected bool $collection = false;
 

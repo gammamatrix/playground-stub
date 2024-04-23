@@ -15,6 +15,8 @@ class CreateColumn extends ModelConfiguration
 {
     protected string $column = '';
 
+    protected string $comment = '';
+
     /**
      * @var string The description will be used for comments and documentation.
      */
@@ -25,6 +27,10 @@ class CreateColumn extends ModelConfiguration
     protected string $icon = '';
 
     protected bool $index = false;
+
+    protected ?int $precision = null;
+
+    protected ?int $scale = null;
 
     protected bool $readOnly = false;
 
@@ -44,7 +50,9 @@ class CreateColumn extends ModelConfiguration
         'label' => '',
         'description' => '',
         'icon' => '',
-        'default' => null,
+        // 'default' => null,
+        // 'precision' => null,
+        // 'scale' => null,
         'index' => false,
         'nullable' => false,
         'readOnly' => false,
@@ -98,6 +106,30 @@ class CreateColumn extends ModelConfiguration
             }
         }
 
+        if (in_array($this->type, [
+            'decimal',
+            'float',
+            'double',
+        ])) {
+            if (! empty($options['precision'])
+                && is_numeric($options['precision'])
+                && $options['precision'] > 0
+            ) {
+                $this->precision = intval($options['precision']);
+            }
+
+            $this->properties['precision'] = $this->precision;
+
+            if (! empty($options['scale'])
+                && is_numeric($options['scale'])
+                && $options['scale'] > 0
+            ) {
+                $this->scale = intval($options['scale']);
+            }
+
+            $this->properties['scale'] = $this->scale;
+        }
+
         if (array_key_exists('index', $options)) {
             $this->index = ! empty($options['index']);
         }
@@ -110,16 +142,40 @@ class CreateColumn extends ModelConfiguration
             $this->readOnly = ! empty($options['readOnly']);
         }
 
+        if (! empty($options['comment']) && is_string($options['comment'])) {
+            $this->comment = $options['comment'];
+            $this->properties['comment'] = $this->comment;
+        }
+
         if (array_key_exists('default', $options)) {
             $this->hasDefault = true;
             // TODO: Place restrictions on the default?
             $this->default = $options['default'];
+            $this->properties['default'] = $this->default;
         }
 
         if (! empty($options['column'])
             && is_string($options['column'])
         ) {
             $this->column = $options['column'];
+        }
+
+        if (! empty($options['label'])
+            && is_string($options['label'])
+        ) {
+            $this->label = $options['label'];
+        }
+
+        if (! empty($options['icon'])
+            && is_string($options['icon'])
+        ) {
+            $this->icon = $options['icon'];
+        }
+
+        if (! empty($options['description'])
+            && is_string($options['description'])
+        ) {
+            $this->description = $options['description'];
         }
 
         return $this;
@@ -155,6 +211,11 @@ class CreateColumn extends ModelConfiguration
         return $this->column;
     }
 
+    public function comment(): string
+    {
+        return $this->comment;
+    }
+
     public function description(): string
     {
         return $this->description;
@@ -183,5 +244,15 @@ class CreateColumn extends ModelConfiguration
     public function readOnly(): bool
     {
         return $this->readOnly;
+    }
+
+    public function precision(): ?int
+    {
+        return $this->precision;
+    }
+
+    public function scale(): ?int
+    {
+        return $this->scale;
     }
 }

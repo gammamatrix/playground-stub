@@ -39,7 +39,7 @@ class Controllers extends SwaggerConfiguration
     public function pathId(array $options = []): Controller\PathId
     {
         if (empty($this->pathId)) {
-            $this->pathId = new Controller\PathId($options, $this->skeleton());
+            $this->pathId = new Controller\PathId($options);
             $this->properties['pathId'] = $this->pathId->apply()->toArray();
         }
 

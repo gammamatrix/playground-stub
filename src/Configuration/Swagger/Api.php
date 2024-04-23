@@ -10,8 +10,10 @@ use Playground\Stub\Configuration;
 /**
  * \Playground\Stub\Configuration\Swagger\Api
  */
-class Api extends Configuration\Configuration
+class Api extends Configuration\Configuration implements Configuration\Contracts\WithSkeleton
 {
+    use Configuration\Concerns\WithSkeleton;
+
     protected string $openapi = '3.0.3';
 
     protected ?ExternalDocs $externalDocs = null;
@@ -120,7 +122,7 @@ class Api extends Configuration\Configuration
     public function addServer(array $meta): self
     {
         if (! empty($meta['url']) && is_string($meta['url'])) {
-            $server = new Server($meta, $this->skeleton());
+            $server = new Server($meta);
             $server->apply();
             $this->servers[] = $server;
         }
@@ -133,7 +135,7 @@ class Api extends Configuration\Configuration
         $this->paths[strtolower($path)] = new Path([
             'path' => strtolower($path),
             'ref' => $ref,
-        ], $this->skeleton());
+        ]);
         $this->paths[strtolower($path)]->apply();
 
         return $this;
@@ -143,7 +145,7 @@ class Api extends Configuration\Configuration
     {
         $this->tags[strtolower($name)] = new Tag([
             'name' => $name,
-        ], $this->skeleton());
+        ]);
         $this->tags[strtolower($name)]->apply();
 
         return $this;
@@ -163,7 +165,7 @@ class Api extends Configuration\Configuration
                     if (empty($meta['name'])) {
                         $meta['name'] = $name;
                     }
-                    $this->tags[strtolower($name)] = new Tag($meta, $this->skeleton());
+                    $this->tags[strtolower($name)] = new Tag($meta);
                     $this->tags[strtolower($name)]->apply();
                 }
             }
@@ -185,7 +187,10 @@ class Api extends Configuration\Configuration
     public function components(): Components
     {
         if (empty($this->components)) {
-            $this->components = new Components(null, $this->skeleton());
+            $this->components = new Components;
+            if ($this->skeleton()) {
+                $this->components->withSkeleton();
+            }
         }
 
         return $this->components;
@@ -194,7 +199,10 @@ class Api extends Configuration\Configuration
     public function controllers(): Controllers
     {
         if (empty($this->controllers)) {
-            $this->controllers = new Controllers(null, $this->skeleton());
+            $this->controllers = new Controllers;
+            if ($this->skeleton()) {
+                $this->controllers->withSkeleton();
+            }
         }
 
         return $this->controllers;

@@ -9,7 +9,7 @@ namespace Playground\Stub\Configuration;
 /**
  * \Playground\Stub\Configuration\Request
  */
-class Request extends Configuration
+class Request extends PrimaryConfiguration
 {
     protected bool $abstract = false;
 

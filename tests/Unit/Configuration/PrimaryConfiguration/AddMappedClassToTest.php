@@ -4,18 +4,18 @@
  */
 
 declare(strict_types=1);
-namespace Tests\Unit\Playground\Stub\Configuration\Configuration;
+namespace Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration;
 
 use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\Unit\Playground\Stub\TestCase;
-use Playground\Stub\Configuration\Configuration;
+use Playground\Stub\Configuration\PrimaryConfiguration;
 use Playground\Stub\Configuration\Test;
 use Playground\Stub\Configuration\Concerns\Classes;
 
 /**
- * \Tests\Unit\Playground\Stub\Configuration\Configuration\AddMappedClassToTest
+ * \Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration\AddMappedClassToTest
  */
-#[CoversClass(Configuration::class)]
+#[CoversClass(PrimaryConfiguration::class)]
 #[CoversClass(Test::class)]
 #[CoversClass(Classes::class)]
 class AddMappedClassToTest extends TestCase

@@ -7,35 +7,17 @@ declare(strict_types=1);
 namespace Playground\Stub\Configuration\Model;
 
 /**
- * \Playground\Stub\Configuration\Model\CreateFlag
+ * \Playground\Stub\Configuration\Model\CreateMatrix
  */
-class CreateFlag extends CreateColumn
+class CreateMatrix extends CreateColumn
 {
     /**
      * @var array<int, string>
      */
     public $allowed_types = [
-        'boolean',
-        'integer',
+        'JSON_OBJECT',
         'bigInteger',
-        'mediumInteger',
-        'smallInteger',
-        'tinyInteger',
-    ];
-
-    /**
-     * @var array<string, mixed>
-     */
-    protected $properties = [
-        'column' => '',
-        'label' => '',
-        'description' => '',
-        'icon' => '',
-        'default' => null,
-        'index' => false,
-        'nullable' => false,
-        'readOnly' => false,
-        'type' => 'bool',
+        'decimal',
     ];
 
     // /**

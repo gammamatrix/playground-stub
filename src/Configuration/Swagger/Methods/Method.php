@@ -97,7 +97,7 @@ class Method extends Configuration\Configuration
      */
     public function addResponse(array $meta): self
     {
-        $response = new Response($meta, $this->skeleton());
+        $response = new Response($meta);
         $response->apply();
         $this->responses[] = $response;
 

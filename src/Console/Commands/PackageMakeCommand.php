@@ -8,7 +8,7 @@ namespace Playground\Stub\Console\Commands;
 
 use Illuminate\Support\Str;
 use Playground\Stub\Building;
-use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
+use Playground\Stub\Configuration\Contracts\PrimaryConfiguration as PrimaryConfigurationContract;
 // use Symfony\Component\Console\Input\InputArgument;
 use Playground\Stub\Configuration\Package as Configuration;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -31,9 +31,9 @@ class PackageMakeCommand extends GeneratorCommand
     public const CONF = Configuration::class;
 
     /**
-     * @var ConfigurationContract&Configuration
+     * @var PrimaryConfigurationContract&Configuration
      */
-    protected ConfigurationContract $c;
+    protected PrimaryConfigurationContract $c;
 
     // const CONFIGURATION = [
     //     'class' => 'ServiceProvider',

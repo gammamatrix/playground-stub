@@ -9,7 +9,7 @@ namespace Playground\Stub\Configuration;
 /**
  * \Playground\Stub\Configuration\Route
  */
-class Route extends Configuration
+class Route extends PrimaryConfiguration
 {
     protected string $controller = '';
 

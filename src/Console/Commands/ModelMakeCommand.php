@@ -9,7 +9,7 @@ namespace Playground\Stub\Console\Commands;
 use Illuminate\Console\Concerns\CreatesMatchingTest;
 // use Illuminate\Foundation\Console\ModelMakeCommand as BaseModelMakeCommand;
 use Playground\Stub\Building;
-use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
+use Playground\Stub\Configuration\Contracts\PrimaryConfiguration as PrimaryConfigurationContract;
 use Playground\Stub\Configuration\Model as Configuration;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputInterface;
@@ -26,16 +26,19 @@ class ModelMakeCommand extends GeneratorCommand
 {
     use Building\Concerns\BuildImplements;
     use Building\Concerns\BuildUses;
+    use Building\Model\BuildAttributes;
+    use Building\Model\BuildCasts;
     use Building\Model\BuildCreate;
-
-    // use Building\Model\BuildModel;
+    use Building\Model\BuildDocBlock;
+    use Building\Model\BuildFillable;
+    use Building\Model\BuildPerPage;
     use Building\Model\BuildRelationships;
     use Building\Model\BuildTable;
     use Building\Model\MakeCommands;
     use Building\Model\MakeSkeleton;
+    // use Building\Model\BuildModel;
 
     // use Concerns\CreatingModels;
-    use Concerns\Models;
     use CreatesMatchingTest;
     // use Traits\ModelRelationshipsMakeTrait;
     // use Traits\ModelSkeletonMakeTrait;
@@ -46,9 +49,9 @@ class ModelMakeCommand extends GeneratorCommand
     public const CONF = Configuration::class;
 
     /**
-     * @var ConfigurationContract&Configuration
+     * @var PrimaryConfigurationContract&Configuration
      */
-    protected ConfigurationContract $c;
+    protected PrimaryConfigurationContract $c;
 
     // const CONFIGURATION = [
     //     'organization' => '',
@@ -102,6 +105,7 @@ class ModelMakeCommand extends GeneratorCommand
         // 'perPage' => PHP_EOL.PHP_EOL.'    protected $perPage = 25;',
         'attributes' => '',
         'casts' => '',
+        'docblock' => '',
         'fillable' => '',
         'perPage' => '',
         'HasMany' => '',
@@ -325,8 +329,9 @@ class ModelMakeCommand extends GeneratorCommand
             $this->buildClass_skeleton();
         }
 
+        $this->buildClass_docblock();
         $this->buildClass_implements();
-        $this->buildClass_table();
+        $this->buildClass_table_property();
         $this->buildClass_perPage();
 
         $this->buildClass_attributes();
@@ -337,18 +342,14 @@ class ModelMakeCommand extends GeneratorCommand
         $this->buildClass_HasOne();
         $this->buildClass_HasMany();
 
-        // $this->buildClass_uses($name);
+        $this->buildClass_uses($name);
+
         // $this->c->apply();
         $this->applyConfigurationToSearch();
 
-        // if ($this->searches['use']) {
-        //     $this->searches['use'] .= PHP_EOL;
-        // }
-        // }
-
         // dump([
         //     '__METHOD__' => __METHOD__,
-        //     '$this->c' => $this->c,
+        //     // '$this->c' => $this->c,
         //     '$this->searches' => $this->searches,
         // ]);
 

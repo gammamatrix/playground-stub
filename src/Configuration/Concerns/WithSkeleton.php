@@ -11,6 +11,8 @@ namespace Playground\Stub\Configuration\Concerns;
  */
 trait WithSkeleton
 {
+    protected bool $skeleton = false;
+
     public function skeleton(): bool
     {
         return $this->skeleton;

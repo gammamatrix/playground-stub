@@ -9,7 +9,7 @@ namespace Playground\Stub\Configuration;
 /**
  * \Playground\Stub\Configuration\Model
  */
-class Model extends Configuration
+class Model extends PrimaryConfiguration
 {
     use Model\Concerns\Attributes;
     use Model\Concerns\Classes;
@@ -218,6 +218,24 @@ class Model extends Configuration
             && is_string($options['model'])
         ) {
             $this->model = $options['model'];
+        }
+
+        if (! empty($options['model_plural'])
+            && is_string($options['model_plural'])
+        ) {
+            $this->model_plural = $options['model_plural'];
+        }
+
+        if (! empty($options['model_singular'])
+            && is_string($options['model_singular'])
+        ) {
+            $this->model_singular = $options['model_singular'];
+        }
+
+        if (! empty($options['model_slug'])
+            && is_string($options['model_slug'])
+        ) {
+            $this->model_slug = $options['model_slug'];
         }
 
         if (! empty($options['type'])

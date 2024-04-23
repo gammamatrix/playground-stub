@@ -8,7 +8,7 @@ namespace Playground\Stub\Console\Commands;
 
 use Illuminate\Support\Str;
 use Playground\Stub\Building;
-use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
+use Playground\Stub\Configuration\Contracts\PrimaryConfiguration as PrimaryConfigurationContract;
 use Playground\Stub\Configuration\Test as Configuration;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputOption;
@@ -29,9 +29,9 @@ class TestMakeCommand extends GeneratorCommand
     public const CONF = Configuration::class;
 
     /**
-     * @var ConfigurationContract&Configuration
+     * @var PrimaryConfigurationContract&Configuration
      */
-    protected ConfigurationContract $c;
+    protected PrimaryConfigurationContract $c;
 
     /**
      * @var array<string, string>

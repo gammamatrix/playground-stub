@@ -9,7 +9,7 @@ namespace Playground\Stub\Console\Commands;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
 use Playground\Stub\Building;
-use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
+use Playground\Stub\Configuration\Contracts\PrimaryConfiguration as PrimaryConfigurationContract;
 use Playground\Stub\Configuration\Controller as Configuration;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputInterface;
@@ -45,9 +45,9 @@ class ControllerMakeCommand extends GeneratorCommand
     public const CONF = Configuration::class;
 
     /**
-     * @var ConfigurationContract&Configuration
+     * @var PrimaryConfigurationContract&Configuration
      */
-    protected ConfigurationContract $c;
+    protected PrimaryConfigurationContract $c;
 
     // const CONFIGURATION = [
     //     'class' => '',

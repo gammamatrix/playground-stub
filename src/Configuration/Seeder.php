@@ -9,7 +9,7 @@ namespace Playground\Stub\Configuration;
 /**
  * \Playground\Stub\Configuration\Seeder
  */
-class Seeder extends Configuration
+class Seeder extends PrimaryConfiguration
 {
     // protected string $namespace = 'Database\Seeders';
 }

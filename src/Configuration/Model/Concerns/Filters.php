@@ -23,7 +23,10 @@ trait Filters
         if (! empty($options['filters'])
             && is_array($options['filters'])
         ) {
-            $this->filters = new Model\Filters(null, $this->skeleton());
+            $this->filters = new Model\Filters;
+            if ($this->skeleton()) {
+                $this->filters->withSkeleton();
+            }
             $this->filters->setParent($this)->setOptions($options['filters'])->apply();
             // dd([
             //     '__METHOD__' => __METHOD__,

@@ -13,7 +13,7 @@ use Playground\Stub\Configuration;
  */
 class ModelConfiguration extends Configuration\Configuration
 {
-    protected ?Configuration\Model $_parent = null;
+    private ?Configuration\Model $_parent = null;
 
     public function getParent(): ?Configuration\Model
     {

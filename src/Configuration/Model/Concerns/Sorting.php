@@ -54,7 +54,7 @@ trait Sorting
             ]));
         }
 
-        $sortable = new Sortable(null, $this->skeleton());
+        $sortable = new Sortable;
         $sortable->setParent($this)->setOptions($meta)->apply();
 
         if (is_numeric($i)) {

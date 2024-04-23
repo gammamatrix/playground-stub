@@ -9,7 +9,7 @@ namespace Playground\Stub\Configuration;
 /**
  * \Playground\Stub\Configuration\Migration
  */
-class Migration extends Configuration
+class Migration extends PrimaryConfiguration
 {
     protected bool $create = false;
 

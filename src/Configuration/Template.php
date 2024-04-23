@@ -9,7 +9,7 @@ namespace Playground\Stub\Configuration;
 /**
  * \Playground\Stub\Configuration\Template
  */
-class Template extends Configuration
+class Template extends PrimaryConfiguration
 {
     protected string $model_column = '';
 

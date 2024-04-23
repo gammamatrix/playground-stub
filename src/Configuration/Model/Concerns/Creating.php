@@ -25,7 +25,10 @@ trait Creating
      */
     public function addCreate(array $options = []): self
     {
-        $this->create = new Model\Create(null, $this->skeleton());
+        $this->create = new Model\Create;
+        if ($this->skeleton()) {
+            $this->create->withSkeleton();
+        }
 
         $this->create->setParent($this);
 

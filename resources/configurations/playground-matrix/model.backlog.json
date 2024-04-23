@@ -13,7 +13,8 @@
     "class": "Backlog",
     "type": "model",
     "table": "matrix_backlogs",
-    "extends": "AbstractModel",
+    "extends": "Model",
+    "extends_use": "Playground/Models/Model",
     "implements": [],
     "factory": false,
     "migration": false,
@@ -1296,6 +1297,15 @@
                     "on": "matrix_flows"
                 }
             },
+            "matrix_id": {
+                "type": "uuid",
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_matrices"
+                }
+            },
             "milestone_id": {
                 "type": "uuid",
                 "nullable": true,
@@ -1523,6 +1533,76 @@
                 "unsigned": false
             }
         },
+        "matrix": {
+            "matrix": {
+                "nullable": true,
+                "type": "JSON_OBJECT"
+            },
+            "x": {
+                "type": "bigInteger",
+                "nullable": true,
+                "unsigned": false
+            },
+            "y": {
+                "type": "bigInteger",
+                "nullable": true,
+                "unsigned": false
+            },
+            "z": {
+                "type": "bigInteger",
+                "nullable": true,
+                "unsigned": false
+            },
+            "r": {
+                "type": "decimal",
+                "precision": 65,
+                "scale": 10,
+                "nullable": true,
+                "default": null
+            },
+            "theta": {
+                "type": "decimal",
+                "precision": 10,
+                "scale": 6,
+                "nullable": true,
+                "default": null
+            },
+            "rho": {
+                "type": "decimal",
+                "precision": 10,
+                "scale": 6,
+                "nullable": true,
+                "default": null
+            },
+            "phi": {
+                "type": "decimal",
+                "precision": 10,
+                "scale": 6,
+                "nullable": true,
+                "default": null
+            },
+            "elevation": {
+                "type": "decimal",
+                "precision": 65,
+                "scale": 10,
+                "nullable": true,
+                "default": null
+            },
+            "latitude": {
+                "type": "decimal",
+                "precision": 8,
+                "scale": 6,
+                "nullable": true,
+                "default": null
+            },
+            "longitude": {
+                "type": "decimal",
+                "precision": 9,
+                "scale": 6,
+                "nullable": true,
+                "default": null
+            }
+        },
         "flags": {
             "active": {
                 "type": "boolean",
@@ -1580,6 +1660,11 @@
                 "default": false,
                 "icon": "fa-solid fa-circle-pause text-success"
             },
+            "prioritized": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-triangle-exclamation text-success"
+            },
             "problem": {
                 "type": "boolean",
                 "default": false,
@@ -1604,6 +1689,11 @@
                 "type": "boolean",
                 "default": false,
                 "icon": "fa-solid fa-check-double text-success"
+            },
+            "special": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-star text-success"
             },
             "suspended": {
                 "type": "boolean",

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Log;
 /**
  * \Playground\Stub\Configuration\Package
  */
-class Package extends Configuration
+class Package extends PrimaryConfiguration
 {
     /**
      * @var array<string, mixed>

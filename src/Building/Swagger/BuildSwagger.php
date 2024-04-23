@@ -59,10 +59,11 @@ trait BuildSwagger
         if (file_exists($path_docs_api)) {
             $api = $this->yaml_read($path_docs_api);
             if (is_array($api) && ! empty($api)) {
-                $this->api = new Api(
-                    $api,
-                    ! empty($this->option('skeleton'))
-                );
+                $this->api = new Api;
+                if ($this->option('skeleton')) {
+                    $this->api->withSkeleton();
+                }
+                $this->api->setOptions($api);
             }
         }
 

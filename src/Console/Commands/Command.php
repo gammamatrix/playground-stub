@@ -9,7 +9,7 @@ namespace Playground\Stub\Console\Commands;
 use Illuminate\Console\GeneratorCommand as BaseGeneratorCommand;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
-use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
+use Playground\Stub\Configuration\Contracts\PrimaryConfiguration as PrimaryConfigurationContract;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -24,11 +24,11 @@ abstract class Command extends BaseGeneratorCommand
     use Concerns\PackageConfiguration;
 
     /**
-     * @var class-string<ConfigurationContract>
+     * @var class-string<PrimaryConfigurationContract>
      */
-    public const CONF = ConfigurationContract::class;
+    public const CONF = PrimaryConfigurationContract::class;
 
-    protected ConfigurationContract $c;
+    protected PrimaryConfigurationContract $c;
 
     // /**
     //  * @var array<string, mixed>
@@ -80,7 +80,7 @@ abstract class Command extends BaseGeneratorCommand
         return empty($input) || ! is_string($input) ? '' : str_replace(['\\', '\\\\'], '/', ltrim($input, '\\/'));
     }
 
-    protected function get_configuration(bool $reset = false): ConfigurationContract
+    protected function get_configuration(bool $reset = false): PrimaryConfigurationContract
     {
         if ($reset || empty($this->c)) {
             $c = static::CONF;

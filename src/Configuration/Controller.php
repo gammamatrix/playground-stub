@@ -9,7 +9,7 @@ namespace Playground\Stub\Configuration;
 /**
  * \Playground\Stub\Configuration\Controller
  */
-class Controller extends Configuration
+class Controller extends PrimaryConfiguration
 {
     /**
      * @var array<string, mixed>

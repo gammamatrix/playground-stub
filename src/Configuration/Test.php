@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 /**
  * \Playground\Stub\Configuration\Test
  */
-class Test extends Configuration
+class Test extends PrimaryConfiguration
 {
     protected string $extends = '\Tests\TestCase';
 

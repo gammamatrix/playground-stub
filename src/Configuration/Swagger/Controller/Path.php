@@ -71,7 +71,7 @@ class Path extends SwaggerConfiguration
                 }
             }
 
-            $parameter = new Parameter($meta, $this->skeleton());
+            $parameter = new Parameter($meta);
             $parameter->apply();
             $this->parameters[] = $parameter;
         }

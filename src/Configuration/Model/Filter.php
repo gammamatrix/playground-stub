@@ -13,7 +13,7 @@ use Playground\Stub\Configuration\Configuration;
  */
 class Filter extends Configuration
 {
-    protected ?Filters $_parent = null;
+    private ?Filters $_parent = null;
 
     protected string $column = '';
 

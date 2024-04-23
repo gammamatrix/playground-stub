@@ -9,7 +9,7 @@ namespace Playground\Stub\Configuration;
 /**
  * \Playground\Stub\Configuration\Factory
  */
-class Factory extends Configuration
+class Factory extends PrimaryConfiguration
 {
     protected string $model = '';
 

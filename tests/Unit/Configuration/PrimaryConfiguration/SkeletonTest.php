@@ -4,30 +4,30 @@
  */
 
 declare(strict_types=1);
-namespace Tests\Unit\Playground\Stub\Configuration\Configuration;
+namespace Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration;
 
 use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\Unit\Playground\Stub\TestCase;
-use Playground\Stub\Configuration\Configuration;
+use Playground\Stub\Configuration\PrimaryConfiguration;
 
 /**
- * \Tests\Unit\Playground\Stub\Configuration\Configuration\SkeletonTest
+ * \Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration\SkeletonTest
  */
-#[CoversClass(Configuration::class)]
+#[CoversClass(PrimaryConfiguration::class)]
 class SkeletonTest extends TestCase
 {
     public function test_skeleton(): void
     {
-        $instance = new Configuration;
+        $instance = new PrimaryConfiguration;
 
-        $this->assertInstanceOf(Configuration::class, $instance);
+        $this->assertInstanceOf(PrimaryConfiguration::class, $instance);
 
         $this->assertFalse($instance->skeleton());
     }
 
     public function test_skeleton_withSkeleton(): void
     {
-        $instance = new Configuration;
+        $instance = new PrimaryConfiguration;
 
         $this->assertFalse($instance->skeleton());
 
@@ -42,7 +42,7 @@ class SkeletonTest extends TestCase
             'skeleton' => false,
         ];
 
-        $instance = new Configuration($options);
+        $instance = new PrimaryConfiguration($options);
 
         $this->assertFalse($instance->skeleton());
     }
@@ -53,7 +53,7 @@ class SkeletonTest extends TestCase
             'skeleton' => true,
         ];
 
-        $instance = new Configuration($options);
+        $instance = new PrimaryConfiguration($options);
 
         $this->assertTrue($instance->skeleton());
     }
@@ -62,7 +62,7 @@ class SkeletonTest extends TestCase
     {
         $options = [];
 
-        $instance = new Configuration($options, true);
+        $instance = new PrimaryConfiguration($options, true);
 
         $this->assertTrue($instance->skeleton());
     }
@@ -73,7 +73,7 @@ class SkeletonTest extends TestCase
             'skeleton' => 0,
         ];
 
-        $instance = new Configuration($options, true);
+        $instance = new PrimaryConfiguration($options, true);
 
         $this->assertTrue($instance->skeleton());
     }
@@ -84,7 +84,7 @@ class SkeletonTest extends TestCase
             'skeleton' => true,
         ];
 
-        $instance = new Configuration($options, false);
+        $instance = new PrimaryConfiguration($options, false);
 
         $this->assertFalse($instance->skeleton());
 

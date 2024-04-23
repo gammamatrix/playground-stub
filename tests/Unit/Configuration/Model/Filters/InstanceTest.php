@@ -61,7 +61,7 @@ class InstanceTest extends TestCase
         $this->assertSame($properties, $jsonSerialize);
     }
 
-    public function test_model_with_file_and_skeleton(): void
+    public function test_model_with_file(): void
     {
         $options = $this->getResourceFileAsArray('model-backlog');
         // dd([
@@ -71,7 +71,7 @@ class InstanceTest extends TestCase
         //     '$options' => $options,
         // ]);
 
-        $instance = new Model\Filters($options['filters'] ?? [], true);
+        $instance = new Model\Filters($options['filters'] ?? []);
 
         $instance->apply();
         // dump([
@@ -81,7 +81,6 @@ class InstanceTest extends TestCase
         //     // '$options' => $options,
         // ]);
         // echo(json_encode($instance, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
-        $this->assertTrue($instance->skeleton());
 
         $this->assertNotEmpty($instance->ids());
         $this->assertNotEmpty($instance->dates());

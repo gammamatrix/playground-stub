@@ -9,7 +9,7 @@ namespace Playground\Stub\Configuration;
 /**
  * \Playground\Stub\Configuration\Swagger
  */
-class Swagger extends Configuration
+class Swagger extends PrimaryConfiguration
 {
     protected string $controller_type = '';
 

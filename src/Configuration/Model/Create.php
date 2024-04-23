@@ -7,12 +7,15 @@ declare(strict_types=1);
 namespace Playground\Stub\Configuration\Model;
 
 use Illuminate\Support\Facades\Log;
+use Playground\Stub\Configuration;
 
 /**
  * \Playground\Stub\Configuration\Model\Create
  */
-class Create extends ModelConfiguration
+class Create extends ModelConfiguration implements Configuration\Contracts\WithSkeleton
 {
+    use Configuration\Concerns\WithSkeleton;
+
     protected string $migration = '';
 
     protected string $primary = '';
@@ -66,6 +69,11 @@ class Create extends ModelConfiguration
     protected array $status = [];
 
     /**
+     * @var array<string, CreateMatrix>
+     */
+    protected array $matrix = [];
+
+    /**
      * @var array<string, CreateUi>
      */
     protected array $ui = [];
@@ -91,6 +99,7 @@ class Create extends ModelConfiguration
         'columns' => [],
         'permissions' => [],
         'status' => [],
+        'matrix' => [],
         'ui' => [],
         'json' => [],
     ];
@@ -203,6 +212,19 @@ class Create extends ModelConfiguration
             }
         }
 
+        if (! empty($options['matrix'])
+            && is_array($options['matrix'])
+        ) {
+            foreach ($options['matrix'] as $column => $meta) {
+                $this->addMatrix($column, $meta);
+            }
+        }
+        // dd([
+        //     'static::class' => static::class,
+        //     // '$this' => $this,
+        //     '$this->matrix' => $this->matrix,
+        // ]);
+
         if (! empty($options['ui'])
             && is_array($options['ui'])
         ) {
@@ -235,7 +257,7 @@ class Create extends ModelConfiguration
             ]));
         }
         $meta['column'] = $column;
-        $this->ids[$column] = new CreateId($meta, $this->skeleton());
+        $this->ids[$column] = new CreateId($meta);
         $this->ids[$column]->apply();
 
         return $this;
@@ -248,7 +270,7 @@ class Create extends ModelConfiguration
                 'i' => $i,
             ]));
         }
-        $this->unique[$i] = new CreateUnique($meta, $this->skeleton());
+        $this->unique[$i] = new CreateUnique($meta);
         $this->unique[$i]->apply();
 
         return $this;
@@ -262,7 +284,7 @@ class Create extends ModelConfiguration
             ]));
         }
         $meta['column'] = $column;
-        $this->dates[$column] = new CreateDate($meta, $this->skeleton());
+        $this->dates[$column] = new CreateDate($meta);
         $this->dates[$column]->apply();
 
         return $this;
@@ -276,8 +298,13 @@ class Create extends ModelConfiguration
             ]));
         }
         $meta['column'] = $column;
-        $this->flags[$column] = new CreateFlag($meta, $this->skeleton());
+        $this->flags[$column] = new CreateFlag($meta);
         $this->flags[$column]->apply();
+        // dump([
+        //     'static::class' => static::class,
+        //     // '$this' => $this,
+        //     '$this->flags' => $this->flags,
+        // ]);
 
         return $this;
     }
@@ -290,7 +317,7 @@ class Create extends ModelConfiguration
             ]));
         }
         $meta['column'] = $column;
-        $this->columns[$column] = new CreateColumn($meta, $this->skeleton());
+        $this->columns[$column] = new CreateColumn($meta);
         $this->columns[$column]->apply();
 
         return $this;
@@ -304,7 +331,7 @@ class Create extends ModelConfiguration
             ]));
         }
         $meta['column'] = $column;
-        $this->permissions[$column] = new CreatePermission($meta, $this->skeleton());
+        $this->permissions[$column] = new CreatePermission($meta);
         $this->permissions[$column]->apply();
 
         return $this;
@@ -318,8 +345,27 @@ class Create extends ModelConfiguration
             ]));
         }
         $meta['column'] = $column;
-        $this->status[$column] = new CreateStatus($meta, $this->skeleton());
+        $this->status[$column] = new CreateStatus($meta);
         $this->status[$column]->apply();
+
+        return $this;
+    }
+
+    public function addMatrix(string $column, mixed $meta): self
+    {
+        if (empty($column) || empty($meta) || ! is_array($meta)) {
+            throw new \RuntimeException(__('playground-stub::stub.Model.Create.matrix.invalid', [
+                'column' => $column,
+            ]));
+        }
+        $meta['column'] = $column;
+        $this->matrix[$column] = new CreateMatrix($meta);
+        $this->matrix[$column]->apply();
+        // dump([
+        //     'static::class' => static::class,
+        //     // '$this' => $this,
+        //     '$this->matrix' => $this->matrix,
+        // ]);
 
         return $this;
     }
@@ -332,7 +378,7 @@ class Create extends ModelConfiguration
             ]));
         }
         $meta['column'] = $column;
-        $this->ui[$column] = new CreateUi($meta, $this->skeleton());
+        $this->ui[$column] = new CreateUi($meta);
         $this->ui[$column]->apply();
 
         return $this;
@@ -346,7 +392,7 @@ class Create extends ModelConfiguration
             ]));
         }
         $meta['column'] = $column;
-        $this->json[$column] = new CreateJson($meta, $this->skeleton());
+        $this->json[$column] = new CreateJson($meta);
         $this->json[$column]->apply();
 
         return $this;
@@ -434,6 +480,14 @@ class Create extends ModelConfiguration
     public function status(): array
     {
         return $this->status;
+    }
+
+    /**
+     * @return array<string, CreateMatrix>
+     */
+    public function matrix(): array
+    {
+        return $this->matrix;
     }
 
     /**

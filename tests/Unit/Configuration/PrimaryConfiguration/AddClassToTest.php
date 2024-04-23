@@ -4,18 +4,18 @@
  */
 
 declare(strict_types=1);
-namespace Tests\Unit\Playground\Stub\Configuration\Configuration;
+namespace Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration;
 
 use PHPUnit\Framework\Attributes\CoversClass;
 use Tests\Unit\Playground\Stub\TestCase;
-use Playground\Stub\Configuration\Configuration;
+use Playground\Stub\Configuration\PrimaryConfiguration;
 use Playground\Stub\Configuration\Test;
 use Playground\Stub\Configuration\Concerns\Classes;
 
 /**
- * \Tests\Unit\Playground\Stub\Configuration\Configuration\AddClassToTest
+ * \Tests\Unit\Playground\Stub\Configuration\PrimaryConfiguration\AddClassToTest
  */
-#[CoversClass(Configuration::class)]
+#[CoversClass(PrimaryConfiguration::class)]
 #[CoversClass(Test::class)]
 #[CoversClass(Classes::class)]
 class AddClassToTest extends TestCase
@@ -32,7 +32,7 @@ class AddClassToTest extends TestCase
         $this->assertInstanceOf(Test::class, $instance);
 
         $this->expectException(\RuntimeException::class);
-        $this->expectExceptionMessage(__('playground-stub::stub.Configuration.addClassTo.property.required', [
+        $this->expectExceptionMessage(__('playground-stub::stub.PrimaryConfiguration.addClassTo.property.required', [
             'class' => Test::class,
             'property' => $property,
             'fqdn' => 'NULL',
@@ -51,7 +51,7 @@ class AddClassToTest extends TestCase
         $this->assertInstanceOf(Test::class, $instance);
 
         $this->expectException(\RuntimeException::class);
-        $this->expectExceptionMessage(__('playground-stub::stub.Configuration.addClassTo.fqdn.required', [
+        $this->expectExceptionMessage(__('playground-stub::stub.PrimaryConfiguration.addClassTo.fqdn.required', [
             'class' => Test::class,
             'property' => $property,
             'fqdn' => 'NULL',
@@ -71,7 +71,7 @@ class AddClassToTest extends TestCase
         $this->assertInstanceOf(Test::class, $instance);
 
         $this->expectException(\RuntimeException::class);
-        $this->expectExceptionMessage(__('playground-stub::stub.Configuration.addClassTo.property.missing', [
+        $this->expectExceptionMessage(__('playground-stub::stub.PrimaryConfiguration.addClassTo.property.missing', [
             'class' => Test::class,
             'property' => $property,
             'fqdn' => $fqdn,

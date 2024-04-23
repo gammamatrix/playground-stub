@@ -45,27 +45,13 @@ class InstanceTest extends TestCase
         'json' => [],
     ];
 
-    public function test_model_with_file_and_skeleton(): void
+    public function test_model_with_file(): void
     {
         $options = $this->getResourceFileAsArray('model-backlog');
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$file' => $file,
-        //     '$content' => $content,
-        //     '$options' => $options,
-        // ]);
 
-        $instance = new Create($options['create'] ?? [], true);
+        $instance = new Create($options['create'] ?? []);
 
         $instance->apply();
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$instance' => $instance,
-        //     // 'json_encode($instance)' => json_encode($instance, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT),
-        //     // '$options' => $options,
-        // ]);
-        // echo(json_encode($instance, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
-        $this->assertTrue($instance->skeleton());
 
         $this->assertSame('uuid', $instance->primary());
     }
@@ -74,10 +60,9 @@ class InstanceTest extends TestCase
     {
         $log = LogFake::bind();
 
-        $withSkeleton = true;
         $instance = new Create([
             'migration' => 'some_migration_name',
-        ], $withSkeleton);
+        ]);
 
         $this->assertInstanceOf(Create::class, $instance);
 

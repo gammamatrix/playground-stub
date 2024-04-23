@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace Playground\Stub\Console\Commands\Concerns;
 
 use Illuminate\Support\Str;
-use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
+use Playground\Stub\Configuration\Contracts\PrimaryConfiguration as PrimaryConfigurationContract;
 use Playground\Stub\Configuration\Model;
 
 /**
@@ -775,7 +775,7 @@ trait PackageConfiguration
         return $configuration;
     }
 
-    protected function saveConfiguration(): ConfigurationContract
+    protected function saveConfiguration(): PrimaryConfigurationContract
     {
         $path_resources_packages = $this->getResourcePackageFolder();
 

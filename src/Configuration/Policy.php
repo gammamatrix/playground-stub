@@ -9,7 +9,7 @@ namespace Playground\Stub\Configuration;
 /**
  * \Playground\Stub\Configuration\Policy
  */
-class Policy extends Configuration
+class Policy extends PrimaryConfiguration
 {
     protected string $model_fqdn = '';
 

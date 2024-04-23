@@ -12,6 +12,10 @@ return [
     |
     */
 
+    'PrimaryConfiguration.addClassTo.property.required' => 'Adding a class [:class] requires both a property: [INVALID: :property] and an fqdn [:fqdn].',
+    'PrimaryConfiguration.addClassTo.fqdn.required' => 'Adding a class [:class] requires both a property: [:property] and an fqdn [INVALID: :fqdn].',
+    'PrimaryConfiguration.addClassTo.property.missing' => 'Adding a class [:class] requires the property to exist [MISSING: :property] to exist to add the fqdn [:fqdn]',
+
     'Configuration.addClassTo.property.required' => 'Adding a class [:class] requires both a property: [INVALID: :property] and an fqdn [:fqdn].',
     'Configuration.addClassTo.fqdn.required' => 'Adding a class [:class] requires both a property: [:property] and an fqdn [INVALID: :fqdn].',
     'Configuration.addClassTo.property.missing' => 'Adding a class [:class] requires the property to exist [MISSING: :property] to exist to add the fqdn [:fqdn]',

@@ -81,4 +81,23 @@ trait BuildTable
             $this->c->setOptions($options);
         }
     }
+
+    protected function buildClass_table_property(): void
+    {
+        $table = $this->c->table();
+
+        $this->searches['property_table'] = ! empty($this->searches['use_class']) ? PHP_EOL : '';
+
+        if (! empty($table)) {
+            $this->searches['table'] = $table;
+
+            $this->searches['property_table'] = sprintf(
+                '    protected $table = \'%1$s\';',
+                $table
+            );
+            $this->searches['property_table'] .= PHP_EOL;
+        } else {
+            $this->searches['property_table'] = '';
+        }
+    }
 }

@@ -37,7 +37,7 @@ class Components extends SwaggerConfiguration
         $this->schemas[$name] = new Schema([
             'name' => $name,
             'ref' => $ref,
-        ], $this->skeleton());
+        ]);
         $this->schemas[$name]->apply();
 
         return $this;

@@ -40,7 +40,7 @@ class InstanceTest extends TestCase
         'type' => 'string',
     ];
 
-    public function test_model_with_file_and_skeleton_jsonSerialize(): void
+    public function test_model_with_file_jsonSerialize(): void
     {
         $options = [
             'column' => 'some_column',
@@ -52,7 +52,7 @@ class InstanceTest extends TestCase
         //     '$options' => $options,
         // ]);
 
-        $instance = new CreateColumn($options, true);
+        $instance = new CreateColumn($options);
 
         $instance->apply();
         // dd([
@@ -62,7 +62,6 @@ class InstanceTest extends TestCase
         //     // '$options' => $options,
         // ]);
         // echo(json_encode($instance, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
-        $this->assertTrue($instance->skeleton());
 
         $this->assertSame('some_column', $instance->column());
 
@@ -76,11 +75,10 @@ class InstanceTest extends TestCase
     {
         $log = LogFake::bind();
 
-        $withSkeleton = true;
         $instance = new CreateColumn([
             'column' => 'some_column',
             'migration' => 'some_migration_name',
-        ], $withSkeleton);
+        ]);
 
         $this->assertInstanceOf(CreateColumn::class, $instance);
 
