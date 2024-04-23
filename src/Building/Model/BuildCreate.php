@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 /**
  * \Playground\Stub\Building\Model\BuildModel
  */
-trait BuildModel
+trait BuildCreate
 {
     // protected array $analyze = [];
 
@@ -41,11 +41,11 @@ trait BuildModel
         //     'json' => [],
         // ];
 
-        // $this->buildClass_model_table(
-        //     $name,
-        //     $type,
-        //     $this->c->module_slug()
-        // );
+        $this->buildClass_model_table(
+            $name,
+            $type,
+            $this->c->module_slug()
+        );
 
         // $this->buildClass_model_unique(
         //     $name,
@@ -126,64 +126,6 @@ trait BuildModel
     //     //     '$slug_key' => $slug_key,
     //     // ]);
 
-    // }
-
-    // protected function buildClass_model_table(
-    //     string $name,
-    //     string $type,
-    //     string $module_slug
-    // ): void {
-
-    //     $config_columns = config('playground-stub.columns');
-
-    //     // namespace
-    //     $this->configuration['namespace'] = $this->parseClassConfig($this->configuration['namespace']);
-
-    //     $table = '';
-
-    //     if (! empty($module_slug)) {
-    //         $table .= Str::of($module_slug)->snake()->finish('_')->toString();
-    //     }
-
-    //     $table .= Str::of($name)->plural()->snake()->toString();
-
-    //     // table
-
-    //     $this->configuration['table'] = $table;
-
-    //     // extends
-
-    //     if (in_array($type, [
-    //         'playground-abstract',
-    //     ])) {
-    //         $this->configuration['extends'] = 'Gammamatrix/Playground/Models/UuidModel';
-    //     } elseif (in_array($type, [
-    //         'playground-resource',
-    //         'playground-api',
-    //     ])) {
-    //         $this->configuration['extends'] = 'AbstractModel';
-    //     } else {
-    //         $this->configuration['extends'] = 'Illuminate/Database/Eloquent/Model';
-    //     }
-
-    //     // fqdn
-    //     $this->configuration['fqdn'] = sprintf(
-    //         '%1$s/Models/%2$s',
-    //         $this->configuration['namespace'],
-    //         Str::of($name)->studly()
-    //     );
-    //     $this->configuration['model'] = $this->configuration['fqdn'];
-
-    //     if (in_array($type, [
-    //         'model',
-    //         'resource',
-    //         'api',
-    //         'playground-resource',
-    //         'playground-api',
-    //     ])) {
-    //         $this->configuration['create']['factory'] = true;
-    //         $this->configuration['create']['migration'] = true;
-    //     }
     // }
 
     // protected function buildClass_model_create_ids(string $name, string $type): void

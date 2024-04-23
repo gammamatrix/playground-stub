@@ -20,6 +20,9 @@ use Symfony\Component\Console\Input\InputOption;
 #[AsCommand(name: 'playground:make:request')]
 class RequestMakeCommand extends GeneratorCommand
 {
+    use Building\Concerns\BuildImplements;
+    use Building\Concerns\BuildModel;
+    use Building\Concerns\BuildUses;
     use Building\Request\BuildRequest;
 
     /**

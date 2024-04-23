@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace Playground\Stub\Console\Commands;
 
 use Illuminate\Support\Str;
+use Playground\Stub\Building;
 use Playground\Stub\Configuration\Contracts\Configuration as ConfigurationContract;
 use Playground\Stub\Configuration\Test as Configuration;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -18,6 +19,8 @@ use Symfony\Component\Console\Input\InputOption;
 #[AsCommand(name: 'playground:make:test')]
 class TestMakeCommand extends GeneratorCommand
 {
+    use Building\Concerns\BuildImplements;
+    use Building\Concerns\BuildUses;
     use Concerns\Tests;
 
     /**

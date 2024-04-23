@@ -14,6 +14,38 @@ use Playground\Stub\Configuration\Model;
  */
 trait BuildRequest
 {
+    protected function createTrait(
+        string $folder,
+        string $class,
+        string $template
+    ): void {
+        $path = $this->resolveStubPath($template);
+
+        $stub = $this->files->get($path);
+
+        $this->search_and_replace($stub);
+
+        $file = sprintf('%1$s.php', $class);
+
+        $destination = sprintf(
+            '%1$s/%2$s',
+            $folder,
+            $file
+        );
+
+        $full_path = $this->laravel->storagePath().$destination;
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$this->folder()' => $this->folder(),
+        //     '$destination' => $destination,
+        //     '$full_path' => $full_path,
+        // ]);
+
+        $this->files->put($full_path, $stub);
+
+        $this->components->info(sprintf('%s [%s] created successfully.', $file, $full_path));
+    }
+
     protected function buildClass_form(string $name): void
     {
         $model = $this->model;

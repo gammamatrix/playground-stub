@@ -19,7 +19,6 @@ use Symfony\Component\Console\Input\InputOption;
 
 abstract class Command extends BaseGeneratorCommand
 {
-    use Concerns\BuildingClasses;
     use Concerns\Files;
     use Concerns\InteractiveCommands;
     use Concerns\PackageConfiguration;

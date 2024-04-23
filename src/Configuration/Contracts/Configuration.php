@@ -36,6 +36,11 @@ interface Configuration
     public function apply(): self;
 
     /**
+     * @return array<mixed>
+     */
+    public function toArray(): array;
+
+    /**
      * @return array<string, mixed>
      */
     public function properties(): array;

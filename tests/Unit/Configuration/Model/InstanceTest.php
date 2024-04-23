@@ -60,6 +60,7 @@ class InstanceTest extends TestCase
         'model_slug' => '',
         'type' => '',
         'table' => '',
+        'perPage' => null,
         'controller' => false,
         'factory' => false,
         'migration' => false,

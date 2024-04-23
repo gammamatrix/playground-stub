@@ -26,6 +26,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 #[AsCommand(name: 'playground:make:controller')]
 class ControllerMakeCommand extends GeneratorCommand
 {
+    use Building\Concerns\BuildImplements;
+    use Building\Concerns\BuildModel;
+    use Building\Concerns\BuildUses;
     use Building\Controller\MakeCommands;
     use Building\Controller\Skeletons\BuildPolicies;
 

@@ -14,15 +14,28 @@ namespace Playground\Stub\Console\Commands\Concerns;
  */
 trait Models
 {
+    protected function buildClass_table(): void
+    {
+        $table = $this->c->table();
+
+        $this->searches['property_table'] = ! empty($this->searches['use_class']) ? PHP_EOL : '';
+
+        if (! empty($table)) {
+            $this->searches['table'] = $table;
+
+            $this->searches['property_table'] = sprintf(
+                '    protected $table = \'%1$s\';',
+                $table
+            );
+            $this->searches['property_table'] .= PHP_EOL;
+        } else {
+            $this->searches['property_table'] = '';
+        }
+    }
+
     protected function buildClass_perPage(): void
     {
-        $perPage = 0;
-
-        if (! empty($this->configuration['perPage'])
-            && is_numeric($this->configuration['perPage'])
-        ) {
-            $perPage = intval(abs($this->configuration['perPage']));
-        }
+        $perPage = $this->c->perPage();
 
         $add_new_line = ! empty($this->searches['use_class'])
             || ! empty($this->searches['table']);
@@ -41,54 +54,10 @@ trait Models
         }
     }
 
-    protected function buildClass_table(): void
-    {
-        $table = '';
-
-        $this->searches['property_table'] = ! empty($this->searches['use_class']) ? PHP_EOL : '';
-
-        if (! empty($this->configuration['table'])
-            && is_string($this->configuration['table'])
-        ) {
-            $table = $this->configuration['table'];
-        }
-
-        if (! empty($table)) {
-            $this->searches['table'] = $table;
-
-            $this->searches['property_table'] = sprintf(
-                '    protected $table = \'%1$s\';',
-                $table
-            );
-            $this->searches['property_table'] .= PHP_EOL;
-        } else {
-            $this->searches['property_table'] = '';
-        }
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     // '$config' => $config,
-        //     // '$config_columns' => $config_columns,
-        //     // '$this->configuration[table]' => $this->configuration['table'],
-        //     // '$this->searches[table]' => $this->searches['table'],
-        //     '$this->configuration' => $this->configuration,
-        //     '$this->searches' => $this->searches,
-        // ]);
-    }
-
     protected function buildClass_attributes(): void
     {
-        // dump([
-        //     '__METHOD__' => __METHOD__,
-        //     // '$config' => $config,
-        //     // '$config_columns' => $config_columns,
-        //     // '$this->configuration[table]' => $this->configuration['table'],
-        //     // '$this->searches[table]' => $this->searches['table'],
-        //     '$this->configuration' => $this->configuration,
-        //     '$this->searches' => $this->searches,
-        // ]);
-        if (empty($this->configuration['attributes'])
-            || ! is_array($this->configuration['attributes'])
-        ) {
+        $attributes = $this->c->attributes();
+        if (! $attributes) {
             return;
         }
 
@@ -98,28 +67,32 @@ trait Models
             $this->searches['attributes'] .= PHP_EOL;
         }
 
-        $attributes = PHP_EOL;
+        $code = PHP_EOL;
 
-        foreach ($this->configuration['attributes'] as $attribute => $value) {
-            $attributes .= str_repeat(' ', 8);
+        foreach ($attributes as $attribute => $value) {
+            $code .= str_repeat(' ', 8);
 
             if (is_bool($value)) {
-                $attributes .= sprintf('\'%1$s\' => %2$s,', $attribute, ($value ? 'true' : 'false'));
+                $code .= sprintf('\'%1$s\' => %2$s,', $attribute, ($value ? 'true' : 'false'));
             } elseif (is_null($value)) {
-                $attributes .= sprintf('\'%1$s\' => null,', $attribute);
+                $code .= sprintf('\'%1$s\' => null,', $attribute);
             } elseif (is_numeric($value)) {
-                $attributes .= sprintf('\'%1$s\' => %2$d,', $attribute, $value);
-            } else {
-                $attributes .= sprintf('\'%1$s\' => \'%2$s\',', $attribute, $value);
+                $code .= sprintf('\'%1$s\' => %2$d,', $attribute, $value);
+            } elseif (is_string($value)) {
+                $code .= sprintf('\'%1$s\' => \'%2$s\',', $attribute, $value);
             }
-            $attributes .= PHP_EOL;
+            $code .= PHP_EOL;
         }
 
-        $attributes .= str_repeat(' ', 4);
+        $code .= str_repeat(' ', 4);
 
-        $this->searches['attributes'] .= sprintf(
-            '    protected $attributes = [%1$s];',
-            $attributes
+        $this->searches['attributes'] .= sprintf('    /**
+     * The default values for attributes.
+     *
+     * @var array<string, mixed>
+     */
+    protected $attributes = [%1$s];',
+            $code
         );
 
         $this->searches['attributes'] .= PHP_EOL;
@@ -127,9 +100,7 @@ trait Models
 
     protected function buildClass_casts(): void
     {
-        if (empty($this->configuration['casts'])
-            || ! is_array($this->configuration['casts'])
-        ) {
+        if (! $this->c->casts()) {
             return;
         }
 
@@ -141,19 +112,26 @@ trait Models
             $this->searches['casts'] .= PHP_EOL;
         }
 
-        $casts = PHP_EOL;
+        $code = PHP_EOL;
 
-        foreach ($this->configuration['casts'] as $attribute => $cast) {
-            $casts .= str_repeat(' ', 8);
-            $casts .= sprintf('\'%1$s\' => \'%2$s\',', $attribute, $cast);
-            $casts .= PHP_EOL;
+        foreach ($this->c->casts() as $attribute => $cast) {
+            $code .= str_repeat(' ', 12);
+            $code .= sprintf('\'%1$s\' => \'%2$s\',', $attribute, (is_string($cast) ? $cast : ''));
+            $code .= PHP_EOL;
         }
 
-        $casts .= str_repeat(' ', 4);
+        $code .= str_repeat(' ', 8);
 
-        $this->searches['casts'] .= sprintf(
-            '    protected $casts = [%1$s];',
-            $casts
+        $this->searches['casts'] .= sprintf('    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [%1$s];
+    }',
+            $code
         );
 
         $this->searches['casts'] .= PHP_EOL;
@@ -161,9 +139,8 @@ trait Models
 
     protected function buildClass_fillable(): void
     {
-        if (empty($this->configuration['fillable'])
-            || ! is_array($this->configuration['fillable'])
-        ) {
+        $fillable = $this->c->fillable();
+        if (! $fillable) {
             return;
         }
 
@@ -177,19 +154,23 @@ trait Models
             $this->searches['fillable'] .= PHP_EOL;
         }
 
-        $fillable = PHP_EOL;
+        $code = PHP_EOL;
 
-        foreach ($this->configuration['fillable'] as $attribute) {
-            $fillable .= str_repeat(' ', 8);
-            $fillable .= sprintf('\'%1$s\',', $attribute);
-            $fillable .= PHP_EOL;
+        foreach ($fillable as $attribute) {
+            $code .= str_repeat(' ', 8);
+            $code .= sprintf('\'%1$s\',', $attribute);
+            $code .= PHP_EOL;
         }
 
-        $fillable .= str_repeat(' ', 4);
+        $code .= str_repeat(' ', 4);
 
-        $this->searches['fillable'] .= sprintf(
-            '    protected $fillable = [%1$s];',
-            $fillable
+        $this->searches['fillable'] .= sprintf('    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [%1$s];',
+            $code
         );
 
         $this->searches['fillable'] .= PHP_EOL;

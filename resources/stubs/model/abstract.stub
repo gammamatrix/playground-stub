@@ -11,5 +11,5 @@ namespace {{ namespace }};
  */
 abstract class {{ class }} extends {{ extends }}{{ implements }}
 {
-{{ use_class }}{{ property_table }}{{ attributes }}{{ casts }}{{ fillable }}{{ perPage }}{{ HasOne }}{{ HasMany }}{{ scopes }}{{ filters }}
+{{ use_class }}{{ property_table }}{{ attributes }}{{ fillable }}{{ casts }}{{ perPage }}{{ HasOne }}{{ HasMany }}{{ scopes }}{{ filters }}
 }

@@ -20,13 +20,17 @@ trait MakeSkeleton
 
     protected function buildClass_skeleton(): void
     {
-        $create = $this->c->create() ?? $this->c->create();
-        if (! $create) {
-            return;
-        }
+        $create = $this->c->create() ?? $this->c->addCreate();
 
         $name = $this->c->name();
         $type = $this->c->type();
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$create' => $create,
+        //     '$name' => $name,
+        //     '$type' => $type,
+        //     '$this->c->toArray()' => $this->c->toArray(),
+        // ]);
 
         if (empty($create)
             || ! is_array($create)
@@ -52,7 +56,7 @@ trait MakeSkeleton
             'scopes' => [],
         ];
 
-        // $this->components->info(sprintf('Building the skeleton configuration for [%s]', $name));
+        $this->components->info(sprintf('Building the model skeleton configuration for [%s]', $name));
 
         // $this->buildClass_skeleton_ids(
         //     $create->primary() ?? null,

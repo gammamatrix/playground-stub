@@ -42,6 +42,7 @@ class Model extends Configuration
         'model_slug' => '',
         'type' => '',
         'table' => '',
+        'perPage' => null,
         'controller' => false,
         'factory' => false,
         'migration' => false,
@@ -78,9 +79,99 @@ class Model extends Configuration
         'uses' => [],
     ];
 
+    public function apply(): self
+    {
+        $this->properties['class'] = $this->class();
+        $this->properties['config'] = $this->config();
+        $this->properties['fqdn'] = $this->fqdn();
+        $this->properties['module'] = $this->module();
+        $this->properties['module_slug'] = $this->module_slug();
+        $this->properties['name'] = $this->name();
+        $this->properties['namespace'] = $this->namespace();
+        $this->properties['organization'] = $this->organization();
+        $this->properties['package'] = $this->package();
+        $this->properties['model'] = $this->model();
+        $this->properties['model_plural'] = $this->model_plural();
+        $this->properties['model_singular'] = $this->model_singular();
+        $this->properties['model_slug'] = $this->model_slug();
+        $this->properties['type'] = $this->type();
+        $this->properties['table'] = $this->table();
+        $this->properties['perPage'] = $this->perPage();
+        $this->properties['controller'] = $this->controller();
+        $this->properties['factory'] = $this->factory();
+        $this->properties['migration'] = $this->migration();
+        $this->properties['playground'] = $this->playground();
+        $this->properties['policy'] = $this->policy();
+        $this->properties['requests'] = $this->requests();
+        $this->properties['seed'] = $this->seed();
+        $this->properties['test'] = $this->test();
+
+        $this->properties['extends'] = $this->extends();
+        $this->properties['implements'] = $this->implements();
+
+        if ($this->HasOne()) {
+            $this->properties['HasOne'] = [];
+            foreach ($this->HasOne() as $method => $HasOne) {
+                if (is_array($this->properties['HasOne'])) {
+                    $this->properties['HasOne'][$method] = $HasOne->toArray();
+                }
+            }
+        }
+
+        if ($this->HasMany()) {
+            $this->properties['HasMany'] = [];
+            foreach ($this->HasMany() as $method => $HasMany) {
+                if (is_array($this->properties['HasMany'])) {
+                    $this->properties['HasMany'][$method] = $HasMany->toArray();
+                }
+            }
+        }
+
+        $this->properties['scopes'] = $this->scopes();
+        $this->properties['attributes'] = $this->attributes();
+        $this->properties['filters'] = $this->filters()?->toArray();
+        $this->properties['models'] = $this->models();
+        $this->properties['sortable'] = $this->sortable();
+
+        if ($this->sortable()) {
+            $this->properties['sortable'] = [];
+            foreach ($this->sortable() as $i => $sortable) {
+                if (is_array($this->properties['sortable'])) {
+                    $this->properties['sortable'][$i] = $sortable->toArray();
+                }
+            }
+        }
+
+        $this->properties['create'] = $this->create()?->toArray();
+
+        $this->properties['uses'] = $this->uses();
+
+        return $this;
+    }
+
+    // public function jsonSerialize(): mixed
+    // {
+
+    //     // $properties['components'] = $this->components()->toArray();
+
+    //     // dd([
+    //     //     '$properties' => $properties,
+    //     // ]);
+
+    //     return $properties;
+    // }
+
     protected string $model = '';
 
+    protected string $model_plural = '';
+
+    protected string $model_singular = '';
+
+    protected string $model_slug = '';
+
     protected string $type = '';
+
+    protected ?int $perPage = null;
 
     protected bool $playground = false;
 
@@ -114,6 +205,13 @@ class Model extends Configuration
 
         if (array_key_exists('playground', $options)) {
             $this->playground = ! empty($options['playground']);
+        }
+
+        if (array_key_exists('perPage', $options)) {
+            $this->perPage = null;
+            if (! empty($options['perPage']) && is_numeric($options['perPage']) && $options['perPage'] > 0) {
+                $this->perPage = intval($options['perPage']);
+            }
         }
 
         if (! empty($options['model'])
@@ -167,6 +265,11 @@ class Model extends Configuration
         return $this->playground;
     }
 
+    public function perPage(): ?int
+    {
+        return $this->perPage;
+    }
+
     /**
      * @return array<string, mixed>
      */
@@ -188,8 +291,18 @@ class Model extends Configuration
         return $this->table;
     }
 
-    // public function type(): string
-    // {
-    //     return $this->type;
-    // }
+    public function model_plural(): string
+    {
+        return $this->model_plural;
+    }
+
+    public function model_singular(): string
+    {
+        return $this->model_singular;
+    }
+
+    public function model_slug(): string
+    {
+        return $this->model_slug;
+    }
 }

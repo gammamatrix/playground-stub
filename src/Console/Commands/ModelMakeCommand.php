@@ -24,7 +24,13 @@ use function Laravel\Prompts\multiselect;
 #[AsCommand(name: 'playground:make:model')]
 class ModelMakeCommand extends GeneratorCommand
 {
-    use Building\Model\BuildModel;
+    use Building\Concerns\BuildImplements;
+    use Building\Concerns\BuildUses;
+    use Building\Model\BuildCreate;
+
+    // use Building\Model\BuildModel;
+    use Building\Model\BuildRelationships;
+    use Building\Model\BuildTable;
     use Building\Model\MakeCommands;
     use Building\Model\MakeSkeleton;
 
@@ -136,6 +142,11 @@ class ModelMakeCommand extends GeneratorCommand
         $options = $this->options();
 
         $type = $this->getConfigurationType();
+        if (! $type) {
+            $this->c->setOptions([
+                'type' => 'model',
+            ]);
+        }
 
         if ($this->hasOption('all') && $this->option('all')) {
 
@@ -314,20 +325,20 @@ class ModelMakeCommand extends GeneratorCommand
             $this->buildClass_skeleton();
         }
 
-        // $this->buildClass_implements();
-        // $this->buildClass_table();
-        // $this->buildClass_perPage();
+        $this->buildClass_implements();
+        $this->buildClass_table();
+        $this->buildClass_perPage();
 
-        // $this->buildClass_attributes();
-        // $this->buildClass_casts();
-        // $this->buildClass_fillable();
+        $this->buildClass_attributes();
+        $this->buildClass_fillable();
+        $this->buildClass_casts();
 
         // // Relationships
-        // $this->buildClass_HasMany();
-        // $this->buildClass_HasOne();
+        $this->buildClass_HasOne();
+        $this->buildClass_HasMany();
 
         // $this->buildClass_uses($name);
-
+        // $this->c->apply();
         $this->applyConfigurationToSearch();
 
         // if ($this->searches['use']) {
@@ -337,11 +348,10 @@ class ModelMakeCommand extends GeneratorCommand
 
         // dump([
         //     '__METHOD__' => __METHOD__,
-        //     // '$config' => $config,
-        //     // '$config_columns' => $config_columns,
-        //     // '$this->searches[table]' => $this->searches['table'],
+        //     '$this->c' => $this->c,
         //     '$this->searches' => $this->searches,
         // ]);
+
         return parent::buildClass($name);
     }
 

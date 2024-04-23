@@ -24,6 +24,7 @@ use function Laravel\Prompts\suggest;
 #[AsCommand(name: 'playground:make:policy')]
 class PolicyMakeCommand extends GeneratorCommand
 {
+    use Building\Concerns\BuildModel;
     use Building\Policy\BuildRoles;
 
     /**

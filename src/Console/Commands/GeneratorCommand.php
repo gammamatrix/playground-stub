@@ -264,6 +264,8 @@ abstract class GeneratorCommand extends Command
 
         $this->prepareOptions();
 
+        $this->c->apply();
+
         return $this->c->name();
     }
 }

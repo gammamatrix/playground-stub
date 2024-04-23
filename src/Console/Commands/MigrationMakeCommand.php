@@ -19,6 +19,7 @@ use Symfony\Component\Console\Input\InputOption;
 #[AsCommand(name: 'playground:make:migration')]
 class MigrationMakeCommand extends GeneratorCommand
 {
+    use Building\Concerns\BuildUses;
     use Building\Migration\BuildColumns;
     use Building\Migration\BuildDates;
     use Building\Migration\BuildFlags;

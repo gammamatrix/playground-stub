@@ -101,18 +101,18 @@
             "localKey": "ticket_id"
         },
         "version": {
-            "comment": "",
-            "related": "",
-            "foreignKey": "",
-            "localKey": ""
+            "comment": "The version of the backlog.",
+            "related": "Version",
+            "foreignKey": "id",
+            "localKey": "version_id"
         }
     },
     "HasMany": {
         "sprints": {
-            "comment": "",
-            "related": "",
-            "foreignKey": "",
-            "localKey": ""
+            "comment": "The sprints of the backlog.",
+            "related": "Sprint",
+            "foreignKey": "sprint_id",
+            "localKey": "id"
         },
         "tickets": {
             "comment": "The tickets of the backlog.",
