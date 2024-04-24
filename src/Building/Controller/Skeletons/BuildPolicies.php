@@ -21,8 +21,7 @@ trait BuildPolicies
 
         $params = [
             'name' => $name,
-            '--class' => Str::of(class_basename($this->qualifiedName))
-                ->studly()->finish('Policy')->toString(),
+            '--class' => Str::of($name)->studly()->finish('Policy')->toString(),
             '--namespace' => $this->c->namespace(),
             '--force' => $force,
             '--package' => $this->c->package(),

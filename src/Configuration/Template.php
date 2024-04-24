@@ -74,6 +74,12 @@ class Template extends PrimaryConfiguration
             $this->title = $options['title'];
         }
 
+        if (! empty($options['folder'])
+            && is_string($options['folder'])
+        ) {
+            $this->folder = $options['folder'];
+        }
+
         return $this;
     }
 

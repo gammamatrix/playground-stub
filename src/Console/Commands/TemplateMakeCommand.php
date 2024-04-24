@@ -143,6 +143,21 @@ class TemplateMakeCommand extends GeneratorCommand
             ]);
             $this->searches['extends'] = $this->c->extends();
         }
+
+        if (in_array($type, [
+            'playground-resource',
+        ])) {
+            $this->c->setOptions([
+                'folder' => Str::of($this->c->name())->kebab()->toString(),
+            ]);
+        }
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$type' => $type,
+        //     '$this->c->type()' => $this->c->type(),
+        //     '$this->c->name()' => $this->c->name(),
+        //     '$this->c->folder()' => $this->c->folder(),
+        // ]);
     }
 
     protected function getConfigurationFilename(): string
@@ -193,7 +208,7 @@ class TemplateMakeCommand extends GeneratorCommand
             ]);
         } elseif ($type === 'playground-resource') {
             $this->c->setOptions([
-                'class' => sprintf('%1$s./index.blade', $this->c->folder()),
+                'class' => sprintf('%1$s/index.blade', $this->c->folder()),
             ]);
         } else {
             $this->c->setOptions([
@@ -262,6 +277,7 @@ class TemplateMakeCommand extends GeneratorCommand
             //     '$path' => $path,
             //     '$destination' => $destination,
             //     '$this->folder' => $this->folder(),
+            //     '$this->c' => $this->c,
             // ]);
             $stub = $this->files->get($path);
 
