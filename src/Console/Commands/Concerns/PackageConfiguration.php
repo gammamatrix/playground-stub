@@ -701,6 +701,12 @@ trait PackageConfiguration
 
     protected function getConfigurationFilename(): string
     {
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     // '$this->c' => $this->c,
+        //     '$this->c->name()' => $this->c->name(),
+        //     '$this->getType()' => $this->getType(),
+        // ]);
         return ! is_string($this->c->name()) ? '' : sprintf(
             '%1$s.%2$s.json',
             Str::of($this->getType())->kebab(),
@@ -712,7 +718,7 @@ trait PackageConfiguration
     {
         // dd([
         //     '__METHOD__' => __METHOD__,
-        //     '$this->configuration' => $this->configuration,
+        //     '$this->c' => $this->c,
         //     '$this->folder' => $this->folder,
         // ]);
         if (empty($this->c->package()) || ! is_string($this->c->package())) {

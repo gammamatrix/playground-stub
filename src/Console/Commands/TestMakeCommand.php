@@ -185,13 +185,31 @@ class TestMakeCommand extends GeneratorCommand
     {
         $type = $this->c->type();
 
-        return ! is_string($this->c->name()) ? '' : sprintf(
-            'test.%1$s.%2$s%3$s%4$s.json',
+        if (in_array($type, [
+            'model',
+            'playground-api',
+            'playground-resource',
+            'playground-model',
+        ])) {
+            $type = 'test';
+        } else {
+            $type = 'test';
+        }
+
+        return sprintf(
+            '%1$s/%2$s.%3$s.json',
+            Str::of($this->c->name())->before('Test')->kebab(),
+            $type,
             Str::of($this->c->suite())->kebab(),
-            Str::of($type)->kebab(),
-            $type ? '.' : '',
-            Str::of($this->c->name())->kebab()
         );
+
+        // return ! is_string($this->c->name()) ? '' : sprintf(
+        //     'test.%1$s.%2$s%3$s%4$s.json',
+        //     Str::of($this->c->suite())->kebab(),
+        //     Str::of($type)->kebab(),
+        //     $type ? '.' : '',
+        //     Str::of($this->c->name())->kebab()
+        // );
     }
 
     /**

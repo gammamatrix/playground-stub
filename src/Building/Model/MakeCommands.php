@@ -127,6 +127,10 @@ trait MakeCommands
 
         }
 
+        if ($this->c->playground()) {
+            $options['--playground'] = true;
+        }
+
         if (! empty($file) && is_string($file)) {
             $options['--model-file'] = $file;
         }
@@ -139,7 +143,7 @@ trait MakeCommands
             // }
         }
 
-        // dd([
+        // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$options' => $options,
         // ]);

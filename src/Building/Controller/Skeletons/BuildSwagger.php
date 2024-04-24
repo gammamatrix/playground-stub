@@ -6,6 +6,8 @@
 declare(strict_types=1);
 namespace Playground\Stub\Building\Controller\Skeletons;
 
+use Illuminate\Support\Str;
+
 /**
  * \Playground\Stub\Building\Controller\Skeletons\BuildSwagger
  */
@@ -16,7 +18,7 @@ trait BuildSwagger
         $force = $this->hasOption('force') && $this->option('force');
         $model = $this->hasOption('model') ? $this->option('model') : '';
         $module = $this->hasOption('module') ? $this->option('module') : '';
-        $name = $this->argument('name');
+        $name = Str::of($this->c->name())->before('Controller')->studly()->toString();
         $namespace = $this->hasOption('namespace') ? $this->option('namespace') : '';
         $organization = $this->hasOption('organization') ? $this->option('organization') : '';
         $package = $this->hasOption('package') ? $this->option('package') : '';

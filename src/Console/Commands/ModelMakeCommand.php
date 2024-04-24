@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace Playground\Stub\Console\Commands;
 
 use Illuminate\Console\Concerns\CreatesMatchingTest;
+use Illuminate\Support\Str;
 // use Illuminate\Foundation\Console\ModelMakeCommand as BaseModelMakeCommand;
 use Playground\Stub\Building;
 use Playground\Stub\Configuration\Contracts\PrimaryConfiguration as PrimaryConfigurationContract;
@@ -495,5 +496,14 @@ class ModelMakeCommand extends GeneratorCommand
         $this->createTest();
 
         return true;
+    }
+
+    protected function getConfigurationFilename(): string
+    {
+        return sprintf(
+            '%1$s/%2$s.json',
+            Str::of($this->c->name())->kebab()->toString(),
+            Str::of($this->getType())->kebab()->toString(),
+        );
     }
 }

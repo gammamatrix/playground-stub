@@ -129,6 +129,8 @@ class Model extends PrimaryConfiguration
 
         $this->properties['scopes'] = $this->scopes();
         $this->properties['attributes'] = $this->attributes();
+        $this->properties['casts'] = $this->casts();
+        $this->properties['fillable'] = $this->fillable();
         $this->properties['filters'] = $this->filters()?->toArray();
         $this->properties['models'] = $this->models();
         $this->properties['sortable'] = $this->sortable();

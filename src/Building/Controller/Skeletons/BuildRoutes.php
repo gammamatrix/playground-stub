@@ -18,7 +18,7 @@ trait BuildRoutes
         $force = $this->hasOption('force') && $this->option('force');
         $model = $this->hasOption('model') ? $this->option('model') : '';
         $module = $this->hasOption('module') ? $this->option('module') : '';
-        $name = $this->argument('name');
+        $name = Str::of($this->c->name())->before('Controller')->studly()->toString();
         $namespace = $this->hasOption('namespace') ? $this->option('namespace') : '';
         $organization = $this->hasOption('organization') ? $this->option('organization') : '';
         $package = $this->hasOption('package') ? $this->option('package') : '';

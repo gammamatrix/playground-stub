@@ -58,6 +58,15 @@ class SeederMakeCommand extends GeneratorCommand
         return $this->resolveStubPath('laravel/seeder.stub');
     }
 
+    protected function getConfigurationFilename(): string
+    {
+        return sprintf(
+            '%1$s/%2$s.json',
+            Str::of($this->c->name())->before('Seeder')->kebab(),
+            Str::of($this->getType())->kebab(),
+        );
+    }
+
     // /**
     //  * Get the root namespace for the class.
     //  *

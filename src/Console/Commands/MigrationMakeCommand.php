@@ -199,6 +199,15 @@ class MigrationMakeCommand extends GeneratorCommand
         // ]);
     }
 
+    protected function getConfigurationFilename(): string
+    {
+        return sprintf(
+            '%1$s/%2$s.json',
+            Str::of($this->c->name())->kebab(),
+            Str::of($this->getType())->kebab(),
+        );
+    }
+
     /**
      * Parse the class name and format according to the root namespace.
      *

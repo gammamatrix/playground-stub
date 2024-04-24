@@ -24,6 +24,7 @@ class Controller extends PrimaryConfiguration
         'organization' => '',
         'package' => '',
         'type' => '',
+        'playground' => false,
         'models' => [],
         'policies' => [],
         'requests' => [],
@@ -83,6 +84,8 @@ class Controller extends PrimaryConfiguration
 
     protected string $module_route = '';
 
+    protected bool $playground = false;
+
     protected string $privilege = '';
 
     protected string $route = '';
@@ -99,6 +102,10 @@ class Controller extends PrimaryConfiguration
         // if (array_key_exists('withPolicies', $options)) {
         //     $this->withPolicies = ! empty($options['withPolicies']);
         // }
+
+        if (array_key_exists('playground', $options)) {
+            $this->playground = ! empty($options['playground']);
+        }
 
         if (! empty($options['module_route'])
             && is_string($options['module_route'])
@@ -216,6 +223,11 @@ class Controller extends PrimaryConfiguration
     public function module_route(): string
     {
         return $this->module_route;
+    }
+
+    public function playground(): bool
+    {
+        return $this->playground;
     }
 
     public function route(): string

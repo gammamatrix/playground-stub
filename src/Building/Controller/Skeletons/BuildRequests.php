@@ -6,6 +6,8 @@
 declare(strict_types=1);
 namespace Playground\Stub\Building\Controller\Skeletons;
 
+use Illuminate\Support\Str;
+
 /**
  * \Playground\Stub\Building\Controller\Skeletons\BuildRequests
  */
@@ -18,7 +20,7 @@ trait BuildRequests
         $force = $this->hasOption('force') && $this->option('force');
         $model = $this->c->model();
         $module = $this->c->module();
-        $name = $this->c->name();
+        $name = Str::of($this->c->name())->before('Controller')->studly()->toString();
         $namespace = $this->c->namespace();
         $organization = $this->c->organization();
         $package = $this->c->package();
@@ -211,8 +213,8 @@ trait BuildRequests
             // $request = array_merge([
             //     'name' => $this->argument('name'),
             // ], $request);
-            $request['name'] = $this->c->name();
-            // dump([
+            $request['name'] = $name;
+            // dd([
             //     '__METHOD__' => __METHOD__,
             //     '$request' => $request,
             // ]);
@@ -225,14 +227,16 @@ trait BuildRequests
                     '%1$s%2$s/%3$s',
                     $this->laravel->storagePath(),
                     $path_resources_packages,
-                    $this->getConfigurationFilename_for_request($this->c->name(), $request['--type'])
+                    $this->getConfigurationFilename_for_request($name, $request['--type'])
                 );
 
                 // dd([
                 //     '__METHOD__' => __METHOD__,
+                //     '$name' => $name,
+                //     '$request' => $request,
                 //     '$file_request' => $file_request,
                 //     '$path_resources_packages' => $path_resources_packages,
-                //     '$this->configuration' => $this->configuration,
+                //     // '$this->c' => $this->c,
                 //     '$this->laravel->storagePath()' => $this->laravel->storagePath(),
                 // ]);
 
@@ -245,5 +249,14 @@ trait BuildRequests
             //     '$this->configuration' => $this->configuration,
             // ]);
         }
+    }
+
+    protected function getConfigurationFilename_for_request(string $name, string $type): string
+    {
+        return sprintf(
+            '%1$s/request%2$s.json',
+            Str::of($name)->kebab(),
+            $type ? '.'.Str::of($type)->kebab() : ''
+        );
     }
 }

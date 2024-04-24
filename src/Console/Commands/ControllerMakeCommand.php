@@ -165,7 +165,46 @@ class ControllerMakeCommand extends GeneratorCommand
     {
         $options = $this->options();
 
-        $type = $this->getConfigurationType();
+        if ($this->option('playground')) {
+            $this->c->setOptions([
+                'playground' => true,
+            ]);
+        }
+
+        if (! $this->option('type')) {
+
+            $type = '';
+
+            if ($this->c->playground()) {
+                if ($this->option('api')) {
+                    $type = 'playground-api';
+                } elseif ($this->option('resource')) {
+                    $type = 'playground-resource';
+                }
+            } else {
+                if ($this->option('api')) {
+                    $type = 'api';
+                } elseif ($this->option('resource')) {
+                    $type = 'resource';
+                }
+            }
+
+            if ($type) {
+                $this->c->setOptions([
+                    'type' => $type,
+                ]);
+            }
+
+        } else {
+            $type = $this->getConfigurationType();
+        }
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$this->c' => $this->c,
+        //     '$this->searches' => $this->searches,
+        //     // '$this->arguments()' => $this->arguments(),
+        //     '$this->options()' => $this->options(),
+        // ]);
 
         // Extends
 
@@ -297,7 +336,7 @@ class ControllerMakeCommand extends GeneratorCommand
             $this->searches['view'] = $this->c->view();
 
         }
-        // dump([
+        // dd([
         //     '__METHOD__' => __METHOD__,
         //     '$this->c' => $this->c,
         //     '$this->searches' => $this->searches,
@@ -310,7 +349,7 @@ class ControllerMakeCommand extends GeneratorCommand
     {
         return sprintf(
             '%1$s/%2$s.json',
-            Str::of($this->c->name())->kebab(),
+            Str::of($this->c->name())->before('Controller')->kebab(),
             Str::of($this->getType())->kebab(),
         );
     }
@@ -701,15 +740,6 @@ class ControllerMakeCommand extends GeneratorCommand
         $this->saveConfiguration();
     }
 
-    protected function getConfigurationFilename_for_request(string $name, string $type): string
-    {
-        return sprintf(
-            '%1$s/request%2$s.json',
-            Str::of($name)->kebab(),
-            $type ? '.'.Str::of($type)->kebab() : ''
-        );
-    }
-
     protected function getConfigurationFilename_for_resource(string $name, string $type): string
     {
         return sprintf(
@@ -735,6 +765,7 @@ class ControllerMakeCommand extends GeneratorCommand
             ['model',           'm',  InputOption::VALUE_OPTIONAL, 'Generate a resource controller for the given model'],
             ['module',          null, InputOption::VALUE_OPTIONAL, 'The module that the '.strtolower($this->type).' belongs to'],
             ['parent',          'p', InputOption::VALUE_OPTIONAL,  'Generate a nested resource controller class'],
+            ['playground',      null, InputOption::VALUE_NONE,     'Create a Playground controller'],
             ['resource',        'r', InputOption::VALUE_NONE,      'Generate a resource controller class'],
             ['requests',        'R', InputOption::VALUE_NONE,      'Generate FormRequest classes for store and update'],
             ['singleton',       's', InputOption::VALUE_NONE,      'Generate a singleton resource controller class'],

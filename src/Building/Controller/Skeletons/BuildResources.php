@@ -22,7 +22,7 @@ trait BuildResources
         // ]);
 
         $force = $this->hasOption('force') && $this->option('force');
-        $name = $this->c->name();
+        $name = Str::of($this->c->name())->before('Controller')->studly()->toString();
 
         // $layout = 'playground::layouts.site';
 
