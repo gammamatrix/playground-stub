@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-24 01:20:28</timestamp>
+  <timestamp>2024-04-24 01:48:51</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>609</methodCount>
     <crapMethodCount>31</crapMethodCount>
-    <crapLoad>356</crapLoad>
-    <totalCrap>7610.61</totalCrap>
+    <crapLoad>358</crapLoad>
+    <totalCrap>7653.68</totalCrap>
     <crapMethodPercent>5.09</crapMethodPercent>
   </stats>
   <methods>
@@ -116,9 +116,9 @@
       <methodName>skeleton_policy</methodName>
       <methodSignature>skeleton_policy(string $type): void</methodSignature>
       <fullMethod>skeleton_policy(string $type): void</fullMethod>
-      <crap>11.34</crap>
+      <crap>11.41</crap>
       <complexity>10</complexity>
-      <coverage>76.27</coverage>
+      <coverage>75.86</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5033,10 +5033,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>90</crap>
-      <complexity>9</complexity>
+      <crap>132</crap>
+      <complexity>11</complexity>
       <coverage>0</coverage>
-      <crapLoad>9</crapLoad>
+      <crapLoad>11</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration</package>
@@ -6507,8 +6507,8 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>7</crap>
-      <complexity>7</complexity>
+      <crap>8</crap>
+      <complexity>8</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
