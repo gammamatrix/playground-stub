@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-23 22:53:20</timestamp>
+  <timestamp>2024-04-24 01:20:28</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>605</methodCount>
+    <methodCount>609</methodCount>
     <crapMethodCount>31</crapMethodCount>
-    <crapLoad>350</crapLoad>
-    <totalCrap>7513.63</totalCrap>
-    <crapMethodPercent>5.12</crapMethodPercent>
+    <crapLoad>356</crapLoad>
+    <totalCrap>7610.61</totalCrap>
+    <crapMethodPercent>5.09</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -116,9 +116,9 @@
       <methodName>skeleton_policy</methodName>
       <methodSignature>skeleton_policy(string $type): void</methodSignature>
       <fullMethod>skeleton_policy(string $type): void</fullMethod>
-      <crap>11.41</crap>
+      <crap>11.34</crap>
       <complexity>10</complexity>
-      <coverage>75.86</coverage>
+      <coverage>76.27</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -131,6 +131,17 @@
       <complexity>20</complexity>
       <coverage>49.19</coverage>
       <crapLoad>11</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Controller\Skeletons</package>
+      <className>Playground\Stub\Building\Controller\Skeletons\BuildRequests</className>
+      <methodName>getConfigurationFilename_for_request</methodName>
+      <methodSignature>getConfigurationFilename_for_request(string $name, string $type): string</methodSignature>
+      <fullMethod>getConfigurationFilename_for_request(string $name, string $type): string</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Building\Controller\Skeletons</package>
@@ -600,9 +611,9 @@
       <methodName>createController</methodName>
       <methodSignature>createController(): void</methodSignature>
       <fullMethod>createController(): void</fullMethod>
-      <crap>15.56</crap>
-      <complexity>15</complexity>
-      <coverage>86.49</coverage>
+      <crap>16.93</crap>
+      <complexity>16</complexity>
+      <coverage>84.62</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1568,10 +1579,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>90</crap>
-      <complexity>9</complexity>
+      <crap>110</crap>
+      <complexity>10</complexity>
       <coverage>0</coverage>
-      <crapLoad>9</crapLoad>
+      <crapLoad>10</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration</package>
@@ -1700,6 +1711,17 @@
       <methodName>module_route</methodName>
       <methodSignature>module_route(): string</methodSignature>
       <fullMethod>module_route(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Controller</className>
+      <methodName>playground</methodName>
+      <methodSignature>playground(): bool</methodSignature>
+      <fullMethod>playground(): bool</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -5561,9 +5583,9 @@
       <methodName>getConfigurationFilename</methodName>
       <methodSignature>getConfigurationFilename(): string</methodSignature>
       <fullMethod>getConfigurationFilename(): string</fullMethod>
-      <crap>2</crap>
+      <crap>6</crap>
       <complexity>2</complexity>
-      <coverage>100</coverage>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5660,10 +5682,10 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>56.06</crap>
-      <complexity>25</complexity>
-      <coverage>63.24</coverage>
-      <crapLoad>10</crapLoad>
+      <crap>123.74</crap>
+      <complexity>33</complexity>
+      <coverage>56.32</coverage>
+      <crapLoad>15</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
@@ -5728,17 +5750,6 @@
       <fullMethod>skeleton(): void</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands</package>
-      <className>Playground\Stub\Console\Commands\ControllerMakeCommand</className>
-      <methodName>getConfigurationFilename_for_request</methodName>
-      <methodSignature>getConfigurationFilename_for_request(string $name, string $type): string</methodSignature>
-      <fullMethod>getConfigurationFilename_for_request(string $name, string $type): string</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -5910,6 +5921,17 @@
     <method>
       <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
+      <methodName>getConfigurationFilename</methodName>
+      <methodSignature>getConfigurationFilename(): string</methodSignature>
+      <fullMethod>getConfigurationFilename(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\MigrationMakeCommand</className>
       <methodName>qualifyClass</methodName>
       <methodSignature>qualifyClass($name): string</methodSignature>
       <fullMethod>qualifyClass($name): string</fullMethod>
@@ -6014,6 +6036,17 @@
       <fullMethod>handleTestCreation($path)</fullMethod>
       <crap>4</crap>
       <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\ModelMakeCommand</className>
+      <methodName>getConfigurationFilename</methodName>
+      <methodSignature>getConfigurationFilename(): string</methodSignature>
+      <fullMethod>getConfigurationFilename(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -6394,6 +6427,17 @@
     <method>
       <package>Playground\Stub\Console\Commands</package>
       <className>Playground\Stub\Console\Commands\SeederMakeCommand</className>
+      <methodName>getConfigurationFilename</methodName>
+      <methodSignature>getConfigurationFilename(): string</methodSignature>
+      <fullMethod>getConfigurationFilename(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Console\Commands</package>
+      <className>Playground\Stub\Console\Commands\SeederMakeCommand</className>
       <methodName>getDefaultNamespace</methodName>
       <methodSignature>getDefaultNamespace($rootNamespace): string</methodSignature>
       <fullMethod>getDefaultNamespace($rootNamespace): string</fullMethod>
@@ -6551,8 +6595,8 @@
       <methodName>getConfigurationFilename</methodName>
       <methodSignature>getConfigurationFilename(): string</methodSignature>
       <fullMethod>getConfigurationFilename(): string</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
+      <crap>2</crap>
+      <complexity>2</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
