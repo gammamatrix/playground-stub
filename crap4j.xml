@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-25 17:25:52</timestamp>
+  <timestamp>2024-04-25 21:09:21</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>632</methodCount>
+    <methodCount>635</methodCount>
     <crapMethodCount>33</crapMethodCount>
     <crapLoad>381</crapLoad>
-    <totalCrap>8151</totalCrap>
-    <crapMethodPercent>5.22</crapMethodPercent>
+    <totalCrap>8154.98</totalCrap>
+    <crapMethodPercent>5.2</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -402,9 +402,9 @@
       <methodName>analyze_filters</methodName>
       <methodSignature>analyze_filters(Playground\Stub\Configuration\Model\Create $create, string $name): void</methodSignature>
       <fullMethod>analyze_filters(Playground\Stub\Configuration\Model\Create $create, string $name): void</fullMethod>
-      <crap>29.35</crap>
+      <crap>29.84</crap>
       <complexity>29</complexity>
-      <coverage>92.5</coverage>
+      <coverage>90</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -743,9 +743,9 @@
       <methodName>buildClass_skeleton</methodName>
       <methodSignature>buildClass_skeleton(): void</methodSignature>
       <fullMethod>buildClass_skeleton(): void</fullMethod>
-      <crap>3.06</crap>
+      <crap>3.09</crap>
       <complexity>3</complexity>
-      <coverage>80.95</coverage>
+      <coverage>78.26</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -765,9 +765,9 @@
       <methodName>buildClass_skeleton_timestamps</methodName>
       <methodSignature>buildClass_skeleton_timestamps(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_timestamps(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
-      <crap>15.4</crap>
+      <crap>16.51</crap>
       <complexity>7</complexity>
-      <coverage>44.44</coverage>
+      <coverage>42.11</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -776,9 +776,9 @@
       <methodName>buildClass_skeleton_softDeletes</methodName>
       <methodSignature>buildClass_skeleton_softDeletes(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_softDeletes(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
-      <crap>7.35</crap>
+      <crap>7.73</crap>
       <complexity>5</complexity>
-      <coverage>54.55</coverage>
+      <coverage>52.17</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -805,13 +805,57 @@
     </method>
     <method>
       <package>Playground\Stub\Building\Model\Skeleton</package>
+      <className>Playground\Stub\Building\Model\Skeleton\MakeIds</className>
+      <methodName>buildClass_skeleton_ids</methodName>
+      <methodSignature>buildClass_skeleton_ids(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_ids(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model\Skeleton</package>
+      <className>Playground\Stub\Building\Model\Skeleton\MakeIds</className>
+      <methodName>buildClass_skeleton_ids_users</methodName>
+      <methodSignature>buildClass_skeleton_ids_users(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_ids_users(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>17.13</crap>
+      <complexity>15</complexity>
+      <coverage>78.85</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model\Skeleton</package>
+      <className>Playground\Stub\Building\Model\Skeleton\MakeIds</className>
+      <methodName>buildClass_skeleton_ids_model</methodName>
+      <methodSignature>buildClass_skeleton_ids_model(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_ids_model(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>11</crap>
+      <complexity>11</complexity>
+      <coverage>97.5</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model\Skeleton</package>
+      <className>Playground\Stub\Building\Model\Skeleton\MakeIds</className>
+      <methodName>buildClass_skeleton_ids_package</methodName>
+      <methodSignature>buildClass_skeleton_ids_package(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_ids_package(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>11</crap>
+      <complexity>11</complexity>
+      <coverage>95</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model\Skeleton</package>
       <className>Playground\Stub\Building\Model\Skeleton\MakeJson</className>
       <methodName>buildClass_skeleton_json</methodName>
       <methodSignature>buildClass_skeleton_json(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_json(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
       <crap>10</crap>
       <complexity>10</complexity>
-      <coverage>97.22</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2085,8 +2129,8 @@
       <methodName>apply</methodName>
       <methodSignature>apply(): self</methodSignature>
       <fullMethod>apply(): self</fullMethod>
-      <crap>10</crap>
-      <complexity>10</complexity>
+      <crap>11</crap>
+      <complexity>11</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -2241,7 +2285,7 @@
       <fullMethod>addCast(mixed $column, mixed $cast): self</fullMethod>
       <crap>12</crap>
       <complexity>12</complexity>
-      <coverage>95.12</coverage>
+      <coverage>95.24</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2437,9 +2481,9 @@
       <methodName>addFilters</methodName>
       <methodSignature>addFilters(array $options, bool $apply): self</methodSignature>
       <fullMethod>addFilters(array $options, bool $apply): self</fullMethod>
-      <crap>5.03</crap>
-      <complexity>5</complexity>
-      <coverage>88.89</coverage>
+      <crap>6.04</crap>
+      <complexity>6</complexity>
+      <coverage>90</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2448,8 +2492,8 @@
       <methodName>addFilter</methodName>
       <methodSignature>addFilter(array $options, bool $apply): self</methodSignature>
       <fullMethod>addFilter(array $options, bool $apply): self</fullMethod>
-      <crap>42</crap>
-      <complexity>6</complexity>
+      <crap>30</crap>
+      <complexity>5</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -3485,17 +3529,6 @@
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration\Model</package>
-      <className>Playground\Stub\Configuration\Model\Filters</className>
-      <methodName>jsonSerialize</methodName>
-      <methodSignature>jsonSerialize(): mixed</methodSignature>
-      <fullMethod>jsonSerialize(): mixed</fullMethod>
-      <crap>28.17</crap>
-      <complexity>28</complexity>
-      <coverage>94</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
