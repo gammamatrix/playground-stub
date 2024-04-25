@@ -88,11 +88,15 @@ trait Attributes
         } elseif (in_array($cast, [
             'datetime',
             'dateTime',
+            'timestamp',
         ])) {
             $this->casts[$column] = 'datetime';
         } elseif (in_array($cast, [
-            'int',
             'integer',
+            'bigInteger',
+            'mediumInteger',
+            'smallInteger',
+            'tinyInteger',
         ])) {
             $this->casts[$column] = 'integer';
         } elseif (in_array($cast, [

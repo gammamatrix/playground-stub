@@ -52,33 +52,19 @@ trait MakeSkeleton
 
         $this->buildClass_skeleton_softDeletes($create);
 
-        // if ($create->dates()) {
-        //     $this->buildClass_skeleton_dates($create->dates());
-        // }
+        $this->buildClass_skeleton_dates($create);
 
-        // if ($create->permissions()) {
-        //     $this->buildClass_skeleton_permissions($create->permissions());
-        // }
+        $this->buildClass_skeleton_permissions($create);
 
-        // if ($create->status()) {
-        //     $this->buildClass_skeleton_status($create->status());
-        // }
+        $this->buildClass_skeleton_status($create);
 
-        // if ($create->flags()) {
-        //     $this->buildClass_skeleton_flags($create->flags());
-        // }
+        $this->buildClass_skeleton_flags($create);
 
-        // if ($create->columns()) {
-        //     $this->buildClass_skeleton_columns($create->columns());
-        // }
+        // $this->buildClass_skeleton_columns($create);
 
-        // if ($create->ui()) {
-        //     $this->buildClass_skeleton_ui($create->ui());
-        // }
+        // $this->buildClass_skeleton_ui($create);
 
-        // if ($create->json()) {
-        //     $this->buildClass_skeleton_json($create->json());
-        // }
+        // $this->buildClass_skeleton_json($create);
     }
 
     // protected function buildClass_skeleton_add_cast(string $attribute, array $meta = []): void
@@ -206,10 +192,8 @@ trait MakeSkeleton
     //     $this->analyze['sortable'][] = $attribute;
     // }
 
-    // protected function buildClass_skeleton_ids(
-    //     mixed $primary,
-    //     array $ids
-    // ): void {
+    // protected function buildClass_skeleton_ids(Create $create): void
+    // {
 
     //     // Make sure IDs exists in filters.
     //     if (! empty($this->configuration['filters']['ids'])) {
@@ -289,271 +273,6 @@ trait MakeSkeleton
     //         if (empty($meta['readOnly'])) {
     //             $this->buildClass_skeleton_add_fillable($attribute);
     //         }
-    //     }
-    // }
-
-    protected function buildClass_skeleton_timestamps(Create $create): void
-    {
-        if (! $create->timestamps()) {
-            return;
-        }
-
-        $this->components->info(sprintf('Adding timestamps to [%s]', $this->c->name()));
-
-        /**
-         * @var array<string, array<int, mixed>>
-         */
-        $addFilters = [
-            'dates' => [],
-        ];
-
-        /**
-         * @var array<string, array<int, mixed>>
-         */
-        $addSortable = [];
-
-        $this->c->addAttribute('created_at', null);
-        $this->c->addCast('created_at', 'datetime');
-
-        if (! in_array('created_at', $this->analyze['sortable'])) {
-            $this->c->addSortable([
-                'type' => 'string',
-                'column' => 'created_at',
-                'label' => 'Created At',
-            ]);
-        }
-
-        if (! in_array('created_at', $this->analyze_filters['dates'])) {
-            $addFilters['dates'][] = [
-                'column' => 'created_at',
-                'type' => 'timestamp',
-                'nullable' => true,
-            ];
-        }
-
-        $this->c->addAttribute('updated_at', null);
-        $this->c->addCast('updated_at', 'datetime');
-
-        if (! in_array('updated_at', $this->analyze['sortable'])) {
-            $this->c->addSortable([
-                'type' => 'string',
-                'column' => 'updated_at',
-                'label' => 'Updated At',
-            ]);
-        }
-
-        if (! in_array('updated_at', $this->analyze_filters['dates'])) {
-            $addFilters['dates'][] = [
-                'column' => 'updated_at',
-                'type' => 'timestamp',
-                'nullable' => true,
-            ];
-        }
-
-        if ($addFilters) {
-            $this->c->addFilter($addFilters);
-        }
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     '$addFilters' => $addFilters,
-        //     '$this->c->filters()' => $this->c->filters(),
-        // ]);
-
-        // if (! $filters) {
-        //     $addFilters[] = [
-        //         'column' => 'created_at',
-        //         'type' => 'timestamp',
-        //         'nullable' => true,
-        //     ];
-        // }
-
-        // if ($addSortable) {
-        //     $this->c->addSortable($addSortable);
-        // }
-
-        // // Add to filters
-        // $this->buildClass_skeleton_add_sort($attribute, [
-        //     'type' => 'string',
-        //     'nullable' => true,
-        // ]);
-        // $this->buildClass_skeleton_add_cast($attribute, [
-        //     'type' => 'timestamp',
-        // ]);
-
-        // $attribute = 'updated_at';
-
-        // $this->buildClass_skeleton_add_sort($attribute, [
-        //     'type' => 'string',
-        //     'nullable' => true,
-        // ]);
-        // $this->buildClass_skeleton_add_cast($attribute, [
-        //     'type' => 'timestamp',
-        // ]);
-    }
-
-    protected function buildClass_skeleton_softDeletes(Create $create): void
-    {
-        // if (! $hasSoftDeletes) {
-        //     if (empty($this->configuration['filters']['trash'])) {
-        //         unset($this->configuration['filters']['trash']);
-        //         $this->components->info(sprintf('Removing soft deletes from filters on [%s]', $this->configuration['name']));
-        //     }
-
-        //     return;
-        // }
-
-        // $attribute = 'deleted_at';
-        // $this->buildClass_skeleton_add_sort($attribute, [
-        //     'column' => $attribute,
-        //     'type' => 'string',
-        //     'nullable' => true,
-        // ]);
-        // $this->buildClass_skeleton_add_cast($attribute, [
-        //     'type' => 'timestamp',
-        // ]);
-
-        // $this->configuration['filters']['trash'] = [
-        //     'hide' => true,
-        //     'only' => true,
-        //     'with' => true,
-        // ];
-
-        if (! $create->softDeletes()) {
-            return;
-        }
-
-        $this->components->info(sprintf('Adding soft deletes to [%s]', $this->c->name()));
-
-        /**
-         * @var array<string, array<int, mixed>>
-         */
-        $addFilters = [
-            'dates' => [],
-        ];
-
-        /**
-         * @var array<string, array<int, mixed>>
-         */
-        $addSortable = [];
-
-        $this->c->addAttribute('deleted_at', null);
-        $this->c->addCast('deleted_at', 'datetime');
-        // $this->c->addFillable('deleted_at');
-
-        if (! in_array('deleted_at', $this->analyze_filters['dates'])) {
-            $addFilters['dates'][] = [
-                'column' => 'deleted_at',
-                'type' => 'timestamp',
-                'nullable' => true,
-            ];
-        }
-
-        if ($addFilters) {
-            $this->c->addFilter($addFilters);
-        }
-
-        if (! in_array('deleted_at', $this->analyze['sortable'])) {
-            $this->c->addSortable([
-                'type' => 'string',
-                'column' => 'deleted_at',
-                'label' => 'Deleted At',
-            ]);
-        }
-
-    }
-
-    // protected function buildClass_skeleton_dates(array $dates): void
-    // {
-    //     $this->components->info(sprintf('Adding dates to [%s]', $this->configuration['name']));
-    //     $added = [];
-
-    //     foreach ($dates as $attribute => $meta) {
-    //         // dump([
-    //         //     '__METHOD__' => __METHOD__,
-    //         //     '$attribute' => $attribute,
-    //         //     '$meta' => $meta,
-    //         // ]);
-    //         if (in_array($attribute, $added)) {
-    //             $this->components->error(sprintf(
-    //                 'Column [%s] already added to dates for [%s]',
-    //                 $attribute,
-    //                 $this->configuration['name']
-    //             ));
-
-    //             continue;
-    //         }
-
-    //         // Add to filters
-    //         $this->configuration['filters']['dates'][] = [
-    //             'column' => $attribute,
-    //             'type' => empty($meta['type']) || ! is_string($meta['type']) ? 'datetime' : $meta['type'],
-    //             'nullable' => ! empty($meta['nullable']),
-    //         ];
-    //         $added[] = $attribute;
-    //         $this->buildClass_skeleton_add_sort($attribute, $meta);
-    //         if (empty($meta['readOnly'])) {
-    //             $this->buildClass_skeleton_add_fillable($attribute);
-    //         }
-    //         $this->buildClass_skeleton_add_cast($attribute, [
-    //             'type' => empty($meta['type']) || ! is_string($meta['type']) ? 'datetime' : $meta['type'],
-    //         ]);
-    //     }
-    // }
-
-    // protected function buildClass_skeleton_permissions(array $permissions): void
-    // {
-    //     // Make sure permissions exists in filters.
-    //     if (! empty($this->configuration['filters']['permissions'])) {
-    //         $this->analyze['filters']['permissions'] = $this->configuration['filters']['permissions'];
-    //     }
-
-    //     $this->configuration['filters']['permissions'] = [];
-
-    //     $this->components->info(sprintf('Adding permissions to [%s]', $this->configuration['name']));
-    //     $added = [];
-
-    //     foreach ($permissions as $attribute => $meta) {
-    //         // dump([
-    //         //     '__METHOD__' => __METHOD__,
-    //         //     '$attribute' => $attribute,
-    //         //     '$meta' => $meta,
-    //         // ]);
-    //         if (in_array($attribute, $added)) {
-    //             $this->components->error(sprintf(
-    //                 'Column [%s] already added to permissions for [%s]',
-    //                 $attribute,
-    //                 $this->configuration['name']
-    //             ));
-
-    //             continue;
-    //         }
-
-    //         // Add to filters
-
-    //         $options = [
-    //             'column' => $attribute,
-    //             'type' => empty($meta['type']) || ! is_string($meta['type']) ? 'string' : $meta['type'],
-    //             'nullable' => ! empty($meta['nullable']),
-    //             'unsigned' => ! empty($meta['unsigned']),
-    //         ];
-
-    //         if (! empty($meta['icon']) && is_string($meta['icon'])) {
-    //             $options['icon'] = $meta['icon'];
-
-    //             $options['label'] = empty($meta['label']) || ! is_string($meta['label'])
-    //                 ? Str::of($attribute)->replace('_', ' ')->title()->toString()
-    //                 : $meta['label'];
-    //         }
-
-    //         $this->configuration['filters']['permissions'][] = $options;
-    //         $added[] = $attribute;
-    //         $this->buildClass_skeleton_add_sort($attribute, $meta);
-    //         if (empty($meta['readOnly'])) {
-    //             $this->buildClass_skeleton_add_fillable($attribute);
-    //         }
-    //         $this->buildClass_skeleton_add_cast($attribute, [
-    //             'type' => empty($meta['type']) || ! is_string($meta['type']) ? 'string' : $meta['type'],
-    //         ]);
     //     }
     // }
 

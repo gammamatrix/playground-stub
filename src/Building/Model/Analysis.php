@@ -104,7 +104,7 @@ trait Analysis
         $filters = $this->c->filters();
         $this->components->info(sprintf('Analyzing [ %s ] model filters', $name));
 
-        if (!$filters) {
+        if (! $filters) {
             return;
         }
 

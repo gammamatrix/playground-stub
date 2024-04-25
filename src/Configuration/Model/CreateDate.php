@@ -11,5 +11,12 @@ namespace Playground\Stub\Configuration\Model;
  */
 class CreateDate extends CreateColumn
 {
+    /**
+     * @var array<int, string>
+     */
+    public $allowed_types = [
+        'dateTime',
+    ];
+
     protected string $type = 'dateTime';
 }
