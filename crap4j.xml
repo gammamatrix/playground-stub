@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-25 17:05:12</timestamp>
+  <timestamp>2024-04-25 17:11:40</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>629</methodCount>
+    <methodCount>630</methodCount>
     <crapMethodCount>33</crapMethodCount>
     <crapLoad>381</crapLoad>
-    <totalCrap>8115.04</totalCrap>
-    <crapMethodPercent>5.25</crapMethodPercent>
+    <totalCrap>8125.02</totalCrap>
+    <crapMethodPercent>5.24</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -743,9 +743,20 @@
       <methodName>buildClass_skeleton</methodName>
       <methodSignature>buildClass_skeleton(): void</methodSignature>
       <fullMethod>buildClass_skeleton(): void</fullMethod>
-      <crap>3.1</crap>
+      <crap>3.08</crap>
       <complexity>3</complexity>
-      <coverage>77.78</coverage>
+      <coverage>78.95</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model\Skeleton</package>
+      <className>Playground\Stub\Building\Model\Skeleton\MakeColumns</className>
+      <methodName>buildClass_skeleton_columns</methodName>
+      <methodSignature>buildClass_skeleton_columns(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_columns(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>9</crap>
+      <complexity>9</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2206,9 +2217,9 @@
       <methodName>addCast</methodName>
       <methodSignature>addCast(mixed $column, mixed $cast): self</methodSignature>
       <fullMethod>addCast(mixed $column, mixed $cast): self</fullMethod>
-      <crap>10</crap>
-      <complexity>10</complexity>
-      <coverage>100</coverage>
+      <crap>11</crap>
+      <complexity>11</complexity>
+      <coverage>97.22</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
