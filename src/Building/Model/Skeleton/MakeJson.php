@@ -19,40 +19,49 @@ trait MakeJson
      */
     protected array $skeleton_json = [
         'assets' => [
+            'default' => '{}',
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'backlog' => [
+            'default' => '{}',
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'board' => [
+            'default' => '{}',
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'flow' => [
+            'default' => '{}',
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'meta' => [
+            'default' => '{}',
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'notes' => [
+            'default' => '[]',
             'readOnly' => true,
             'nullable' => true,
             'type' => 'JSON_ARRAY',
             'comment' => 'Array of note objects',
         ],
         'options' => [
+            'default' => '{}',
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'roadmap' => [
+            'default' => '{}',
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
         'sources' => [
+            'default' => '{}',
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
@@ -105,6 +114,7 @@ trait MakeJson
 
             if (! in_array($column, $this->analyze_filters['json'])) {
                 $addFilters['json'][] = [
+                    'label' => $label,
                     'column' => $column,
                     'type' => $type,
                     'nullable' => true,
@@ -113,9 +123,9 @@ trait MakeJson
 
             if (! in_array($column, $this->analyze['sortable'])) {
                 $this->c->addSortable([
+                    'label' => $label,
                     'type' => $type,
                     'column' => $column,
-                    'label' => $label,
                 ]);
             }
 

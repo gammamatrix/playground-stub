@@ -20,10 +20,13 @@ trait Filters
      */
     public function addFilters(array $options, bool $apply = false): self
     {
+        if (empty($this->filters)) {
+            $this->filters = new Model\Filters;
+        }
+
         if (! empty($options['filters'])
             && is_array($options['filters'])
         ) {
-            $this->filters = new Model\Filters;
             if ($this->skeleton()) {
                 $this->filters->withSkeleton();
             }
@@ -57,10 +60,8 @@ trait Filters
 
         $this->filters->setParent($this);
 
-        if (! empty($options['filters'])
-            && is_array($options['filters'])
-        ) {
-            $this->filters->setOptions($options['filters']);
+        if ($options) {
+            $this->filters->setOptions($options);
         }
 
         if ($apply) {

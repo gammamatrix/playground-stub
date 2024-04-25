@@ -110,6 +110,7 @@ trait MakePermissions
 
             if (! in_array($column, $this->analyze_filters['permissions'])) {
                 $addFilters['permissions'][] = [
+                    'label' => $label,
                     'column' => $column,
                     'type' => $type,
                     'nullable' => true,
@@ -118,9 +119,9 @@ trait MakePermissions
 
             if (! in_array($column, $this->analyze['sortable'])) {
                 $this->c->addSortable([
+                    'label' => $label,
                     'type' => $type,
                     'column' => $column,
-                    'label' => $label,
                 ]);
             }
 

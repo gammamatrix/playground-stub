@@ -511,99 +511,103 @@ class Filters extends ModelConfiguration implements Configuration\Contracts\With
         return $this->json;
     }
 
-    public function jsonSerialize(): mixed
-    {
-        $properties = [
-            'builder' => $this->builder(),
-            'ids' => [],
-            'dates' => [],
-            'flags' => [],
-            'trash' => $this->trash(),
-            'columns' => [],
-            'permissions' => [],
-            'status' => [],
-            'matrix' => [],
-            'ui' => [],
-            'json' => [],
-        ];
+    // public function jsonSerialize(): mixed
+    // {
+    //     $properties = [
+    //         'builder' => $this->builder(),
+    //         'ids' => [],
+    //         'dates' => [],
+    //         'flags' => [],
+    //         'trash' => $this->trash(),
+    //         'columns' => [],
+    //         'permissions' => [],
+    //         'status' => [],
+    //         'matrix' => [],
+    //         'ui' => [],
+    //         'json' => [],
+    //     ];
 
-        if ($this->ids()) {
-            foreach ($this->ids() as $i => $id) {
-                if (is_array($properties['ids'])) {
-                    $properties['ids'][$i] = $id->toArray();
-                }
-            }
-        }
+    //     if ($this->ids()) {
+    //         foreach ($this->ids() as $i => $id) {
+    //             if (is_array($properties['ids'])) {
+    //                 $properties['ids'][$i] = $id->toArray();
+    //             }
+    //         }
+    //     }
+    //     dd([
+    //         '__METHOD__' => __METHOD__,
+    //         '$properties[ids]' => $properties['ids'],
+    //     ]);
 
-        if ($this->dates()) {
-            foreach ($this->dates() as $i => $date) {
-                if (is_array($properties['dates'])) {
-                    $properties['dates'][$i] = $date->toArray();
-                }
-            }
-        }
+    //     if ($this->dates()) {
+    //         foreach ($this->dates() as $i => $date) {
+    //             if (is_array($properties['dates'])) {
+    //                 $properties['dates'][$i] = $date->toArray();
+    //             }
+    //         }
+    //     }
 
-        if ($this->flags()) {
-            foreach ($this->flags() as $i => $flag) {
-                if (is_array($properties['flags'])) {
-                    $properties['flags'][$i] = $flag->toArray();
-                }
-            }
-        }
+    //     if ($this->flags()) {
+    //         foreach ($this->flags() as $i => $flag) {
+    //             if (is_array($properties['flags'])) {
+    //                 $properties['flags'][$i] = $flag->toArray();
+    //             }
+    //         }
+    //     }
 
-        if ($this->columns()) {
-            foreach ($this->columns() as $i => $column) {
-                if (is_array($properties['columns'])) {
-                    $properties['columns'][$i] = $column->toArray();
-                }
-            }
-        }
+    //     if ($this->columns()) {
+    //         foreach ($this->columns() as $i => $column) {
+    //             if (is_array($properties['columns'])) {
+    //                 $properties['columns'][$i] = $column->toArray();
+    //             }
+    //         }
+    //     }
 
-        if ($this->permissions()) {
-            foreach ($this->permissions() as $i => $permission) {
-                if (is_array($properties['permissions'])) {
-                    $properties['permissions'][$i] = $permission->toArray();
-                }
-            }
-        }
+    //     if ($this->permissions()) {
+    //         foreach ($this->permissions() as $i => $permission) {
+    //             if (is_array($properties['permissions'])) {
+    //                 $properties['permissions'][$i] = $permission->toArray();
+    //             }
+    //         }
+    //     }
 
-        if ($this->status()) {
-            foreach ($this->status() as $i => $status) {
-                if (is_array($properties['status'])) {
-                    $properties['status'][$i] = $status->toArray();
-                }
-            }
-        }
+    //     if ($this->status()) {
+    //         foreach ($this->status() as $i => $status) {
+    //             if (is_array($properties['status'])) {
+    //                 $properties['status'][$i] = $status->toArray();
+    //             }
+    //         }
+    //     }
 
-        if ($this->matrix()) {
-            foreach ($this->matrix() as $i => $matrix) {
-                if (is_array($properties['matrix'])) {
-                    $properties['matrix'][$i] = $matrix->toArray();
-                }
-            }
-        }
+    //     if ($this->matrix()) {
+    //         foreach ($this->matrix() as $i => $matrix) {
+    //             if (is_array($properties['matrix'])) {
+    //                 $properties['matrix'][$i] = $matrix->toArray();
+    //             }
+    //         }
+    //     }
 
-        if ($this->ui()) {
-            foreach ($this->ui() as $i => $ui) {
-                if (is_array($properties['ui'])) {
-                    $properties['ui'][$i] = $ui->toArray();
-                }
-            }
-        }
+    //     if ($this->ui()) {
+    //         foreach ($this->ui() as $i => $ui) {
+    //             if (is_array($properties['ui'])) {
+    //                 $properties['ui'][$i] = $ui->toArray();
+    //             }
+    //         }
+    //     }
 
-        if ($this->json()) {
-            foreach ($this->json() as $i => $json) {
-                if (is_array($properties['json'])) {
-                    $properties['json'][$i] = $json->toArray();
-                }
-            }
-        }
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     // '$this->ids()' => $this->ids(),
-        //     '$properties' => $properties,
-        // ]);
+    //     if ($this->json()) {
+    //         foreach ($this->json() as $i => $json) {
+    //             if (is_array($properties['json'])) {
+    //                 $properties['json'][$i] = $json->toArray();
+    //             }
+    //         }
+    //     }
+    //     // dd([
+    //     //     '__METHOD__' => __METHOD__,
+    //     //     // '$this->ids()' => $this->ids(),
+    //     //     '$properties' => $properties,
+    //     // ]);
 
-        return $properties;
-    }
+    //     return $properties;
+    // }
 }

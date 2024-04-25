@@ -126,6 +126,14 @@ class Model extends PrimaryConfiguration
                 }
             }
         }
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     // '$this->c' => $this->c,
+        //     // '$this->c' => $this->c->toArray(),
+        //     // '$this->filters()' => $this->filters(),
+        //     '$this->filters()' => $this->filters()?->toArray(),
+        //     // '$this->analyze' => $this->analyze,
+        // ]);
 
         $this->properties['scopes'] = $this->scopes();
         $this->properties['attributes'] = $this->attributes();
@@ -145,7 +153,11 @@ class Model extends PrimaryConfiguration
             }
         }
 
-        $this->properties['create'] = $this->create()?->toArray();
+        $create = $this->create();
+        if ($create) {
+            $create->apply();
+        }
+        $this->properties['create'] = $create?->toArray();
 
         $this->properties['uses'] = $this->uses();
 

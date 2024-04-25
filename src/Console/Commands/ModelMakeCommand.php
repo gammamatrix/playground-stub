@@ -41,6 +41,7 @@ class ModelMakeCommand extends GeneratorCommand
     use Building\Model\Skeleton\MakeColumns;
     use Building\Model\Skeleton\MakeDates;
     use Building\Model\Skeleton\MakeFlags;
+    use Building\Model\Skeleton\MakeIds;
     use Building\Model\Skeleton\MakeJson;
     use Building\Model\Skeleton\MakePermissions;
     use Building\Model\Skeleton\MakeStatus;
@@ -316,6 +317,13 @@ class ModelMakeCommand extends GeneratorCommand
         // }
 
         $this->saveConfiguration();
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$this->c' => $this->c,
+        //     // '$this->c' => $this->c->toArray(),
+        //     // '$this->searches' => $this->searches,
+        //     // '$this->analyze' => $this->analyze,
+        // ]);
 
         return $this->return_status;
     }

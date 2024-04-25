@@ -43,10 +43,13 @@ trait MakeSkeleton
 
         if ($this->replace) {
             $this->c->resetOption('attributes');
+            $this->c->resetOption('fillable');
             $this->c->resetOption('casts');
             $this->c->resetOption('filters');
             $this->c->resetOption('sortable');
         }
+
+        $this->buildClass_skeleton_ids($create);
 
         $this->buildClass_skeleton_timestamps($create);
 

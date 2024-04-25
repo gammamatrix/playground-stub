@@ -114,6 +114,7 @@ trait MakeColumns
 
             if (! in_array($column, $this->analyze_filters['columns'])) {
                 $addFilters['columns'][] = [
+                    'label' => $label,
                     'column' => $column,
                     'type' => $type,
                     'nullable' => true,
@@ -140,6 +141,12 @@ trait MakeColumns
             if ($addFilters) {
                 $this->c->addFilter($addFilters);
             }
+            // dd([
+            //     '__METHOD__' => __METHOD__,
+            //     // '$this->c' => $this->c,
+            //     '$this->c->filters()' => $this->c->filters()->toArray(),
+            //     '$addFilters' => $addFilters,
+            // ]);
         }
     }
 }

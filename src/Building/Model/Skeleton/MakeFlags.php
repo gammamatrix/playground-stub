@@ -164,6 +164,7 @@ trait MakeFlags
 
             if (! in_array($column, $this->analyze_filters['flags'])) {
                 $addFilters['flags'][] = [
+                    'label' => $label,
                     'column' => $column,
                     'type' => $type,
                     'nullable' => true,
@@ -172,9 +173,9 @@ trait MakeFlags
 
             if (! in_array($column, $this->analyze['sortable'])) {
                 $this->c->addSortable([
+                    'label' => $label,
                     'type' => $type,
                     'column' => $column,
-                    'label' => $label,
                 ]);
             }
 

@@ -86,6 +86,7 @@ trait Attributes
         if (! is_string($cast)) {
             $this->casts[$column] = 'string';
         } elseif (in_array($cast, [
+            'uuid',
             'smallText',
             'mediumText',
             'text',

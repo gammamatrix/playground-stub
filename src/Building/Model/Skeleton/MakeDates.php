@@ -42,6 +42,7 @@ trait MakeDates
 
         if (! in_array('created_at', $this->analyze_filters['dates'])) {
             $addFilters['dates'][] = [
+                'label' => 'Created at',
                 'column' => 'created_at',
                 'type' => 'datetime',
                 'nullable' => true,
@@ -61,6 +62,7 @@ trait MakeDates
 
         if (! in_array('updated_at', $this->analyze_filters['dates'])) {
             $addFilters['dates'][] = [
+                'label' => 'Updated at',
                 'column' => 'updated_at',
                 'type' => 'datetime',
                 'nullable' => true,
@@ -97,6 +99,7 @@ trait MakeDates
 
         if (! in_array('deleted_at', $this->analyze_filters['dates'])) {
             $addFilters['dates'][] = [
+                'label' => 'Deleted at',
                 'column' => 'deleted_at',
                 'type' => 'datetime',
                 'nullable' => true,

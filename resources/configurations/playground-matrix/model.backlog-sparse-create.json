@@ -1,0 +1,629 @@
+{
+    "organization": "Playground",
+    "package": "playground-matrix",
+    "module": "Matrix",
+    "module_slug": "matrix",
+    "fqdn": "Playground/Matrix/Models/Backlog",
+    "namespace": "Playground/Matrix",
+    "model": "Backlog",
+    "model_plural": "Backlog",
+    "model_singular": "Backlog",
+    "model_slug": "backlog",
+    "name": "Backlog",
+    "class": "Backlog",
+    "type": "model",
+    "table": "matrix_backlogs",
+    "extends": "Model",
+    "extends_use": "Playground/Models/Model",
+    "implements": [],
+    "factory": false,
+    "migration": false,
+    "playground": true,
+    "policy": false,
+    "seed": false,
+    "test": false,
+    "models": {
+        "Backlog": "resources/configurations/playground-matrix/model.backlog.json"
+    },
+    "create": {
+        "migration": "2020_01_02_100001_create_matrix_backlogs_table",
+        "class": "2020_01_02_100001_create_matrix_backlogs_table",
+        "primary": "uuid",
+        "ids": {
+            "created_by_id": {
+                "type": "uuid",
+                "readOnly": true,
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "users"
+                }
+            },
+            "modified_by_id": {
+                "type": "uuid",
+                "readOnly": true,
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "users"
+                }
+            },
+            "owned_by_id": {
+                "type": "uuid",
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "users"
+                }
+            },
+            "parent_id": {
+                "type": "uuid",
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_backlogs"
+                }
+            },
+            "backlog_type": {
+                "type": "string",
+                "nullable": true,
+                "index": true
+            },
+            "board_id": {
+                "type": "uuid",
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_boards"
+                }
+            },
+            "epic_id": {
+                "type": "uuid",
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_epics"
+                }
+            },
+            "flow_id": {
+                "type": "uuid",
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_flows"
+                }
+            },
+            "matrix_id": {
+                "type": "uuid",
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_matrices"
+                }
+            },
+            "milestone_id": {
+                "type": "uuid",
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_milestones"
+                }
+            },
+            "note_id": {
+                "type": "uuid",
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_notes"
+                }
+            },
+            "project_id": {
+                "type": "uuid",
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_projects"
+                }
+            },
+            "release_id": {
+                "type": "uuid",
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_releases"
+                }
+            },
+            "roadmap_id": {
+                "type": "uuid",
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_roadmaps"
+                }
+            },
+            "source_id": {
+                "type": "uuid",
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_sources"
+                }
+            },
+            "sprint_id": {
+                "type": "uuid",
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_sprints"
+                }
+            },
+            "tag_id": {
+                "type": "uuid",
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_tags"
+                }
+            },
+            "team_id": {
+                "type": "uuid",
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_teams"
+                }
+            },
+            "ticket_id": {
+                "type": "uuid",
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_tickets"
+                }
+            },
+            "version_id": {
+                "type": "uuid",
+                "nullable": true,
+                "index": true,
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_versions"
+                }
+            }
+        },
+        "unique": [
+            {
+                "keys": [
+                    "slug",
+                    "parent_id"
+                ]
+            }
+        ],
+        "timestamps": true,
+        "softDeletes": true,
+        "dates": {
+            "start_at": {
+                "nullable": true,
+                "index": true
+            },
+            "planned_start_at": {
+                "nullable": true,
+                "index": false
+            },
+            "end_at": {
+                "nullable": true,
+                "index": true
+            },
+            "planned_end_at": {
+                "nullable": true,
+                "index": false
+            },
+            "canceled_at": {
+                "nullable": true,
+                "index": false
+            },
+            "closed_at": {
+                "nullable": true,
+                "index": true
+            },
+            "embargo_at": {
+                "nullable": true,
+                "index": false
+            },
+            "fixed_at": {
+                "nullable": true,
+                "index": false
+            },
+            "postponed_at": {
+                "nullable": true,
+                "index": false
+            },
+            "published_at": {
+                "nullable": true,
+                "index": false
+            },
+            "released_at": {
+                "nullable": true,
+                "index": false
+            },
+            "resumed_at": {
+                "nullable": true,
+                "index": false
+            },
+            "resolved_at": {
+                "nullable": true,
+                "index": true
+            },
+            "suspended_at": {
+                "nullable": true,
+                "index": false
+            }
+        },
+        "permissions": {
+            "gids": {
+                "type": "bigInteger",
+                "default": 0,
+                "unsigned": true
+            },
+            "po": {
+                "type": "tinyInteger",
+                "default": 0,
+                "unsigned": true
+            },
+            "pg": {
+                "type": "tinyInteger",
+                "default": 0,
+                "unsigned": true
+            },
+            "pw": {
+                "type": "tinyInteger",
+                "default": 0,
+                "unsigned": true
+            },
+            "only_admin": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-user-gear"
+            },
+            "only_user": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-user"
+            },
+            "only_guest": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-person-rays"
+            },
+            "allow_public": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-users-line"
+            }
+        },
+        "status": {
+            "status": {
+                "type": "bigInteger",
+                "default": 0,
+                "unsigned": true
+            },
+            "rank": {
+                "type": "bigInteger",
+                "default": 0,
+                "unsigned": false
+            },
+            "size": {
+                "type": "bigInteger",
+                "default": 0,
+                "unsigned": false
+            }
+        },
+        "matrix": {
+            "matrix": {
+                "nullable": true,
+                "type": "JSON_OBJECT"
+            },
+            "x": {
+                "type": "bigInteger",
+                "nullable": true,
+                "unsigned": false
+            },
+            "y": {
+                "type": "bigInteger",
+                "nullable": true,
+                "unsigned": false
+            },
+            "z": {
+                "type": "bigInteger",
+                "nullable": true,
+                "unsigned": false
+            },
+            "r": {
+                "type": "decimal",
+                "precision": 65,
+                "scale": 10,
+                "nullable": true,
+                "default": null
+            },
+            "theta": {
+                "type": "decimal",
+                "precision": 10,
+                "scale": 6,
+                "nullable": true,
+                "default": null
+            },
+            "rho": {
+                "type": "decimal",
+                "precision": 10,
+                "scale": 6,
+                "nullable": true,
+                "default": null
+            },
+            "phi": {
+                "type": "decimal",
+                "precision": 10,
+                "scale": 6,
+                "nullable": true,
+                "default": null
+            },
+            "elevation": {
+                "type": "decimal",
+                "precision": 65,
+                "scale": 10,
+                "nullable": true,
+                "default": null
+            },
+            "latitude": {
+                "type": "decimal",
+                "precision": 8,
+                "scale": 6,
+                "nullable": true,
+                "default": null
+            },
+            "longitude": {
+                "type": "decimal",
+                "precision": 9,
+                "scale": 6,
+                "nullable": true,
+                "default": null
+            }
+        },
+        "flags": {
+            "active": {
+                "type": "boolean",
+                "default": true,
+                "index": true,
+                "icon": "fa-solid fa-person-running"
+            },
+            "canceled": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-ban text-warning"
+            },
+            "closed": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-xmark"
+            },
+            "completed": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-check"
+            },
+            "duplicate": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-clone"
+            },
+            "fixed": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-wrench"
+            },
+            "flagged": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-flag"
+            },
+            "internal": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-server"
+            },
+            "locked": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-lock text-warning"
+            },
+            "pending": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-circle-pause text-warning"
+            },
+            "planned": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-circle-pause text-success"
+            },
+            "prioritized": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-triangle-exclamation text-success"
+            },
+            "problem": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-triangle-exclamation text-danger"
+            },
+            "published": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-book"
+            },
+            "released": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-dove"
+            },
+            "retired": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-chair text-success"
+            },
+            "resolved": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-check-double text-success"
+            },
+            "special": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-star text-success"
+            },
+            "suspended": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-hand text-danger"
+            },
+            "unknown": {
+                "type": "boolean",
+                "default": false,
+                "icon": "fa-solid fa-question text-warning"
+            }
+        },
+        "columns": {
+            "label": {
+                "type": "string",
+                "default": "",
+                "size": 128
+            },
+            "title": {
+                "type": "string",
+                "default": "",
+                "size": 255
+            },
+            "byline": {
+                "type": "string",
+                "default": "",
+                "size": 255
+            },
+            "slug": {
+                "type": "string",
+                "default": null,
+                "size": 128,
+                "index": true,
+                "nullable": true,
+                "slug": true
+            },
+            "url": {
+                "type": "string",
+                "default": "",
+                "size": 512
+            },
+            "description": {
+                "type": "string",
+                "default": "",
+                "size": 512
+            },
+            "introduction": {
+                "type": "string",
+                "default": "",
+                "size": 512
+            },
+            "content": {
+                "type": "mediumText",
+                "nullable": true,
+                "html": true
+            },
+            "summary": {
+                "type": "mediumText",
+                "nullable": true,
+                "html": true
+            }
+        },
+        "ui": {
+            "icon": {
+                "type": "string",
+                "size": 128,
+                "default": ""
+            },
+            "image": {
+                "type": "string",
+                "default": "",
+                "size": 512
+            },
+            "avatar": {
+                "type": "string",
+                "default": "",
+                "size": 512
+            },
+            "ui": {
+                "nullable": true,
+                "type": "JSON_OBJECT"
+            }
+        },
+        "json": {
+            "assets": {
+                "nullable": true,
+                "type": "JSON_OBJECT"
+            },
+            "backlog": {
+                "nullable": true,
+                "type": "JSON_OBJECT"
+            },
+            "board": {
+                "nullable": true,
+                "type": "JSON_OBJECT"
+            },
+            "flow": {
+                "nullable": true,
+                "type": "JSON_OBJECT"
+            },
+            "meta": {
+                "nullable": true,
+                "type": "JSON_OBJECT"
+            },
+            "notes": {
+                "readOnly": true,
+                "nullable": true,
+                "type": "JSON_ARRAY",
+                "comment": "Array of note objects"
+            },
+            "options": {
+                "nullable": true,
+                "type": "JSON_OBJECT"
+            },
+            "roadmap": {
+                "nullable": true,
+                "type": "JSON_OBJECT"
+            },
+            "sources": {
+                "nullable": true,
+                "type": "JSON_OBJECT"
+            }
+        }
+    },
+    "uses": [
+        "Illuminate/Database/Eloquent/Relations/HasMany",
+        "Illuminate/Database/Eloquent/Relations/HasOne",
+        "Playground/Models/Model"
+    ]
+}
