@@ -103,7 +103,10 @@ trait MakePermissions
 
             $this->c->addAttribute($column, $default);
             $this->c->addCast($column, $type);
-            $this->c->addFillable($column);
+
+            if (empty($meta['readOnly'])) {
+                $this->c->addFillable($column);
+            }
 
             if (! in_array($column, $this->analyze_filters['permissions'])) {
                 $addFilters['permissions'][] = [

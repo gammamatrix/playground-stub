@@ -62,9 +62,9 @@ trait MakeSkeleton
 
         $this->buildClass_skeleton_columns($create);
 
-        // $this->buildClass_skeleton_ui($create);
+        $this->buildClass_skeleton_ui($create);
 
-        // $this->buildClass_skeleton_json($create);
+        $this->buildClass_skeleton_json($create);
     }
 
     // protected function buildClass_skeleton_add_cast(string $attribute, array $meta = []): void

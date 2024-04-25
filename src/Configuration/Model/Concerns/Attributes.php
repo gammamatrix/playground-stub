@@ -111,6 +111,11 @@ trait Attributes
             'boolean',
         ])) {
             $this->casts[$column] = 'boolean';
+        } elseif (in_array($cast, [
+            'JSON_OBJECT',
+            'JSON_ARRAY',
+        ])) {
+            $this->casts[$column] = 'array';
         } elseif (! empty($cast)) {
             $this->casts[$column] = $cast;
         }

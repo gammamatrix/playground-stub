@@ -10,50 +10,73 @@ use Illuminate\Support\Str;
 use Playground\Stub\Configuration\Model\Create;
 
 /**
- * \Playground\Stub\Building\Model\Skeleton\MakeStatus
+ * \Playground\Stub\Building\Model\Skeleton\MakeJson
  */
-trait MakeStatus
+trait MakeJson
 {
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $skeleton_status = [
-        'status' => [
-            'type' => 'bigInteger',
-            'default' => 0,
-            'unsigned' => true,
+    protected array $skeleton_json = [
+        'assets' => [
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
         ],
-        'rank' => [
-            'type' => 'bigInteger',
-            'default' => 0,
-            'unsigned' => false,
+        'backlog' => [
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
         ],
-        'size' => [
-            'type' => 'bigInteger',
-            'default' => 0,
-            'unsigned' => false,
+        'board' => [
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ],
+        'flow' => [
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ],
+        'meta' => [
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ],
+        'notes' => [
+            'readOnly' => true,
+            'nullable' => true,
+            'type' => 'JSON_ARRAY',
+            'comment' => 'Array of note objects',
+        ],
+        'options' => [
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ],
+        'roadmap' => [
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
+        ],
+        'sources' => [
+            'nullable' => true,
+            'type' => 'JSON_OBJECT',
         ],
     ];
 
-    protected function buildClass_skeleton_status(Create $create): void
+    protected function buildClass_skeleton_json(Create $create): void
     {
-        $status = $create->status();
+        $json = $create->json();
 
-        $this->components->info(sprintf('Skeleton status for [%s]', $this->c->name()));
+        $this->components->info(sprintf('Skeleton json for [%s]', $this->c->name()));
 
         // dump([
         //     '__METHOD__' => __METHOD__,
-        //     '$status' => $status,
+        //     '$json' => $json,
         // ]);
 
         /**
          * @var array<string, array<int, mixed>>
          */
         $addFilters = [
-            'status' => [],
+            'json' => [],
         ];
 
-        foreach ($this->skeleton_status as $column => $meta) {
+        foreach ($this->skeleton_json as $column => $meta) {
 
             $label = Str::of($column)->replace('_', ' ')->ucfirst()->toString();
             // dump([
@@ -80,8 +103,8 @@ trait MakeStatus
                 $this->c->addFillable($column);
             }
 
-            if (! in_array($column, $this->analyze_filters['status'])) {
-                $addFilters['status'][] = [
+            if (! in_array($column, $this->analyze_filters['json'])) {
+                $addFilters['json'][] = [
                     'column' => $column,
                     'type' => $type,
                     'nullable' => true,
@@ -97,13 +120,13 @@ trait MakeStatus
             }
 
             $meta = [];
-            if (is_array($this->skeleton_status[$column])) {
-                $meta = $this->skeleton_status[$column];
+            if (is_array($this->skeleton_json[$column])) {
+                $meta = $this->skeleton_json[$column];
             }
 
             $meta['label'] = $label;
 
-            $create->addStatus($column, $meta);
+            $create->addJson($column, $meta);
 
             if ($addFilters) {
                 $this->c->addFilter($addFilters);

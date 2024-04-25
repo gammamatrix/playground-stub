@@ -118,7 +118,7 @@ trait MakeDates
     }
 
     /**
-     * @var array<string, mixed>
+     * @var array<string, array<string, mixed>>
      */
     protected array $skeleton_dates = [
         'start_at' => [
@@ -231,7 +231,10 @@ trait MakeDates
 
             $this->c->addAttribute($column, null);
             $this->c->addCast($column, 'datetime');
-            $this->c->addFillable($column);
+
+            if (empty($meta['readOnly'])) {
+                $this->c->addFillable($column);
+            }
 
             if (! in_array($column, $this->analyze_filters['dates'])) {
                 $addFilters['dates'][] = [

@@ -10,83 +10,54 @@ use Illuminate\Support\Str;
 use Playground\Stub\Configuration\Model\Create;
 
 /**
- * \Playground\Stub\Building\Model\Skeleton\MakeColumns
+ * \Playground\Stub\Building\Model\Skeleton\MakeUi
  */
-trait MakeColumns
+trait MakeUi
 {
     /**
      * @var array<string, array<string, mixed>>
      */
-    protected array $skeleton_columns = [
-        'label' => [
+    protected array $skeleton_ui = [
+        'icon' => [
             'type' => 'string',
-            'default' => '',
             'size' => 128,
-        ],
-        'title' => [
-            'type' => 'string',
             'default' => '',
-            'size' => 255,
         ],
-        'byline' => [
-            'type' => 'string',
-            'default' => '',
-            'size' => 255,
-        ],
-        'slug' => [
-            'type' => 'string',
-            'default' => null,
-            'size' => 128,
-            'index' => true,
-            'nullable' => true,
-            'slug' => true,
-        ],
-        'url' => [
+        'image' => [
             'type' => 'string',
             'default' => '',
             'size' => 512,
         ],
-        'description' => [
+        'avatar' => [
             'type' => 'string',
             'default' => '',
             'size' => 512,
         ],
-        'introduction' => [
-            'type' => 'string',
-            'default' => '',
-            'size' => 512,
-        ],
-        'content' => [
-            'type' => 'mediumText',
+        'ui' => [
+            'type' => 'JSON_OBJECT',
             'nullable' => true,
-            'html' => true,
-        ],
-        'summary' => [
-            'type' => 'mediumText',
-            'nullable' => true,
-            'html' => true,
         ],
     ];
 
-    protected function buildClass_skeleton_columns(Create $create): void
+    protected function buildClass_skeleton_ui(Create $create): void
     {
-        $columns = $create->columns();
+        $ui = $create->ui();
 
-        $this->components->info(sprintf('Skeleton columns for [%s]', $this->c->name()));
+        $this->components->info(sprintf('Skeleton ui for [%s]', $this->c->name()));
 
         // dump([
         //     '__METHOD__' => __METHOD__,
-        //     '$columns' => $columns,
+        //     '$ui' => $ui,
         // ]);
 
         /**
          * @var array<string, array<int, mixed>>
          */
         $addFilters = [
-            'columns' => [],
+            'ui' => [],
         ];
 
-        foreach ($this->skeleton_columns as $column => $meta) {
+        foreach ($this->skeleton_ui as $column => $meta) {
 
             $label = Str::of($column)->replace('_', ' ')->ucfirst()->toString();
             // dump([
@@ -106,14 +77,15 @@ trait MakeColumns
             }
 
             $this->c->addAttribute($column, $default);
+
             $this->c->addCast($column, $type);
 
             if (empty($meta['readOnly'])) {
                 $this->c->addFillable($column);
             }
 
-            if (! in_array($column, $this->analyze_filters['columns'])) {
-                $addFilters['columns'][] = [
+            if (! in_array($column, $this->analyze_filters['ui'])) {
+                $addFilters['ui'][] = [
                     'column' => $column,
                     'type' => $type,
                     'nullable' => true,
@@ -129,13 +101,13 @@ trait MakeColumns
             }
 
             $meta = [];
-            if (is_array($this->skeleton_columns[$column])) {
-                $meta = $this->skeleton_columns[$column];
+            if (is_array($this->skeleton_ui[$column])) {
+                $meta = $this->skeleton_ui[$column];
             }
 
             $meta['label'] = $label;
 
-            $create->addColumn($column, $meta);
+            $create->addUi($column, $meta);
 
             if ($addFilters) {
                 $this->c->addFilter($addFilters);
