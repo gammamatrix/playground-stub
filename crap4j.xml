@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-24 01:48:51</timestamp>
+  <timestamp>2024-04-25 01:04:12</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>609</methodCount>
-    <crapMethodCount>31</crapMethodCount>
-    <crapLoad>358</crapLoad>
-    <totalCrap>7653.68</totalCrap>
-    <crapMethodPercent>5.09</crapMethodPercent>
+    <methodCount>625</methodCount>
+    <crapMethodCount>33</crapMethodCount>
+    <crapLoad>381</crapLoad>
+    <totalCrap>8081.4</totalCrap>
+    <crapMethodPercent>5.28</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -343,6 +343,94 @@
     </method>
     <method>
       <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\Analysis</className>
+      <methodName>analyze</methodName>
+      <methodSignature>analyze(Playground\Stub\Configuration\Model\Create $create, string $name): void</methodSignature>
+      <fullMethod>analyze(Playground\Stub\Configuration\Model\Create $create, string $name): void</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\Analysis</className>
+      <methodName>analyze_reset</methodName>
+      <methodSignature>analyze_reset(Playground\Stub\Configuration\Model\Create $create, string $name): void</methodSignature>
+      <fullMethod>analyze_reset(Playground\Stub\Configuration\Model\Create $create, string $name): void</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\Analysis</className>
+      <methodName>analyze_attributes</methodName>
+      <methodSignature>analyze_attributes(Playground\Stub\Configuration\Model\Create $create, string $name): void</methodSignature>
+      <fullMethod>analyze_attributes(Playground\Stub\Configuration\Model\Create $create, string $name): void</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\Analysis</className>
+      <methodName>analyze_casts</methodName>
+      <methodSignature>analyze_casts(Playground\Stub\Configuration\Model\Create $create, string $name): void</methodSignature>
+      <fullMethod>analyze_casts(Playground\Stub\Configuration\Model\Create $create, string $name): void</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\Analysis</className>
+      <methodName>analyze_fillable</methodName>
+      <methodSignature>analyze_fillable(Playground\Stub\Configuration\Model\Create $create, string $name): void</methodSignature>
+      <fullMethod>analyze_fillable(Playground\Stub\Configuration\Model\Create $create, string $name): void</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\Analysis</className>
+      <methodName>analyze_filters</methodName>
+      <methodSignature>analyze_filters(Playground\Stub\Configuration\Model\Create $create, string $name): void</methodSignature>
+      <fullMethod>analyze_filters(Playground\Stub\Configuration\Model\Create $create, string $name): void</fullMethod>
+      <crap>29.35</crap>
+      <complexity>29</complexity>
+      <coverage>92.5</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\Analysis</className>
+      <methodName>analyze_sortable</methodName>
+      <methodSignature>analyze_sortable(Playground\Stub\Configuration\Model\Create $create, string $name): void</methodSignature>
+      <fullMethod>analyze_sortable(Playground\Stub\Configuration\Model\Create $create, string $name): void</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\Analysis</className>
+      <methodName>analyze_scopes</methodName>
+      <methodSignature>analyze_scopes(Playground\Stub\Configuration\Model\Create $create, string $name): void</methodSignature>
+      <fullMethod>analyze_scopes(Playground\Stub\Configuration\Model\Create $create, string $name): void</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
       <className>Playground\Stub\Building\Model\BuildAttributes</className>
       <methodName>buildClass_attributes</methodName>
       <methodSignature>buildClass_attributes(): void</methodSignature>
@@ -367,11 +455,11 @@
       <package>Playground\Stub\Building\Model</package>
       <className>Playground\Stub\Building\Model\BuildCreate</className>
       <methodName>buildClass_model_create</methodName>
-      <methodSignature>buildClass_model_create(string $name, string $type): void</methodSignature>
-      <fullMethod>buildClass_model_create(string $name, string $type): void</fullMethod>
-      <crap>3.85</crap>
+      <methodSignature>buildClass_model_create(string $name, string $type): Playground\Stub\Configuration\Model\Create</methodSignature>
+      <fullMethod>buildClass_model_create(string $name, string $type): Playground\Stub\Configuration\Model\Create</fullMethod>
+      <crap>5.2</crap>
       <complexity>3</complexity>
-      <coverage>54.55</coverage>
+      <coverage>37.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -567,10 +655,10 @@
       <methodName>buildClass_model_table</methodName>
       <methodSignature>buildClass_model_table(string $name, string $type, string $module_slug): void</methodSignature>
       <fullMethod>buildClass_model_table(string $name, string $type, string $module_slug): void</fullMethod>
-      <crap>10.86</crap>
+      <crap>110</crap>
       <complexity>10</complexity>
-      <coverage>79.49</coverage>
-      <crapLoad>0</crapLoad>
+      <coverage>0</coverage>
+      <crapLoad>10</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Building\Model</package>
@@ -655,9 +743,31 @@
       <methodName>buildClass_skeleton</methodName>
       <methodSignature>buildClass_skeleton(): void</methodSignature>
       <fullMethod>buildClass_skeleton(): void</fullMethod>
-      <crap>3</crap>
+      <crap>3.21</crap>
       <complexity>3</complexity>
-      <coverage>100</coverage>
+      <coverage>71.43</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\MakeSkeleton</className>
+      <methodName>buildClass_skeleton_timestamps</methodName>
+      <methodSignature>buildClass_skeleton_timestamps(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_timestamps(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>14.74</crap>
+      <complexity>7</complexity>
+      <coverage>45.95</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model</package>
+      <className>Playground\Stub\Building\Model\MakeSkeleton</className>
+      <methodName>buildClass_skeleton_softDeletes</methodName>
+      <methodSignature>buildClass_skeleton_softDeletes(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_softDeletes(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>7.05</crap>
+      <complexity>5</complexity>
+      <coverage>56.52</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1906,6 +2016,17 @@
     <method>
       <package>Playground\Stub\Configuration</package>
       <className>Playground\Stub\Configuration\Model</className>
+      <methodName>resetOption</methodName>
+      <methodSignature>resetOption(string $option): self</methodSignature>
+      <fullMethod>resetOption(string $option): self</fullMethod>
+      <crap>156</crap>
+      <complexity>12</complexity>
+      <coverage>0</coverage>
+      <crapLoad>12</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Model</className>
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
@@ -2215,10 +2336,10 @@
       <package>Playground\Stub\Configuration\Model\Concerns</package>
       <className>Playground\Stub\Configuration\Model\Concerns\Creating</className>
       <methodName>addCreate</methodName>
-      <methodSignature>addCreate(array $options): self</methodSignature>
-      <fullMethod>addCreate(array $options): self</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
+      <methodSignature>addCreate(array $options): Playground\Stub\Configuration\Model\Create</methodSignature>
+      <fullMethod>addCreate(array $options): Playground\Stub\Configuration\Model\Create</fullMethod>
+      <crap>5</crap>
+      <complexity>5</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -2237,11 +2358,22 @@
       <package>Playground\Stub\Configuration\Model\Concerns</package>
       <className>Playground\Stub\Configuration\Model\Concerns\Filters</className>
       <methodName>addFilters</methodName>
-      <methodSignature>addFilters(array $options): self</methodSignature>
-      <fullMethod>addFilters(array $options): self</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
-      <coverage>100</coverage>
+      <methodSignature>addFilters(array $options, bool $apply): self</methodSignature>
+      <fullMethod>addFilters(array $options, bool $apply): self</fullMethod>
+      <crap>5.03</crap>
+      <complexity>5</complexity>
+      <coverage>88.89</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model\Concerns</package>
+      <className>Playground\Stub\Configuration\Model\Concerns\Filters</className>
+      <methodName>addFilter</methodName>
+      <methodSignature>addFilter(array $options, bool $apply): self</methodSignature>
+      <fullMethod>addFilter(array $options, bool $apply): self</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2664,6 +2796,17 @@
     </method>
     <method>
       <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\Create</className>
+      <methodName>jsonSerialize</methodName>
+      <methodSignature>jsonSerialize(): mixed</methodSignature>
+      <fullMethod>jsonSerialize(): mixed</fullMethod>
+      <crap>28.13</crap>
+      <complexity>28</complexity>
+      <coverage>94.44</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
       <className>Playground\Stub\Configuration\Model\CreateColumn</className>
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
@@ -3028,6 +3171,138 @@
     <method>
       <package>Playground\Stub\Configuration\Model</package>
       <className>Playground\Stub\Configuration\Model\Filters</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>30</crap>
+      <complexity>30</complexity>
+      <coverage>97.62</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\Filters</className>
+      <methodName>addId</methodName>
+      <methodSignature>addId(int $i, mixed $meta): self</methodSignature>
+      <fullMethod>addId(int $i, mixed $meta): self</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\Filters</className>
+      <methodName>addDate</methodName>
+      <methodSignature>addDate(int $i, mixed $meta): self</methodSignature>
+      <fullMethod>addDate(int $i, mixed $meta): self</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\Filters</className>
+      <methodName>addFlag</methodName>
+      <methodSignature>addFlag(int $i, mixed $meta): self</methodSignature>
+      <fullMethod>addFlag(int $i, mixed $meta): self</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\Filters</className>
+      <methodName>handleTrash</methodName>
+      <methodSignature>handleTrash(mixed $meta): self</methodSignature>
+      <fullMethod>handleTrash(mixed $meta): self</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\Filters</className>
+      <methodName>addColumn</methodName>
+      <methodSignature>addColumn(int $i, mixed $meta): self</methodSignature>
+      <fullMethod>addColumn(int $i, mixed $meta): self</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\Filters</className>
+      <methodName>addMatrix</methodName>
+      <methodSignature>addMatrix(): self</methodSignature>
+      <fullMethod>addMatrix(): self</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\Filters</className>
+      <methodName>addPermission</methodName>
+      <methodSignature>addPermission(int $i, mixed $meta): self</methodSignature>
+      <fullMethod>addPermission(int $i, mixed $meta): self</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\Filters</className>
+      <methodName>addStatus</methodName>
+      <methodSignature>addStatus(int $i, mixed $meta): self</methodSignature>
+      <fullMethod>addStatus(int $i, mixed $meta): self</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\Filters</className>
+      <methodName>addUi</methodName>
+      <methodSignature>addUi(int $i, mixed $meta): self</methodSignature>
+      <fullMethod>addUi(int $i, mixed $meta): self</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\Filters</className>
+      <methodName>addJson</methodName>
+      <methodSignature>addJson(int $i, mixed $meta): self</methodSignature>
+      <fullMethod>addJson(int $i, mixed $meta): self</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\Filters</className>
+      <methodName>builder</methodName>
+      <methodSignature>builder(): ?string</methodSignature>
+      <fullMethod>builder(): ?string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\Filters</className>
       <methodName>ids</methodName>
       <methodSignature>ids(): array</methodSignature>
       <fullMethod>ids(): array</fullMethod>
@@ -3064,6 +3339,17 @@
       <methodName>columns</methodName>
       <methodSignature>columns(): array</methodSignature>
       <fullMethod>columns(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\Filters</className>
+      <methodName>matrix</methodName>
+      <methodSignature>matrix(): array</methodSignature>
+      <fullMethod>matrix(): array</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -3127,122 +3413,12 @@
     <method>
       <package>Playground\Stub\Configuration\Model</package>
       <className>Playground\Stub\Configuration\Model\Filters</className>
-      <methodName>setOptions</methodName>
-      <methodSignature>setOptions(array $options): self</methodSignature>
-      <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>29</crap>
-      <complexity>29</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration\Model</package>
-      <className>Playground\Stub\Configuration\Model\Filters</className>
-      <methodName>addId</methodName>
-      <methodSignature>addId(int $i, mixed $meta): self</methodSignature>
-      <fullMethod>addId(int $i, mixed $meta): self</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration\Model</package>
-      <className>Playground\Stub\Configuration\Model\Filters</className>
-      <methodName>addDate</methodName>
-      <methodSignature>addDate(int $i, mixed $meta): self</methodSignature>
-      <fullMethod>addDate(int $i, mixed $meta): self</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration\Model</package>
-      <className>Playground\Stub\Configuration\Model\Filters</className>
-      <methodName>addFlag</methodName>
-      <methodSignature>addFlag(int $i, mixed $meta): self</methodSignature>
-      <fullMethod>addFlag(int $i, mixed $meta): self</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration\Model</package>
-      <className>Playground\Stub\Configuration\Model\Filters</className>
-      <methodName>handleTrash</methodName>
-      <methodSignature>handleTrash(mixed $meta): self</methodSignature>
-      <fullMethod>handleTrash(mixed $meta): self</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration\Model</package>
-      <className>Playground\Stub\Configuration\Model\Filters</className>
-      <methodName>addColumn</methodName>
-      <methodSignature>addColumn(int $i, mixed $meta): self</methodSignature>
-      <fullMethod>addColumn(int $i, mixed $meta): self</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration\Model</package>
-      <className>Playground\Stub\Configuration\Model\Filters</className>
-      <methodName>addPermission</methodName>
-      <methodSignature>addPermission(int $i, mixed $meta): self</methodSignature>
-      <fullMethod>addPermission(int $i, mixed $meta): self</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration\Model</package>
-      <className>Playground\Stub\Configuration\Model\Filters</className>
-      <methodName>addStatus</methodName>
-      <methodSignature>addStatus(int $i, mixed $meta): self</methodSignature>
-      <fullMethod>addStatus(int $i, mixed $meta): self</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration\Model</package>
-      <className>Playground\Stub\Configuration\Model\Filters</className>
-      <methodName>addUi</methodName>
-      <methodSignature>addUi(int $i, mixed $meta): self</methodSignature>
-      <fullMethod>addUi(int $i, mixed $meta): self</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration\Model</package>
-      <className>Playground\Stub\Configuration\Model\Filters</className>
-      <methodName>addJson</methodName>
-      <methodSignature>addJson(int $i, mixed $meta): self</methodSignature>
-      <fullMethod>addJson(int $i, mixed $meta): self</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Configuration\Model</package>
-      <className>Playground\Stub\Configuration\Model\Filters</className>
-      <methodName>builder</methodName>
-      <methodSignature>builder(): ?string</methodSignature>
-      <fullMethod>builder(): ?string</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
+      <methodName>jsonSerialize</methodName>
+      <methodSignature>jsonSerialize(): mixed</methodSignature>
+      <fullMethod>jsonSerialize(): mixed</fullMethod>
+      <crap>28.17</crap>
+      <complexity>28</complexity>
+      <coverage>94</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5968,9 +6144,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>34.25</crap>
-      <complexity>33</complexity>
-      <coverage>89.53</coverage>
+      <crap>36.8</crap>
+      <complexity>35</complexity>
+      <coverage>88.64</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
