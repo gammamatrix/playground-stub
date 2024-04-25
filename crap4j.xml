@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-25 01:04:12</timestamp>
+  <timestamp>2024-04-25 17:05:12</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>625</methodCount>
+    <methodCount>629</methodCount>
     <crapMethodCount>33</crapMethodCount>
     <crapLoad>381</crapLoad>
-    <totalCrap>8081.4</totalCrap>
-    <crapMethodPercent>5.28</crapMethodPercent>
+    <totalCrap>8115.04</totalCrap>
+    <crapMethodPercent>5.25</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -435,9 +435,9 @@
       <methodName>buildClass_attributes</methodName>
       <methodSignature>buildClass_attributes(): void</methodSignature>
       <fullMethod>buildClass_attributes(): void</fullMethod>
-      <crap>11.21</crap>
+      <crap>11</crap>
       <complexity>11</complexity>
-      <coverage>88</coverage>
+      <coverage>96</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -743,31 +743,75 @@
       <methodName>buildClass_skeleton</methodName>
       <methodSignature>buildClass_skeleton(): void</methodSignature>
       <fullMethod>buildClass_skeleton(): void</fullMethod>
-      <crap>3.21</crap>
+      <crap>3.1</crap>
       <complexity>3</complexity>
-      <coverage>71.43</coverage>
+      <coverage>77.78</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Stub\Building\Model</package>
-      <className>Playground\Stub\Building\Model\MakeSkeleton</className>
+      <package>Playground\Stub\Building\Model\Skeleton</package>
+      <className>Playground\Stub\Building\Model\Skeleton\MakeDates</className>
       <methodName>buildClass_skeleton_timestamps</methodName>
       <methodSignature>buildClass_skeleton_timestamps(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_timestamps(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
-      <crap>14.74</crap>
+      <crap>15.4</crap>
       <complexity>7</complexity>
-      <coverage>45.95</coverage>
+      <coverage>44.44</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Stub\Building\Model</package>
-      <className>Playground\Stub\Building\Model\MakeSkeleton</className>
+      <package>Playground\Stub\Building\Model\Skeleton</package>
+      <className>Playground\Stub\Building\Model\Skeleton\MakeDates</className>
       <methodName>buildClass_skeleton_softDeletes</methodName>
       <methodSignature>buildClass_skeleton_softDeletes(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_softDeletes(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
-      <crap>7.05</crap>
+      <crap>7.35</crap>
       <complexity>5</complexity>
-      <coverage>56.52</coverage>
+      <coverage>54.55</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model\Skeleton</package>
+      <className>Playground\Stub\Building\Model\Skeleton\MakeDates</className>
+      <methodName>buildClass_skeleton_dates</methodName>
+      <methodSignature>buildClass_skeleton_dates(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_dates(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>6</crap>
+      <complexity>6</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model\Skeleton</package>
+      <className>Playground\Stub\Building\Model\Skeleton\MakeFlags</className>
+      <methodName>buildClass_skeleton_flags</methodName>
+      <methodSignature>buildClass_skeleton_flags(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_flags(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>9</crap>
+      <complexity>9</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model\Skeleton</package>
+      <className>Playground\Stub\Building\Model\Skeleton\MakePermissions</className>
+      <methodName>buildClass_skeleton_permissions</methodName>
+      <methodSignature>buildClass_skeleton_permissions(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_permissions(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>9</crap>
+      <complexity>9</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model\Skeleton</package>
+      <className>Playground\Stub\Building\Model\Skeleton\MakeStatus</className>
+      <methodName>buildClass_skeleton_status</methodName>
+      <methodSignature>buildClass_skeleton_status(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_status(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>9</crap>
+      <complexity>9</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
