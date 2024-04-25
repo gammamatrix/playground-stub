@@ -60,7 +60,7 @@ trait MakeSkeleton
 
         $this->buildClass_skeleton_flags($create);
 
-        // $this->buildClass_skeleton_columns($create);
+        $this->buildClass_skeleton_columns($create);
 
         // $this->buildClass_skeleton_ui($create);
 

@@ -86,6 +86,13 @@ trait Attributes
         if (! is_string($cast)) {
             $this->casts[$column] = 'string';
         } elseif (in_array($cast, [
+            'smallText',
+            'mediumText',
+            'text',
+            'longText',
+        ])) {
+            $this->casts[$column] = 'string';
+        } elseif (in_array($cast, [
             'datetime',
             'dateTime',
             'timestamp',
