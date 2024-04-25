@@ -18,7 +18,7 @@ trait Filters
     /**
      * @param array<string, mixed> $options
      */
-    public function addFilters(array $options): self
+    public function addFilters(array $options, bool $apply = false): self
     {
         if (! empty($options['filters'])
             && is_array($options['filters'])
@@ -34,6 +34,37 @@ trait Filters
             //     // '$options[filters]' => $options['filters'],
             //     'json_encode($this->filters)' => json_encode($this->filters, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT),
             // ]);
+            if ($apply) {
+                $this->filters->apply();
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param array<string, mixed> $options
+     */
+    public function addFilter(array $options = [], bool $apply = true): self
+    {
+        if (empty($this->filters)) {
+            $this->filters = new Model\Filters;
+        }
+
+        if ($this->skeleton()) {
+            $this->filters->withSkeleton();
+        }
+
+        $this->filters->setParent($this);
+
+        if (! empty($options['filters'])
+            && is_array($options['filters'])
+        ) {
+            $this->filters->setOptions($options['filters']);
+        }
+
+        if ($apply) {
+            $this->filters->apply();
         }
 
         return $this;

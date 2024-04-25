@@ -40,6 +40,7 @@ class InstanceTest extends TestCase
         'columns' => [],
         'permissions' => [],
         'status' => [],
+        'matrix' => [],
         'ui' => [],
         'json' => [],
     ];

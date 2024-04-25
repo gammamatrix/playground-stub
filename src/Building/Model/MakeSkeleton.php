@@ -7,20 +7,16 @@ declare(strict_types=1);
 namespace Playground\Stub\Building\Model;
 
 use Illuminate\Support\Str;
+use Playground\Stub\Configuration\Model\Create;
 
 /**
  * \Playground\Stub\Building\Model\MakeSkeleton
  */
 trait MakeSkeleton
 {
-    /**
-     * @var array<string, mixed>
-     */
-    protected array $analyze = [];
-
     protected function buildClass_skeleton(): void
     {
-        $create = $this->c->create() ?? $this->c->addCreate();
+        $create = $this->c->create();
 
         $name = $this->c->name();
         $type = $this->c->type();
@@ -32,29 +28,11 @@ trait MakeSkeleton
         //     '$this->c->toArray()' => $this->c->toArray(),
         // ]);
 
-        if (empty($create)
-            || ! is_array($create)
-        ) {
-            $this->buildClass_model_create($name, $type);
-            // $this->components->error(sprintf('The configuration requires a create section for [--file %s]', $this->option('file')));
-            // return;
+        if (! $create) {
+            $create = $this->buildClass_model_create($name, $type);
         }
 
-        $this->analyze = [
-            'attributes' => [],
-            'casts' => [],
-            'fillable' => [],
-            'filters' => [
-                'ids' => [],
-                'dates' => [],
-                'flags' => [],
-                'trash' => [],
-                'columns' => [],
-                'json' => [],
-            ],
-            'sortable' => [],
-            'scopes' => [],
-        ];
+        $this->analyze($create, $name);
 
         $this->components->info(sprintf('Building the model skeleton configuration for [%s]', $name));
 
@@ -63,9 +41,16 @@ trait MakeSkeleton
         //     $create->ids() ?? []
         // );
 
-        // $this->buildClass_skeleton_timestamps($create->timestamps());
+        if ($this->replace) {
+            $this->c->resetOption('attributes');
+            $this->c->resetOption('casts');
+            $this->c->resetOption('filters');
+            $this->c->resetOption('sortable');
+        }
 
-        // $this->buildClass_skeleton_softDeletes($create->softDeletes());
+        $this->buildClass_skeleton_timestamps($create);
+
+        $this->buildClass_skeleton_softDeletes($create);
 
         // if ($create->dates()) {
         //     $this->buildClass_skeleton_dates($create->dates());
@@ -212,11 +197,11 @@ trait MakeSkeleton
     //     }
 
     //     // Add to sortable
-    //     $this->configuration['sortable'][] = [
-    //         'column' => $attribute,
-    //         'type' => empty($meta['type']) || ! is_string($meta['type']) ? 'string' : $meta['type'],
-    //         'nullable' => ! empty($meta['nullable']),
-    //     ];
+    //     // $this->configuration['sortable'][] = [
+    //     //     'column' => $attribute,
+    //     //     'type' => empty($meta['type']) || ! is_string($meta['type']) ? 'string' : $meta['type'],
+    //     //     'nullable' => ! empty($meta['nullable']),
+    //     // ];
 
     //     $this->analyze['sortable'][] = $attribute;
     // }
@@ -307,81 +292,175 @@ trait MakeSkeleton
     //     }
     // }
 
-    // protected function buildClass_skeleton_timestamps($hasTimestamps): void
-    // {
-    //     if (! $hasTimestamps) {
-    //         return;
-    //     }
+    protected function buildClass_skeleton_timestamps(Create $create): void
+    {
+        if (! $create->timestamps()) {
+            return;
+        }
 
-    //     $this->components->info(sprintf('Adding timestamps to [%s]', $this->configuration['name']));
+        $this->components->info(sprintf('Adding timestamps to [%s]', $this->c->name()));
 
-    //     $attribute = 'created_at';
+        /**
+         * @var array<string, array<int, mixed>>
+         */
+        $addFilters = [
+            'dates' => [],
+        ];
 
-    //     // Add to filters
-    //     $this->configuration['filters']['dates'][] = [
-    //         'column' => $attribute,
-    //         'type' => 'timestamp',
-    //         'nullable' => true,
-    //     ];
-    //     $this->buildClass_skeleton_add_sort($attribute, [
-    //         'type' => 'string',
-    //         'nullable' => true,
-    //     ]);
-    //     $this->buildClass_skeleton_add_cast($attribute, [
-    //         'type' => 'timestamp',
-    //     ]);
+        /**
+         * @var array<string, array<int, mixed>>
+         */
+        $addSortable = [];
 
-    //     $attribute = 'updated_at';
+        $this->c->addAttribute('created_at', null);
+        $this->c->addCast('created_at', 'datetime');
 
-    //     // Add to filters
-    //     $this->configuration['filters']['dates'][] = [
-    //         'column' => $attribute,
-    //         'type' => 'timestamp',
-    //         'nullable' => true,
-    //     ];
-    //     $this->buildClass_skeleton_add_sort($attribute, [
-    //         'type' => 'string',
-    //         'nullable' => true,
-    //     ]);
-    //     $this->buildClass_skeleton_add_cast($attribute, [
-    //         'type' => 'timestamp',
-    //     ]);
-    // }
+        if (! in_array('created_at', $this->analyze['sortable'])) {
+            $this->c->addSortable([
+                'type' => 'string',
+                'column' => 'created_at',
+                'label' => 'Created At',
+            ]);
+        }
 
-    // protected function buildClass_skeleton_softDeletes($hasSoftDeletes): void
-    // {
-    //     if (! $hasSoftDeletes) {
-    //         if (empty($this->configuration['filters']['trash'])) {
-    //             unset($this->configuration['filters']['trash']);
-    //             $this->components->info(sprintf('Removing soft deletes from filters on [%s]', $this->configuration['name']));
-    //         }
+        if (! in_array('created_at', $this->analyze_filters['dates'])) {
+            $addFilters['dates'][] = [
+                'column' => 'created_at',
+                'type' => 'timestamp',
+                'nullable' => true,
+            ];
+        }
 
-    //         return;
-    //     }
+        $this->c->addAttribute('updated_at', null);
+        $this->c->addCast('updated_at', 'datetime');
 
-    //     $attribute = 'deleted_at';
+        if (! in_array('updated_at', $this->analyze['sortable'])) {
+            $this->c->addSortable([
+                'type' => 'string',
+                'column' => 'updated_at',
+                'label' => 'Updated At',
+            ]);
+        }
 
-    //     // Add to filters
-    //     $this->configuration['filters']['dates'][] = [
-    //         'column' => $attribute,
-    //         'type' => 'timestamp',
-    //         'nullable' => true,
-    //     ];
-    //     $this->buildClass_skeleton_add_sort($attribute, [
-    //         'column' => $attribute,
-    //         'type' => 'string',
-    //         'nullable' => true,
-    //     ]);
-    //     $this->buildClass_skeleton_add_cast($attribute, [
-    //         'type' => 'timestamp',
-    //     ]);
+        if (! in_array('updated_at', $this->analyze_filters['dates'])) {
+            $addFilters['dates'][] = [
+                'column' => 'updated_at',
+                'type' => 'timestamp',
+                'nullable' => true,
+            ];
+        }
 
-    //     $this->configuration['filters']['trash'] = [
-    //         'hide' => true,
-    //         'only' => true,
-    //         'with' => true,
-    //     ];
-    // }
+        if ($addFilters) {
+            $this->c->addFilter($addFilters);
+        }
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$addFilters' => $addFilters,
+        //     '$this->c->filters()' => $this->c->filters(),
+        // ]);
+
+        // if (! $filters) {
+        //     $addFilters[] = [
+        //         'column' => 'created_at',
+        //         'type' => 'timestamp',
+        //         'nullable' => true,
+        //     ];
+        // }
+
+        // if ($addSortable) {
+        //     $this->c->addSortable($addSortable);
+        // }
+
+        // // Add to filters
+        // $this->buildClass_skeleton_add_sort($attribute, [
+        //     'type' => 'string',
+        //     'nullable' => true,
+        // ]);
+        // $this->buildClass_skeleton_add_cast($attribute, [
+        //     'type' => 'timestamp',
+        // ]);
+
+        // $attribute = 'updated_at';
+
+        // $this->buildClass_skeleton_add_sort($attribute, [
+        //     'type' => 'string',
+        //     'nullable' => true,
+        // ]);
+        // $this->buildClass_skeleton_add_cast($attribute, [
+        //     'type' => 'timestamp',
+        // ]);
+    }
+
+    protected function buildClass_skeleton_softDeletes(Create $create): void
+    {
+        // if (! $hasSoftDeletes) {
+        //     if (empty($this->configuration['filters']['trash'])) {
+        //         unset($this->configuration['filters']['trash']);
+        //         $this->components->info(sprintf('Removing soft deletes from filters on [%s]', $this->configuration['name']));
+        //     }
+
+        //     return;
+        // }
+
+        // $attribute = 'deleted_at';
+        // $this->buildClass_skeleton_add_sort($attribute, [
+        //     'column' => $attribute,
+        //     'type' => 'string',
+        //     'nullable' => true,
+        // ]);
+        // $this->buildClass_skeleton_add_cast($attribute, [
+        //     'type' => 'timestamp',
+        // ]);
+
+        // $this->configuration['filters']['trash'] = [
+        //     'hide' => true,
+        //     'only' => true,
+        //     'with' => true,
+        // ];
+
+        if (! $create->softDeletes()) {
+            return;
+        }
+
+        $this->components->info(sprintf('Adding soft deletes to [%s]', $this->c->name()));
+
+        /**
+         * @var array<string, array<int, mixed>>
+         */
+        $addFilters = [
+            'dates' => [],
+        ];
+
+        /**
+         * @var array<string, array<int, mixed>>
+         */
+        $addSortable = [];
+
+        $this->c->addAttribute('deleted_at', null);
+        $this->c->addCast('deleted_at', 'datetime');
+        // $this->c->addFillable('deleted_at');
+
+        if (! in_array('deleted_at', $this->analyze_filters['dates'])) {
+            $addFilters['dates'][] = [
+                'column' => 'deleted_at',
+                'type' => 'timestamp',
+                'nullable' => true,
+            ];
+        }
+
+        if ($addFilters) {
+            $this->c->addFilter($addFilters);
+        }
+
+        if (! in_array('deleted_at', $this->analyze['sortable'])) {
+            $this->c->addSortable([
+                'type' => 'string',
+                'column' => 'deleted_at',
+                'label' => 'Deleted At',
+            ]);
+        }
+
+    }
 
     // protected function buildClass_skeleton_dates(array $dates): void
     // {

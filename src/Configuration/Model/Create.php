@@ -505,4 +505,113 @@ class Create extends ModelConfiguration implements Configuration\Contracts\WithS
     {
         return $this->json;
     }
+
+    public function jsonSerialize(): mixed
+    {
+        $properties = [
+            'migration' => $this->migration(),
+            'primary' => $this->primary(),
+            'timestamps' => $this->timestamps(),
+            'softDeletes' => $this->softDeletes(),
+            'trash' => $this->trash(),
+            'ids' => [],
+            'unique' => [],
+            'dates' => [],
+            'flags' => [],
+            'columns' => [],
+            'permissions' => [],
+            'status' => [],
+            'matrix' => [],
+            'ui' => [],
+            'json' => [],
+        ];
+
+        if ($this->ids()) {
+            foreach ($this->ids() as $column => $c) {
+                if (is_array($properties['ids'])) {
+                    $properties['ids'][$column] = $c->toArray();
+                }
+            }
+        }
+
+        // TODO FIXME unique
+        // if ($this->unique()) {
+        //     foreach ($this->unique() as $i => $c) {
+        //         if (is_array($properties['unique'])) {
+        //             $properties['unique'][$i] = $c->toArray();
+        //         }
+        //     }
+        // }
+
+        if ($this->dates()) {
+            foreach ($this->dates() as $column => $c) {
+                if (is_array($properties['dates'])) {
+                    $properties['dates'][$column] = $c->toArray();
+                }
+            }
+        }
+
+        if ($this->flags()) {
+            foreach ($this->flags() as $column => $c) {
+                if (is_array($properties['flags'])) {
+                    $properties['flags'][$column] = $c->toArray();
+                }
+            }
+        }
+
+        if ($this->columns()) {
+            foreach ($this->columns() as $column => $c) {
+                if (is_array($properties['columns'])) {
+                    $properties['columns'][$column] = $c->toArray();
+                }
+            }
+        }
+
+        if ($this->permissions()) {
+            foreach ($this->permissions() as $column => $c) {
+                if (is_array($properties['permissions'])) {
+                    $properties['permissions'][$column] = $c->toArray();
+                }
+            }
+        }
+
+        if ($this->status()) {
+            foreach ($this->status() as $column => $c) {
+                if (is_array($properties['status'])) {
+                    $properties['status'][$column] = $c->toArray();
+                }
+            }
+        }
+
+        if ($this->matrix()) {
+            foreach ($this->matrix() as $column => $c) {
+                if (is_array($properties['matrix'])) {
+                    $properties['matrix'][$column] = $c->toArray();
+                }
+            }
+        }
+
+        if ($this->ui()) {
+            foreach ($this->ui() as $column => $c) {
+                if (is_array($properties['ui'])) {
+                    $properties['ui'][$column] = $c->toArray();
+                }
+            }
+        }
+
+        if ($this->json()) {
+            foreach ($this->json() as $column => $c) {
+                if (is_array($properties['json'])) {
+                    $properties['json'][$column] = $c->toArray();
+                }
+            }
+        }
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     // '$this->ids()' => $this->ids(),
+        //     '$properties' => $properties,
+        // ]);
+
+        return $properties;
+    }
 }

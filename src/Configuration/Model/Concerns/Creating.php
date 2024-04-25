@@ -23,9 +23,12 @@ trait Creating
     /**
      * @param array<string, mixed> $options
      */
-    public function addCreate(array $options = []): self
+    public function addCreate(array $options = []): Model\Create
     {
-        $this->create = new Model\Create;
+        if (empty($this->create)) {
+            $this->create = new Model\Create;
+        }
+
         if ($this->skeleton()) {
             $this->create->withSkeleton();
         }
@@ -40,7 +43,7 @@ trait Creating
 
         $this->create->apply();
 
-        return $this;
+        return $this->create;
     }
 
     public function create(): ?Model\Create

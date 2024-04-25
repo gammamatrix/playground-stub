@@ -132,6 +132,7 @@ class Model extends PrimaryConfiguration
         $this->properties['casts'] = $this->casts();
         $this->properties['fillable'] = $this->fillable();
         $this->properties['filters'] = $this->filters()?->toArray();
+
         $this->properties['models'] = $this->models();
         $this->properties['sortable'] = $this->sortable();
 
@@ -150,18 +151,6 @@ class Model extends PrimaryConfiguration
 
         return $this;
     }
-
-    // public function jsonSerialize(): mixed
-    // {
-
-    //     // $properties['components'] = $this->components()->toArray();
-
-    //     // dd([
-    //     //     '$properties' => $properties,
-    //     // ]);
-
-    //     return $properties;
-    // }
 
     protected string $model = '';
 
@@ -193,6 +182,36 @@ class Model extends PrimaryConfiguration
      * @var array<int, string>
      */
     protected array $fillable = [];
+
+    public function resetOption(string $option): self
+    {
+
+        if ($option === 'attributes') {
+            $this->attributes = [];
+        } elseif ($option === 'fillable') {
+            $this->fillable = [];
+        } elseif ($option === 'implements') {
+            $this->implements = [];
+        } elseif ($option === 'HasOne') {
+            $this->HasOne = [];
+        } elseif ($option === 'HasMany') {
+            $this->HasMany = [];
+        } elseif ($option === 'casts') {
+            $this->casts = [];
+        } elseif ($option === 'filters') {
+            $this->filters = null;
+        } elseif ($option === 'models') {
+            $this->models = [];
+        } elseif ($option === 'sortable') {
+            $this->sortable = [];
+        } elseif ($option === 'create') {
+            $this->create = null;
+        } elseif ($option === 'uses') {
+            $this->uses = [];
+        }
+
+        return $this;
+    }
 
     /**
      * @param array<string, mixed> $options

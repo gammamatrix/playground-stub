@@ -27,6 +27,7 @@ class ModelMakeCommand extends GeneratorCommand
 {
     use Building\Concerns\BuildImplements;
     use Building\Concerns\BuildUses;
+    use Building\Model\Analysis;
     use Building\Model\BuildAttributes;
     use Building\Model\BuildCasts;
     use Building\Model\BuildCreate;
@@ -141,6 +142,8 @@ class ModelMakeCommand extends GeneratorCommand
     protected bool $isApi = false;
 
     protected bool $isResource = false;
+
+    protected bool $replace = false;
 
     public function prepareOptions(): void
     {
@@ -265,6 +268,10 @@ class ModelMakeCommand extends GeneratorCommand
                 'migration' => true,
             ]);
         }
+
+        if ($this->hasOption('replace') && $this->option('replace')) {
+            $this->replace = true;
+        }
     }
 
     public function finish(): ?bool
@@ -330,6 +337,13 @@ class ModelMakeCommand extends GeneratorCommand
             $this->buildClass_skeleton();
         }
 
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     // '$this->c' => $this->c,
+        //     '$this->c' => $this->c->toArray(),
+        //     '$this->searches' => $this->searches,
+        //     '$this->analyze' => $this->analyze,
+        // ]);
         $this->buildClass_docblock();
         $this->buildClass_implements();
         $this->buildClass_table_property();
@@ -439,6 +453,7 @@ class ModelMakeCommand extends GeneratorCommand
             ['playground',      null, InputOption::VALUE_NONE, 'Create a Playground model'],
             ['force',           null, InputOption::VALUE_NONE, 'Create the class even if the model already exists'],
             ['skeleton',        null, InputOption::VALUE_NONE, 'Create the skeleton for the model'],
+            ['replace',         null, InputOption::VALUE_NONE, 'Replace the attributes, casts, fillable options when using skeleton for the model'],
             ['test',            null, InputOption::VALUE_NONE, 'Create the unit and feature tests for the model'],
             ['migration',       'm',  InputOption::VALUE_NONE, 'Create a new migration file for the model'],
             ['morph-pivot',     null, InputOption::VALUE_NONE, 'Indicates if the generated model should be a custom polymorphic intermediate table model'],

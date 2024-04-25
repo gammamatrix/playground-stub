@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace Playground\Stub\Building\Model;
 
 use Illuminate\Support\Str;
+use Playground\Stub\Configuration\Model\Create;
 
 /**
  * \Playground\Stub\Building\Model\BuildModel
@@ -15,7 +16,7 @@ trait BuildCreate
 {
     // protected array $analyze = [];
 
-    protected function buildClass_model_create(string $name, string $type): void
+    protected function buildClass_model_create(string $name, string $type): Create
     {
         if (empty($name) || empty($type)) {
             throw new \Exception(sprintf(
@@ -24,6 +25,8 @@ trait BuildCreate
                 $type
             ));
         }
+
+        $create = $this->c->create() ?? $this->c->addCreate();
 
         // $this->configuration['create'] = [
         //     'class' => '',
@@ -41,11 +44,11 @@ trait BuildCreate
         //     'json' => [],
         // ];
 
-        $this->buildClass_model_table(
-            $name,
-            $type,
-            $this->c->module_slug()
-        );
+        // $this->buildClass_model_table(
+        //     $name,
+        //     $type,
+        //     $this->c->module_slug()
+        // );
 
         // $this->buildClass_model_unique(
         //     $name,
@@ -71,6 +74,7 @@ trait BuildCreate
         //     '$this->c' => $this->c,
         //     // '$this->options()' => $this->options(),
         // ]);
+        return $create;
     }
 
     // protected function buildClass_model_unique(
