@@ -180,15 +180,15 @@ trait MakeIds
                 'on' => 'matrix_teams',
             ],
         ],
-        'ticket_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_tickets',
-            ],
-        ],
+        // 'ticket_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_tickets',
+        //     ],
+        // ],
         'version_id' => [
             'type' => 'uuid',
             'nullable' => true,

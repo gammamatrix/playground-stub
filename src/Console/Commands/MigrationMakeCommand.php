@@ -228,7 +228,7 @@ class MigrationMakeCommand extends GeneratorCommand
             'table' => $table,
         ]);
 
-        if (! $this->c->table()) {
+        if (! $this->option('interactive') && ! $this->c->table()) {
             throw new \RuntimeException('A table is required.');
         }
 

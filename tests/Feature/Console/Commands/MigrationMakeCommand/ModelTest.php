@@ -20,7 +20,7 @@ class ModelTest extends TestCase
     public function test_command_make_migration_without_name_with_force_and_without_skeleton(): void
     {
         $command = sprintf(
-            'playground:make:migration --force --model-file %1$s',
+            'playground:make:migration --force --table testing --model-file %1$s',
             $this->getResourceFile('model-crm-contact')
         );
 
@@ -64,7 +64,7 @@ class ModelTest extends TestCase
     public function test_command_make_create_migration_without_name_with_force_and_without_skeleton(): void
     {
         $command = sprintf(
-            'playground:make:migration --force --create --model-file %1$s',
+            'playground:make:migration --force --table testing --create --model-file %1$s',
             $this->getResourceFile('model-crm-contact')
         );
 
