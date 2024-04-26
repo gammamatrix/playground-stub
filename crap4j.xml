@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-26 16:16:54</timestamp>
+  <timestamp>2024-04-26 19:05:45</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>638</methodCount>
+    <methodCount>641</methodCount>
     <crapMethodCount>34</crapMethodCount>
     <crapLoad>391</crapLoad>
-    <totalCrap>8314.57</totalCrap>
-    <crapMethodPercent>5.33</crapMethodPercent>
+    <totalCrap>8324.56</totalCrap>
+    <crapMethodPercent>5.3</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -754,9 +754,9 @@
       <methodName>buildClass_skeleton</methodName>
       <methodSignature>buildClass_skeleton(): void</methodSignature>
       <fullMethod>buildClass_skeleton(): void</fullMethod>
-      <crap>3.09</crap>
+      <crap>3.08</crap>
       <complexity>3</complexity>
-      <coverage>78.26</coverage>
+      <coverage>79.17</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -767,6 +767,17 @@
       <fullMethod>buildClass_skeleton_columns(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
       <crap>10</crap>
       <complexity>10</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model\Skeleton</package>
+      <className>Playground\Stub\Building\Model\Skeleton\MakeColumns</className>
+      <methodName>buildClass_skeleton_defined_columns</methodName>
+      <methodSignature>buildClass_skeleton_defined_columns(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_defined_columns(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>7</crap>
+      <complexity>7</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -3023,6 +3034,28 @@
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\CreateColumn</className>
+      <methodName>default</methodName>
+      <methodSignature>default(): mixed</methodSignature>
+      <fullMethod>default(): mixed</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\CreateColumn</className>
+      <methodName>hasDefault</methodName>
+      <methodSignature>hasDefault(): bool</methodSignature>
+      <fullMethod>hasDefault(): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
