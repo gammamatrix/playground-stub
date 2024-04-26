@@ -19,7 +19,7 @@ trait MakePermissions
      */
     protected array $skeleton_permissions = [
         'gids' => [
-            'type' => 'tinyInteger',
+            'type' => 'bigInteger',
             'default' => 0,
             'unsigned' => true,
             'icon' => 'fa-solid fa-people-group',

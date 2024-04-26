@@ -43,6 +43,7 @@ class ModelMakeCommand extends GeneratorCommand
     use Building\Model\Skeleton\MakeFlags;
     use Building\Model\Skeleton\MakeIds;
     use Building\Model\Skeleton\MakeJson;
+    use Building\Model\Skeleton\MakeMatrix;
     use Building\Model\Skeleton\MakePermissions;
     use Building\Model\Skeleton\MakeStatus;
     use Building\Model\Skeleton\MakeUi;

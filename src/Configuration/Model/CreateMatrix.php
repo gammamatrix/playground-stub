@@ -16,22 +16,8 @@ class CreateMatrix extends CreateColumn
      */
     public $allowed_types = [
         'JSON_OBJECT',
+        'JSON_ARRAY',
         'bigInteger',
         'decimal',
     ];
-
-    // /**
-    //  * @param array<string, mixed> $options
-    //  */
-    // public function setOptions(array $options = []): self
-    // {
-    //     parent::setOptions($options);
-
-    //     dump([
-    //         '__METHOD__' => __METHOD__,
-    //         '$options' => $options,
-    //         '$this' => $this,
-    //     ]);
-    //     return $this;
-    // }
 }

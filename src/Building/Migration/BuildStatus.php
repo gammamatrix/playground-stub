@@ -32,7 +32,8 @@ trait BuildStatus
             // dump([
             //     '__METHOD__' => __METHOD__,
             //     '$column' => $column,
-            //     '$createStatus' => $createStatus,
+            //     '$createStatus->toArray()' => $createStatus->toArray(),
+            //     '$createStatus->properties()' => $createStatus->properties(),
             // ]);
 
             if (empty($createStatus->column()) || $createStatus->column() !== $column) {

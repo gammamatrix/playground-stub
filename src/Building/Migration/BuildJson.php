@@ -19,7 +19,7 @@ trait BuildJson
             return;
         }
 
-        $this->buildClass_uses_add('Illuminate\Database\Query\Expression');
+        // $this->buildClass_uses_add('Illuminate\Database\Query\Expression');
 
         $allowed = [
             'JSON_OBJECT',

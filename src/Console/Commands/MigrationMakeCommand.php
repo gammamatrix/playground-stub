@@ -25,6 +25,7 @@ class MigrationMakeCommand extends GeneratorCommand
     use Building\Migration\BuildFlags;
     use Building\Migration\BuildIds;
     use Building\Migration\BuildJson;
+    use Building\Migration\BuildMatrix;
     use Building\Migration\BuildPermissions;
     use Building\Migration\BuildPrimary;
     use Building\Migration\BuildStatus;
@@ -146,6 +147,7 @@ class MigrationMakeCommand extends GeneratorCommand
         'table_dates' => '',
         'table_permissions' => '',
         'table_status' => '',
+        'table_matrix' => '',
         'table_flags' => '',
         'table_columns' => '',
         'table_entity' => '',
@@ -187,6 +189,49 @@ class MigrationMakeCommand extends GeneratorCommand
 
         $this->initModel($this->c->skeleton());
 
+        $table = $this->c->table();
+        $name = $this->c->name();
+
+        if (! $table) {
+
+            if ($this->hasOption('table')
+                && $this->option('table')
+                && is_string($this->option('table'))
+            ) {
+                $table = $this->option('table');
+                if (! preg_match('/^[a-z][a-z0-9_]+$/i', $table)) {
+                    $this->components->error(sprintf(
+                        'Invalid table name [%s], using argument [%s] to generate',
+                        $table,
+                        $name
+                    ));
+                    $table = Str::snake(Str::pluralStudly(class_basename($name)));
+                }
+            } else {
+                $table = $this->model?->table();
+                if (! $table) {
+                    $table = Str::snake(Str::pluralStudly(class_basename($name)));
+                }
+            }
+        } else {
+            if (! preg_match('/^[a-z][a-z0-9_]+$/i', $table)) {
+                $this->components->error(sprintf(
+                    'Invalid table name [%s] in configuration, using name [%s] to generate',
+                    $table,
+                    $name
+                ));
+                $table = Str::snake(Str::pluralStudly(class_basename($name)));
+            }
+        }
+
+        $this->c->setOptions([
+            'table' => $table,
+        ]);
+
+        if (! $this->c->table()) {
+            throw new \RuntimeException('A table is required.');
+        }
+
         // dump([
         //     '__METHOD__' => __METHOD__,
         //     // '$options' => $options,
@@ -221,36 +266,9 @@ class MigrationMakeCommand extends GeneratorCommand
         //     '$this->c->class()' => $this->c->class(),
         //     '$this->c->table()' => $this->c->table(),
         // ]);
-        if (! empty($this->c->table())
-            && is_string($this->c->table())
-        ) {
-            $table = $this->c->table();
-            if (! preg_match('/^[a-z][a-z0-9_]+$/i', $table)) {
-                $this->components->error(sprintf(
-                    'Invalid table name [%s] in configuration, using argument [%s] to generate',
-                    $table,
-                    $name
-                ));
-                $table = Str::snake(Str::pluralStudly(class_basename($table)));
-            }
-        } elseif ($this->hasOption('table')
-            && $this->option('table')
-            && is_string($this->option('table'))
-        ) {
-            $table = $this->option('table');
-            if (! preg_match('/^[a-z][a-z0-9_]+$/i', $table)) {
-                $this->components->error(sprintf(
-                    'Invalid table name [%s], using argument [%s] to generate',
-                    $table,
-                    $name
-                ));
-                $table = Str::snake(Str::pluralStudly(class_basename($name)));
-            }
-        } else {
-            $table = Str::snake(Str::pluralStudly(class_basename($name)));
-        }
 
         $class = $this->c->class();
+        $table = $this->c->table();
 
         if (! $class) {
             $class = $this->model?->create()?->migration();
@@ -310,7 +328,7 @@ class MigrationMakeCommand extends GeneratorCommand
             $this->buildClass_dates();
             $this->buildClass_permissions();
             $this->buildClass_status();
-            // $this->buildClass_entity();
+            $this->buildClass_matrix();
             $this->buildClass_flags();
             $this->buildClass_columns();
             $this->buildClass_ui();

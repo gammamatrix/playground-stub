@@ -42,6 +42,8 @@ class CreateColumn extends ModelConfiguration
 
     protected bool $hasDefault = false;
 
+    protected bool $unsigned = false;
+
     /**
      * @var array<string, mixed>
      */
@@ -104,6 +106,20 @@ class CreateColumn extends ModelConfiguration
                     'allowed' => implode(', ', $this->allowed_types),
                 ]));
             }
+        }
+
+        if (in_array($this->type, [
+            'integer',
+            'bigInteger',
+            'mediumInteger',
+            'smallInteger',
+            'tinyInteger',
+        ])) {
+            if (array_key_exists('unsigned', $options)) {
+                $this->unsigned = ! empty($options['unsigned']);
+            }
+
+            $this->properties['unsigned'] = $this->unsigned;
         }
 
         if (in_array($this->type, [
@@ -254,5 +270,10 @@ class CreateColumn extends ModelConfiguration
     public function scale(): ?int
     {
         return $this->scale;
+    }
+
+    public function unsigned(): bool
+    {
+        return $this->unsigned;
     }
 }

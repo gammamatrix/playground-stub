@@ -18,7 +18,7 @@ class CommandTest extends TestCase
         /**
          * @var \Illuminate\Testing\PendingCommand $result
          */
-        $result = $this->artisan('playground:make:migration');
+        $result = $this->artisan('playground:make:migration --table testing');
         $result->assertExitCode(1);
         $result->expectsOutputToContain( __('playground-stub::stub.GeneratorCommand.input.error'));
     }
