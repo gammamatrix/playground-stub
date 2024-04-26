@@ -251,6 +251,11 @@ class MigrationMakeCommand extends GeneratorCommand
         }
 
         $class = $this->c->class();
+
+        if (! $class) {
+            $class = $this->model?->create()?->migration();
+        }
+
         if (! $class) {
             $class = sprintf(
                 '%1$s_%2$s_%3$s_%4$s_table',
@@ -273,6 +278,7 @@ class MigrationMakeCommand extends GeneratorCommand
         //     '$this->c->class()' => $this->c->class(),
         //     '$this->c->table()' => $this->c->table(),
         //     // '$this->searches' => $this->searches,
+        //     '$class' => $class,
         //     '$name' => $name,
         //     '$table' => $table,
         // ]);
@@ -318,11 +324,11 @@ class MigrationMakeCommand extends GeneratorCommand
             $this->buildClass_uses($name);
 
         }
-        // dump([
+        // dd([
         //     '__METHOD__' => __METHOD__,
         //     '$his->arguments()' => $this->arguments(),
         //     '$his->options()' => $this->options(),
-        //     '$this->c' => $this->c,
+        //     '$this->c' => $this->c->toArray(),
         //     '$this->searches' => $this->searches,
         //     '$this->model' => $this->model,
         // ]);

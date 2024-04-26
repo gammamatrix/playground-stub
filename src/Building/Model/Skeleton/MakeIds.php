@@ -66,11 +66,6 @@ trait MakeIds
             ],
             'trait' => 'WithParent',
         ],
-        'backlog_type' => [
-            'type' => 'string',
-            'nullable' => true,
-            'index' => true,
-        ],
     ];
 
     /**
@@ -327,11 +322,22 @@ trait MakeIds
 
     protected bool $no_user_hasOne = true;
 
+    protected bool $model_has_type = true;
+
     protected function buildClass_skeleton_ids_model(Create $create): void
     {
         $ids = $create->ids();
 
         $this->components->info(sprintf('Skeleton ids for [%s]', $this->c->name()));
+
+        if ($this->model_has_type) {
+            $type_column = Str::of($this->c->name())->snake()->finish('_type')->toString();
+            $this->skeleton_ids_model[$type_column] = [
+                'type' => 'string',
+                'nullable' => true,
+                'index' => true,
+            ];
+        }
 
         // dump([
         //     '__METHOD__' => __METHOD__,

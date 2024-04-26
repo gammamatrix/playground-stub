@@ -66,6 +66,7 @@ trait MakeCommands
             '--module' => $this->c->module(),
             '--model-file' => $file,
             '--type' => $this->c->type(),
+            '--create' => true,
         ];
 
         if (! empty($file) && is_string($file)) {
