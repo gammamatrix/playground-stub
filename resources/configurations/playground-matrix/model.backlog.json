@@ -156,6 +156,7 @@
         "board_id": null,
         "epic_id": null,
         "flow_id": null,
+        "matrix_id": null,
         "milestone_id": null,
         "note_id": null,
         "project_id": null,
@@ -167,10 +168,39 @@
         "team_id": null,
         "ticket_id": null,
         "version_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "deleted_at": null,
+        "start_at": null,
+        "planned_start_at": null,
+        "end_at": null,
+        "planned_end_at": null,
+        "canceled_at": null,
+        "closed_at": null,
+        "embargo_at": null,
+        "fixed_at": null,
+        "postponed_at": null,
+        "published_at": null,
+        "released_at": null,
+        "resumed_at": null,
+        "resolved_at": null,
+        "suspended_at": null,
+        "gids": 0,
+        "po": 0,
+        "pg": 0,
+        "pw": 0,
+        "only_admin": false,
+        "only_user": false,
+        "only_guest": false,
+        "allow_public": false,
+        "status": 0,
+        "rank": 0,
+        "size": 0,
         "active": true,
         "canceled": false,
         "closed": false,
         "completed": false,
+        "cron": false,
         "duplicate": false,
         "fixed": false,
         "flagged": false,
@@ -206,36 +236,7 @@
         "notes": "[]",
         "options": "{}",
         "roadmap": "{}",
-        "sources": "{}",
-        "created_at": null,
-        "updated_at": null,
-        "deleted_at": null,
-        "start_at": null,
-        "planned_start_at": null,
-        "end_at": null,
-        "planned_end_at": null,
-        "canceled_at": null,
-        "closed_at": null,
-        "embargo_at": null,
-        "fixed_at": null,
-        "postponed_at": null,
-        "published_at": null,
-        "released_at": null,
-        "resumed_at": null,
-        "resolved_at": null,
-        "suspended_at": null,
-        "gids": 0,
-        "po": 0,
-        "pg": 0,
-        "pw": 0,
-        "only_admin": false,
-        "only_user": false,
-        "only_guest": false,
-        "allow_public": false,
-        "status": 0,
-        "rank": 0,
-        "size": 0,
-        "cron": false
+        "sources": "{}"
     },
     "casts": {
         "backlog_type": "string",
@@ -316,6 +317,7 @@
         "board_id",
         "epic_id",
         "flow_id",
+        "matrix_id",
         "milestone_id",
         "note_id",
         "project_id",
@@ -463,6 +465,14 @@
             {
                 "column": "flow_id",
                 "label": "",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "uuid"
+            },
+            {
+                "column": "matrix_id",
+                "label": "Matrix id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -696,6 +706,14 @@
             }
         ],
         "flags": [
+            {
+                "column": "active",
+                "label": "Active",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
             {
                 "column": "cron",
                 "label": "Cron",
@@ -1185,6 +1203,13 @@
         {
             "column": "flow_id",
             "label": "",
+            "icon": "",
+            "nullable": false,
+            "type": "uuid"
+        },
+        {
+            "column": "matrix_id",
+            "label": "Matrix id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
@@ -2654,6 +2679,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "bigInteger",
+                "unsigned": false,
                 "default": 0
             },
             "size": {
@@ -2665,6 +2691,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "bigInteger",
+                "unsigned": false,
                 "default": 0
             }
         },
@@ -2687,7 +2714,8 @@
                 "index": false,
                 "nullable": true,
                 "readOnly": false,
-                "type": "bigInteger"
+                "type": "bigInteger",
+                "unsigned": false
             },
             "y": {
                 "column": "y",
@@ -2697,7 +2725,8 @@
                 "index": false,
                 "nullable": true,
                 "readOnly": false,
-                "type": "bigInteger"
+                "type": "bigInteger",
+                "unsigned": false
             },
             "z": {
                 "column": "z",
@@ -2707,7 +2736,8 @@
                 "index": false,
                 "nullable": true,
                 "readOnly": false,
-                "type": "bigInteger"
+                "type": "bigInteger",
+                "unsigned": false
             },
             "r": {
                 "column": "r",

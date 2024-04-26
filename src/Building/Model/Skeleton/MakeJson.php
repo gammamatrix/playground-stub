@@ -38,6 +38,11 @@ trait MakeJson
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
+        // 'history' => [
+        //     'default' => '{}',
+        //     'nullable' => true,
+        //     'type' => 'JSON_OBJECT',
+        // ],
         'meta' => [
             'default' => '{}',
             'nullable' => true,

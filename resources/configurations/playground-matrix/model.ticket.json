@@ -23,7 +23,7 @@
     "requests": false,
     "seed": true,
     "test": true,
-    "extends": "AbstractModel",
+    "extends": "Model",
     "implements": [],
     "HasOne": {
         "backlog": {
@@ -145,12 +145,14 @@
         "owned_by_id": null,
         "parent_id": null,
         "ticket_type": null,
-        "duplicate_id": null,
         "backlog_id": null,
         "board_id": null,
         "completed_by_id": null,
+        "duplicate_id": null,
         "epic_id": null,
+        "fixed_by_id": null,
         "flow_id": null,
+        "matrix_id": null,
         "milestone_id": null,
         "note_id": null,
         "project_id": null,
@@ -161,12 +163,41 @@
         "sprint_id": null,
         "tag_id": null,
         "team_id": null,
-        "version_id": null,
         "version_fixed_id": null,
+        "version_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "deleted_at": null,
+        "start_at": null,
+        "planned_start_at": null,
+        "end_at": null,
+        "planned_end_at": null,
+        "canceled_at": null,
+        "closed_at": null,
+        "embargo_at": null,
+        "fixed_at": null,
+        "postponed_at": null,
+        "published_at": null,
+        "released_at": null,
+        "resumed_at": null,
+        "resolved_at": null,
+        "suspended_at": null,
+        "gids": 0,
+        "po": 0,
+        "pg": 0,
+        "pw": 0,
+        "only_admin": false,
+        "only_user": false,
+        "only_guest": false,
+        "allow_public": false,
+        "status": 0,
+        "rank": 0,
+        "size": 0,
         "active": true,
         "canceled": false,
         "closed": false,
         "completed": false,
+        "cron": false,
         "duplicate": false,
         "fixed": false,
         "flagged": false,
@@ -201,7 +232,10 @@
         "state": "",
         "workflow_type": "",
         "points": 0,
+        "actual": null,
+        "expected": null,
         "story": null,
+        "steps": null,
         "criteria": null,
         "reproducibility": null,
         "icon": "",
@@ -217,38 +251,10 @@
         "notes": "[]",
         "options": "{}",
         "roadmap": "{}",
-        "sources": "{}",
-        "created_at": null,
-        "updated_at": null,
-        "deleted_at": null,
-        "start_at": null,
-        "planned_start_at": null,
-        "end_at": null,
-        "planned_end_at": null,
-        "canceled_at": null,
-        "closed_at": null,
-        "embargo_at": null,
-        "fixed_at": null,
-        "postponed_at": null,
-        "published_at": null,
-        "released_at": null,
-        "resumed_at": null,
-        "resolved_at": null,
-        "suspended_at": null,
-        "gids": 0,
-        "po": 0,
-        "pg": 0,
-        "pw": 0,
-        "only_admin": false,
-        "only_user": false,
-        "only_guest": false,
-        "allow_public": false,
-        "status": 0,
-        "rank": 0,
-        "size": 0,
-        "cron": false
+        "sources": "{}"
     },
     "casts": {
+        "ticket_type": "string",
         "created_at": "datetime",
         "updated_at": "datetime",
         "deleted_at": "datetime",
@@ -281,6 +287,7 @@
         "canceled": "boolean",
         "closed": "boolean",
         "completed": "boolean",
+        "cron": "boolean",
         "duplicate": "boolean",
         "fixed": "boolean",
         "flagged": "boolean",
@@ -315,7 +322,10 @@
         "state": "string",
         "workflow_type": "string",
         "points": "integer",
+        "actual": "string",
+        "expected": "string",
         "story": "string",
+        "steps": "string",
         "criteria": "string",
         "reproducibility": "decimal",
         "icon": "string",
@@ -331,20 +341,20 @@
         "notes": "array",
         "options": "array",
         "roadmap": "array",
-        "sources": "array",
-        "ticket_type": "string",
-        "cron": "boolean"
+        "sources": "array"
     },
     "fillable": [
         "owned_by_id",
         "parent_id",
         "ticket_type",
-        "duplicate_id",
         "backlog_id",
         "board_id",
         "completed_by_id",
+        "duplicate_id",
         "epic_id",
+        "fixed_by_id",
         "flow_id",
+        "matrix_id",
         "milestone_id",
         "note_id",
         "project_id",
@@ -355,8 +365,8 @@
         "sprint_id",
         "tag_id",
         "team_id",
-        "version_id",
         "version_fixed_id",
+        "version_id",
         "start_at",
         "planned_start_at",
         "end_at",
@@ -386,6 +396,7 @@
         "canceled",
         "closed",
         "completed",
+        "cron",
         "duplicate",
         "fixed",
         "flagged",
@@ -420,7 +431,10 @@
         "state",
         "workflow_type",
         "points",
+        "actual",
+        "expected",
         "story",
+        "steps",
         "criteria",
         "reproducibility",
         "icon",
@@ -435,8 +449,7 @@
         "meta",
         "options",
         "roadmap",
-        "sources",
-        "cron"
+        "sources"
     ],
     "filters": {
         "builder": null,
@@ -490,14 +503,6 @@
                 "type": "string"
             },
             {
-                "column": "duplicate_id",
-                "label": "",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "uuid"
-            },
-            {
                 "column": "backlog_id",
                 "label": "",
                 "icon": "",
@@ -522,6 +527,14 @@
                 "type": "uuid"
             },
             {
+                "column": "duplicate_id",
+                "label": "",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "uuid"
+            },
+            {
                 "column": "epic_id",
                 "label": "",
                 "icon": "",
@@ -530,8 +543,24 @@
                 "type": "uuid"
             },
             {
+                "column": "fixed_by_id",
+                "label": "Fixed by id",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "uuid"
+            },
+            {
                 "column": "flow_id",
                 "label": "",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "uuid"
+            },
+            {
+                "column": "matrix_id",
+                "label": "Matrix id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -776,7 +805,10 @@
             {
                 "column": "active",
                 "label": "Active",
-                "icon": "fa-solid fa-person-running"
+                "icon": "fa-solid fa-person-running",
+                "nullable": false,
+                "unsigned": true,
+                "type": "string"
             },
             {
                 "column": "canceled",
@@ -801,6 +833,14 @@
                 "nullable": false,
                 "unsigned": true,
                 "type": "string"
+            },
+            {
+                "column": "cron",
+                "label": "Cron",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
             },
             {
                 "column": "duplicate",
@@ -1080,6 +1120,30 @@
                 "nullable": false,
                 "unsigned": true,
                 "type": "tinyInteger"
+            },
+            {
+                "column": "actual",
+                "label": "Actual",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "mediumText"
+            },
+            {
+                "column": "expected",
+                "label": "Expected",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "mediumText"
+            },
+            {
+                "column": "steps",
+                "label": "Steps",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "mediumText"
             },
             {
                 "column": "story",
@@ -1397,8 +1461,22 @@
             "type": "uuid"
         },
         {
+            "column": "fixed_by_id",
+            "label": "Fixed by id",
+            "icon": "",
+            "nullable": false,
+            "type": "uuid"
+        },
+        {
             "column": "flow_id",
             "label": "",
+            "icon": "",
+            "nullable": false,
+            "type": "uuid"
+        },
+        {
+            "column": "matrix_id",
+            "label": "Matrix id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
@@ -2067,6 +2145,34 @@
             "icon": "",
             "nullable": false,
             "type": "JSON_OBJECT"
+        },
+        {
+            "column": "actual",
+            "label": "Actual",
+            "icon": "",
+            "nullable": false,
+            "type": "mediumText"
+        },
+        {
+            "column": "expected",
+            "label": "Expected",
+            "icon": "",
+            "nullable": false,
+            "type": "mediumText"
+        },
+        {
+            "column": "steps",
+            "label": "Steps",
+            "icon": "",
+            "nullable": false,
+            "type": "mediumText"
+        },
+        {
+            "column": "history",
+            "label": "History",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_OBJECT"
         }
     ],
     "create": {
@@ -2246,6 +2352,21 @@
                 "foreign": {
                     "references": "id",
                     "on": "matrix_flows"
+                },
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": false,
+                "unsigned": false,
+                "type": "uuid"
+            },
+            "matrix_id": {
+                "column": "matrix_id",
+                "label": "",
+                "description": "",
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_matrices"
                 },
                 "icon": "",
                 "index": true,
@@ -2635,6 +2756,17 @@
                 "readOnly": false,
                 "type": "boolean"
             },
+            "cron": {
+                "column": "cron",
+                "label": "Cron",
+                "description": "",
+                "icon": "fa-regular fa-clock",
+                "default": false,
+                "index": true,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
             "duplicate": {
                 "column": "duplicate",
                 "label": "Duplicate",
@@ -2807,17 +2939,6 @@
                 "icon": "fa-solid fa-question text-warning",
                 "default": false,
                 "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "boolean"
-            },
-            "cron": {
-                "column": "cron",
-                "label": "Cron",
-                "description": "",
-                "icon": "fa-regular fa-clock",
-                "default": false,
-                "index": true,
                 "nullable": false,
                 "readOnly": false,
                 "type": "boolean"
@@ -3044,8 +3165,38 @@
                 "unsigned": true,
                 "default": 0
             },
+            "actual": {
+                "column": "actual",
+                "label": "",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "mediumText"
+            },
+            "expected": {
+                "column": "expected",
+                "label": "",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "mediumText"
+            },
             "story": {
                 "column": "story",
+                "label": "",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "mediumText"
+            },
+            "steps": {
+                "column": "steps",
                 "label": "",
                 "description": "",
                 "icon": "",
@@ -3439,13 +3590,14 @@
             },
             "history": {
                 "column": "history",
-                "label": "",
+                "label": "History",
                 "description": "",
                 "icon": "",
                 "index": false,
                 "nullable": true,
                 "readOnly": false,
-                "type": "JSON_OBJECT"
+                "type": "JSON_OBJECT",
+                "default": "{}"
             },
             "meta": {
                 "column": "meta",

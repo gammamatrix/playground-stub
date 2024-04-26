@@ -27,6 +27,7 @@ trait BuildAttributes
         $code = PHP_EOL;
 
         foreach ($attributes as $attribute => $value) {
+            // dump($attribute);
             $code .= str_repeat(' ', 8);
 
             if (is_bool($value)) {

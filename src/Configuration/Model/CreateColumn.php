@@ -242,6 +242,16 @@ class CreateColumn extends ModelConfiguration
         return $this->label;
     }
 
+    public function default(): mixed
+    {
+        return $this->default;
+    }
+
+    public function hasDefault(): bool
+    {
+        return $this->hasDefault;
+    }
+
     public function icon(): string
     {
         return $this->icon;

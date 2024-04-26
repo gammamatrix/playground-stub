@@ -149,4 +149,83 @@ trait MakeColumns
             // ]);
         }
     }
+
+    protected function buildClass_skeleton_defined_columns(Create $create): void
+    {
+        $columns = $create->columns();
+
+        $this->components->info(sprintf('Skeleton defined columns for [%s]', $this->c->name()));
+
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$columns' => $columns,
+        // ]);
+
+        /**
+         * @var array<string, array<int, mixed>>
+         */
+        $addFilters = [
+            'columns' => [],
+        ];
+
+        $name = $this->c->name();
+
+        foreach ($columns as $column => $createColumn) {
+
+            $label = Str::of($column)->replace('_', ' ')->ucfirst()->toString();
+            // dd([
+            //     '__METHOD__' => __METHOD__,
+            //     '$column' => $column,
+            //     '$createColumn' => $createColumn,
+            // ]);
+
+            $default = null;
+            if ($createColumn->hasDefault()) {
+                $default = $createColumn->default();
+            }
+
+            $this->c->addAttribute($column, $default);
+            $this->c->addCast($column, $createColumn->type());
+
+            if (! $createColumn->readOnly()) {
+                $this->c->addFillable($column);
+            }
+
+            if (! in_array($column, $this->analyze_filters['columns'])) {
+                $addFilters['columns'][] = [
+                    'label' => $label,
+                    'column' => $column,
+                    'type' => $createColumn->type(),
+                    'nullable' => true,
+                ];
+            }
+
+            if (! in_array($column, $this->analyze['sortable'])) {
+                $this->c->addSortable([
+                    'type' => $createColumn->type(),
+                    'column' => $column,
+                    'label' => $label,
+                ]);
+            }
+
+            // $meta = [];
+            // if (is_array($this->skeleton_columns[$column])) {
+            //     $meta = $this->skeleton_columns[$column];
+            // }
+
+            // $meta['label'] = $label;
+
+            // $create->addColumn($column, $meta);
+
+            if ($addFilters) {
+                $this->c->addFilter($addFilters);
+            }
+            // dd([
+            //     '__METHOD__' => __METHOD__,
+            //     // '$this->c' => $this->c,
+            //     '$this->c->filters()' => $this->c->filters()->toArray(),
+            //     '$addFilters' => $addFilters,
+            // ]);
+        }
+    }
 }

@@ -65,6 +65,8 @@ trait MakeSkeleton
 
         $this->buildClass_skeleton_columns($create);
 
+        $this->buildClass_skeleton_defined_columns($create);
+
         $this->buildClass_skeleton_ui($create);
 
         $this->buildClass_skeleton_json($create);

@@ -72,6 +72,15 @@ trait MakeIds
      * @var array<string, array<string, mixed>>
      */
     protected array $skeleton_ids_package = [
+        // 'backlog_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_backlogs',
+        //     ],
+        // ],
         'board_id' => [
             'type' => 'uuid',
             'nullable' => true,
@@ -81,6 +90,24 @@ trait MakeIds
                 'on' => 'matrix_boards',
             ],
         ],
+        // 'completed_by_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'users',
+        //     ],
+        // ],
+        // 'duplicate_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_tickets',
+        //     ],
+        // ],
         'epic_id' => [
             'type' => 'uuid',
             'nullable' => true,
@@ -90,6 +117,15 @@ trait MakeIds
                 'on' => 'matrix_epics',
             ],
         ],
+        // 'fixed_by_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'users',
+        //     ],
+        // ],
         'flow_id' => [
             'type' => 'uuid',
             'nullable' => true,
@@ -97,6 +133,15 @@ trait MakeIds
             'foreign' => [
                 'references' => 'id',
                 'on' => 'matrix_flows',
+            ],
+        ],
+        'matrix_id' => [
+            'type' => 'uuid',
+            'nullable' => true,
+            'index' => true,
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_matrices',
             ],
         ],
         'milestone_id' => [
@@ -135,6 +180,15 @@ trait MakeIds
                 'on' => 'matrix_releases',
             ],
         ],
+        // 'reported_by_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'users',
+        //     ],
+        // ],
         'roadmap_id' => [
             'type' => 'uuid',
             'nullable' => true,
@@ -180,13 +234,22 @@ trait MakeIds
                 'on' => 'matrix_teams',
             ],
         ],
-        // 'ticket_id' => [
+        'ticket_id' => [
+            'type' => 'uuid',
+            'nullable' => true,
+            'index' => true,
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_tickets',
+            ],
+        ],
+        // 'version_fixed_id' => [
         //     'type' => 'uuid',
         //     'nullable' => true,
         //     'index' => true,
         //     'foreign' => [
         //         'references' => 'id',
-        //         'on' => 'matrix_tickets',
+        //         'on' => 'matrix_versions',
         //     ],
         // ],
         'version_id' => [
