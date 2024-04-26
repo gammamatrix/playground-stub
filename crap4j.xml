@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-26 00:36:14</timestamp>
+  <timestamp>2024-04-26 16:16:54</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>635</methodCount>
-    <crapMethodCount>33</crapMethodCount>
-    <crapLoad>381</crapLoad>
-    <totalCrap>8156.98</totalCrap>
-    <crapMethodPercent>5.2</crapMethodPercent>
+    <methodCount>638</methodCount>
+    <crapMethodCount>34</crapMethodCount>
+    <crapLoad>391</crapLoad>
+    <totalCrap>8314.57</totalCrap>
+    <crapMethodPercent>5.33</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -193,9 +193,9 @@
       <methodName>buildClass_column</methodName>
       <methodSignature>buildClass_column(string $attribute, array $meta, string $group): string</methodSignature>
       <fullMethod>buildClass_column(string $attribute, array $meta, string $group): string</fullMethod>
-      <crap>37.33</crap>
+      <crap>35.29</crap>
       <complexity>21</complexity>
-      <coverage>66.67</coverage>
+      <coverage>68.12</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -295,6 +295,17 @@
       <crap>10.96</crap>
       <complexity>8</complexity>
       <coverage>64.1</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Migration</package>
+      <className>Playground\Stub\Building\Migration\BuildMatrix</className>
+      <methodName>buildClass_matrix</methodName>
+      <methodSignature>buildClass_matrix(): void</methodSignature>
+      <fullMethod>buildClass_matrix(): void</fullMethod>
+      <crap>46.23</crap>
+      <complexity>7</complexity>
+      <coverage>7.14</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -857,6 +868,17 @@
       <complexity>10</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model\Skeleton</package>
+      <className>Playground\Stub\Building\Model\Skeleton\MakeMatrix</className>
+      <methodName>buildClass_skeleton_matrix</methodName>
+      <methodSignature>buildClass_skeleton_matrix(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_matrix(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>110</crap>
+      <complexity>10</complexity>
+      <coverage>0</coverage>
+      <crapLoad>10</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Building\Model\Skeleton</package>
@@ -2932,9 +2954,9 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>35.46</crap>
-      <complexity>27</complexity>
-      <coverage>77.36</coverage>
+      <crap>34.81</crap>
+      <complexity>29</complexity>
+      <coverage>80.95</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -3067,6 +3089,17 @@
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\CreateColumn</className>
+      <methodName>unsigned</methodName>
+      <methodSignature>unsigned(): bool</methodSignature>
+      <fullMethod>unsigned(): bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -6199,9 +6232,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
-      <coverage>100</coverage>
+      <crap>15.05</crap>
+      <complexity>14</complexity>
+      <coverage>82.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -6221,8 +6254,8 @@
       <methodName>qualifyClass</methodName>
       <methodSignature>qualifyClass($name): string</methodSignature>
       <fullMethod>qualifyClass($name): string</fullMethod>
-      <crap>10</crap>
-      <complexity>10</complexity>
+      <crap>3</crap>
+      <complexity>3</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>

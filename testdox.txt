@@ -81,12 +81,12 @@ Command (Tests\Feature\Playground\Stub\Console\Commands\FactoryMakeCommand\Comma
  [x] Command skeleton
 
 Command (Tests\Feature\Playground\Stub\Console\Commands\MigrationMakeCommand\Command)
- [x] Command without options or arguments
+ [x] Command without argument and with table option
  [x] Command with reserved name
  [x] Command skeleton
  [x] Command skeleton without force
  [x] Command skeleton with invalid table parameter
- [x] Command skeleton with invalid table in file
+ [ ] Command skeleton with invalid table in file
  [x] Command skeleton with empty name in file
 
 Command (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Command)
