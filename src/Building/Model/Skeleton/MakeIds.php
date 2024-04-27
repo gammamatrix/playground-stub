@@ -72,15 +72,15 @@ trait MakeIds
      * @var array<string, array<string, mixed>>
      */
     protected array $skeleton_ids_package = [
-        // 'backlog_id' => [
-        //     'type' => 'uuid',
-        //     'nullable' => true,
-        //     'index' => true,
-        //     'foreign' => [
-        //         'references' => 'id',
-        //         'on' => 'matrix_backlogs',
-        //     ],
-        // ],
+        'backlog_id' => [
+            'type' => 'uuid',
+            'nullable' => true,
+            'index' => true,
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_backlogs',
+            ],
+        ],
         'board_id' => [
             'type' => 'uuid',
             'nullable' => true,
@@ -108,15 +108,15 @@ trait MakeIds
         //         'on' => 'matrix_tickets',
         //     ],
         // ],
-        'epic_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_epics',
-            ],
-        ],
+        // 'epic_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_epics',
+        //     ],
+        // ],
         // 'fixed_by_id' => [
         //     'type' => 'uuid',
         //     'nullable' => true,

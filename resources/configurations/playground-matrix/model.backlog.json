@@ -48,7 +48,7 @@
             "localKey": "flow_id"
         },
         "matrix": {
-            "comment": "The matrix of the board.",
+            "comment": "The matrix of the backlog.",
             "accessor": "matrix",
             "related": "Matrix",
             "foreignKey": "id",
@@ -137,14 +137,14 @@
             "comment": "The sprints of the backlog.",
             "accessor": "sprints",
             "related": "Sprint",
-            "foreignKey": "sprint_id",
+            "foreignKey": "backlog_id",
             "localKey": "id"
         },
         "tickets": {
             "comment": "The tickets of the backlog.",
             "accessor": "tickets",
             "related": "Ticket",
-            "foreignKey": "ticket_id",
+            "foreignKey": "backlog_id",
             "localKey": "id"
         }
     },

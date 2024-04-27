@@ -89,7 +89,7 @@ trait BuildColumns
 
         if (array_key_exists('default', $meta)) {
             if (is_null($meta['default'])) {
-                $column .= '->default(null)';
+                // $column .= '->default(null)';
             } elseif (is_bool($meta['default'])) {
                 $column .= sprintf('->default(%1$d)', $meta['default'] ? 1 : 0);
             } elseif (is_numeric($meta['default'])) {

@@ -26,6 +26,13 @@
     "extends": "Model",
     "implements": [],
     "HasOne": {
+        "backlog": {
+            "comment": "The backlog of the board.",
+            "accessor": "backlog",
+            "related": "Backlog",
+            "foreignKey": "id",
+            "localKey": "backlog_id"
+        },
         "epic": {
             "comment": "The epic of the board.",
             "accessor": "epic",
