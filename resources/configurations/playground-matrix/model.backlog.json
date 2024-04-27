@@ -47,6 +47,13 @@
             "foreignKey": "id",
             "localKey": "flow_id"
         },
+        "matrix": {
+            "comment": "The matrix of the board.",
+            "accessor": "matrix",
+            "related": "Matrix",
+            "foreignKey": "id",
+            "localKey": "matrix_id"
+        },
         "milestone": {
             "comment": "The milestone of the backlog.",
             "accessor": "milestone",
@@ -196,6 +203,17 @@
         "status": 0,
         "rank": 0,
         "size": 0,
+        "matrix": "{}",
+        "x": null,
+        "y": null,
+        "z": null,
+        "r": null,
+        "theta": null,
+        "rho": null,
+        "phi": null,
+        "elevation": null,
+        "latitude": null,
+        "longitude": null,
         "active": true,
         "canceled": false,
         "closed": false,
@@ -266,6 +284,17 @@
         "only_guest": "boolean",
         "allow_public": "boolean",
         "status": "integer",
+        "matrix": "array",
+        "x": "integer",
+        "y": "integer",
+        "z": "integer",
+        "r": "float",
+        "theta": "float",
+        "rho": "float",
+        "phi": "float",
+        "elevation": "float",
+        "latitude": "float",
+        "longitude": "float",
         "rank": "integer",
         "size": "integer",
         "active": "boolean",
@@ -354,6 +383,17 @@
         "status",
         "rank",
         "size",
+        "matrix",
+        "x",
+        "y",
+        "z",
+        "r",
+        "theta",
+        "rho",
+        "phi",
+        "elevation",
+        "latitude",
+        "longitude",
         "active",
         "canceled",
         "closed",
@@ -1030,7 +1070,96 @@
                 "type": "bigInteger"
             }
         ],
-        "matrix": [],
+        "matrix": [
+            {
+                "column": "matrix",
+                "label": "Matrix",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "JSON_OBJECT"
+            },
+            {
+                "column": "x",
+                "label": "x",
+                "icon": "",
+                "nullable": true,
+                "unsigned": false,
+                "type": "integer"
+            },
+            {
+                "column": "y",
+                "label": "y",
+                "icon": "",
+                "nullable": true,
+                "unsigned": false,
+                "type": "integer"
+            },
+            {
+                "column": "z",
+                "label": "z",
+                "icon": "",
+                "nullable": true,
+                "unsigned": false,
+                "type": "integer"
+            },
+            {
+                "column": "r",
+                "label": "r",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            },
+            {
+                "column": "theta",
+                "label": "\u03b8",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            },
+            {
+                "column": "rho",
+                "label": "\u03c1",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            },
+            {
+                "column": "phi",
+                "label": "\u03c6",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            },
+            {
+                "column": "elevation",
+                "label": "Elevation",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            },
+            {
+                "column": "latitude",
+                "label": "Latitude",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            },
+            {
+                "column": "longitude",
+                "label": "Longitude",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            }
+        ],
         "ui": [
             {
                 "column": "icon",
@@ -1488,6 +1617,83 @@
             "type": "bigInteger"
         },
         {
+            "column": "matrix",
+            "label": "Matrix",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_OBJECT"
+        },
+        {
+            "column": "x",
+            "label": "X",
+            "icon": "",
+            "nullable": false,
+            "type": "bigInteger"
+        },
+        {
+            "column": "y",
+            "label": "Y",
+            "icon": "",
+            "nullable": false,
+            "type": "bigInteger"
+        },
+        {
+            "column": "z",
+            "label": "Z",
+            "icon": "",
+            "nullable": false,
+            "type": "bigInteger"
+        },
+        {
+            "column": "r",
+            "label": "R",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "theta",
+            "label": "Theta",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "rho",
+            "label": "Rho",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "phi",
+            "label": "Phi",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "elevation",
+            "label": "Elevation",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "latitude",
+            "label": "Latitude",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "longitude",
+            "label": "Longitude",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
             "column": "active",
             "label": "",
             "icon": "",
@@ -1512,6 +1718,13 @@
             "column": "completed",
             "label": "Completed",
             "icon": "fa-solid fa-check",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "cron",
+            "label": "Cron",
+            "icon": "",
             "nullable": false,
             "type": "boolean"
         },
@@ -1696,13 +1909,6 @@
             "icon": "",
             "nullable": false,
             "type": "string"
-        },
-        {
-            "column": "cron",
-            "label": "Cron",
-            "icon": "",
-            "nullable": false,
-            "type": "boolean"
         },
         {
             "column": "ui",
@@ -2698,50 +2904,54 @@
         "matrix": {
             "matrix": {
                 "column": "matrix",
-                "label": "",
+                "label": "Matrix",
                 "description": "",
                 "icon": "",
                 "index": false,
                 "nullable": true,
                 "readOnly": false,
-                "type": "JSON_OBJECT"
+                "type": "JSON_OBJECT",
+                "default": "{}"
             },
             "x": {
                 "column": "x",
-                "label": "",
+                "label": "X",
                 "description": "",
                 "icon": "",
                 "index": false,
                 "nullable": true,
                 "readOnly": false,
                 "type": "bigInteger",
-                "unsigned": false
+                "unsigned": false,
+                "default": null
             },
             "y": {
                 "column": "y",
-                "label": "",
+                "label": "Y",
                 "description": "",
                 "icon": "",
                 "index": false,
                 "nullable": true,
                 "readOnly": false,
                 "type": "bigInteger",
-                "unsigned": false
+                "unsigned": false,
+                "default": null
             },
             "z": {
                 "column": "z",
-                "label": "",
+                "label": "Z",
                 "description": "",
                 "icon": "",
                 "index": false,
                 "nullable": true,
                 "readOnly": false,
                 "type": "bigInteger",
-                "unsigned": false
+                "unsigned": false,
+                "default": null
             },
             "r": {
                 "column": "r",
-                "label": "",
+                "label": "R",
                 "description": "",
                 "icon": "",
                 "index": false,
@@ -2754,7 +2964,7 @@
             },
             "theta": {
                 "column": "theta",
-                "label": "",
+                "label": "Theta",
                 "description": "",
                 "icon": "",
                 "index": false,
@@ -2767,7 +2977,7 @@
             },
             "rho": {
                 "column": "rho",
-                "label": "",
+                "label": "Rho",
                 "description": "",
                 "icon": "",
                 "index": false,
@@ -2780,7 +2990,7 @@
             },
             "phi": {
                 "column": "phi",
-                "label": "",
+                "label": "Phi",
                 "description": "",
                 "icon": "",
                 "index": false,
@@ -2793,7 +3003,7 @@
             },
             "elevation": {
                 "column": "elevation",
-                "label": "",
+                "label": "Elevation",
                 "description": "",
                 "icon": "",
                 "index": false,
@@ -2806,7 +3016,7 @@
             },
             "latitude": {
                 "column": "latitude",
-                "label": "",
+                "label": "Latitude",
                 "description": "",
                 "icon": "",
                 "index": false,
@@ -2819,7 +3029,7 @@
             },
             "longitude": {
                 "column": "longitude",
-                "label": "",
+                "label": "Longitude",
                 "description": "",
                 "icon": "",
                 "index": false,

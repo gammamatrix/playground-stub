@@ -14,6 +14,12 @@ trait BuildMatrix
     protected function buildClass_matrix(): void
     {
         $matrix = $this->model?->create()?->matrix();
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$matrix' => $matrix,
+        //     '$this->skeleton_matrix' => $this->skeleton_matrix,
+        // ]);
+
         if (! $matrix) {
             return;
         }

@@ -47,6 +47,7 @@ class ModelMakeCommand extends GeneratorCommand
     use Building\Model\Skeleton\MakePermissions;
     use Building\Model\Skeleton\MakeStatus;
     use Building\Model\Skeleton\MakeUi;
+    use Building\Model\Skeleton\MakeUnique;
     // use Building\Model\BuildModel;
 
     // use Concerns\CreatingModels;

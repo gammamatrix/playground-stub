@@ -51,6 +51,8 @@ trait MakeSkeleton
 
         $this->buildClass_skeleton_ids($create);
 
+        $this->buildClass_skeleton_uniques($create);
+
         $this->buildClass_skeleton_timestamps($create);
 
         $this->buildClass_skeleton_softDeletes($create);
@@ -60,6 +62,8 @@ trait MakeSkeleton
         $this->buildClass_skeleton_permissions($create);
 
         $this->buildClass_skeleton_status($create);
+
+        $this->buildClass_skeleton_matrix($create);
 
         $this->buildClass_skeleton_flags($create);
 

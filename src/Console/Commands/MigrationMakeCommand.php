@@ -135,6 +135,8 @@ class MigrationMakeCommand extends GeneratorCommand
     const SEARCH = [
         'use' => '',
         'class' => '',
+        'model' => '',
+        'model_fqdn' => '',
         'module' => '',
         'module_slug' => '',
         'namespace' => '',
@@ -191,6 +193,16 @@ class MigrationMakeCommand extends GeneratorCommand
 
         $table = $this->c->table();
         $name = $this->c->name();
+        $model_fqdn = $this->c->model_fqdn();
+
+        if (! $model_fqdn) {
+            $model_fqdn = $this->model?->fqdn();
+            if ($model_fqdn) {
+                $this->c->setOptions([
+                    'model_fqdn' => $model_fqdn,
+                ]);
+            }
+        }
 
         if (! $table) {
 
@@ -238,9 +250,10 @@ class MigrationMakeCommand extends GeneratorCommand
         //     '$type' => $type,
         //     // '$this->model' => $this->model,
         //     '!empty($this->model)' => !empty($this->model),
-        //     // '$this->c' => $this->c,
+        //     '$this->c' => $this->c,
         //     '$this->c->class()' => $this->c->class(),
         //     '$this->c->table()' => $this->c->table(),
+        //     '$this->c->model_fqdn()' => $this->c->model_fqdn(),
         // ]);
     }
 
@@ -333,15 +346,11 @@ class MigrationMakeCommand extends GeneratorCommand
             $this->buildClass_columns();
             $this->buildClass_ui();
             $this->buildClass_json();
-
-            // // Relationships
-            // $this->buildClass_HasMany();
-            // $this->buildClass_HasOne();
-
-            $this->applyConfigurationToSearch();
             $this->buildClass_uses($name);
 
         }
+
+        $this->applyConfigurationToSearch();
         // dd([
         //     '__METHOD__' => __METHOD__,
         //     '$his->arguments()' => $this->arguments(),

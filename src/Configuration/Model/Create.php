@@ -515,7 +515,8 @@ class Create extends ModelConfiguration implements Configuration\Contracts\WithS
             'softDeletes' => $this->softDeletes(),
             'trash' => $this->trash(),
             'ids' => [],
-            'unique' => [],
+            // 'unique' => [],
+            'unique' => $this->unique(),
             'dates' => [],
             'flags' => [],
             'columns' => [],
@@ -533,15 +534,6 @@ class Create extends ModelConfiguration implements Configuration\Contracts\WithS
                 }
             }
         }
-
-        // TODO FIXME unique
-        // if ($this->unique()) {
-        //     foreach ($this->unique() as $i => $c) {
-        //         if (is_array($properties['unique'])) {
-        //             $properties['unique'][$i] = $c->toArray();
-        //         }
-        //     }
-        // }
 
         if ($this->dates()) {
             foreach ($this->dates() as $column => $c) {

@@ -197,7 +197,10 @@ trait MakeMatrix
 
             $this->c->addAttribute($column, $default);
 
-            $this->c->addCast($column, $type);
+            $this->c->addCast(
+                $column,
+                $type === 'decimal' ? 'float' : $type
+            );
 
             if (empty($meta['readOnly'])) {
                 $this->c->addFillable($column);
@@ -215,7 +218,7 @@ trait MakeMatrix
             if (! in_array($column, $this->analyze['sortable'])) {
                 $this->c->addSortable([
                     'label' => $label,
-                    'type' => $type,
+                    'type' => $type === 'decimal' ? 'float' : $type,
                     'column' => $column,
                 ]);
             }
