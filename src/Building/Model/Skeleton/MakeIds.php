@@ -108,15 +108,15 @@ trait MakeIds
         //         'on' => 'matrix_tickets',
         //     ],
         // ],
-        // 'epic_id' => [
-        //     'type' => 'uuid',
-        //     'nullable' => true,
-        //     'index' => true,
-        //     'foreign' => [
-        //         'references' => 'id',
-        //         'on' => 'matrix_epics',
-        //     ],
-        // ],
+        'epic_id' => [
+            'type' => 'uuid',
+            'nullable' => true,
+            'index' => true,
+            'foreign' => [
+                'references' => 'id',
+                'on' => 'matrix_epics',
+            ],
+        ],
         // 'fixed_by_id' => [
         //     'type' => 'uuid',
         //     'nullable' => true,
@@ -144,15 +144,15 @@ trait MakeIds
                 'on' => 'matrix_matrices',
             ],
         ],
-        'milestone_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_milestones',
-            ],
-        ],
+        // 'milestone_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_milestones',
+        //     ],
+        // ],
         'note_id' => [
             'type' => 'uuid',
             'nullable' => true,

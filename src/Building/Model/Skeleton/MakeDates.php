@@ -152,10 +152,10 @@ trait MakeDates
             'nullable' => true,
             'index' => false,
         ],
-        'fixed_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
+        // 'fixed_at' => [
+        //     'nullable' => true,
+        //     'index' => false,
+        // ],
         'postponed_at' => [
             'nullable' => true,
             'index' => false,
@@ -172,10 +172,10 @@ trait MakeDates
             'nullable' => true,
             'index' => false,
         ],
-        'resolved_at' => [
-            'nullable' => true,
-            'index' => true,
-        ],
+        // 'resolved_at' => [
+        //     'nullable' => true,
+        //     'index' => true,
+        // ],
         'suspended_at' => [
             'nullable' => true,
             'index' => false,
