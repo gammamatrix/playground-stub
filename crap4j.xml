@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-26 19:05:45</timestamp>
+  <timestamp>2024-04-27 00:23:43</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>641</methodCount>
-    <crapMethodCount>34</crapMethodCount>
-    <crapLoad>391</crapLoad>
-    <totalCrap>8324.56</totalCrap>
-    <crapMethodPercent>5.3</crapMethodPercent>
+    <methodCount>644</methodCount>
+    <crapMethodCount>32</crapMethodCount>
+    <crapLoad>373</crapLoad>
+    <totalCrap>8179.02</totalCrap>
+    <crapMethodPercent>4.97</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -556,10 +556,10 @@
       <methodName>buildClass_docblock_matrix</methodName>
       <methodSignature>buildClass_docblock_matrix(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_docblock_matrix(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
-      <crap>66.52</crap>
+      <crap>8.2</crap>
       <complexity>8</complexity>
-      <coverage>2.94</coverage>
-      <crapLoad>8</crapLoad>
+      <coverage>85.29</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Building\Model</package>
@@ -754,9 +754,9 @@
       <methodName>buildClass_skeleton</methodName>
       <methodSignature>buildClass_skeleton(): void</methodSignature>
       <fullMethod>buildClass_skeleton(): void</fullMethod>
-      <crap>3.08</crap>
+      <crap>3.06</crap>
       <complexity>3</complexity>
-      <coverage>79.17</coverage>
+      <coverage>80.77</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -886,10 +886,10 @@
       <methodName>buildClass_skeleton_matrix</methodName>
       <methodSignature>buildClass_skeleton_matrix(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
       <fullMethod>buildClass_skeleton_matrix(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
-      <crap>110</crap>
-      <complexity>10</complexity>
-      <coverage>0</coverage>
-      <crapLoad>10</crapLoad>
+      <crap>12</crap>
+      <complexity>12</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Building\Model\Skeleton</package>
@@ -921,6 +921,17 @@
       <fullMethod>buildClass_skeleton_ui(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
       <crap>10</crap>
       <complexity>10</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Model\Skeleton</package>
+      <className>Playground\Stub\Building\Model\Skeleton\MakeUnique</className>
+      <methodName>buildClass_skeleton_uniques</methodName>
+      <methodSignature>buildClass_skeleton_uniques(Playground\Stub\Configuration\Model\Create $create): void</methodSignature>
+      <fullMethod>buildClass_skeleton_uniques(Playground\Stub\Configuration\Model\Create $create): void</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -3251,6 +3262,28 @@
       <methodName>foreign</methodName>
       <methodSignature>foreign(): ?array</methodSignature>
       <fullMethod>foreign(): ?array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\CreateUnique</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>7</crap>
+      <complexity>7</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration\Model</package>
+      <className>Playground\Stub\Configuration\Model\CreateUnique</className>
+      <methodName>keys</methodName>
+      <methodSignature>keys(): array</methodSignature>
+      <fullMethod>keys(): array</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -6265,9 +6298,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>15.05</crap>
-      <complexity>14</complexity>
-      <coverage>82.5</coverage>
+      <crap>16.85</crap>
+      <complexity>16</complexity>
+      <coverage>85.11</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
