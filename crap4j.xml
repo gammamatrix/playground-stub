@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-27 00:23:43</timestamp>
+  <timestamp>2024-04-27 05:16:30</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>644</methodCount>
     <crapMethodCount>32</crapMethodCount>
     <crapLoad>373</crapLoad>
-    <totalCrap>8179.02</totalCrap>
+    <totalCrap>8179.66</totalCrap>
     <crapMethodPercent>4.97</crapMethodPercent>
   </stats>
   <methods>
@@ -193,9 +193,9 @@
       <methodName>buildClass_column</methodName>
       <methodSignature>buildClass_column(string $attribute, array $meta, string $group): string</methodSignature>
       <fullMethod>buildClass_column(string $attribute, array $meta, string $group): string</fullMethod>
-      <crap>35.29</crap>
+      <crap>35.93</crap>
       <complexity>21</complexity>
-      <coverage>68.12</coverage>
+      <coverage>67.65</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>

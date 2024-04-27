@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.74184927846072" branch-rate="0" lines-covered="5552" lines-valid="7484" branches-covered="0" branches-valid="0" complexity="2818" version="0.4" timestamp="1714177423">
+<coverage line-rate="0.74181478016838" branch-rate="0" lines-covered="5551" lines-valid="7483" branches-covered="0" branches-valid="0" complexity="2818" version="0.4" timestamp="1714194990">
   <sources>
     <source>/app/src</source>
   </sources>
@@ -1421,11 +1421,11 @@
         </class>
       </classes>
     </package>
-    <package name="Building/Migration/BuildColumns.php" line-rate="0.65686274509804" branch-rate="0" complexity="27">
+    <package name="Building/Migration/BuildColumns.php" line-rate="0.65346534653465" branch-rate="0" complexity="27">
       <classes>
-        <class name="Playground\Stub\Building\Migration\BuildColumns" filename="Building/Migration/BuildColumns.php" line-rate="0.65686274509804" branch-rate="0" complexity="27">
+        <class name="Playground\Stub\Building\Migration\BuildColumns" filename="Building/Migration/BuildColumns.php" line-rate="0.65346534653465" branch-rate="0" complexity="27">
           <methods>
-            <method name="buildClass_column" signature="string $attribute, array $meta, string $group" line-rate="0.68115942028986" branch-rate="0" complexity="21">
+            <method name="buildClass_column" signature="string $attribute, array $meta, string $group" line-rate="0.67647058823529" branch-rate="0" complexity="21">
               <lines>
                 <line number="25" hits="5"/>
                 <line number="26" hits="5"/>
@@ -1483,7 +1483,6 @@
                 <line number="87" hits="5"/>
                 <line number="90" hits="5"/>
                 <line number="91" hits="5"/>
-                <line number="92" hits="5"/>
                 <line number="93" hits="5"/>
                 <line number="94" hits="5"/>
                 <line number="95" hits="5"/>
@@ -1593,7 +1592,6 @@
             <line number="87" hits="5"/>
             <line number="90" hits="5"/>
             <line number="91" hits="5"/>
-            <line number="92" hits="5"/>
             <line number="93" hits="5"/>
             <line number="94" hits="5"/>
             <line number="95" hits="5"/>
