@@ -160,14 +160,14 @@ trait MakeDates
             'nullable' => true,
             'index' => false,
         ],
-        'published_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
-        'released_at' => [
-            'nullable' => true,
-            'index' => false,
-        ],
+        // 'published_at' => [
+        //     'nullable' => true,
+        //     'index' => false,
+        // ],
+        // 'released_at' => [
+        //     'nullable' => true,
+        //     'index' => false,
+        // ],
         'resumed_at' => [
             'nullable' => true,
             'index' => false,

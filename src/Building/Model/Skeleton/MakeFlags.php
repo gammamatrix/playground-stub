@@ -45,16 +45,16 @@ trait MakeFlags
             'index' => true,
             'icon' => 'fa-regular fa-clock',
         ],
-        'duplicate' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-clone',
-        ],
-        'fixed' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-wrench',
-        ],
+        // 'duplicate' => [
+        //     'type' => 'boolean',
+        //     'default' => false,
+        //     'icon' => 'fa-solid fa-clone',
+        // ],
+        // 'fixed' => [
+        //     'type' => 'boolean',
+        //     'default' => false,
+        //     'icon' => 'fa-solid fa-wrench',
+        // ],
         'flagged' => [
             'type' => 'boolean',
             'default' => false,
@@ -86,26 +86,26 @@ trait MakeFlags
             'default' => false,
             'icon' => 'fa-solid fa-triangle-exclamation text-danger',
         ],
-        'published' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-book',
-        ],
-        'released' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-dove',
-        ],
+        // 'published' => [
+        //     'type' => 'boolean',
+        //     'default' => false,
+        //     'icon' => 'fa-solid fa-book',
+        // ],
+        // 'released' => [
+        //     'type' => 'boolean',
+        //     'default' => false,
+        //     'icon' => 'fa-solid fa-dove',
+        // ],
         'retired' => [
             'type' => 'boolean',
             'default' => false,
             'icon' => 'fa-solid fa-chair text-success',
         ],
-        'resolved' => [
-            'type' => 'boolean',
-            'default' => false,
-            'icon' => 'fa-solid fa-check-double text-success',
-        ],
+        // 'resolved' => [
+        //     'type' => 'boolean',
+        //     'default' => false,
+        //     'icon' => 'fa-solid fa-check-double text-success',
+        // ],
         'suspended' => [
             'type' => 'boolean',
             'default' => false,

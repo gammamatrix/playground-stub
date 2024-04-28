@@ -23,21 +23,21 @@ trait MakeJson
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
-        'backlog' => [
-            'default' => '{}',
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'board' => [
-            'default' => '{}',
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
-        'flow' => [
-            'default' => '{}',
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
+        // 'backlog' => [
+        //     'default' => '{}',
+        //     'nullable' => true,
+        //     'type' => 'JSON_OBJECT',
+        // ],
+        // 'board' => [
+        //     'default' => '{}',
+        //     'nullable' => true,
+        //     'type' => 'JSON_OBJECT',
+        // ],
+        // 'flow' => [
+        //     'default' => '{}',
+        //     'nullable' => true,
+        //     'type' => 'JSON_OBJECT',
+        // ],
         // 'history' => [
         //     'default' => '{}',
         //     'nullable' => true,
@@ -60,11 +60,11 @@ trait MakeJson
             'nullable' => true,
             'type' => 'JSON_OBJECT',
         ],
-        'roadmap' => [
-            'default' => '{}',
-            'nullable' => true,
-            'type' => 'JSON_OBJECT',
-        ],
+        // 'roadmap' => [
+        //     'default' => '{}',
+        //     'nullable' => true,
+        //     'type' => 'JSON_OBJECT',
+        // ],
         'sources' => [
             'default' => '{}',
             'nullable' => true,

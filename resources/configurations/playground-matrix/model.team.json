@@ -1,19 +1,19 @@
 {
-    "class": "Ticket",
+    "class": "Team",
     "config": "playground-matrix",
-    "fqdn": "Playground/Matrix/Models/Ticket",
+    "fqdn": "Playground/Matrix/Models/Team",
     "module": "Matrix",
     "module_slug": "matrix",
-    "name": "Ticket",
+    "name": "Team",
     "namespace": "Playground/Matrix",
     "organization": "Playground",
     "package": "playground-matrix",
-    "model": "Ticket",
+    "model": "Team",
     "model_plural": "",
     "model_singular": "",
     "model_slug": "",
     "type": "playground-resource",
-    "table": "matrix_tickets",
+    "table": "matrix_teams",
     "perPage": null,
     "controller": true,
     "factory": true,
@@ -27,126 +27,105 @@
     "implements": [],
     "HasOne": {
         "backlog": {
-            "comment": "The backlog of the ticket.",
+            "comment": "The backlog of the team.",
             "accessor": "backlog",
             "related": "Backlog",
             "foreignKey": "id",
             "localKey": "backlog_id"
         },
         "board": {
-            "comment": "The board of the ticket.",
+            "comment": "The board of the team.",
             "accessor": "board",
             "related": "Board",
             "foreignKey": "id",
             "localKey": "board_id"
         },
-        "completedBy": {
-            "comment": "The completed by user of the ticket.",
-            "accessor": "completedBy",
-            "related": "/App/Models/User",
-            "foreignKey": "id",
-            "localKey": "completed_by_id"
-        },
         "epic": {
-            "comment": "The epic of the ticket.",
+            "comment": "The epic of the team.",
             "accessor": "epic",
             "related": "Epic",
             "foreignKey": "id",
             "localKey": "epic_id"
         },
-        "fixedBy": {
-            "comment": "The fixed by user of the ticket.",
-            "accessor": "fixedBy",
-            "related": "/App/Models/User",
-            "foreignKey": "id",
-            "localKey": "fixed_by_id"
-        },
         "flow": {
-            "comment": "The flow of the ticket.",
+            "comment": "The flow of the team.",
             "accessor": "flow",
             "related": "Flow",
             "foreignKey": "id",
             "localKey": "flow_id"
         },
         "matrix": {
-            "comment": "The matrix of the ticket.",
+            "comment": "The matrix of the team.",
             "accessor": "matrix",
             "related": "Matrix",
             "foreignKey": "id",
             "localKey": "matrix_id"
         },
         "milestone": {
-            "comment": "The milestone of the ticket.",
+            "comment": "The milestone of the team.",
             "accessor": "milestone",
             "related": "Milestone",
             "foreignKey": "id",
             "localKey": "milestone_id"
         },
         "note": {
-            "comment": "The note of the ticket.",
+            "comment": "The note of the team.",
             "accessor": "note",
             "related": "Note",
             "foreignKey": "id",
             "localKey": "note_id"
         },
         "project": {
-            "comment": "The project of the ticket.",
+            "comment": "The project of the team.",
             "accessor": "project",
             "related": "Project",
             "foreignKey": "id",
             "localKey": "project_id"
         },
         "release": {
-            "comment": "The release of the ticket.",
+            "comment": "The release of the team.",
             "accessor": "release",
             "related": "Release",
             "foreignKey": "id",
             "localKey": "release_id"
         },
-        "reportedBy": {
-            "comment": "The reported by user of the ticket.",
-            "accessor": "reportedBy",
-            "related": "/App/Models/User",
-            "foreignKey": "id",
-            "localKey": "reported_by_id"
-        },
         "roadmap": {
-            "comment": "The roadmap of the ticket.",
+            "comment": "The roadmap of the team.",
             "accessor": "roadmap",
             "related": "Roadmap",
             "foreignKey": "id",
             "localKey": "roadmap_id"
         },
         "source": {
-            "comment": "The source of the ticket.",
+            "comment": "The source of the team.",
             "accessor": "source",
             "related": "Source",
             "foreignKey": "id",
             "localKey": "source_id"
         },
         "sprint": {
-            "comment": "The sprint of the ticket.",
+            "comment": "The sprint of the team.",
             "accessor": "sprint",
             "related": "Sprint",
             "foreignKey": "id",
             "localKey": "sprint_id"
         },
         "tag": {
-            "comment": "The tag of the ticket.",
+            "comment": "The tag of the team.",
             "accessor": "tag",
             "related": "Tag",
             "foreignKey": "id",
             "localKey": "tag_id"
         },
-        "team": {
-            "comment": "The team of the ticket.",
-            "accessor": "team",
-            "related": "Team",
+        "ticket": {
+            "comment": "The ticket of the team.",
+            "accessor": "ticket",
+            "related": "Ticket",
             "foreignKey": "id",
-            "localKey": "team_id"
+            "localKey": "ticket_id"
         },
         "version": {
-            "comment": "The version of the ticket.",
+            "comment": "The version of the team.",
             "accessor": "version",
             "related": "Version",
             "foreignKey": "id",
@@ -165,26 +144,21 @@
         "modified_by_id": null,
         "owned_by_id": null,
         "parent_id": null,
-        "ticket_type": null,
+        "team_type": null,
         "backlog_id": null,
         "board_id": null,
-        "completed_by_id": null,
-        "duplicate_id": null,
         "epic_id": null,
-        "fixed_by_id": null,
         "flow_id": null,
         "matrix_id": null,
         "milestone_id": null,
         "note_id": null,
         "project_id": null,
         "release_id": null,
-        "reported_by_id": null,
         "roadmap_id": null,
         "source_id": null,
         "sprint_id": null,
         "tag_id": null,
-        "team_id": null,
-        "version_fixed_id": null,
+        "ticket_id": null,
         "version_id": null,
         "created_at": null,
         "updated_at": null,
@@ -196,12 +170,8 @@
         "canceled_at": null,
         "closed_at": null,
         "embargo_at": null,
-        "fixed_at": null,
         "postponed_at": null,
-        "published_at": null,
-        "released_at": null,
         "resumed_at": null,
-        "resolved_at": null,
         "suspended_at": null,
         "gids": 0,
         "po": 0,
@@ -230,18 +200,13 @@
         "closed": false,
         "completed": false,
         "cron": false,
-        "duplicate": false,
-        "fixed": false,
         "flagged": false,
         "internal": false,
         "locked": false,
         "pending": false,
         "planned": false,
         "problem": false,
-        "published": false,
-        "released": false,
         "retired": false,
-        "resolved": false,
         "suspended": false,
         "unknown": false,
         "label": "",
@@ -253,23 +218,6 @@
         "introduction": "",
         "content": null,
         "summary": null,
-        "handler": "",
-        "key": null,
-        "code": null,
-        "key_code_hash": null,
-        "priority": "",
-        "severity": "",
-        "resolution": "",
-        "step": "",
-        "state": "",
-        "workflow_type": "",
-        "points": 0,
-        "actual": null,
-        "expected": null,
-        "story": null,
-        "steps": null,
-        "criteria": null,
-        "reproducibility": null,
         "icon": "",
         "image": "",
         "avatar": "",
@@ -278,7 +226,6 @@
         "backlog": "{}",
         "board": "{}",
         "flow": "{}",
-        "history": "{}",
         "meta": "{}",
         "notes": "[]",
         "options": "{}",
@@ -286,7 +233,7 @@
         "sources": "{}"
     },
     "casts": {
-        "ticket_type": "string",
+        "team_type": "string",
         "created_at": "datetime",
         "updated_at": "datetime",
         "deleted_at": "datetime",
@@ -297,12 +244,8 @@
         "canceled_at": "datetime",
         "closed_at": "datetime",
         "embargo_at": "datetime",
-        "fixed_at": "datetime",
         "postponed_at": "datetime",
-        "published_at": "datetime",
-        "released_at": "datetime",
         "resumed_at": "datetime",
-        "resolved_at": "datetime",
         "suspended_at": "datetime",
         "gids": "integer",
         "po": "integer",
@@ -331,18 +274,13 @@
         "closed": "boolean",
         "completed": "boolean",
         "cron": "boolean",
-        "duplicate": "boolean",
-        "fixed": "boolean",
         "flagged": "boolean",
         "internal": "boolean",
         "locked": "boolean",
         "pending": "boolean",
         "planned": "boolean",
         "problem": "boolean",
-        "published": "boolean",
-        "released": "boolean",
         "retired": "boolean",
-        "resolved": "boolean",
         "suspended": "boolean",
         "unknown": "boolean",
         "label": "string",
@@ -354,23 +292,6 @@
         "introduction": "string",
         "content": "string",
         "summary": "string",
-        "handler": "string",
-        "key": "string",
-        "code": "integer",
-        "key_code_hash": "string",
-        "priority": "string",
-        "severity": "string",
-        "resolution": "string",
-        "step": "string",
-        "state": "string",
-        "workflow_type": "string",
-        "points": "integer",
-        "actual": "string",
-        "expected": "string",
-        "story": "string",
-        "steps": "string",
-        "criteria": "string",
-        "reproducibility": "decimal",
         "icon": "string",
         "image": "string",
         "avatar": "string",
@@ -379,7 +300,6 @@
         "backlog": "array",
         "board": "array",
         "flow": "array",
-        "history": "array",
         "meta": "array",
         "notes": "array",
         "options": "array",
@@ -389,26 +309,21 @@
     "fillable": [
         "owned_by_id",
         "parent_id",
-        "ticket_type",
+        "team_type",
         "backlog_id",
         "board_id",
-        "completed_by_id",
-        "duplicate_id",
         "epic_id",
-        "fixed_by_id",
         "flow_id",
         "matrix_id",
         "milestone_id",
         "note_id",
         "project_id",
         "release_id",
-        "reported_by_id",
         "roadmap_id",
         "source_id",
         "sprint_id",
         "tag_id",
-        "team_id",
-        "version_fixed_id",
+        "ticket_id",
         "version_id",
         "start_at",
         "planned_start_at",
@@ -417,12 +332,8 @@
         "canceled_at",
         "closed_at",
         "embargo_at",
-        "fixed_at",
         "postponed_at",
-        "published_at",
-        "released_at",
         "resumed_at",
-        "resolved_at",
         "suspended_at",
         "gids",
         "po",
@@ -451,18 +362,13 @@
         "closed",
         "completed",
         "cron",
-        "duplicate",
-        "fixed",
         "flagged",
         "internal",
         "locked",
         "pending",
         "planned",
         "problem",
-        "published",
-        "released",
         "retired",
-        "resolved",
         "suspended",
         "unknown",
         "label",
@@ -474,20 +380,6 @@
         "introduction",
         "content",
         "summary",
-        "handler",
-        "priority",
-        "severity",
-        "resolution",
-        "step",
-        "state",
-        "workflow_type",
-        "points",
-        "actual",
-        "expected",
-        "story",
-        "steps",
-        "criteria",
-        "reproducibility",
         "icon",
         "image",
         "avatar",
@@ -496,7 +388,6 @@
         "backlog",
         "board",
         "flow",
-        "history",
         "meta",
         "options",
         "roadmap",
@@ -506,16 +397,8 @@
         "builder": null,
         "ids": [
             {
-                "column": "id",
-                "label": "",
-                "icon": "",
-                "nullable": false,
-                "unsigned": true,
-                "type": "uuid"
-            },
-            {
                 "column": "created_by_id",
-                "label": "",
+                "label": "Created by id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -523,7 +406,7 @@
             },
             {
                 "column": "modified_by_id",
-                "label": "",
+                "label": "Modified by id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -531,7 +414,7 @@
             },
             {
                 "column": "owned_by_id",
-                "label": "",
+                "label": "Owned by id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -539,15 +422,15 @@
             },
             {
                 "column": "parent_id",
-                "label": "",
+                "label": "Parent id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
                 "type": "uuid"
             },
             {
-                "column": "ticket_type",
-                "label": "",
+                "column": "team_type",
+                "label": "Team type",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -555,7 +438,7 @@
             },
             {
                 "column": "backlog_id",
-                "label": "",
+                "label": "Backlog id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -563,23 +446,7 @@
             },
             {
                 "column": "board_id",
-                "label": "",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "uuid"
-            },
-            {
-                "column": "completed_by_id",
-                "label": "",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "uuid"
-            },
-            {
-                "column": "duplicate_id",
-                "label": "",
+                "label": "Board id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -587,15 +454,7 @@
             },
             {
                 "column": "epic_id",
-                "label": "",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "uuid"
-            },
-            {
-                "column": "fixed_by_id",
-                "label": "Fixed by id",
+                "label": "Epic id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -603,7 +462,7 @@
             },
             {
                 "column": "flow_id",
-                "label": "",
+                "label": "Flow id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -619,7 +478,7 @@
             },
             {
                 "column": "milestone_id",
-                "label": "",
+                "label": "Milestone id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -627,7 +486,7 @@
             },
             {
                 "column": "note_id",
-                "label": "",
+                "label": "Note id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -635,7 +494,7 @@
             },
             {
                 "column": "project_id",
-                "label": "",
+                "label": "Project id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -643,15 +502,7 @@
             },
             {
                 "column": "release_id",
-                "label": "",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "uuid"
-            },
-            {
-                "column": "reported_by_id",
-                "label": "",
+                "label": "Release id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -659,7 +510,7 @@
             },
             {
                 "column": "roadmap_id",
-                "label": "",
+                "label": "Roadmap id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -667,7 +518,7 @@
             },
             {
                 "column": "source_id",
-                "label": "",
+                "label": "Source id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -675,7 +526,7 @@
             },
             {
                 "column": "sprint_id",
-                "label": "",
+                "label": "Sprint id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -683,15 +534,15 @@
             },
             {
                 "column": "tag_id",
-                "label": "",
+                "label": "Tag id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
                 "type": "uuid"
             },
             {
-                "column": "team_id",
-                "label": "",
+                "column": "ticket_id",
+                "label": "Ticket id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -699,15 +550,7 @@
             },
             {
                 "column": "version_id",
-                "label": "",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "uuid"
-            },
-            {
-                "column": "version_fixed_id",
-                "label": "",
+                "label": "Version id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -717,15 +560,7 @@
         "dates": [
             {
                 "column": "created_at",
-                "label": "",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "datetime"
-            },
-            {
-                "column": "updated_at",
-                "label": "",
+                "label": "Created at",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -733,7 +568,15 @@
             },
             {
                 "column": "deleted_at",
-                "label": "",
+                "label": "Deleted at",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "datetime"
+            },
+            {
+                "column": "updated_at",
+                "label": "Updated at",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -796,14 +639,6 @@
                 "type": "datetime"
             },
             {
-                "column": "fixed_at",
-                "label": "",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "datetime"
-            },
-            {
                 "column": "postponed_at",
                 "label": "",
                 "icon": "",
@@ -812,31 +647,7 @@
                 "type": "datetime"
             },
             {
-                "column": "published_at",
-                "label": "",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "datetime"
-            },
-            {
-                "column": "released_at",
-                "label": "",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "datetime"
-            },
-            {
                 "column": "resumed_at",
-                "label": "",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "datetime"
-            },
-            {
-                "column": "resolved_at",
                 "label": "",
                 "icon": "",
                 "nullable": true,
@@ -856,34 +667,34 @@
             {
                 "column": "active",
                 "label": "Active",
-                "icon": "fa-solid fa-person-running",
-                "nullable": false,
+                "icon": "",
+                "nullable": true,
                 "unsigned": true,
-                "type": "string"
+                "type": "boolean"
             },
             {
                 "column": "canceled",
                 "label": "Canceled",
-                "icon": "fa-solid fa-ban text-warning",
-                "nullable": false,
+                "icon": "",
+                "nullable": true,
                 "unsigned": true,
-                "type": "string"
+                "type": "boolean"
             },
             {
                 "column": "closed",
                 "label": "Closed",
-                "icon": "fa-solid fa-xmark",
-                "nullable": false,
+                "icon": "",
+                "nullable": true,
                 "unsigned": true,
-                "type": "string"
+                "type": "boolean"
             },
             {
                 "column": "completed",
                 "label": "Completed",
-                "icon": "fa-solid fa-check",
-                "nullable": false,
+                "icon": "",
+                "nullable": true,
                 "unsigned": true,
-                "type": "string"
+                "type": "boolean"
             },
             {
                 "column": "cron",
@@ -894,116 +705,76 @@
                 "type": "boolean"
             },
             {
-                "column": "duplicate",
-                "label": "Duplicate",
-                "icon": "fa-solid fa-clone",
-                "nullable": false,
-                "unsigned": true,
-                "type": "string"
-            },
-            {
-                "column": "fixed",
-                "label": "Fixed",
-                "icon": "fa-solid fa-wrench",
-                "nullable": false,
-                "unsigned": true,
-                "type": "string"
-            },
-            {
                 "column": "flagged",
                 "label": "Flagged",
-                "icon": "fa-solid fa-flag",
-                "nullable": false,
+                "icon": "",
+                "nullable": true,
                 "unsigned": true,
-                "type": "string"
+                "type": "boolean"
             },
             {
                 "column": "internal",
                 "label": "Internal",
-                "icon": "fa-solid fa-server",
-                "nullable": false,
+                "icon": "",
+                "nullable": true,
                 "unsigned": true,
-                "type": "string"
+                "type": "boolean"
             },
             {
                 "column": "locked",
                 "label": "Locked",
-                "icon": "fa-solid fa-lock text-warning",
-                "nullable": false,
+                "icon": "",
+                "nullable": true,
                 "unsigned": true,
-                "type": "string"
+                "type": "boolean"
             },
             {
                 "column": "pending",
                 "label": "Pending",
-                "icon": "fa-solid fa-circle-pause text-warning",
-                "nullable": false,
+                "icon": "",
+                "nullable": true,
                 "unsigned": true,
-                "type": "string"
+                "type": "boolean"
             },
             {
                 "column": "planned",
                 "label": "Planned",
-                "icon": "fa-solid fa-circle-pause text-success",
-                "nullable": false,
+                "icon": "",
+                "nullable": true,
                 "unsigned": true,
-                "type": "string"
+                "type": "boolean"
             },
             {
                 "column": "problem",
                 "label": "Problem",
-                "icon": "fa-solid fa-triangle-exclamation text-danger",
-                "nullable": false,
+                "icon": "",
+                "nullable": true,
                 "unsigned": true,
-                "type": "string"
-            },
-            {
-                "column": "published",
-                "label": "Published",
-                "icon": "fa-solid fa-book",
-                "nullable": false,
-                "unsigned": true,
-                "type": "string"
-            },
-            {
-                "column": "released",
-                "label": "Released",
-                "icon": "fa-solid fa-dove",
-                "nullable": false,
-                "unsigned": true,
-                "type": "string"
+                "type": "boolean"
             },
             {
                 "column": "retired",
                 "label": "Retired",
-                "icon": "fa-solid fa-chair text-success",
-                "nullable": false,
+                "icon": "",
+                "nullable": true,
                 "unsigned": true,
-                "type": "string"
-            },
-            {
-                "column": "resolved",
-                "label": "Resolved",
-                "icon": "fa-solid fa-check-double text-success",
-                "nullable": false,
-                "unsigned": true,
-                "type": "string"
+                "type": "boolean"
             },
             {
                 "column": "suspended",
                 "label": "Suspended",
-                "icon": "fa-solid fa-hand text-danger",
-                "nullable": false,
+                "icon": "",
+                "nullable": true,
                 "unsigned": true,
-                "type": "string"
+                "type": "boolean"
             },
             {
                 "column": "unknown",
                 "label": "Unknown",
-                "icon": "fa-solid fa-question text-warning",
-                "nullable": false,
+                "icon": "",
+                "nullable": true,
                 "unsigned": true,
-                "type": "string"
+                "type": "boolean"
             }
         ],
         "trash": {
@@ -1014,31 +785,31 @@
         "columns": [
             {
                 "column": "label",
-                "label": "",
+                "label": "Label",
                 "icon": "",
-                "nullable": false,
+                "nullable": true,
                 "unsigned": true,
                 "type": "string"
             },
             {
                 "column": "title",
-                "label": "",
+                "label": "Title",
                 "icon": "",
-                "nullable": false,
+                "nullable": true,
                 "unsigned": true,
                 "type": "string"
             },
             {
                 "column": "byline",
-                "label": "",
+                "label": "Byline",
                 "icon": "",
-                "nullable": false,
+                "nullable": true,
                 "unsigned": true,
                 "type": "string"
             },
             {
                 "column": "slug",
-                "label": "",
+                "label": "Slug",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -1046,31 +817,31 @@
             },
             {
                 "column": "url",
-                "label": "",
+                "label": "Url",
                 "icon": "",
-                "nullable": false,
+                "nullable": true,
                 "unsigned": true,
                 "type": "string"
             },
             {
                 "column": "description",
-                "label": "",
+                "label": "Description",
                 "icon": "",
-                "nullable": false,
+                "nullable": true,
                 "unsigned": true,
                 "type": "string"
             },
             {
                 "column": "introduction",
-                "label": "",
+                "label": "Introduction",
                 "icon": "",
-                "nullable": false,
+                "nullable": true,
                 "unsigned": true,
                 "type": "string"
             },
             {
                 "column": "content",
-                "label": "",
+                "label": "Content",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -1078,238 +849,102 @@
             },
             {
                 "column": "summary",
-                "label": "",
+                "label": "Summary",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
                 "type": "mediumText"
-            },
-            {
-                "column": "key",
-                "label": "",
-                "icon": "",
-                "nullable": false,
-                "unsigned": true,
-                "type": "string"
-            },
-            {
-                "column": "handler",
-                "label": "",
-                "icon": "",
-                "nullable": false,
-                "unsigned": true,
-                "type": "string"
-            },
-            {
-                "column": "code",
-                "label": "",
-                "icon": "",
-                "nullable": false,
-                "unsigned": true,
-                "type": "bigInteger"
-            },
-            {
-                "column": "key_code_hash",
-                "label": "",
-                "icon": "",
-                "nullable": false,
-                "unsigned": true,
-                "type": "string"
-            },
-            {
-                "column": "priority",
-                "label": "",
-                "icon": "",
-                "nullable": false,
-                "unsigned": true,
-                "type": "string"
-            },
-            {
-                "column": "severity",
-                "label": "",
-                "icon": "",
-                "nullable": false,
-                "unsigned": true,
-                "type": "string"
-            },
-            {
-                "column": "resolution",
-                "label": "",
-                "icon": "",
-                "nullable": false,
-                "unsigned": true,
-                "type": "string"
-            },
-            {
-                "column": "step",
-                "label": "",
-                "icon": "",
-                "nullable": false,
-                "unsigned": true,
-                "type": "string"
-            },
-            {
-                "column": "state",
-                "label": "",
-                "icon": "",
-                "nullable": false,
-                "unsigned": true,
-                "type": "string"
-            },
-            {
-                "column": "workflow_type",
-                "label": "",
-                "icon": "",
-                "nullable": false,
-                "unsigned": true,
-                "type": "string"
-            },
-            {
-                "column": "points",
-                "label": "",
-                "icon": "",
-                "nullable": false,
-                "unsigned": true,
-                "type": "tinyInteger"
-            },
-            {
-                "column": "actual",
-                "label": "Actual",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "mediumText"
-            },
-            {
-                "column": "expected",
-                "label": "Expected",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "mediumText"
-            },
-            {
-                "column": "steps",
-                "label": "Steps",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "mediumText"
-            },
-            {
-                "column": "story",
-                "label": "",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "mediumText"
-            },
-            {
-                "column": "criteria",
-                "label": "",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "mediumText"
-            },
-            {
-                "column": "reproducibility",
-                "label": "",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "decimal"
             }
         ],
         "permissions": [
             {
                 "column": "gids",
-                "label": "",
+                "label": "Gids",
                 "icon": "",
-                "nullable": false,
+                "nullable": true,
                 "unsigned": true,
                 "type": "bigInteger"
             },
             {
                 "column": "po",
-                "label": "",
+                "label": "Po",
                 "icon": "",
-                "nullable": false,
+                "nullable": true,
                 "unsigned": true,
                 "type": "tinyInteger"
             },
             {
                 "column": "pg",
-                "label": "",
+                "label": "Pg",
                 "icon": "",
-                "nullable": false,
+                "nullable": true,
                 "unsigned": true,
                 "type": "tinyInteger"
             },
             {
                 "column": "pw",
-                "label": "",
+                "label": "Pw",
                 "icon": "",
-                "nullable": false,
+                "nullable": true,
                 "unsigned": true,
                 "type": "tinyInteger"
             },
             {
                 "column": "only_admin",
-                "label": "Only Admin",
-                "icon": "fa-solid fa-user-gear",
-                "nullable": false,
-                "unsigned": false,
+                "label": "Only admin",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
                 "type": "boolean"
             },
             {
                 "column": "only_user",
-                "label": "Only User",
-                "icon": "fa-solid fa-user",
-                "nullable": false,
-                "unsigned": false,
+                "label": "Only user",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
                 "type": "boolean"
             },
             {
                 "column": "only_guest",
-                "label": "Only Guest",
-                "icon": "fa-solid fa-person-rays",
-                "nullable": false,
-                "unsigned": false,
+                "label": "Only guest",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
                 "type": "boolean"
             },
             {
                 "column": "allow_public",
-                "label": "Allow Public",
-                "icon": "fa-solid fa-users-line",
-                "nullable": false,
-                "unsigned": false,
+                "label": "Allow public",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
                 "type": "boolean"
             }
         ],
         "status": [
             {
                 "column": "status",
-                "label": "",
+                "label": "Status",
                 "icon": "",
-                "nullable": false,
+                "nullable": true,
                 "unsigned": true,
                 "type": "bigInteger"
             },
             {
                 "column": "rank",
-                "label": "",
+                "label": "Rank",
                 "icon": "",
-                "nullable": false,
-                "unsigned": false,
+                "nullable": true,
+                "unsigned": true,
                 "type": "bigInteger"
             },
             {
                 "column": "size",
-                "label": "",
+                "label": "Size",
                 "icon": "",
-                "nullable": false,
-                "unsigned": false,
+                "nullable": true,
+                "unsigned": true,
                 "type": "bigInteger"
             }
         ],
@@ -1406,31 +1041,31 @@
         "ui": [
             {
                 "column": "icon",
-                "label": "",
+                "label": "Icon",
                 "icon": "",
-                "nullable": false,
+                "nullable": true,
                 "unsigned": true,
                 "type": "string"
             },
             {
                 "column": "image",
-                "label": "",
+                "label": "Image",
                 "icon": "",
-                "nullable": false,
+                "nullable": true,
                 "unsigned": true,
                 "type": "string"
             },
             {
                 "column": "avatar",
-                "label": "",
+                "label": "Avatar",
                 "icon": "",
-                "nullable": false,
+                "nullable": true,
                 "unsigned": true,
                 "type": "string"
             },
             {
                 "column": "ui",
-                "label": "",
+                "label": "Ui",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -1440,7 +1075,7 @@
         "json": [
             {
                 "column": "assets",
-                "label": "",
+                "label": "Assets",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -1448,7 +1083,7 @@
             },
             {
                 "column": "backlog",
-                "label": "",
+                "label": "Backlog",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -1456,7 +1091,7 @@
             },
             {
                 "column": "board",
-                "label": "",
+                "label": "Board",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -1464,15 +1099,7 @@
             },
             {
                 "column": "flow",
-                "label": "",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "JSON_OBJECT"
-            },
-            {
-                "column": "history",
-                "label": "",
+                "label": "Flow",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -1480,7 +1107,7 @@
             },
             {
                 "column": "meta",
-                "label": "",
+                "label": "Meta",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -1488,7 +1115,7 @@
             },
             {
                 "column": "notes",
-                "label": "",
+                "label": "Notes",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -1496,7 +1123,7 @@
             },
             {
                 "column": "options",
-                "label": "",
+                "label": "Options",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -1504,7 +1131,7 @@
             },
             {
                 "column": "roadmap",
-                "label": "",
+                "label": "Roadmap",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -1512,7 +1139,7 @@
             },
             {
                 "column": "sources",
-                "label": "",
+                "label": "Sources",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -1521,96 +1148,68 @@
         ]
     },
     "models": {
-        "Backlog": "resources/configurations/playground-matrix/model.ticket.json"
+        "Team": "resources/configurations/playground-matrix/model.team.json"
     },
     "sortable": [
         {
-            "column": "id",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "uuid"
-        },
-        {
             "column": "created_by_id",
-            "label": "",
+            "label": "Created by id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
         },
         {
             "column": "modified_by_id",
-            "label": "",
+            "label": "Modified by id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
         },
         {
             "column": "owned_by_id",
-            "label": "",
+            "label": "Owned by id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
         },
         {
             "column": "parent_id",
-            "label": "",
+            "label": "Parent id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
         },
         {
-            "column": "ticket_type",
-            "label": "",
+            "column": "team_type",
+            "label": "Team type",
             "icon": "",
             "nullable": false,
             "type": "string"
         },
         {
-            "column": "duplicate_id",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "uuid"
-        },
-        {
             "column": "backlog_id",
-            "label": "",
+            "label": "Backlog id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
         },
         {
             "column": "board_id",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "uuid"
-        },
-        {
-            "column": "completed_by_id",
-            "label": "",
+            "label": "Board id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
         },
         {
             "column": "epic_id",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "uuid"
-        },
-        {
-            "column": "fixed_by_id",
-            "label": "Fixed by id",
+            "label": "Epic id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
         },
         {
             "column": "flow_id",
-            "label": "",
+            "label": "Flow id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
@@ -1624,280 +1223,238 @@
         },
         {
             "column": "milestone_id",
-            "label": "",
+            "label": "Milestone id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
         },
         {
             "column": "note_id",
-            "label": "",
+            "label": "Note id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
         },
         {
             "column": "project_id",
-            "label": "",
+            "label": "Project id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
         },
         {
             "column": "release_id",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "uuid"
-        },
-        {
-            "column": "reported_by_id",
-            "label": "",
+            "label": "Release id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
         },
         {
             "column": "roadmap_id",
-            "label": "",
+            "label": "Roadmap id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
         },
         {
             "column": "source_id",
-            "label": "",
+            "label": "Source id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
         },
         {
             "column": "sprint_id",
-            "label": "",
+            "label": "Sprint id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
         },
         {
             "column": "tag_id",
-            "label": "",
+            "label": "Tag id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
         },
         {
-            "column": "team_id",
-            "label": "",
+            "column": "ticket_id",
+            "label": "Ticket id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
         },
         {
             "column": "version_id",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "uuid"
-        },
-        {
-            "column": "version_fixed_id",
-            "label": "",
+            "label": "Version id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
         },
         {
             "column": "created_at",
-            "label": "",
+            "label": "Created At",
             "icon": "",
             "nullable": false,
             "type": "string"
         },
         {
             "column": "updated_at",
-            "label": "",
+            "label": "Updated At",
             "icon": "",
             "nullable": false,
             "type": "string"
         },
         {
             "column": "deleted_at",
-            "label": "",
+            "label": "Deleted At",
             "icon": "",
             "nullable": false,
             "type": "string"
         },
         {
             "column": "start_at",
-            "label": "",
+            "label": "Start at",
             "icon": "",
             "nullable": false,
             "type": "string"
         },
         {
             "column": "planned_start_at",
-            "label": "",
+            "label": "Planned start at",
             "icon": "",
             "nullable": false,
             "type": "string"
         },
         {
             "column": "end_at",
-            "label": "",
+            "label": "End at",
             "icon": "",
             "nullable": false,
             "type": "string"
         },
         {
             "column": "planned_end_at",
-            "label": "",
+            "label": "Planned end at",
             "icon": "",
             "nullable": false,
             "type": "string"
         },
         {
             "column": "canceled_at",
-            "label": "",
+            "label": "Canceled at",
             "icon": "",
             "nullable": false,
             "type": "string"
         },
         {
             "column": "closed_at",
-            "label": "",
+            "label": "Closed at",
             "icon": "",
             "nullable": false,
             "type": "string"
         },
         {
             "column": "embargo_at",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "fixed_at",
-            "label": "",
+            "label": "Embargo at",
             "icon": "",
             "nullable": false,
             "type": "string"
         },
         {
             "column": "postponed_at",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "published_at",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "released_at",
-            "label": "",
+            "label": "Postponed at",
             "icon": "",
             "nullable": false,
             "type": "string"
         },
         {
             "column": "resumed_at",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "resolved_at",
-            "label": "",
+            "label": "Resumed at",
             "icon": "",
             "nullable": false,
             "type": "string"
         },
         {
             "column": "suspended_at",
-            "label": "",
+            "label": "Suspended at",
             "icon": "",
             "nullable": false,
             "type": "string"
         },
         {
             "column": "gids",
-            "label": "",
+            "label": "Gids",
             "icon": "",
             "nullable": false,
             "type": "bigInteger"
         },
         {
             "column": "po",
-            "label": "",
+            "label": "Po",
             "icon": "",
             "nullable": false,
             "type": "tinyInteger"
         },
         {
             "column": "pg",
-            "label": "",
+            "label": "Pg",
             "icon": "",
             "nullable": false,
             "type": "tinyInteger"
         },
         {
             "column": "pw",
-            "label": "",
+            "label": "Pw",
             "icon": "",
             "nullable": false,
             "type": "tinyInteger"
         },
         {
             "column": "only_admin",
-            "label": "",
+            "label": "Only admin",
             "icon": "",
             "nullable": false,
             "type": "boolean"
         },
         {
             "column": "only_user",
-            "label": "",
+            "label": "Only user",
             "icon": "",
             "nullable": false,
             "type": "boolean"
         },
         {
             "column": "only_guest",
-            "label": "",
+            "label": "Only guest",
             "icon": "",
             "nullable": false,
             "type": "boolean"
         },
         {
             "column": "allow_public",
-            "label": "",
+            "label": "Allow public",
             "icon": "",
             "nullable": false,
             "type": "boolean"
         },
         {
             "column": "status",
-            "label": "",
+            "label": "Status",
             "icon": "",
             "nullable": false,
             "type": "bigInteger"
         },
         {
             "column": "rank",
-            "label": "",
+            "label": "Rank",
             "icon": "",
             "nullable": false,
             "type": "bigInteger"
         },
         {
             "column": "size",
-            "label": "",
+            "label": "Size",
             "icon": "",
             "nullable": false,
             "type": "bigInteger"
@@ -1981,21 +1538,21 @@
         },
         {
             "column": "active",
-            "label": "",
+            "label": "Active",
             "icon": "",
             "nullable": false,
             "type": "boolean"
         },
         {
             "column": "canceled",
-            "label": "",
+            "label": "Canceled",
             "icon": "",
             "nullable": false,
             "type": "boolean"
         },
         {
             "column": "closed",
-            "label": "",
+            "label": "Closed",
             "icon": "",
             "nullable": false,
             "type": "boolean"
@@ -2003,289 +1560,9 @@
         {
             "column": "completed",
             "label": "Completed",
-            "icon": "fa-solid fa-check",
-            "nullable": false,
-            "type": "boolean"
-        },
-        {
-            "column": "duplicate",
-            "label": "",
             "icon": "",
             "nullable": false,
             "type": "boolean"
-        },
-        {
-            "column": "fixed",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "boolean"
-        },
-        {
-            "column": "flagged",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "boolean"
-        },
-        {
-            "column": "internal",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "boolean"
-        },
-        {
-            "column": "locked",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "boolean"
-        },
-        {
-            "column": "pending",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "boolean"
-        },
-        {
-            "column": "planned",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "boolean"
-        },
-        {
-            "column": "problem",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "boolean"
-        },
-        {
-            "column": "published",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "boolean"
-        },
-        {
-            "column": "released",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "boolean"
-        },
-        {
-            "column": "retired",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "boolean"
-        },
-        {
-            "column": "resolved",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "boolean"
-        },
-        {
-            "column": "suspended",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "boolean"
-        },
-        {
-            "column": "unknown",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "boolean"
-        },
-        {
-            "column": "label",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "title",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "byline",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "slug",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "url",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "description",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "introduction",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "content",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "mediumText"
-        },
-        {
-            "column": "summary",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "mediumText"
-        },
-        {
-            "column": "key",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "handler",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "code",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "bigInteger"
-        },
-        {
-            "column": "key_code_hash",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "priority",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "severity",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "resolution",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "step",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "state",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "workflow_type",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "points",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "tinyInteger"
-        },
-        {
-            "column": "story",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "mediumText"
-        },
-        {
-            "column": "criteria",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "mediumText"
-        },
-        {
-            "column": "reproducibility",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "decimal"
-        },
-        {
-            "column": "icon",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "image",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "avatar",
-            "label": "",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
         },
         {
             "column": "cron",
@@ -2293,6 +1570,216 @@
             "icon": "",
             "nullable": false,
             "type": "boolean"
+        },
+        {
+            "column": "flagged",
+            "label": "Flagged",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "internal",
+            "label": "Internal",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "locked",
+            "label": "Locked",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "pending",
+            "label": "Pending",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "planned",
+            "label": "Planned",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "problem",
+            "label": "Problem",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "retired",
+            "label": "Retired",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "suspended",
+            "label": "Suspended",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "unknown",
+            "label": "Unknown",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "label",
+            "label": "Label",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "title",
+            "label": "Title",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "byline",
+            "label": "Byline",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "slug",
+            "label": "Slug",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "url",
+            "label": "Url",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "description",
+            "label": "Description",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "introduction",
+            "label": "Introduction",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "content",
+            "label": "Content",
+            "icon": "",
+            "nullable": false,
+            "type": "mediumText"
+        },
+        {
+            "column": "summary",
+            "label": "Summary",
+            "icon": "",
+            "nullable": false,
+            "type": "mediumText"
+        },
+        {
+            "column": "label",
+            "label": "Label",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "title",
+            "label": "Title",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "byline",
+            "label": "Byline",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "slug",
+            "label": "Slug",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "url",
+            "label": "Url",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "description",
+            "label": "Description",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "introduction",
+            "label": "Introduction",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "content",
+            "label": "Content",
+            "icon": "",
+            "nullable": false,
+            "type": "mediumText"
+        },
+        {
+            "column": "summary",
+            "label": "Summary",
+            "icon": "",
+            "nullable": false,
+            "type": "mediumText"
+        },
+        {
+            "column": "icon",
+            "label": "Icon",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "image",
+            "label": "Image",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "avatar",
+            "label": "Avatar",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
         },
         {
             "column": "ui",
@@ -2325,13 +1812,6 @@
         {
             "column": "flow",
             "label": "Flow",
-            "icon": "",
-            "nullable": false,
-            "type": "JSON_OBJECT"
-        },
-        {
-            "column": "history",
-            "label": "History",
             "icon": "",
             "nullable": false,
             "type": "JSON_OBJECT"
@@ -2370,31 +1850,10 @@
             "icon": "",
             "nullable": false,
             "type": "JSON_OBJECT"
-        },
-        {
-            "column": "actual",
-            "label": "Actual",
-            "icon": "",
-            "nullable": false,
-            "type": "mediumText"
-        },
-        {
-            "column": "expected",
-            "label": "Expected",
-            "icon": "",
-            "nullable": false,
-            "type": "mediumText"
-        },
-        {
-            "column": "steps",
-            "label": "Steps",
-            "icon": "",
-            "nullable": false,
-            "type": "mediumText"
         }
     ],
     "create": {
-        "migration": "2020_01_02_100001_create_matrix_tickets_table",
+        "migration": "2020_01_02_100001_create_matrix_teams_table",
         "primary": "uuid",
         "timestamps": true,
         "softDeletes": true,
@@ -2461,8 +1920,8 @@
                 "unsigned": false,
                 "type": "uuid"
             },
-            "ticket_type": {
-                "column": "ticket_type",
+            "team_type": {
+                "column": "team_type",
                 "label": "",
                 "description": "",
                 "foreign": null,
@@ -2472,21 +1931,6 @@
                 "readOnly": false,
                 "unsigned": false,
                 "type": "string"
-            },
-            "duplicate_id": {
-                "column": "duplicate_id",
-                "label": "",
-                "description": "",
-                "foreign": {
-                    "references": "id",
-                    "on": "matrix_tickets"
-                },
-                "icon": "",
-                "index": true,
-                "nullable": true,
-                "readOnly": false,
-                "unsigned": false,
-                "type": "uuid"
             },
             "backlog_id": {
                 "column": "backlog_id",
@@ -2518,21 +1962,6 @@
                 "unsigned": false,
                 "type": "uuid"
             },
-            "completed_by_id": {
-                "column": "completed_by_id",
-                "label": "",
-                "description": "",
-                "foreign": {
-                    "references": "id",
-                    "on": "users"
-                },
-                "icon": "",
-                "index": true,
-                "nullable": true,
-                "readOnly": false,
-                "unsigned": false,
-                "type": "uuid"
-            },
             "epic_id": {
                 "column": "epic_id",
                 "label": "",
@@ -2540,21 +1969,6 @@
                 "foreign": {
                     "references": "id",
                     "on": "matrix_epics"
-                },
-                "icon": "",
-                "index": true,
-                "nullable": true,
-                "readOnly": false,
-                "unsigned": false,
-                "type": "uuid"
-            },
-            "fixed_by_id": {
-                "column": "fixed_by_id",
-                "label": "",
-                "description": "",
-                "foreign": {
-                    "references": "id",
-                    "on": "users"
                 },
                 "icon": "",
                 "index": true,
@@ -2653,21 +2067,6 @@
                 "unsigned": false,
                 "type": "uuid"
             },
-            "reported_by_id": {
-                "column": "reported_by_id",
-                "label": "",
-                "description": "",
-                "foreign": {
-                    "references": "id",
-                    "on": "users"
-                },
-                "icon": "",
-                "index": true,
-                "nullable": true,
-                "readOnly": false,
-                "unsigned": false,
-                "type": "uuid"
-            },
             "roadmap_id": {
                 "column": "roadmap_id",
                 "label": "",
@@ -2728,13 +2127,13 @@
                 "unsigned": false,
                 "type": "uuid"
             },
-            "team_id": {
-                "column": "team_id",
+            "ticket_id": {
+                "column": "ticket_id",
                 "label": "",
                 "description": "",
                 "foreign": {
                     "references": "id",
-                    "on": "matrix_teams"
+                    "on": "matrix_tickets"
                 },
                 "icon": "",
                 "index": true,
@@ -2757,21 +2156,6 @@
                 "readOnly": false,
                 "unsigned": false,
                 "type": "uuid"
-            },
-            "version_fixed_id": {
-                "column": "version_fixed_id",
-                "label": "",
-                "description": "",
-                "foreign": {
-                    "references": "id",
-                    "on": "matrix_versions"
-                },
-                "icon": "",
-                "index": true,
-                "nullable": true,
-                "readOnly": false,
-                "unsigned": false,
-                "type": "uuid"
             }
         },
         "unique": [
@@ -2779,11 +2163,6 @@
                 "keys": [
                     "slug",
                     "parent_id"
-                ]
-            },
-            {
-                "keys": [
-                    "key_code_hash"
                 ]
             }
         ],
@@ -2858,39 +2237,9 @@
                 "readOnly": false,
                 "type": "dateTime"
             },
-            "fixed_at": {
-                "column": "fixed_at",
-                "label": "Fixed at",
-                "description": "",
-                "icon": "",
-                "index": false,
-                "nullable": true,
-                "readOnly": false,
-                "type": "dateTime"
-            },
             "postponed_at": {
                 "column": "postponed_at",
                 "label": "Postponed at",
-                "description": "",
-                "icon": "",
-                "index": false,
-                "nullable": true,
-                "readOnly": false,
-                "type": "dateTime"
-            },
-            "published_at": {
-                "column": "published_at",
-                "label": "Published at",
-                "description": "",
-                "icon": "",
-                "index": false,
-                "nullable": true,
-                "readOnly": false,
-                "type": "dateTime"
-            },
-            "released_at": {
-                "column": "released_at",
-                "label": "Released at",
                 "description": "",
                 "icon": "",
                 "index": false,
@@ -2904,16 +2253,6 @@
                 "description": "",
                 "icon": "",
                 "index": false,
-                "nullable": true,
-                "readOnly": false,
-                "type": "dateTime"
-            },
-            "resolved_at": {
-                "column": "resolved_at",
-                "label": "Resolved at",
-                "description": "",
-                "icon": "",
-                "index": true,
                 "nullable": true,
                 "readOnly": false,
                 "type": "dateTime"
@@ -2985,28 +2324,6 @@
                 "readOnly": false,
                 "type": "boolean"
             },
-            "duplicate": {
-                "column": "duplicate",
-                "label": "Duplicate",
-                "description": "",
-                "icon": "fa-solid fa-clone",
-                "default": false,
-                "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "boolean"
-            },
-            "fixed": {
-                "column": "fixed",
-                "label": "Fixed",
-                "description": "",
-                "icon": "fa-solid fa-wrench",
-                "default": false,
-                "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "boolean"
-            },
             "flagged": {
                 "column": "flagged",
                 "label": "Flagged",
@@ -3062,17 +2379,6 @@
                 "readOnly": false,
                 "type": "boolean"
             },
-            "prioritized": {
-                "column": "prioritized",
-                "label": "",
-                "description": "",
-                "icon": "fa-solid fa-triangle-exclamation text-success",
-                "default": false,
-                "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "boolean"
-            },
             "problem": {
                 "column": "problem",
                 "label": "Problem",
@@ -3084,55 +2390,11 @@
                 "readOnly": false,
                 "type": "boolean"
             },
-            "published": {
-                "column": "published",
-                "label": "Published",
-                "description": "",
-                "icon": "fa-solid fa-book",
-                "default": false,
-                "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "boolean"
-            },
-            "released": {
-                "column": "released",
-                "label": "Released",
-                "description": "",
-                "icon": "fa-solid fa-dove",
-                "default": false,
-                "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "boolean"
-            },
             "retired": {
                 "column": "retired",
                 "label": "Retired",
                 "description": "",
                 "icon": "fa-solid fa-chair text-success",
-                "default": false,
-                "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "boolean"
-            },
-            "resolved": {
-                "column": "resolved",
-                "label": "Resolved",
-                "description": "",
-                "icon": "fa-solid fa-check-double text-success",
-                "default": false,
-                "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "boolean"
-            },
-            "special": {
-                "column": "special",
-                "label": "",
-                "description": "",
-                "icon": "fa-solid fa-star text-success",
                 "default": false,
                 "index": false,
                 "nullable": false,
@@ -3266,193 +2528,6 @@
                 "nullable": true,
                 "readOnly": false,
                 "type": "mediumText"
-            },
-            "handler": {
-                "column": "handler",
-                "label": "Handler",
-                "description": "",
-                "icon": "",
-                "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "string",
-                "default": ""
-            },
-            "key": {
-                "column": "key",
-                "label": "Project Key",
-                "description": "",
-                "icon": "",
-                "index": true,
-                "nullable": true,
-                "readOnly": true,
-                "type": "string",
-                "size": 32,
-                "default": null
-            },
-            "code": {
-                "column": "code",
-                "label": "Ticket Key Code",
-                "description": "",
-                "icon": "",
-                "index": true,
-                "nullable": true,
-                "readOnly": true,
-                "type": "bigInteger",
-                "unsigned": true,
-                "default": null
-            },
-            "key_code_hash": {
-                "column": "key_code_hash",
-                "label": "",
-                "description": "",
-                "icon": "",
-                "index": false,
-                "nullable": true,
-                "readOnly": true,
-                "type": "string",
-                "default": null
-            },
-            "priority": {
-                "column": "priority",
-                "label": "",
-                "description": "",
-                "icon": "",
-                "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "string",
-                "default": ""
-            },
-            "severity": {
-                "column": "severity",
-                "label": "",
-                "description": "",
-                "icon": "",
-                "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "string",
-                "default": ""
-            },
-            "resolution": {
-                "column": "resolution",
-                "label": "",
-                "description": "",
-                "icon": "",
-                "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "string",
-                "default": ""
-            },
-            "step": {
-                "column": "step",
-                "label": "",
-                "description": "",
-                "icon": "",
-                "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "string",
-                "default": ""
-            },
-            "state": {
-                "column": "state",
-                "label": "",
-                "description": "",
-                "icon": "",
-                "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "string",
-                "default": ""
-            },
-            "workflow_type": {
-                "column": "workflow_type",
-                "label": "",
-                "description": "",
-                "icon": "",
-                "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "string",
-                "default": ""
-            },
-            "points": {
-                "column": "points",
-                "label": "",
-                "description": "",
-                "icon": "",
-                "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "tinyInteger",
-                "unsigned": true,
-                "default": 0
-            },
-            "actual": {
-                "column": "actual",
-                "label": "",
-                "description": "",
-                "icon": "",
-                "index": false,
-                "nullable": true,
-                "readOnly": false,
-                "type": "mediumText"
-            },
-            "expected": {
-                "column": "expected",
-                "label": "",
-                "description": "",
-                "icon": "",
-                "index": false,
-                "nullable": true,
-                "readOnly": false,
-                "type": "mediumText"
-            },
-            "story": {
-                "column": "story",
-                "label": "",
-                "description": "",
-                "icon": "",
-                "index": false,
-                "nullable": true,
-                "readOnly": false,
-                "type": "mediumText"
-            },
-            "steps": {
-                "column": "steps",
-                "label": "",
-                "description": "",
-                "icon": "",
-                "index": false,
-                "nullable": true,
-                "readOnly": false,
-                "type": "mediumText"
-            },
-            "criteria": {
-                "column": "criteria",
-                "label": "",
-                "description": "",
-                "icon": "",
-                "index": false,
-                "nullable": true,
-                "readOnly": false,
-                "type": "mediumText"
-            },
-            "reproducibility": {
-                "column": "reproducibility",
-                "label": "",
-                "description": "",
-                "icon": "",
-                "index": false,
-                "nullable": true,
-                "readOnly": false,
-                "type": "decimal",
-                "precision": 8,
-                "scale": 2,
-                "default": null
             }
         },
         "permissions": {
@@ -3813,17 +2888,6 @@
             "flow": {
                 "column": "flow",
                 "label": "Flow",
-                "description": "",
-                "icon": "",
-                "index": false,
-                "nullable": true,
-                "readOnly": false,
-                "type": "JSON_OBJECT",
-                "default": "{}"
-            },
-            "history": {
-                "column": "history",
-                "label": "History",
                 "description": "",
                 "icon": "",
                 "index": false,

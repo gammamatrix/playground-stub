@@ -25,6 +25,7 @@ trait BuildColumns
         $allowed = [
             'uuid',
             'ulid',
+            'char',
             'string',
             'mediumText',
             'boolean',
@@ -38,6 +39,11 @@ trait BuildColumns
             'float',
             'double',
         ];
+
+        $size = null;
+        if (! empty($meta['size']) && is_numeric($meta['size']) && $meta['size'] > 0) {
+            $size = $meta['size'];
+        }
 
         $type = empty($meta['type']) || ! is_string($meta['type']) ? '' : $meta['type'];
 
@@ -71,6 +77,18 @@ trait BuildColumns
                 $attribute,
                 empty($meta['precision']) || ! is_numeric($meta['precision']) || $meta['precision'] < 1 ? 8 : intval($meta['precision']),
                 empty($meta['scale']) || ! is_numeric($meta['scale']) || $meta['scale'] < 1 ? 2 : intval($meta['scale'])
+            );
+        } elseif ($size && in_array($type, [
+            'string',
+            'char',
+        ])) {
+            $column = sprintf(
+                '%1$s%2$s$table->%3$s(\'%4$s\', %5$d)',
+                PHP_EOL,
+                str_repeat(' ', 12),
+                $type,
+                $attribute,
+                $size,
             );
         } else {
             $column = sprintf(

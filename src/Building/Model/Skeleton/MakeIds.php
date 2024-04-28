@@ -72,24 +72,24 @@ trait MakeIds
      * @var array<string, array<string, mixed>>
      */
     protected array $skeleton_ids_package = [
-        'backlog_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_backlogs',
-            ],
-        ],
-        'board_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_boards',
-            ],
-        ],
+        // 'backlog_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_backlogs',
+        //     ],
+        // ],
+        // 'board_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_boards',
+        //     ],
+        // ],
         // 'completed_by_id' => [
         //     'type' => 'uuid',
         //     'nullable' => true,
@@ -108,15 +108,15 @@ trait MakeIds
         //         'on' => 'matrix_tickets',
         //     ],
         // ],
-        'epic_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_epics',
-            ],
-        ],
+        // 'epic_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_epics',
+        //     ],
+        // ],
         // 'fixed_by_id' => [
         //     'type' => 'uuid',
         //     'nullable' => true,
@@ -126,15 +126,15 @@ trait MakeIds
         //         'on' => 'users',
         //     ],
         // ],
-        'flow_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_flows',
-            ],
-        ],
+        // 'flow_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_flows',
+        //     ],
+        // ],
         'matrix_id' => [
             'type' => 'uuid',
             'nullable' => true,
@@ -153,33 +153,33 @@ trait MakeIds
         //         'on' => 'matrix_milestones',
         //     ],
         // ],
-        'note_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_notes',
-            ],
-        ],
-        'project_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_projects',
-            ],
-        ],
-        'release_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_releases',
-            ],
-        ],
+        // 'note_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_notes',
+        //     ],
+        // ],
+        // 'project_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_projects',
+        //     ],
+        // ],
+        // 'release_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_releases',
+        //     ],
+        // ],
         // 'reported_by_id' => [
         //     'type' => 'uuid',
         //     'nullable' => true,
@@ -189,60 +189,60 @@ trait MakeIds
         //         'on' => 'users',
         //     ],
         // ],
-        'roadmap_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_roadmaps',
-            ],
-        ],
-        'source_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_sources',
-            ],
-        ],
-        'sprint_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_sprints',
-            ],
-        ],
-        'tag_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_tags',
-            ],
-        ],
-        'team_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_teams',
-            ],
-        ],
-        'ticket_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_tickets',
-            ],
-        ],
+        // 'roadmap_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_roadmaps',
+        //     ],
+        // ],
+        // 'source_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_sources',
+        //     ],
+        // ],
+        // 'sprint_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_sprints',
+        //     ],
+        // ],
+        // 'tag_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_tags',
+        //     ],
+        // ],
+        // 'team_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_teams',
+        //     ],
+        // ],
+        // 'ticket_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_tickets',
+        //     ],
+        // ],
         // 'version_fixed_id' => [
         //     'type' => 'uuid',
         //     'nullable' => true,
@@ -252,15 +252,15 @@ trait MakeIds
         //         'on' => 'matrix_versions',
         //     ],
         // ],
-        'version_id' => [
-            'type' => 'uuid',
-            'nullable' => true,
-            'index' => true,
-            'foreign' => [
-                'references' => 'id',
-                'on' => 'matrix_versions',
-            ],
-        ],
+        // 'version_id' => [
+        //     'type' => 'uuid',
+        //     'nullable' => true,
+        //     'index' => true,
+        //     'foreign' => [
+        //         'references' => 'id',
+        //         'on' => 'matrix_versions',
+        //     ],
+        // ],
     ];
 
     /**

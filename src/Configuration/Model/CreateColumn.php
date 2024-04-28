@@ -32,6 +32,8 @@ class CreateColumn extends ModelConfiguration
 
     protected ?int $scale = null;
 
+    protected ?int $size = null;
+
     protected bool $readOnly = false;
 
     protected bool $nullable = false;
@@ -55,6 +57,7 @@ class CreateColumn extends ModelConfiguration
         // 'default' => null,
         // 'precision' => null,
         // 'scale' => null,
+        // 'size' => null,
         'index' => false,
         'nullable' => false,
         'readOnly' => false,
@@ -68,6 +71,7 @@ class CreateColumn extends ModelConfiguration
         'uuid',
         'ulid',
         'string',
+        'char',
         'smallText',
         'mediumText',
         'text',
@@ -144,6 +148,19 @@ class CreateColumn extends ModelConfiguration
             }
 
             $this->properties['scale'] = $this->scale;
+        }
+
+        if (in_array($this->type, [
+            'char',
+            'string',
+        ])) {
+            if (! empty($options['size'])
+                && is_numeric($options['size'])
+                && $options['size'] > 0
+            ) {
+                $this->size = intval($options['size']);
+                $this->properties['size'] = $this->size;
+            }
         }
 
         if (array_key_exists('index', $options)) {

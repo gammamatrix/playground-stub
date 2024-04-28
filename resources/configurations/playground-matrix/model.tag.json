@@ -1,19 +1,19 @@
 {
-    "class": "Note",
+    "class": "Tag",
     "config": "playground-matrix",
-    "fqdn": "Playground/Matrix/Models/Note",
+    "fqdn": "Playground/Matrix/Models/Tag",
     "module": "Matrix",
     "module_slug": "matrix",
-    "name": "Note",
+    "name": "Tag",
     "namespace": "Playground/Matrix",
     "organization": "Playground",
     "package": "playground-matrix",
-    "model": "Note",
+    "model": "Tag",
     "model_plural": "",
     "model_singular": "",
     "model_slug": "",
     "type": "playground-resource",
-    "table": "matrix_notes",
+    "table": "matrix_tags",
     "perPage": null,
     "controller": true,
     "factory": true,
@@ -27,18 +27,11 @@
     "implements": [],
     "HasOne": {
         "matrix": {
-            "comment": "The matrix of the note.",
+            "comment": "The matrix of the tag.",
             "accessor": "matrix",
             "related": "Matrix",
             "foreignKey": "id",
             "localKey": "matrix_id"
-        },
-        "tag": {
-            "comment": "The tag of the note.",
-            "accessor": "tag",
-            "related": "Tag",
-            "foreignKey": "id",
-            "localKey": "tag_id"
         }
     },
     "HasMany": [],
@@ -53,9 +46,8 @@
         "modified_by_id": null,
         "owned_by_id": null,
         "parent_id": null,
-        "note_type": null,
+        "tag_type": null,
         "matrix_id": null,
-        "tag_id": null,
         "created_at": null,
         "updated_at": null,
         "deleted_at": null,
@@ -82,15 +74,10 @@
         "latitude": null,
         "longitude": null,
         "active": true,
-        "canceled": false,
-        "closed": false,
-        "completed": false,
         "flagged": false,
         "internal": false,
         "locked": false,
-        "pending": false,
-        "planned": false,
-        "problem": false,
+        "retired": false,
         "unknown": false,
         "label": "",
         "title": "",
@@ -112,7 +99,7 @@
         "sources": "{}"
     },
     "casts": {
-        "note_type": "string",
+        "tag_type": "string",
         "created_at": "datetime",
         "updated_at": "datetime",
         "deleted_at": "datetime",
@@ -139,15 +126,10 @@
         "latitude": "float",
         "longitude": "float",
         "active": "boolean",
-        "canceled": "boolean",
-        "closed": "boolean",
-        "completed": "boolean",
         "flagged": "boolean",
         "internal": "boolean",
         "locked": "boolean",
-        "pending": "boolean",
-        "planned": "boolean",
-        "problem": "boolean",
+        "retired": "boolean",
         "unknown": "boolean",
         "label": "string",
         "title": "string",
@@ -171,9 +153,8 @@
     "fillable": [
         "owned_by_id",
         "parent_id",
-        "note_type",
+        "tag_type",
         "matrix_id",
-        "tag_id",
         "gids",
         "po",
         "pg",
@@ -197,15 +178,10 @@
         "latitude",
         "longitude",
         "active",
-        "canceled",
-        "closed",
-        "completed",
         "flagged",
         "internal",
         "locked",
-        "pending",
-        "planned",
-        "problem",
+        "retired",
         "unknown",
         "label",
         "title",
@@ -253,12 +229,12 @@
                 "type": "uuid"
             },
             {
-                "column": "note_type",
-                "label": "Note type",
+                "column": "modified_by_id",
+                "label": "Modified by id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
-                "type": "string"
+                "type": "uuid"
             },
             {
                 "column": "owned_by_id",
@@ -277,8 +253,16 @@
                 "type": "uuid"
             },
             {
-                "column": "tag_id",
-                "label": "Tag id",
+                "column": "tag_type",
+                "label": "Tag type",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "owned_by_id",
+                "label": "Owned by id",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -321,30 +305,6 @@
                 "type": "boolean"
             },
             {
-                "column": "canceled",
-                "label": "Canceled",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "boolean"
-            },
-            {
-                "column": "closed",
-                "label": "Closed",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "boolean"
-            },
-            {
-                "column": "completed",
-                "label": "Completed",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "boolean"
-            },
-            {
                 "column": "flagged",
                 "label": "Flagged",
                 "icon": "",
@@ -369,24 +329,8 @@
                 "type": "boolean"
             },
             {
-                "column": "pending",
-                "label": "Pending",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "boolean"
-            },
-            {
-                "column": "planned",
-                "label": "Planned",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "boolean"
-            },
-            {
-                "column": "problem",
-                "label": "Problem",
+                "column": "retired",
+                "label": "Retired",
                 "icon": "",
                 "nullable": true,
                 "unsigned": true,
@@ -740,7 +684,7 @@
         ]
     },
     "models": {
-        "Note": "resources/configurations/playground-matrix/model.note.json"
+        "Tag": "resources/configurations/playground-matrix/model.tag.json"
     },
     "sortable": [
         {
@@ -772,8 +716,8 @@
             "type": "uuid"
         },
         {
-            "column": "note_type",
-            "label": "Note type",
+            "column": "tag_type",
+            "label": "Tag type",
             "icon": "",
             "nullable": false,
             "type": "string"
@@ -781,13 +725,6 @@
         {
             "column": "matrix_id",
             "label": "Matrix id",
-            "icon": "",
-            "nullable": false,
-            "type": "uuid"
-        },
-        {
-            "column": "tag_id",
-            "label": "Tag id",
             "icon": "",
             "nullable": false,
             "type": "uuid"
@@ -975,27 +912,6 @@
             "type": "boolean"
         },
         {
-            "column": "canceled",
-            "label": "Canceled",
-            "icon": "",
-            "nullable": false,
-            "type": "boolean"
-        },
-        {
-            "column": "closed",
-            "label": "Closed",
-            "icon": "",
-            "nullable": false,
-            "type": "boolean"
-        },
-        {
-            "column": "completed",
-            "label": "Completed",
-            "icon": "",
-            "nullable": false,
-            "type": "boolean"
-        },
-        {
             "column": "flagged",
             "label": "Flagged",
             "icon": "",
@@ -1017,22 +933,8 @@
             "type": "boolean"
         },
         {
-            "column": "pending",
-            "label": "Pending",
-            "icon": "",
-            "nullable": false,
-            "type": "boolean"
-        },
-        {
-            "column": "planned",
-            "label": "Planned",
-            "icon": "",
-            "nullable": false,
-            "type": "boolean"
-        },
-        {
-            "column": "problem",
-            "label": "Problem",
+            "column": "retired",
+            "label": "Retired",
             "icon": "",
             "nullable": false,
             "type": "boolean"
@@ -1235,7 +1137,7 @@
         }
     ],
     "create": {
-        "migration": "2020_01_02_100001_create_matrix_notes_table",
+        "migration": "2020_01_02_100001_create_matrix_tags_table",
         "primary": "uuid",
         "timestamps": true,
         "softDeletes": true,
@@ -1302,8 +1204,8 @@
                 "unsigned": false,
                 "type": "uuid"
             },
-            "note_type": {
-                "column": "note_type",
+            "tag_type": {
+                "column": "tag_type",
                 "label": "",
                 "description": "",
                 "foreign": null,
@@ -1321,21 +1223,6 @@
                 "foreign": {
                     "references": "id",
                     "on": "matrix_matrices"
-                },
-                "icon": "",
-                "index": true,
-                "nullable": true,
-                "readOnly": false,
-                "unsigned": false,
-                "type": "uuid"
-            },
-            "tag_id": {
-                "column": "tag_id",
-                "label": "",
-                "description": "",
-                "foreign": {
-                    "references": "id",
-                    "on": "matrix_tags"
                 },
                 "icon": "",
                 "index": true,
@@ -1362,39 +1249,6 @@
                 "icon": "fa-solid fa-person-running",
                 "default": true,
                 "index": true,
-                "nullable": false,
-                "readOnly": false,
-                "type": "boolean"
-            },
-            "canceled": {
-                "column": "canceled",
-                "label": "Canceled",
-                "description": "",
-                "icon": "fa-solid fa-ban text-warning",
-                "default": false,
-                "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "boolean"
-            },
-            "closed": {
-                "column": "closed",
-                "label": "Closed",
-                "description": "",
-                "icon": "fa-solid fa-xmark",
-                "default": false,
-                "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "boolean"
-            },
-            "completed": {
-                "column": "completed",
-                "label": "Completed",
-                "description": "",
-                "icon": "fa-solid fa-check",
-                "default": false,
-                "index": false,
                 "nullable": false,
                 "readOnly": false,
                 "type": "boolean"
@@ -1432,33 +1286,11 @@
                 "readOnly": false,
                 "type": "boolean"
             },
-            "pending": {
-                "column": "pending",
-                "label": "Pending",
+            "retired": {
+                "column": "retired",
+                "label": "Retired",
                 "description": "",
-                "icon": "fa-solid fa-circle-pause text-warning",
-                "default": false,
-                "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "boolean"
-            },
-            "planned": {
-                "column": "planned",
-                "label": "Planned",
-                "description": "",
-                "icon": "fa-solid fa-circle-pause text-success",
-                "default": false,
-                "index": false,
-                "nullable": false,
-                "readOnly": false,
-                "type": "boolean"
-            },
-            "problem": {
-                "column": "problem",
-                "label": "Problem",
-                "description": "",
-                "icon": "fa-solid fa-triangle-exclamation text-danger",
+                "icon": "fa-solid fa-chair text-success",
                 "default": false,
                 "index": false,
                 "nullable": false,

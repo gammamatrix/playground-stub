@@ -97,6 +97,7 @@ class InstanceTest extends TestCase
             'uuid',
             'ulid',
             'string',
+            'char',
             'smallText',
             'mediumText',
             'text',

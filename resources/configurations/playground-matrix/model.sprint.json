@@ -61,6 +61,13 @@
             "foreignKey": "id",
             "localKey": "matrix_id"
         },
+        "note": {
+            "comment": "The note of the sprint.",
+            "accessor": "note",
+            "related": "Note",
+            "foreignKey": "id",
+            "localKey": "note_id"
+        },
         "milestone": {
             "comment": "The milestone of the sprint.",
             "accessor": "milestone",
@@ -2147,6 +2154,21 @@
                 "unsigned": false,
                 "type": "uuid"
             },
+            "matrix_id": {
+                "column": "matrix_id",
+                "label": "",
+                "description": "",
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_matrices"
+                },
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": false,
+                "unsigned": false,
+                "type": "uuid"
+            },
             "milestone_id": {
                 "column": "milestone_id",
                 "label": "",
@@ -2289,21 +2311,6 @@
                 "foreign": {
                     "references": "id",
                     "on": "matrix_versions"
-                },
-                "icon": "",
-                "index": true,
-                "nullable": true,
-                "readOnly": false,
-                "unsigned": false,
-                "type": "uuid"
-            },
-            "matrix_id": {
-                "column": "matrix_id",
-                "label": "",
-                "description": "",
-                "foreign": {
-                    "references": "id",
-                    "on": "matrix_matrices"
                 },
                 "icon": "",
                 "index": true,
@@ -2684,6 +2691,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 128,
                 "default": ""
             },
             "title": {
@@ -2695,6 +2703,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 255,
                 "default": ""
             },
             "byline": {
@@ -2706,6 +2715,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 255,
                 "default": ""
             },
             "slug": {
@@ -2717,6 +2727,7 @@
                 "nullable": true,
                 "readOnly": false,
                 "type": "string",
+                "size": 128,
                 "default": null
             },
             "url": {
@@ -2728,6 +2739,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 512,
                 "default": ""
             },
             "description": {
@@ -2739,6 +2751,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 512,
                 "default": ""
             },
             "introduction": {
@@ -2750,6 +2763,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 512,
                 "default": ""
             },
             "content": {
@@ -3055,6 +3069,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 128,
                 "default": ""
             },
             "image": {
@@ -3066,6 +3081,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 512,
                 "default": ""
             },
             "avatar": {
@@ -3077,6 +3093,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 512,
                 "default": ""
             },
             "ui": {

@@ -755,14 +755,6 @@
                 "type": "boolean"
             },
             {
-                "column": "cron",
-                "label": "Cron",
-                "icon": "",
-                "nullable": true,
-                "unsigned": true,
-                "type": "boolean"
-            },
-            {
                 "column": "canceled",
                 "label": "Canceled",
                 "icon": "fa-solid fa-ban text-warning",
@@ -785,6 +777,14 @@
                 "nullable": false,
                 "unsigned": true,
                 "type": "string"
+            },
+            {
+                "column": "cron",
+                "label": "Cron",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
             },
             {
                 "column": "duplicate",
@@ -2680,6 +2680,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 128,
                 "default": ""
             },
             "title": {
@@ -2691,6 +2692,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 255,
                 "default": ""
             },
             "byline": {
@@ -2702,6 +2704,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 255,
                 "default": ""
             },
             "slug": {
@@ -2713,6 +2716,7 @@
                 "nullable": true,
                 "readOnly": false,
                 "type": "string",
+                "size": 128,
                 "default": null
             },
             "url": {
@@ -2724,6 +2728,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 512,
                 "default": ""
             },
             "description": {
@@ -2735,6 +2740,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 512,
                 "default": ""
             },
             "introduction": {
@@ -2746,6 +2752,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 512,
                 "default": ""
             },
             "content": {
@@ -3051,6 +3058,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 128,
                 "default": ""
             },
             "image": {
@@ -3062,6 +3070,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 512,
                 "default": ""
             },
             "avatar": {
@@ -3073,6 +3082,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 512,
                 "default": ""
             },
             "ui": {

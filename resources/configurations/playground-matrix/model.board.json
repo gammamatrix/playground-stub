@@ -61,6 +61,13 @@
             "foreignKey": "id",
             "localKey": "milestone_id"
         },
+        "note": {
+            "comment": "The note of the board.",
+            "accessor": "note",
+            "related": "Note",
+            "foreignKey": "id",
+            "localKey": "note_id"
+        },
         "project": {
             "comment": "The project of the board.",
             "accessor": "project",
@@ -268,13 +275,13 @@
         "x": "integer",
         "y": "integer",
         "z": "integer",
-        "r": "decimal",
-        "theta": "decimal",
-        "rho": "decimal",
-        "phi": "decimal",
-        "elevation": "decimal",
-        "latitude": "decimal",
-        "longitude": "decimal",
+        "r": "float",
+        "theta": "float",
+        "rho": "float",
+        "phi": "float",
+        "elevation": "float",
+        "latitude": "float",
+        "longitude": "float",
         "active": "boolean",
         "canceled": "boolean",
         "closed": "boolean",
@@ -2684,6 +2691,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 128,
                 "default": ""
             },
             "title": {
@@ -2695,6 +2703,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 255,
                 "default": ""
             },
             "byline": {
@@ -2706,6 +2715,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 255,
                 "default": ""
             },
             "slug": {
@@ -2717,6 +2727,7 @@
                 "nullable": true,
                 "readOnly": false,
                 "type": "string",
+                "size": 128,
                 "default": null
             },
             "url": {
@@ -2728,6 +2739,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 512,
                 "default": ""
             },
             "description": {
@@ -2739,6 +2751,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 512,
                 "default": ""
             },
             "introduction": {
@@ -2750,6 +2763,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 512,
                 "default": ""
             },
             "content": {
@@ -3055,6 +3069,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 128,
                 "default": ""
             },
             "image": {
@@ -3066,6 +3081,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 512,
                 "default": ""
             },
             "avatar": {
@@ -3077,6 +3093,7 @@
                 "nullable": false,
                 "readOnly": false,
                 "type": "string",
+                "size": 512,
                 "default": ""
             },
             "ui": {
