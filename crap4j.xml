@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-27 17:15:25</timestamp>
+  <timestamp>2024-04-28 19:44:49</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>644</methodCount>
-    <crapMethodCount>32</crapMethodCount>
-    <crapLoad>373</crapLoad>
-    <totalCrap>8179.66</totalCrap>
-    <crapMethodPercent>4.97</crapMethodPercent>
+    <crapMethodCount>33</crapMethodCount>
+    <crapLoad>383</crapLoad>
+    <totalCrap>8206.53</totalCrap>
+    <crapMethodPercent>5.12</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -193,10 +193,10 @@
       <methodName>buildClass_column</methodName>
       <methodSignature>buildClass_column(string $attribute, array $meta, string $group): string</methodSignature>
       <fullMethod>buildClass_column(string $attribute, array $meta, string $group): string</fullMethod>
-      <crap>35.93</crap>
-      <complexity>21</complexity>
-      <coverage>67.65</coverage>
-      <crapLoad>0</crapLoad>
+      <crap>59.98</crap>
+      <complexity>26</complexity>
+      <coverage>63.1</coverage>
+      <crapLoad>10</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Building\Migration</package>
@@ -1381,9 +1381,9 @@
       <methodName>doc_model_column</methodName>
       <methodSignature>doc_model_column(string $name, string $column, array $meta, string $section): void</methodSignature>
       <fullMethod>doc_model_column(string $name, string $column, array $meta, string $section): void</fullMethod>
-      <crap>23.88</crap>
+      <crap>23.47</crap>
       <complexity>21</complexity>
-      <coverage>81.31</coverage>
+      <coverage>82.24</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -2976,9 +2976,9 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>34.81</crap>
-      <complexity>29</complexity>
-      <coverage>80.95</coverage>
+      <crap>38.04</crap>
+      <complexity>33</complexity>
+      <coverage>83.33</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
