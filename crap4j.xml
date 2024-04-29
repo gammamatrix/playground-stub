@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-28 19:44:49</timestamp>
+  <timestamp>2024-04-29 23:53:33</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>644</methodCount>
-    <crapMethodCount>33</crapMethodCount>
-    <crapLoad>383</crapLoad>
-    <totalCrap>8206.53</totalCrap>
-    <crapMethodPercent>5.12</crapMethodPercent>
+    <methodCount>646</methodCount>
+    <crapMethodCount>27</crapMethodCount>
+    <crapLoad>304</crapLoad>
+    <totalCrap>7187.68</totalCrap>
+    <crapMethodPercent>4.18</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -28,9 +28,9 @@
       <methodName>buildClass_model</methodName>
       <methodSignature>buildClass_model(string $name): void</methodSignature>
       <fullMethod>buildClass_model(string $name): void</fullMethod>
-      <crap>22</crap>
-      <complexity>22</complexity>
-      <coverage>96.3</coverage>
+      <crap>23</crap>
+      <complexity>23</complexity>
+      <coverage>96.43</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -39,9 +39,9 @@
       <methodName>buildClass_model_meta</methodName>
       <methodSignature>buildClass_model_meta(string $column, Playground\Stub\Configuration\Model $model): ?array</methodSignature>
       <fullMethod>buildClass_model_meta(string $column, Playground\Stub\Configuration\Model $model): ?array</fullMethod>
-      <crap>30</crap>
+      <crap>5.01</crap>
       <complexity>5</complexity>
-      <coverage>0</coverage>
+      <coverage>94.12</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -116,9 +116,9 @@
       <methodName>skeleton_policy</methodName>
       <methodSignature>skeleton_policy(string $type): void</methodSignature>
       <fullMethod>skeleton_policy(string $type): void</fullMethod>
-      <crap>11.41</crap>
-      <complexity>10</complexity>
-      <coverage>75.86</coverage>
+      <crap>12.8</crap>
+      <complexity>11</complexity>
+      <coverage>75.41</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -127,10 +127,10 @@
       <methodName>skeleton_requests</methodName>
       <methodSignature>skeleton_requests(string $type): void</methodSignature>
       <fullMethod>skeleton_requests(string $type): void</fullMethod>
-      <crap>72.47</crap>
-      <complexity>20</complexity>
-      <coverage>49.19</coverage>
-      <crapLoad>11</crapLoad>
+      <crap>68.63</crap>
+      <complexity>19</complexity>
+      <coverage>48.39</coverage>
+      <crapLoad>10</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Building\Controller\Skeletons</package>
@@ -149,9 +149,9 @@
       <methodName>skeleton_resources</methodName>
       <methodSignature>skeleton_resources(string $type): void</methodSignature>
       <fullMethod>skeleton_resources(string $type): void</fullMethod>
-      <crap>16.53</crap>
-      <complexity>15</complexity>
-      <coverage>81.03</coverage>
+      <crap>17.5</crap>
+      <complexity>16</complexity>
+      <coverage>81.97</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -171,9 +171,9 @@
       <methodName>skeleton_swagger</methodName>
       <methodSignature>skeleton_swagger(string $type): void</methodSignature>
       <fullMethod>skeleton_swagger(string $type): void</fullMethod>
-      <crap>31</crap>
-      <complexity>31</complexity>
-      <coverage>97.5</coverage>
+      <crap>32</crap>
+      <complexity>32</complexity>
+      <coverage>97.67</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -182,9 +182,9 @@
       <methodName>skeleton_templates</methodName>
       <methodSignature>skeleton_templates(string $type): void</methodSignature>
       <fullMethod>skeleton_templates(string $type): void</fullMethod>
-      <crap>33</crap>
-      <complexity>33</complexity>
-      <coverage>98</coverage>
+      <crap>34</crap>
+      <complexity>34</complexity>
+      <coverage>98.11</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1128,8 +1128,8 @@
       <methodName>make_roles_to_view</methodName>
       <methodSignature>make_roles_to_view(array $searches): string</methodSignature>
       <fullMethod>make_roles_to_view(array $searches): string</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
+      <crap>4</crap>
+      <complexity>4</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -1139,9 +1139,86 @@
       <methodName>make_roles_for_action</methodName>
       <methodSignature>make_roles_for_action(array $searches): string</methodSignature>
       <fullMethod>make_roles_for_action(array $searches): string</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Request</package>
+      <className>Playground\Stub\Building\Request\BuildIndex</className>
+      <methodName>buildClass_index</methodName>
+      <methodSignature>buildClass_index(string $name): void</methodSignature>
+      <fullMethod>buildClass_index(string $name): void</fullMethod>
       <crap>5</crap>
       <complexity>5</complexity>
       <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Request</package>
+      <className>Playground\Stub\Building\Request\BuildIndex</className>
+      <methodName>createPaginationTrait</methodName>
+      <methodSignature>createPaginationTrait(string $class, string $template): void</methodSignature>
+      <fullMethod>createPaginationTrait(string $class, string $template): void</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Request</package>
+      <className>Playground\Stub\Building\Request\BuildIndex</className>
+      <methodName>buildClass_index_dates</methodName>
+      <methodSignature>buildClass_index_dates(Playground\Stub\Configuration\Model\Filters $filters): void</methodSignature>
+      <fullMethod>buildClass_index_dates(Playground\Stub\Configuration\Model\Filters $filters): void</fullMethod>
+      <crap>7.7</crap>
+      <complexity>7</complexity>
+      <coverage>75.76</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Request</package>
+      <className>Playground\Stub\Building\Request\BuildIndex</className>
+      <methodName>buildClass_index_flags</methodName>
+      <methodSignature>buildClass_index_flags(Playground\Stub\Configuration\Model\Filters $filters): void</methodSignature>
+      <fullMethod>buildClass_index_flags(Playground\Stub\Configuration\Model\Filters $filters): void</fullMethod>
+      <crap>11.33</crap>
+      <complexity>10</complexity>
+      <coverage>76.32</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Request</package>
+      <className>Playground\Stub\Building\Request\BuildIndex</className>
+      <methodName>buildClass_index_ids</methodName>
+      <methodSignature>buildClass_index_ids(Playground\Stub\Configuration\Model\Filters $filters): void</methodSignature>
+      <fullMethod>buildClass_index_ids(Playground\Stub\Configuration\Model\Filters $filters): void</fullMethod>
+      <crap>8.61</crap>
+      <complexity>8</complexity>
+      <coverage>78.79</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Request</package>
+      <className>Playground\Stub\Building\Request\BuildIndex</className>
+      <methodName>buildClass_index_columns</methodName>
+      <methodSignature>buildClass_index_columns(Playground\Stub\Configuration\Model\Filters $filters): void</methodSignature>
+      <fullMethod>buildClass_index_columns(Playground\Stub\Configuration\Model\Filters $filters): void</fullMethod>
+      <crap>8.61</crap>
+      <complexity>8</complexity>
+      <coverage>78.79</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Request</package>
+      <className>Playground\Stub\Building\Request\BuildIndex</className>
+      <methodName>buildClass_index_sortable</methodName>
+      <methodSignature>buildClass_index_sortable(): void</methodSignature>
+      <fullMethod>buildClass_index_sortable(): void</fullMethod>
+      <crap>10.24</crap>
+      <complexity>10</complexity>
+      <coverage>86.54</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1161,9 +1238,9 @@
       <methodName>buildClass_form</methodName>
       <methodSignature>buildClass_form(string $name): void</methodSignature>
       <fullMethod>buildClass_form(string $name): void</fullMethod>
-      <crap>4.49</crap>
-      <complexity>4</complexity>
-      <coverage>68.75</coverage>
+      <crap>13.43</crap>
+      <complexity>13</complexity>
+      <coverage>86.3</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1172,9 +1249,9 @@
       <methodName>buildClass_rules_constant</methodName>
       <methodSignature>buildClass_rules_constant(Playground\Stub\Configuration\Model $model): void</methodSignature>
       <fullMethod>buildClass_rules_constant(Playground\Stub\Configuration\Model $model): void</fullMethod>
-      <crap>11.53</crap>
-      <complexity>6</complexity>
-      <coverage>46.43</coverage>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>95.83</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1183,9 +1260,9 @@
       <methodName>buildClass_rules_constant_for_return_url</methodName>
       <methodSignature>buildClass_rules_constant_for_return_url(int $indent): string</methodSignature>
       <fullMethod>buildClass_rules_constant_for_return_url(int $indent): string</fullMethod>
-      <crap>2.08</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>73.33</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1194,10 +1271,10 @@
       <methodName>buildClass_rules_constant_for_only_fillable</methodName>
       <methodSignature>buildClass_rules_constant_for_only_fillable(Playground\Stub\Configuration\Model $model, int $indent): string</methodSignature>
       <fullMethod>buildClass_rules_constant_for_only_fillable(Playground\Stub\Configuration\Model $model, int $indent): string</fullMethod>
-      <crap>210</crap>
+      <crap>14.77</crap>
       <complexity>14</complexity>
-      <coverage>0</coverage>
-      <crapLoad>14</crapLoad>
+      <coverage>84.21</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Building\Request</package>
@@ -1205,109 +1282,10 @@
       <methodName>buildClass_slug_table</methodName>
       <methodSignature>buildClass_slug_table(): void</methodSignature>
       <fullMethod>buildClass_slug_table(): void</fullMethod>
-      <crap>12</crap>
+      <crap>5.32</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>36.36</coverage>
       <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Building\Request</package>
-      <className>Playground\Stub\Building\Request\BuildRequest</className>
-      <methodName>buildClass_index</methodName>
-      <methodSignature>buildClass_index(string $name): void</methodSignature>
-      <fullMethod>buildClass_index(string $name): void</fullMethod>
-      <crap>12.41</crap>
-      <complexity>5</complexity>
-      <coverage>33.33</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Building\Request</package>
-      <className>Playground\Stub\Building\Request\BuildRequest</className>
-      <methodName>createPaginationTraits</methodName>
-      <methodSignature>createPaginationTraits(): void</methodSignature>
-      <fullMethod>createPaginationTraits(): void</fullMethod>
-      <crap>20</crap>
-      <complexity>4</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Building\Request</package>
-      <className>Playground\Stub\Building\Request\BuildRequest</className>
-      <methodName>createStoreTraits</methodName>
-      <methodSignature>createStoreTraits(): void</methodSignature>
-      <fullMethod>createStoreTraits(): void</fullMethod>
-      <crap>20</crap>
-      <complexity>4</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Building\Request</package>
-      <className>Playground\Stub\Building\Request\BuildRequest</className>
-      <methodName>createPaginationTrait</methodName>
-      <methodSignature>createPaginationTrait(string $class, string $template): void</methodSignature>
-      <fullMethod>createPaginationTrait(string $class, string $template): void</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Building\Request</package>
-      <className>Playground\Stub\Building\Request\BuildRequest</className>
-      <methodName>buildClass_index_dates</methodName>
-      <methodSignature>buildClass_index_dates(): void</methodSignature>
-      <fullMethod>buildClass_index_dates(): void</fullMethod>
-      <crap>156</crap>
-      <complexity>12</complexity>
-      <coverage>0</coverage>
-      <crapLoad>12</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Building\Request</package>
-      <className>Playground\Stub\Building\Request\BuildRequest</className>
-      <methodName>buildClass_index_flags</methodName>
-      <methodSignature>buildClass_index_flags(): void</methodSignature>
-      <fullMethod>buildClass_index_flags(): void</fullMethod>
-      <crap>110</crap>
-      <complexity>10</complexity>
-      <coverage>0</coverage>
-      <crapLoad>10</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Building\Request</package>
-      <className>Playground\Stub\Building\Request\BuildRequest</className>
-      <methodName>buildClass_index_ids</methodName>
-      <methodSignature>buildClass_index_ids(): void</methodSignature>
-      <fullMethod>buildClass_index_ids(): void</fullMethod>
-      <crap>210</crap>
-      <complexity>14</complexity>
-      <coverage>0</coverage>
-      <crapLoad>14</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Building\Request</package>
-      <className>Playground\Stub\Building\Request\BuildRequest</className>
-      <methodName>buildClass_index_columns</methodName>
-      <methodSignature>buildClass_index_columns(): void</methodSignature>
-      <fullMethod>buildClass_index_columns(): void</fullMethod>
-      <crap>210</crap>
-      <complexity>14</complexity>
-      <coverage>0</coverage>
-      <crapLoad>14</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Building\Request</package>
-      <className>Playground\Stub\Building\Request\BuildRequest</className>
-      <methodName>buildClass_index_sortable</methodName>
-      <methodSignature>buildClass_index_sortable(): void</methodSignature>
-      <fullMethod>buildClass_index_sortable(): void</fullMethod>
-      <crap>210</crap>
-      <complexity>14</complexity>
-      <coverage>0</coverage>
-      <crapLoad>14</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Building\Swagger</package>
@@ -1854,10 +1832,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>110</crap>
-      <complexity>10</complexity>
+      <crap>156</crap>
+      <complexity>12</complexity>
       <coverage>0</coverage>
-      <crapLoad>10</crapLoad>
+      <crapLoad>12</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration</package>
@@ -1975,6 +1953,17 @@
       <methodName>slug_plural</methodName>
       <methodSignature>slug_plural(): string</methodSignature>
       <fullMethod>slug_plural(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Controller</className>
+      <methodName>model_route</methodName>
+      <methodSignature>model_route(): string</methodSignature>
+      <fullMethod>model_route(): string</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -4296,8 +4285,41 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>6</crap>
-      <complexity>2</complexity>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Resource</className>
+      <methodName>addModels</methodName>
+      <methodSignature>addModels(array $options): self</methodSignature>
+      <fullMethod>addModels(array $options): self</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Resource</className>
+      <methodName>model_fqdn</methodName>
+      <methodSignature>model_fqdn(): string</methodSignature>
+      <fullMethod>model_fqdn(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Resource</className>
+      <methodName>model_slug</methodName>
+      <methodSignature>model_slug(): string</methodSignature>
+      <fullMethod>model_slug(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
       <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -5913,9 +5935,9 @@
       <methodName>initModel</methodName>
       <methodSignature>initModel(bool $withSkeleton, bool $reload): void</methodSignature>
       <fullMethod>initModel(bool $withSkeleton, bool $reload): void</fullMethod>
-      <crap>8.05</crap>
+      <crap>8</crap>
       <complexity>8</complexity>
-      <coverage>90.91</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -5924,9 +5946,9 @@
       <methodName>resetModelFile</methodName>
       <methodSignature>resetModelFile(): void</methodSignature>
       <fullMethod>resetModelFile(): void</fullMethod>
-      <crap>27.48</crap>
+      <crap>34.49</crap>
       <complexity>27</complexity>
-      <coverage>91.3</coverage>
+      <coverage>78.26</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -6067,10 +6089,10 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>123.74</crap>
-      <complexity>33</complexity>
-      <coverage>56.32</coverage>
-      <crapLoad>15</crapLoad>
+      <crap>108.65</crap>
+      <complexity>35</complexity>
+      <coverage>60.82</coverage>
+      <crapLoad>14</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Console\Commands</package>
@@ -6111,8 +6133,8 @@
       <methodName>buildClass</methodName>
       <methodSignature>buildClass($name): string</methodSignature>
       <fullMethod>buildClass($name): string</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
+      <crap>3</crap>
+      <complexity>3</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -6672,9 +6694,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>100</coverage>
+      <crap>4.25</crap>
+      <complexity>4</complexity>
+      <coverage>75</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
