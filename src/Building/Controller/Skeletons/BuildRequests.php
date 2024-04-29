@@ -25,7 +25,7 @@ trait BuildRequests
         $organization = $this->c->organization();
         $package = $this->c->package();
 
-        $extends = '';
+        // $extends = '';
 
         if ($type === 'api') {
             $requests['destroy'] = [
@@ -56,7 +56,7 @@ trait BuildRequests
 
             if ($namespace) {
                 // $extends = sprintf('%1$s/Http/Requests/%2$s/FormRequest', $namespace, $name);
-                $extends = sprintf('%1$s/Http/Requests/FormRequest', $namespace);
+                // $extends = sprintf('%1$s/Http/Requests/FormRequest', $namespace);
             }
 
             $requests['destroy'] = [
@@ -66,7 +66,8 @@ trait BuildRequests
             $requests['index'] = [
                 '--type' => 'index',
                 '--class' => 'IndexRequest',
-                '--extends' => 'GammaMatrix/Playground/Matrix/Resource/Http/Requests/AbstractIndexRequest',
+                // '--extends' => 'Playground/Http/Requests/IndexRequest as BaseIndexRequest',
+                '--with-pagination' => true,
             ];
             $requests['lock'] = [
                 '--type' => 'lock',
@@ -83,7 +84,8 @@ trait BuildRequests
             $requests['store'] = [
                 '--type' => 'store',
                 '--class' => 'StoreRequest',
-                '--extends' => 'GammaMatrix/Playground/Matrix/Resource/Http/Requests/AbstractStoreRequest',
+                // '--extends' => 'Playground/Http/Requests/StoreRequest as BaseStoreRequest',
+                '--with-store' => true,
             ];
             $requests['unlock'] = [
                 '--type' => 'unlock',
@@ -92,13 +94,14 @@ trait BuildRequests
             $requests['update'] = [
                 '--type' => 'update',
                 '--class' => 'UpdateRequest',
-                '--extends' => 'GammaMatrix/Playground/Matrix/Resource/Http/Requests/AbstractUpdateRequest',
+                // '--extends' => 'Playground/Http/Requests/UpdateRequest as BaseUpdateRequest',
+                '--with-store' => true,
             ];
         } elseif ($type === 'playground-resource') {
 
             if ($namespace) {
                 // $extends = sprintf('%1$s/Http/Requests/%2$s/FormRequest', $namespace, $name);
-                $extends = sprintf('%1$s/Http/Requests/FormRequest', $namespace);
+                // $extends = sprintf('%1$s/Http/Requests/FormRequest', $namespace);
             }
 
             $requests['create'] = [
@@ -116,7 +119,8 @@ trait BuildRequests
             $requests['index'] = [
                 '--type' => 'index',
                 '--class' => 'IndexRequest',
-                '--extends' => 'GammaMatrix/Playground/Matrix/Resource/Http/Requests/AbstractIndexRequest',
+                // '--extends' => 'Playground/Http/Requests/IndexRequest as BaseIndexRequest',
+                '--with-pagination' => true,
             ];
             $requests['lock'] = [
                 '--type' => 'lock',
@@ -133,7 +137,8 @@ trait BuildRequests
             $requests['store'] = [
                 '--type' => 'store',
                 '--class' => 'StoreRequest',
-                '--extends' => 'GammaMatrix/Playground/Matrix/Resource/Http/Requests/AbstractStoreRequest',
+                // '--extends' => 'Playground/Http/Requests/StoreRequest as BaseStoreRequest',
+                '--with-store' => true,
             ];
             $requests['unlock'] = [
                 '--type' => 'unlock',
@@ -142,7 +147,8 @@ trait BuildRequests
             $requests['update'] = [
                 '--type' => 'update',
                 '--class' => 'UpdateRequest',
-                '--extends' => 'GammaMatrix/Playground/Matrix/Resource/Http/Requests/AbstractUpdateRequest',
+                // '--extends' => 'Playground/Http/Requests/UpdateRequest as BaseUpdateRequest',
+                '--with-store' => true,
             ];
         } elseif ($type === 'resource') {
             $requests['create'] = [
@@ -160,6 +166,7 @@ trait BuildRequests
             $requests['index'] = [
                 '--type' => 'index',
                 '--class' => 'IndexRequest',
+                '--with-pagination' => true,
             ];
             $requests['restore'] = [
                 '--type' => 'restore',
@@ -172,10 +179,12 @@ trait BuildRequests
             $requests['store'] = [
                 '--type' => 'store',
                 '--class' => 'StoreRequest',
+                '--with-store' => true,
             ];
             $requests['update'] = [
                 '--type' => 'update',
                 '--class' => 'UpdateRequest',
+                '--with-store' => true,
             ];
         } else {
             $requests = [
@@ -185,6 +194,8 @@ trait BuildRequests
                 ],
             ];
         }
+
+        $modelFile = $this->getModelFile();
 
         foreach ($requests as $request) {
             if ($force) {
@@ -202,19 +213,21 @@ trait BuildRequests
             if ($model) {
                 $request['--model'] = $model;
             }
-            if ($extends && empty($request['--extends'])) {
-                $request['--extends'] = $extends;
-            }
             if ($this->hasOption('model-file') && $this->option('model-file')) {
                 $request['--model-file'] = $this->option('model-file');
+            } else {
+                if ($modelFile) {
+                    $request['--model-file'] = $modelFile;
+                }
             }
+
             $request['--skeleton'] = true;
             $request['--module'] = $module;
             // $request = array_merge([
             //     'name' => $this->argument('name'),
             // ], $request);
             $request['name'] = $name;
-            // dd([
+            // dump([
             //     '__METHOD__' => __METHOD__,
             //     '$request' => $request,
             // ]);

@@ -1,0 +1,30 @@
+{
+    "class": "FlowController",
+    "module": "Matrix",
+    "module_slug": "matrix",
+    "name": "FlowController",
+    "namespace": "Playground/Matrix/Resource",
+    "model": "Flow",
+    "organization": "Playground",
+    "package": "playground-matrix-resource",
+    "type": "playground-resource",
+    "playground": true,
+    "models": {
+        "Flow": "resources/configurations/playground-matrix/model.flow.json"
+    },
+    "policies": [],
+    "requests": [],
+    "resources": [],
+    "templates": [],
+    "transformers": [],
+    "extends": "Controller",
+    "extends_use": "",
+    "slug": "",
+    "slug_plural": "",
+    "model_route": "playground.matrix.resource.flows",
+    "module_route": "playground.matrix.resource",
+    "privilege": "",
+    "route": "playground.matrix.resource",
+    "view": "playground-matrix-resource::",
+    "uses": []
+}

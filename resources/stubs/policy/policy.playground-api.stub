@@ -6,20 +6,22 @@
 declare(strict_types=1);
 namespace {{ namespace }};
 
-use GammaMatrix\Playground\Policies\ModelPolicy;
+use Playground\Auth\Policies\ModelPolicy;
 
 /**
  * \{{ namespace }}\{{ class }}
  */
 class {{ class }} extends ModelPolicy
 {
+    protected string $package = '{{ package }}';
+
     /**
-     * @var array $rolesToView The roles allowed to view the MVC.
+     * @var array<int, string> The roles allowed to view the MVC.
      */
     protected $rolesToView = [{{ rolesToView }}];
 
     /**
-     * @var array $rolesForAction The roles allowed for actions in the MVC.
+     * @var array<int, string> The roles allowed for actions in the MVC.
      */
     protected $rolesForAction = [{{ rolesForAction }}];
 }

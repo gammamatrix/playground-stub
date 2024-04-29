@@ -1,0 +1,29 @@
+{
+    "class": "NoteController",
+    "module": "Matrix",
+    "module_slug": "matrix",
+    "name": "NoteController",
+    "namespace": "Playground/Matrix/Resource",
+    "model": "Note",
+    "organization": "Playground",
+    "package": "playground-matrix-resource",
+    "type": "playground-resource",
+    "playground": true,
+    "models": {
+        "Note": "resources/configurations/playground-matrix/model.note.json"
+    },
+    "policies": [],
+    "requests": [],
+    "resources": [],
+    "templates": [],
+    "transformers": [],
+    "extends": "Controller",
+    "extends_use": "",
+    "slug": "",
+    "slug_plural": "",
+    "module_route": "",
+    "privilege": "",
+    "route": "playground.matrix.resource",
+    "view": "playground-matrix-resource::",
+    "uses": []
+}

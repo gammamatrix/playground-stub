@@ -165,6 +165,8 @@ class ControllerMakeCommand extends GeneratorCommand
     {
         $options = $this->options();
 
+        $initModel = false;
+
         if ($this->option('playground')) {
             $this->c->setOptions([
                 'playground' => true,
@@ -205,6 +207,19 @@ class ControllerMakeCommand extends GeneratorCommand
         //     // '$this->arguments()' => $this->arguments(),
         //     '$this->options()' => $this->options(),
         // ]);
+
+        if (in_array($this->c->type(), [
+            'api',
+            'playground-api',
+            'resource',
+            'playground-resource',
+        ])) {
+            $initModel = true;
+        }
+
+        if ($initModel) {
+            $this->initModel($this->c->skeleton());
+        }
 
         // Extends
 
@@ -336,7 +351,7 @@ class ControllerMakeCommand extends GeneratorCommand
             $this->searches['view'] = $this->c->view();
 
         }
-        // dd([
+        // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$this->c' => $this->c,
         //     '$this->searches' => $this->searches,
@@ -500,7 +515,15 @@ class ControllerMakeCommand extends GeneratorCommand
             // }
         }
 
-        $this->buildClass_uses($name);
+        $fqdn = $this->model?->fqdn();
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$name' => $name,
+        //     '$fqdn' => $fqdn,
+        // ]);
+        if ($fqdn) {
+            $this->buildClass_uses($fqdn);
+        }
 
         // dd([
         //     '__METHOD__' => __METHOD__,

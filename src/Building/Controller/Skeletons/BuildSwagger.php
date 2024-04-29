@@ -58,8 +58,14 @@ trait BuildSwagger
             '--type' => '',
         ];
 
+        $modelFile = $this->getModelFile();
+
         if ($this->hasOption('model-file') && $this->option('model-file')) {
             $options['--model-file'] = $this->option('model-file');
+        } else {
+            if ($modelFile) {
+                $options['--model-file'] = $modelFile;
+            }
         }
 
         if ($type === 'api') {

@@ -23,7 +23,9 @@ class RequestMakeCommand extends GeneratorCommand
     use Building\Concerns\BuildImplements;
     use Building\Concerns\BuildModel;
     use Building\Concerns\BuildUses;
+    use Building\Request\BuildIndex;
     use Building\Request\BuildRequest;
+    // use Building\Request\BuildStore;
 
     /**
      * @var class-string<Configuration>
@@ -147,6 +149,8 @@ class RequestMakeCommand extends GeneratorCommand
 
         $this->searches['extends_use'] = $this->parseClassInput($this->c->extends_use());
         $this->searches['extends'] = $this->parseClassInput($this->c->extends());
+
+        $this->initModel($this->c->skeleton());
     }
 
     protected function getConfigurationFilename(): string
@@ -341,8 +345,11 @@ class RequestMakeCommand extends GeneratorCommand
         }
 
         $this->buildClass_form($name);
-
-        $this->buildClass_uses($name);
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$this->searches' => $this->searches,
+        //     '$name' => $name,
+        // ]);
 
         return parent::buildClass($name);
     }

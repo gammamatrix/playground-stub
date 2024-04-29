@@ -1,0 +1,29 @@
+{
+    "class": "TagController",
+    "module": "Matrix",
+    "module_slug": "matrix",
+    "name": "TagController",
+    "namespace": "Playground/Matrix/Resource",
+    "model": "Tag",
+    "organization": "Playground",
+    "package": "playground-matrix-resource",
+    "type": "playground-resource",
+    "playground": true,
+    "models": {
+        "Tag": "resources/configurations/playground-matrix/model.tag.json"
+    },
+    "policies": [],
+    "requests": [],
+    "resources": [],
+    "templates": [],
+    "transformers": [],
+    "extends": "Controller",
+    "extends_use": "",
+    "slug": "",
+    "slug_plural": "",
+    "module_route": "",
+    "privilege": "",
+    "route": "playground.matrix.resource",
+    "view": "playground-matrix-resource::",
+    "uses": []
+}

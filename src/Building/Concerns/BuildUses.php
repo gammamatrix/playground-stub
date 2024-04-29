@@ -67,6 +67,11 @@ trait BuildUses
             //     $this->configuration['uses'][] = $this->parseClassConfig($use);
             // }
         } else {
+            // dump([
+            //     '__METHOD__' => __METHOD__,
+            //     '$use' => $use,
+            //     '$use_class' => $use_class,
+            // ]);
             if (method_exists($this->c, 'addToUse')) {
                 $this->c->addToUse($this->parseClassConfig($use), $use_class);
             }

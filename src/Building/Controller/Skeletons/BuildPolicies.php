@@ -31,8 +31,14 @@ trait BuildPolicies
             '--type' => $this->c->type(),
         ];
 
-        if (! empty($file) && is_string($file)) {
-            $params['--model-file'] = $file;
+        $modelFile = $this->getModelFile();
+
+        if ($this->hasOption('model-file') && $this->option('model-file')) {
+            $params['--model-file'] = $this->option('model-file');
+        } else {
+            if ($modelFile) {
+                $params['--model-file'] = $modelFile;
+            }
         }
 
         if ($type === 'api') {

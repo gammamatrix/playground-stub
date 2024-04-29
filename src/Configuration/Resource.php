@@ -17,6 +17,8 @@ class Resource extends PrimaryConfiguration
 
     protected string $model_fqdn = '';
 
+    protected string $model_slug = '';
+
     /**
      * @var array<string, string>
      */
@@ -37,10 +39,11 @@ class Resource extends PrimaryConfiguration
         'package' => '',
         // properties
         'collection' => false,
-        // 'model' => '',
-        // 'model_fqdn' => '',
-        // 'type' => '',
-        // 'models' => [],
+        'model' => '',
+        'model_fqdn' => '',
+        'model_slug' => '',
+        'type' => '',
+        'models' => [],
     ];
 
     /**
@@ -54,7 +57,47 @@ class Resource extends PrimaryConfiguration
             $this->collection = ! empty($options['collection']);
         }
 
+        if (! empty($options['model_fqdn'])
+            && is_string($options['model_fqdn'])
+        ) {
+            $this->model_fqdn = $options['model_fqdn'];
+        }
+
+        if (! empty($options['model_slug'])
+            && is_string($options['model_slug'])
+        ) {
+            $this->model_slug = $options['model_slug'];
+        }
+
+        $this->addModels($options);
+
         return $this;
+    }
+
+    /**
+     * @param array<string, mixed> $options
+     */
+    public function addModels(array $options): self
+    {
+        if (! empty($options['models'])
+            && is_array($options['models'])
+        ) {
+            foreach ($options['models'] as $key => $file) {
+                $this->addMappedClassTo('models', $key, $file);
+            }
+        }
+
+        return $this;
+    }
+
+    public function model_fqdn(): string
+    {
+        return $this->model_fqdn;
+    }
+
+    public function model_slug(): string
+    {
+        return $this->model_slug;
     }
 
     public function collection(): bool

@@ -88,8 +88,12 @@ trait BuildModel
             $this->searches['module_privilege'] = $this->c->privilege();
         }
 
+        if (array_key_exists('model_route', $this->searches)) {
+            $this->searches['model_route'] = $this->searches['model_route'];
+        }
+
         if (array_key_exists('route', $this->searches)) {
-            $this->searches['model_route'] = $this->searches['route'];
+            $this->searches['route'] = $this->searches['route'];
         }
 
         $this->searches['model_slug'] = $this->searches['modelVariable'];

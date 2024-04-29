@@ -62,6 +62,8 @@ trait BuildResources
         //     '$resources' => $resources,
         // ]);
 
+        $modelFile = $this->getModelFile();
+
         foreach ($resources as $resource_type => $resource) {
             // dump([
             //     '__METHOD__' => __METHOD__,
@@ -86,9 +88,15 @@ trait BuildResources
             if ($extends) {
                 $resource['--extends'] = $extends;
             }
+
             if ($this->hasOption('model-file') && $this->option('model-file')) {
                 $resource['--model-file'] = $this->option('model-file');
+            } else {
+                if ($modelFile) {
+                    $resource['--model-file'] = $modelFile;
+                }
             }
+
             $resource['--module'] = $module;
             $resource['--skeleton'] = true;
             // $resource = array_merge([

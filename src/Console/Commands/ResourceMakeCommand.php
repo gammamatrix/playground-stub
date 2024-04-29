@@ -34,6 +34,8 @@ class ResourceMakeCommand extends GeneratorCommand
         'keys' => '',
         'module' => '',
         'module_slug' => '',
+        'model_fqdn' => '',
+        'model_slug' => '',
         'namespace' => 'App',
         'organization' => '',
         'package' => 'app',
@@ -75,6 +77,33 @@ class ResourceMakeCommand extends GeneratorCommand
         if ($this->collection()) {
             $this->type = 'Resource collection';
         }
+
+        $this->initModel($this->c->skeleton());
+
+        $model_fqdn = $this->c->model_fqdn();
+
+        if (! $model_fqdn) {
+            $model_fqdn = $this->model?->fqdn();
+            $model_slug = $this->model?->model_slug();
+            if ($model_fqdn) {
+                $this->c->setOptions([
+                    'model_fqdn' => $model_fqdn,
+                    'model_slug' => $model_slug,
+                ]);
+            }
+        }
+
+        $this->searches['model_fqdn'] = $this->parseClassInput($this->c->model_fqdn());
+        $this->searches['model_slug'] = $this->c->model_slug();
+
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '$model_fqdn' => $model_fqdn,
+        //     '$this->c' => $this->c,
+        //     '$this->searches' => $this->searches,
+        //     '$this->arguments()' => $this->arguments(),
+        //     '$this->options()' => $this->options(),
+        // ]);
     }
 
     /**

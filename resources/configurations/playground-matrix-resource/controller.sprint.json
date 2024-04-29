@@ -1,0 +1,29 @@
+{
+    "class": "SprintController",
+    "module": "Matrix",
+    "module_slug": "matrix",
+    "name": "SprintController",
+    "namespace": "Playground/Matrix/Resource",
+    "model": "Sprint",
+    "organization": "Playground",
+    "package": "playground-matrix-resource",
+    "type": "playground-resource",
+    "playground": true,
+    "models": {
+        "Sprint": "resources/configurations/playground-matrix/model.sprint.json"
+    },
+    "policies": [],
+    "requests": [],
+    "resources": [],
+    "templates": [],
+    "transformers": [],
+    "extends": "Controller",
+    "extends_use": "",
+    "slug": "",
+    "slug_plural": "",
+    "module_route": "",
+    "privilege": "",
+    "route": "playground.matrix.resource",
+    "view": "playground-matrix-resource::",
+    "uses": []
+}

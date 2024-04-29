@@ -37,6 +37,7 @@ class Controller extends PrimaryConfiguration
         // 'extends_use' => 'App\Http\Controllers\Controller',
         'slug' => '',
         'slug_plural' => '',
+        'model_route' => '',
         'module_route' => '',
         'privilege' => '',
         'route' => '',
@@ -82,6 +83,8 @@ class Controller extends PrimaryConfiguration
 
     protected string $slug_plural = '';
 
+    protected string $model_route = '';
+
     protected string $module_route = '';
 
     protected bool $playground = false;
@@ -111,6 +114,12 @@ class Controller extends PrimaryConfiguration
             && is_string($options['module_route'])
         ) {
             $this->module_route = $options['module_route'];
+        }
+
+        if (! empty($options['model_route'])
+            && is_string($options['model_route'])
+        ) {
+            $this->model_route = $options['model_route'];
         }
 
         if (! empty($options['route'])
@@ -218,6 +227,11 @@ class Controller extends PrimaryConfiguration
     public function slug_plural(): string
     {
         return $this->slug_plural;
+    }
+
+    public function model_route(): string
+    {
+        return $this->model_route;
     }
 
     public function module_route(): string

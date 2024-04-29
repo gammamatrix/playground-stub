@@ -25,11 +25,11 @@ trait BuildRoles
         $rolesToView = $this->c->rolesToView();
         if (! empty($rolesToView)) {
             foreach ($rolesToView as $i => $role) {
-                $content .= sprintf('%2$s\'%3$s\'%4$s%1$s',
+                $content .= sprintf('%2$s\'%3$s\',%1$s',
                     PHP_EOL,
                     str_repeat($indent, 2),
                     $role,
-                    (count($rolesToView) - 2) >= $i ? ',' : ''
+                    // (count($rolesToView) - 2) >= $i ? ',' : ''
                 );
                 // $content = trim($content, ',');
             }
@@ -61,11 +61,11 @@ trait BuildRoles
         $rolesForAction = $this->c->rolesForAction();
         if (! empty($rolesForAction)) {
             foreach ($rolesForAction as $i => $role) {
-                $content .= sprintf('%2$s\'%3$s\'%4$s%1$s',
+                $content .= sprintf('%2$s\'%3$s\',%1$s',
                     PHP_EOL,
                     str_repeat($indent, 2),
                     $role,
-                    (count($rolesForAction) - 2) >= $i ? ',' : ''
+                    // (count($rolesForAction) - 2) >= $i ? ',' : ''
                 );
                 // $content = trim($content, ',');
             }
