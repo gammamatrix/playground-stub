@@ -256,7 +256,7 @@ class {{ class }} extends {{ extends }}{{ implements }}
         $paginator->appends($validated);
 
         if ($request->expectsJson()) {
-            return (new Resources\BacklogCollection($paginator))->response($request);
+            return (new Resources\{{ model }}Collection($paginator))->response($request);
         }
 
         $meta = [

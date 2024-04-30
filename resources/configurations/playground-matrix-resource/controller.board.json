@@ -23,8 +23,8 @@
     "slug_plural": "",
     "model_route": "playground.matrix.resource.boards",
     "module_route": "playground.matrix.resource",
-    "privilege": "",
+    "privilege": "playground-matrix-resource:board",
     "route": "playground.matrix.resource",
-    "view": "playground-matrix-resource::",
+    "view": "playground-matrix-resource::board",
     "uses": []
 }

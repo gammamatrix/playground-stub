@@ -23,8 +23,8 @@
     "slug_plural": "",
     "model_route": "playground.matrix.resource.epics",
     "module_route": "playground.matrix.resource",
-    "privilege": "",
+    "privilege": "playground-matrix-resource:epic",
     "route": "playground.matrix.resource",
-    "view": "playground-matrix-resource::",
+    "view": "playground-matrix-resource::epic",
     "uses": []
 }

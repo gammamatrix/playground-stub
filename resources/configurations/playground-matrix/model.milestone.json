@@ -9,9 +9,9 @@
     "organization": "Playground",
     "package": "playground-matrix",
     "model": "Milestone",
-    "model_plural": "",
-    "model_singular": "",
-    "model_slug": "",
+    "model_plural": "Milestones",
+    "model_singular": "Milestone",
+    "model_slug": "milestone",
     "type": "playground-resource",
     "table": "matrix_milestones",
     "perPage": null,
@@ -1682,69 +1682,6 @@
             "icon": "",
             "nullable": false,
             "type": "boolean"
-        },
-        {
-            "column": "label",
-            "label": "Label",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "title",
-            "label": "Title",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "byline",
-            "label": "Byline",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "slug",
-            "label": "Slug",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "url",
-            "label": "Url",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "description",
-            "label": "Description",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "introduction",
-            "label": "Introduction",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "content",
-            "label": "Content",
-            "icon": "",
-            "nullable": false,
-            "type": "mediumText"
-        },
-        {
-            "column": "summary",
-            "label": "Summary",
-            "icon": "",
-            "nullable": false,
-            "type": "mediumText"
         },
         {
             "column": "label",

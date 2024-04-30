@@ -1860,69 +1860,6 @@
             "type": "mediumText"
         },
         {
-            "column": "label",
-            "label": "Label",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "title",
-            "label": "Title",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "byline",
-            "label": "Byline",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "slug",
-            "label": "Slug",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "url",
-            "label": "Url",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "description",
-            "label": "Description",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "introduction",
-            "label": "Introduction",
-            "icon": "",
-            "nullable": false,
-            "type": "string"
-        },
-        {
-            "column": "content",
-            "label": "Content",
-            "icon": "",
-            "nullable": false,
-            "type": "mediumText"
-        },
-        {
-            "column": "summary",
-            "label": "Summary",
-            "icon": "",
-            "nullable": false,
-            "type": "mediumText"
-        },
-        {
             "column": "icon",
             "label": "Icon",
             "icon": "",

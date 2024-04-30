@@ -226,6 +226,10 @@ trait MakeColumns
             //     '$this->c->filters()' => $this->c->filters()->toArray(),
             //     '$addFilters' => $addFilters,
             // ]);
+            // dump([
+            //     '__METHOD__' => __METHOD__,
+            //     '$this->analyze_filters' => $this->analyze_filters,
+            // ]);
         }
     }
 }

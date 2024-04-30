@@ -9,7 +9,7 @@
     "organization": "Playground",
     "package": "playground-matrix",
     "model": "Backlog",
-    "model_plural": "Backlog",
+    "model_plural": "Backlogs",
     "model_singular": "Backlog",
     "model_slug": "backlog",
     "type": "model",

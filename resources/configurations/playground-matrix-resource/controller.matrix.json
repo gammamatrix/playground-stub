@@ -21,9 +21,10 @@
     "extends_use": "",
     "slug": "",
     "slug_plural": "",
-    "module_route": "",
-    "privilege": "",
+    "model_route": "playground.matrix.resource.matrices",
+    "module_route": "playground.matrix.resource",
+    "privilege": "playground-matrix-resource:matrix",
     "route": "playground.matrix.resource",
-    "view": "playground-matrix-resource::",
+    "view": "playground-matrix-resource::matrix",
     "uses": []
 }

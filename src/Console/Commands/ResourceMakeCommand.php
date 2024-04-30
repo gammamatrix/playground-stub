@@ -96,7 +96,7 @@ class ResourceMakeCommand extends GeneratorCommand
         $this->searches['model_fqdn'] = $this->parseClassInput($this->c->model_fqdn());
         $this->searches['model_slug'] = $this->c->model_slug();
 
-        // dd([
+        // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$model_fqdn' => $model_fqdn,
         //     '$this->c' => $this->c,

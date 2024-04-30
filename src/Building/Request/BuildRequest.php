@@ -140,7 +140,7 @@ trait BuildRequest
             'index',
         ])) {
             $extends = 'BaseIndexRequest';
-            $extends_use = 'Playground/Http/Requests/StoreRequest as BaseIndexRequest';
+            $extends_use = 'Playground/Http/Requests/IndexRequest as BaseIndexRequest';
             // dd([
             //     '__METHOD__' => __METHOD__,
             //     '$this->c' => $this->c,

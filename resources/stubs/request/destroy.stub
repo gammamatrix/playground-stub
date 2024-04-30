@@ -24,25 +24,10 @@ namespace {{ namespace }};
 
         $user = $this->user();
 
-        if (!empty($user)
-            && method_exists($user, 'isAdmin')
-            && $user->isAdmin()
-        ) {
+        if ($this->userHasAdminPrivileges($user)) {
             $rules['force'] = ['boolean'];
         }
 
         return $rules;
-    }
-{{ methods }}
-    /**
-     * Prepare the data for validation.
-     *
-     * @return void
-     */
-    protected function prepareForValidation()
-    {
-        if (method_exists($this, 'prepareForValidationForSlug')) {
-            $this->prepareForValidationForSlug();
-        }
-    }
+    }{{ methods }}
 }

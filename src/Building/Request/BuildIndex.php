@@ -547,6 +547,12 @@ PHP_CODE;
     protected function buildClass_index_sortable(): void
     {
         $sortable = $this->model?->sortable();
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     // '$this->c' => $this->c,
+        //     '$sortable' => $sortable,
+        //     // '$this->model' => $this->model,
+        // ]);
         if (! $sortable) {
             return;
         }
