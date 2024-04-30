@@ -146,45 +146,45 @@ class RouteMakeCommand extends GeneratorCommand
             }
         }
 
-    }
+        $model = $this->model;
 
-    protected function getConfigurationFilename(): string
-    {
-        return sprintf(
-            '%1$s/%2$s.json',
-            Str::of($this->c->name())->kebab(),
-            Str::of($this->getType())->kebab(),
-        );
-    }
+        $model_column = $this->c->model_column();
+        $model_fqdn = $this->c->model_fqdn();
+        $model_label = $this->c->model_label();
+        $model_slug = $this->c->model_slug();
+        $model_slug_plural = $this->c->model_slug_plural();
 
-    /**
-     * Parse the class name and format according to the root namespace.
-     *
-     * @param  string  $name
-     */
-    protected function qualifyClass($name): string
-    {
-        $type = $this->getConfigurationType();
-
-        if (! $this->c->folder()) {
-            $this->c->setOptions([
-                'folder' => Str::of($name)->kebab()->toString(),
-            ]);
-            $this->searches['folder'] = $this->c->folder();
+        if ($model) {
+            if (! $model_column) {
+                $model_column = Str::of($model->model_slug())->snake()->replace('-', '_')->toString();
+            }
+            if (! $model_fqdn) {
+                $model_fqdn = $model->fqdn();
+            }
+            if (! $model_label) {
+                $model_label = Str::of($model->name())->title()->toString();
+            }
+            if (! $model_slug) {
+                $model_slug = $model->model_slug();
+            }
+            if (! $model_slug_plural) {
+                $model_slug_plural = Str::of($model_slug)->plural()->toString();
+            }
         }
 
-        if (! $this->c->model_column()) {
+        $this->c->setOptions([
+            'model_column' => $model_column,
+            'model_fqdn' => $model_fqdn,
+            'model_label' => $model_label,
+            'model_slug' => $model_slug,
+            'model_slug_plural' => $model_slug_plural,
+        ]);
 
-            $this->c->setOptions([
-                'model_column' => Str::of($name)->snake()->replace('-', '_')->toString(),
-                'model_label' => Str::of($name)->title()->toString(),
-                'model_slug_plural' => Str::of($this->c->model_column())->plural()->toString(),
-            ]);
-
-            $this->searches['model_column'] = $this->c->model_column();
-            $this->searches['model_label'] = $this->c->model_label();
-            $this->searches['model_slug_plural'] = $this->c->model_slug_plural();
-        }
+        $this->searches['model_column'] = $this->c->model_column();
+        $this->searches['model_fqdn'] = $this->parseClassInput($this->c->model_fqdn());
+        $this->searches['model_label'] = $this->c->model_label();
+        $this->searches['model_slug'] = $this->c->model_slug();
+        $this->searches['model_slug_plural'] = $this->c->model_slug_plural();
 
         if ($type === 'playground-resource-index') {
             $this->c->setOptions([
@@ -219,6 +219,52 @@ class RouteMakeCommand extends GeneratorCommand
             ]);
         }
 
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$options' => $options,
+        //     '$this->c' => $this->c,
+        //     '$this->searches' => $this->searches,
+        // ]);
+    }
+
+    protected function getConfigurationFilename(): string
+    {
+        return sprintf(
+            '%1$s/%2$s.json',
+            Str::of($this->c->name())->kebab(),
+            Str::of($this->getType())->kebab(),
+        );
+    }
+
+    /**
+     * Parse the class name and format according to the root namespace.
+     *
+     * @param  string  $name
+     */
+    protected function qualifyClass($name): string
+    {
+        $type = $this->getConfigurationType();
+
+        if (! $this->c->folder()) {
+            $this->c->setOptions([
+                'folder' => Str::of($name)->kebab()->toString(),
+            ]);
+            $this->searches['folder'] = $this->c->folder();
+        }
+
+        // if (! $this->c->model_column()) {
+
+        //     $this->c->setOptions([
+        //         'model_column' => Str::of($name)->snake()->replace('-', '_')->toString(),
+        //         'model_label' => Str::of($name)->title()->toString(),
+        //         'model_slug_plural' => Str::of($this->c->model_column())->plural()->toString(),
+        //     ]);
+
+        //     $this->searches['model_column'] = $this->c->model_column();
+        //     $this->searches['model_label'] = $this->c->model_label();
+        //     $this->searches['model_slug_plural'] = $this->c->model_slug_plural();
+        // }
+
         $this->c->setOptions([
             'controller' => Str::of($name)->studly()->finish('Controller')->toString(),
         ]);
@@ -228,10 +274,12 @@ class RouteMakeCommand extends GeneratorCommand
 
         // dump([
         //     '__METHOD__' => __METHOD__,
+        //     '$name' => $name,
         //     '$type' => $type,
-        //     '$this->c' => $this->c,
-        //     '$this->searches' => $this->searches,
-        //     '$this->options()' => $this->options(),
+        //     '$this->c->class()' => $this->c->class(),
+        //     // '$this->c' => $this->c,
+        //     // '$this->searches' => $this->searches,
+        //     // '$this->options()' => $this->options(),
         // ]);
         return $this->c->class();
     }

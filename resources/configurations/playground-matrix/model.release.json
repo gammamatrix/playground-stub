@@ -2228,6 +2228,16 @@
                 "readOnly": false,
                 "type": "dateTime"
             },
+            "fixed_at": {
+                "column": "fixed_at",
+                "label": "Fixed at",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "dateTime"
+            },
             "postponed_at": {
                 "column": "postponed_at",
                 "label": "Postponed at",
@@ -2251,6 +2261,16 @@
             "released_at": {
                 "column": "released_at",
                 "label": "Released at",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "dateTime"
+            },
+            "resolved_at": {
+                "column": "resolved_at",
+                "label": "Resolved at",
                 "description": "",
                 "icon": "",
                 "index": false,
@@ -2346,6 +2366,17 @@
                 "readOnly": false,
                 "type": "boolean"
             },
+            "fixed": {
+                "column": "fixed",
+                "label": "Fixed",
+                "description": "",
+                "icon": "fa-solid fa-wrench",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
             "internal": {
                 "column": "internal",
                 "label": "Internal",
@@ -2417,6 +2448,28 @@
                 "label": "Released",
                 "description": "",
                 "icon": "fa-solid fa-dove",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "resolved": {
+                "column": "resolved",
+                "label": "Resolved",
+                "description": "",
+                "icon": "fa-solid fa-check-double text-success",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "retired": {
+                "column": "released",
+                "label": "Released",
+                "description": "",
+                "icon": "fa-solid fa-chair text-success",
                 "default": false,
                 "index": false,
                 "nullable": false,

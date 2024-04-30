@@ -79,7 +79,7 @@ trait BuildRoutes
         } elseif ($type === 'playground-api') {
         }
 
-        // dd([
+        // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$modelFile' => $modelFile,
         //     '$options' => $options,

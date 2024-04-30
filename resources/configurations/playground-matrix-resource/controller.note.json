@@ -24,7 +24,7 @@
     "model_route": "playground.matrix.resource.notes",
     "module_route": "playground.matrix.resource",
     "privilege": "playground-matrix-resource:note",
-    "route": "playground.matrix.resource",
+    "route": "playground.matrix.resource.notes",
     "view": "playground-matrix-resource::note",
     "uses": []
 }

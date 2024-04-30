@@ -24,7 +24,7 @@
     "model_route": "playground.matrix.resource.backlogs",
     "module_route": "playground.matrix.resource",
     "privilege": "playground-matrix-resource:backlog",
-    "route": "playground.matrix.resource",
+    "route": "playground.matrix.resource.backlogs",
     "view": "playground-matrix-resource::backlog",
     "uses": []
 }

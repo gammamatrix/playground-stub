@@ -24,7 +24,7 @@
     "model_route": "playground.matrix.resource.tags",
     "module_route": "playground.matrix.resource",
     "privilege": "playground-matrix-resource:tag",
-    "route": "playground.matrix.resource",
+    "route": "playground.matrix.resource.tags",
     "view": "playground-matrix-resource::tag",
     "uses": []
 }

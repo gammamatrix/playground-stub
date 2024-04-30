@@ -24,7 +24,7 @@
     "model_route": "playground.matrix.resource.sprints",
     "module_route": "playground.matrix.resource",
     "privilege": "playground-matrix-resource:sprint",
-    "route": "playground.matrix.resource",
+    "route": "playground.matrix.resource.sprints",
     "view": "playground-matrix-resource::sprint",
     "uses": []
 }

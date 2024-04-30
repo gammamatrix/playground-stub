@@ -24,7 +24,7 @@
     "model_route": "playground.matrix.resource.flows",
     "module_route": "playground.matrix.resource",
     "privilege": "playground-matrix-resource:flow",
-    "route": "playground.matrix.resource",
+    "route": "playground.matrix.resource.flows",
     "view": "playground-matrix-resource::flow",
     "uses": []
 }

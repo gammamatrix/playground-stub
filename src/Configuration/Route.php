@@ -15,7 +15,11 @@ class Route extends PrimaryConfiguration
 
     protected string $model_column = '';
 
+    protected string $model_fqdn = '';
+
     protected string $model_label = '';
+
+    protected string $model_slug = '';
 
     protected string $model_slug_plural = '';
 
@@ -54,7 +58,9 @@ class Route extends PrimaryConfiguration
         'models' => [],
         'model' => '',
         'model_column' => '',
+        'model_fqdn' => '',
         'model_label' => '',
+        'model_slug' => '',
         'model_slug_plural' => '',
         'type' => '',
         'route' => '',
@@ -80,6 +86,12 @@ class Route extends PrimaryConfiguration
             && is_string($options['model_column'])
         ) {
             $this->model_column = $options['model_column'];
+        }
+
+        if (! empty($options['model_fqdn'])
+            && is_string($options['model_fqdn'])
+        ) {
+            $this->model_fqdn = $options['model_fqdn'];
         }
 
         if (! empty($options['model_label'])
@@ -169,9 +181,19 @@ class Route extends PrimaryConfiguration
         return $this->model_column;
     }
 
+    public function model_fqdn(): string
+    {
+        return $this->model_fqdn;
+    }
+
     public function model_label(): string
     {
         return $this->model_label;
+    }
+
+    public function model_slug(): string
+    {
+        return $this->model_slug;
     }
 
     public function model_slug_plural(): string
