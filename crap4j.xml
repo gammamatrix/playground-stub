@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-30 04:36:48</timestamp>
+  <timestamp>2024-04-30 19:49:12</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>646</methodCount>
+    <methodCount>648</methodCount>
     <crapMethodCount>27</crapMethodCount>
-    <crapLoad>304</crapLoad>
-    <totalCrap>7187.68</totalCrap>
-    <crapMethodPercent>4.18</crapMethodPercent>
+    <crapLoad>306</crapLoad>
+    <totalCrap>7286.68</totalCrap>
+    <crapMethodPercent>4.17</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -4340,10 +4340,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>462</crap>
-      <complexity>21</complexity>
+      <crap>552</crap>
+      <complexity>23</complexity>
       <coverage>0</coverage>
-      <crapLoad>21</crapLoad>
+      <crapLoad>23</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration</package>
@@ -4392,9 +4392,31 @@
     <method>
       <package>Playground\Stub\Configuration</package>
       <className>Playground\Stub\Configuration\Route</className>
+      <methodName>model_fqdn</methodName>
+      <methodSignature>model_fqdn(): string</methodSignature>
+      <fullMethod>model_fqdn(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Route</className>
       <methodName>model_label</methodName>
       <methodSignature>model_label(): string</methodSignature>
       <fullMethod>model_label(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Configuration</package>
+      <className>Playground\Stub\Configuration\Route</className>
+      <methodName>model_slug</methodName>
+      <methodSignature>model_slug(): string</methodSignature>
+      <fullMethod>model_slug(): string</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
@@ -6760,8 +6782,8 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>7</crap>
-      <complexity>7</complexity>
+      <crap>16</crap>
+      <complexity>16</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -6782,8 +6804,8 @@
       <methodName>qualifyClass</methodName>
       <methodSignature>qualifyClass($name): string</methodSignature>
       <fullMethod>qualifyClass($name): string</fullMethod>
-      <crap>6</crap>
-      <complexity>6</complexity>
+      <crap>2</crap>
+      <complexity>2</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
