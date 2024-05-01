@@ -21,7 +21,7 @@ trait MakeCommands
     protected function createFactory(): void
     {
         $force = $this->hasOption('force') && $this->option('force');
-        $file = $this->option('file');
+        $file = $this->option('file') ?: $this->path_to_configuration;
 
         $options = [
             'name' => Str::of(class_basename($this->qualifiedName))
@@ -54,7 +54,7 @@ trait MakeCommands
     protected function createMigration(): void
     {
         $force = $this->hasOption('force') && $this->option('force');
-        $file = $this->option('file');
+        $file = $this->option('file') ?: $this->path_to_configuration;
 
         $options = [
             'name' => $this->c->name(),
@@ -87,7 +87,7 @@ trait MakeCommands
     {
         $resource = $this->hasOption('resource') && $this->option('resource');
         $force = $this->hasOption('force') && $this->option('force');
-        $file = $this->option('file');
+        $file = $this->option('file') ?: $this->path_to_configuration;
 
         $namespace = $this->c->namespace();
         if ($namespace) {
@@ -159,7 +159,7 @@ trait MakeCommands
     protected function createPolicy(): void
     {
         $force = $this->hasOption('force') && $this->option('force');
-        $file = $this->option('file');
+        $file = $this->option('file') ?: $this->path_to_configuration;
 
         $options = [
             'name' => Str::of(class_basename($this->qualifiedName))
@@ -188,7 +188,7 @@ trait MakeCommands
     protected function createSeeder(): void
     {
         $force = $this->hasOption('force') && $this->option('force');
-        $file = $this->option('file');
+        $file = $this->option('file') ?: $this->path_to_configuration;
 
         $options = [
             'name' => Str::of(class_basename($this->qualifiedName))
@@ -211,6 +211,10 @@ trait MakeCommands
 
     protected bool $createTest = false;
 
+    protected bool $createTest_appendTest = false;
+
+    protected bool $createTest_studly = true;
+
     /**
      * Create a test file for the model.
      *
@@ -224,11 +228,20 @@ trait MakeCommands
         }
 
         $force = $this->hasOption('force') && $this->option('force');
-        $file = $this->option('file');
+        $file = $this->option('file') ?: $this->path_to_configuration;
+
+        $name = Str::of(class_basename($this->qualifiedName));
+
+        if ($this->createTest_studly) {
+            $name->studly();
+        }
+
+        if ($this->createTest_appendTest) {
+            $name->finish('Test');
+        }
 
         $options = [
-            'name' => Str::of(class_basename($this->qualifiedName))
-                ->studly()->finish('Test')->toString(),
+            'name' => $name->toString(),
             '--namespace' => $this->c->namespace(),
             '--force' => $force,
             '--package' => $this->c->package(),
@@ -238,9 +251,13 @@ trait MakeCommands
             '--type' => $this->c->type(),
         ];
 
-        if (! empty($file) && is_string($file)) {
+        if ($file) {
             $options['--model-file'] = $file;
         }
+        // dump([
+        //     '__METHOD__' => __METHOD__,
+        //     '$options' => $options,
+        // ]);
 
         $options['--suite'] = 'unit';
         $this->call('playground:make:test', $options);

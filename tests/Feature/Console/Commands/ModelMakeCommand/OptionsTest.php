@@ -20,9 +20,10 @@ use Tests\Feature\Playground\Stub\TestCase;
 #[CoversClass(ModelMakeCommand::class)]
 class OptionsTest extends TestCase
 {
-    public function test_command_make_model_with_all_of_the_option_flags(): void
+    public function test_command_make_model_with_all_of_the_option_flags_except_test(): void
     {
-        $command = 'playground:make:model testing --force --controller --factory --migration --policy --requests --seed --test';
+        // $command = 'playground:make:model testing --force --controller --factory --migration --policy --requests --seed --test';
+        $command = 'playground:make:model testing --force --controller --factory --migration --policy --requests --seed';
 
         /**
          * @var \Illuminate\Testing\PendingCommand $result

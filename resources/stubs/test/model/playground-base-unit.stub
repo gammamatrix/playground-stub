@@ -1,7 +1,6 @@
 <?php
 /**
  * {{organization}}
- *
  */
 
 declare(strict_types=1);
@@ -13,7 +12,6 @@ use Playground\Test\Unit\Models\ModelCase as BaseModelCase;
 {{ use }}
 /**
  * \{{ namespace }}\{{ class }}
- *
  */
 class {{ class }} extends BaseModelCase
 {

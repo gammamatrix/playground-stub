@@ -21,7 +21,7 @@ class TestMakeCommand extends GeneratorCommand
 {
     use Building\Concerns\BuildImplements;
     use Building\Concerns\BuildUses;
-    use Concerns\Tests;
+    use Building\Test\BuildModelRelationships;
 
     /**
      * @var class-string<Configuration>
@@ -116,10 +116,11 @@ class TestMakeCommand extends GeneratorCommand
                 $this->suite
             )->replace('-', ' ')->ucfirst()->finish(' Test')->toString();
         }
-        // dd([
+        // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$this->suite' => $this->suite,
         //     '$this->type' => $this->type,
+        //     '$type' => $type,
         // ]);
         $this->c->setOptions([
             'folder' => Str::of($this->suite)->title()->toString(),
@@ -132,8 +133,13 @@ class TestMakeCommand extends GeneratorCommand
             'playground-model',
         ])) {
 
+            $this->initModel($this->c->skeleton());
+            if (! $this->model) {
+                throw new \RuntimeException('Provide a [--model-file].');
+            }
+
             // The FQDN, from the model, is the source of truth.
-            $model_fqdn = $this->model?->fqdn();
+            $model_fqdn = $this->model->fqdn();
             if (! $model_fqdn) {
                 $model_fqdn = $this->c->model_fqdn();
             }
@@ -145,23 +151,29 @@ class TestMakeCommand extends GeneratorCommand
 
             $extends = 'ModelCase';
 
-            // if (in_array($this->suite, [
-            //     'acceptance',
-            //     'feature',
-            // ])) {
-            //     // $this->buildClass_uses_add('GammaMatrix\Playground\Test\Feature\Models\ModelCase');
-            //     $this->c->setOptions([
-            //         'extends' => 'ModelCase',
-            //     ]);
-            // } else {
-            //     // $this->buildClass_uses_add('GammaMatrix\Playground\Test\Unit\Models\ModelCase');
-            // }
+            if (in_array($this->suite, [
+                'acceptance',
+                'feature',
+            ])) {
+                $this->buildClass_uses_add(sprintf(
+                    'Tests\Feature\Playground\%1$s\Models\ModelCase',
+                    'Matrix'
+                ));
+                $this->c->setOptions([
+                    'extends' => 'ModelCase',
+                ]);
+            } else {
+                $this->buildClass_uses_add(sprintf(
+                    'Tests\Unit\Playground\%1$s\Models\ModelCase',
+                    'Matrix'
+                ));
+            }
             $this->c->setOptions([
                 'extends' => $extends,
             ]);
 
-            $this->buildClass_hasOne($type, $this->suite);
             $this->buildClass_hasMany($type, $this->suite);
+            $this->buildClass_hasOne($type, $this->suite);
 
             // } elseif ($type === 'controller') {
             // } elseif ($type === 'playground-resource-index') {
@@ -228,9 +240,6 @@ class TestMakeCommand extends GeneratorCommand
 
         if (in_array($type, [
             'model',
-            'playground-api',
-            'playground-resource',
-            'playground-model',
         ])) {
             $this->c->setOptions([
                 'class' => 'ModelTest',
@@ -251,6 +260,7 @@ class TestMakeCommand extends GeneratorCommand
         //     '__METHOD__' => __METHOD__,
         //     '$type' => $type,
         //     '$rootNamespace' => $rootNamespace,
+        //     '$this->c->class()' => $this->c->class(),
         // ]);
 
         return $this->getDefaultNamespace(trim($rootNamespace, '\\')).'\\'.$this->c->class();
@@ -267,6 +277,16 @@ class TestMakeCommand extends GeneratorCommand
 
         $type = $this->getConfigurationType();
 
+        if (in_array($type, [
+            'model',
+        ])) {
+            if ($this->model?->playground()) {
+                $test = 'test/model/playground.stub';
+            } else {
+                $test = 'test/test.stub';
+            }
+        }
+
         return $this->resolveStubPath($test);
     }
 
@@ -277,6 +297,9 @@ class TestMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace): string
     {
+        $type = $this->getConfigurationType();
+
+        // Set the suite on the namespace.
         $namespace = Str::of(
             Str::of($this->suite)->studly()->toString()
         )->prepend('Tests\\')->toString();
@@ -288,6 +311,18 @@ class TestMakeCommand extends GeneratorCommand
                 ->toString();
         }
 
+        if (in_array($type, [
+            'model',
+            'controller',
+            'request',
+            'policy',
+        ])) {
+            $namespace = Str::of($namespace)
+                ->finish('\\')
+                ->append(Str::of($type)->plural()->studly()->toString())
+                ->toString();
+        }
+
         $name = $this->c->name();
         if ($name) {
             $namespace = Str::of($namespace)
@@ -295,8 +330,9 @@ class TestMakeCommand extends GeneratorCommand
                 ->append(Str::of($name)->studly()->toString())
                 ->toString();
         }
-        // dd([
+        // dump([
         //     '__METHOD__' => __METHOD__,
+        //     '$type' => $type,
         //     '$rootNamespace' => $rootNamespace,
         //     '$namespace' => $namespace,
         //     '$name' => $name,

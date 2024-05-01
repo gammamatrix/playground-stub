@@ -286,6 +286,8 @@ class ModelMakeCommand extends GeneratorCommand
 
     public function finish(): ?bool
     {
+        $this->saveConfiguration();
+
         if ($this->c->factory()) {
             $this->createFactory();
         }

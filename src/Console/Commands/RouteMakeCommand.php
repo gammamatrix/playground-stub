@@ -359,10 +359,26 @@ class RouteMakeCommand extends GeneratorCommand
      */
     protected function getPath($name): string
     {
+        $name = $this->c->name();
+
+        if (in_array($this->c->type(), [
+            'api',
+            'playground-api',
+            'playground-api',
+            'resource',
+            'resource-index',
+            'playground-resource-index',
+            'playground-resource',
+        ])) {
+            $name = Str::of($name)->plural()->kebab()->toString();
+        } else {
+            $name = Str::of($name)->kebab()->toString();
+        }
+
         $path = sprintf(
             '%1$s/%2$s.php',
             $this->folder(),
-            Str::of($this->c->name())->kebab()->toString()
+            $name
         );
 
         return $this->laravel->storagePath().$path;
