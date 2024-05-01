@@ -6,7 +6,6 @@
 declare(strict_types=1);
 namespace {{ namespace }};
 
-use {{ namespace }}\ServiceProvider;
 use Playground\ServiceProvider as PlaygroundServiceProvider;
 use Playground\Test\Unit\Models\ModelCase as BaseModelCase;
 {{ use }}
@@ -30,7 +29,7 @@ class {{ class }} extends BaseModelCase
      */
     protected function getEnvironmentSetUp($app)
     {
-        $app['config']->set('auth.providers.users.model', 'Playground\\Test\\Models\\User');
+        $app['config']->set('auth.providers.users.model', 'Playground\\Models\\User');
         $app['config']->set('playground-auth.verify', 'user');
         $app['config']->set('auth.testing.password', 'password');
         $app['config']->set('auth.testing.hashed', false);

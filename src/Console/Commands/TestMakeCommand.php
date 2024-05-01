@@ -116,17 +116,44 @@ class TestMakeCommand extends GeneratorCommand
                 $this->suite
             )->replace('-', ' ')->ucfirst()->finish(' Test')->toString();
         }
+
+        $rootNamespace = $this->rootNamespace();
+
         // dump([
         //     '__METHOD__' => __METHOD__,
         //     '$this->suite' => $this->suite,
         //     '$this->type' => $this->type,
         //     '$type' => $type,
+        //     '$rootNamespace' => $rootNamespace,
         // ]);
         $this->c->setOptions([
             'folder' => Str::of($this->suite)->title()->toString(),
         ]);
 
         if (in_array($type, [
+            'model-case',
+        ])) {
+
+            $this->c->setOptions([
+                'extends' => 'Playground/Test/Unit/Models/ModelCase as BaseModelCase',
+            ]);
+
+            $use = sprintf(
+                '%1$sServiceProvider',
+                $rootNamespace
+            );
+
+            // $this->searches['use'] = $use;
+            $this->buildClass_uses_add($use);
+
+            // $this->c->addToUse($use);
+            // $this->buildClass_uses_add($use);
+            // dump([
+            //     '__METHOD__' => __METHOD__,
+            //     '$this->c' => $this->c,
+            // ]);
+
+        } elseif (in_array($type, [
             'model',
             'playground-api',
             'playground-resource',
@@ -157,7 +184,7 @@ class TestMakeCommand extends GeneratorCommand
             ])) {
                 $this->buildClass_uses_add(sprintf(
                     'Tests\Feature\Playground\%1$s\Models\ModelCase',
-                    'Matrix'
+                    $this->model->module()
                 ));
                 $this->c->setOptions([
                     'extends' => 'ModelCase',
@@ -165,7 +192,7 @@ class TestMakeCommand extends GeneratorCommand
             } else {
                 $this->buildClass_uses_add(sprintf(
                     'Tests\Unit\Playground\%1$s\Models\ModelCase',
-                    'Matrix'
+                    $this->model->module()
                 ));
             }
             $this->c->setOptions([
@@ -188,6 +215,7 @@ class TestMakeCommand extends GeneratorCommand
 
         // dump([
         //     '__METHOD__' => __METHOD__,
+        //     '$this->c' => $this->c,
         //     '$this->searches' => $this->searches,
         //     '$this->options()' => $this->options(),
         // ]);
@@ -197,6 +225,8 @@ class TestMakeCommand extends GeneratorCommand
     {
         $type = $this->c->type();
 
+        $filename = '';
+
         if (in_array($type, [
             'model',
             'playground-api',
@@ -204,17 +234,30 @@ class TestMakeCommand extends GeneratorCommand
             'playground-model',
         ])) {
             $type = 'test';
+            $filename = sprintf(
+                '%1$s/%2$s.%3$s.json',
+                Str::of($this->c->name())->before('Test')->kebab(),
+                $type,
+                Str::of($this->c->suite())->kebab(),
+            );
+        } elseif (in_array($type, [
+            'model-case',
+        ])) {
+            $filename = sprintf(
+                'test.%1$s.model.json',
+                Str::of($this->c->suite())->kebab(),
+            );
         } else {
             $type = 'test';
+            $filename = sprintf(
+                '%1$s/%2$s.%3$s.json',
+                Str::of($this->c->name())->before('Test')->kebab(),
+                $type,
+                Str::of($this->c->suite())->kebab(),
+            );
         }
 
-        return sprintf(
-            '%1$s/%2$s.%3$s.json',
-            Str::of($this->c->name())->before('Test')->kebab(),
-            $type,
-            Str::of($this->c->suite())->kebab(),
-        );
-
+        return $filename;
         // return ! is_string($this->c->name()) ? '' : sprintf(
         //     'test.%1$s.%2$s%3$s%4$s.json',
         //     Str::of($this->c->suite())->kebab(),
@@ -244,6 +287,10 @@ class TestMakeCommand extends GeneratorCommand
             $this->c->setOptions([
                 'class' => 'ModelTest',
             ]);
+        } elseif ($type === 'model-case') {
+            $this->c->setOptions([
+                'class' => 'ModelCase',
+            ]);
             // } elseif ($type === 'controller') {
             // } elseif ($type === 'playground-resource-index') {
             // } elseif ($type === 'playground-resource') {
@@ -263,6 +310,12 @@ class TestMakeCommand extends GeneratorCommand
         //     '$this->c->class()' => $this->c->class(),
         // ]);
 
+        if (in_array($type, [
+            'model-case',
+        ])) {
+            return $this->getDefaultNamespace(trim($rootNamespace, '\\'));
+        }
+
         return $this->getDefaultNamespace(trim($rootNamespace, '\\')).'\\'.$this->c->class();
     }
 
@@ -273,6 +326,8 @@ class TestMakeCommand extends GeneratorCommand
      */
     protected function getStub()
     {
+        $suite = $this->c->suite();
+
         $test = 'test/test.stub';
 
         $type = $this->getConfigurationType();
@@ -284,6 +339,14 @@ class TestMakeCommand extends GeneratorCommand
                 $test = 'test/model/playground.stub';
             } else {
                 $test = 'test/test.stub';
+            }
+        } elseif (in_array($type, [
+            'model-case',
+        ])) {
+            if ($suite === 'feature') {
+                $test = 'test/model/playground-base-feature.stub';
+            } else {
+                $test = 'test/model/playground-base-unit.stub';
             }
         }
 
@@ -360,12 +423,23 @@ class TestMakeCommand extends GeneratorCommand
     protected function folder(): string
     {
         if (empty($this->folder) && is_string($this->c->name())) {
-            $this->folder = sprintf(
-                '%1$s/%2$s/%3$s',
-                $this->getDestinationPath(),
-                Str::of($this->suite)->studly()->toString(),
-                Str::of($this->c->name())->studly()->toString()
-            );
+
+            if (in_array($this->c->type(), [
+                'model-case',
+            ])) {
+                $this->folder = sprintf(
+                    '%1$s/%2$s',
+                    $this->getDestinationPath(),
+                    Str::of($this->suite)->studly()->toString()
+                );
+            } else {
+                $this->folder = sprintf(
+                    '%1$s/%2$s/%3$s',
+                    $this->getDestinationPath(),
+                    Str::of($this->suite)->studly()->toString(),
+                    Str::of($this->c->name())->studly()->toString()
+                );
+            }
         }
 
         return $this->folder;

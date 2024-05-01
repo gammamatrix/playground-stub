@@ -8,14 +8,13 @@ namespace {{ namespace }};
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Carbon;
-use {{ namespace }}\ServiceProvider;
 use Playground\ServiceProvider as PlaygroundServiceProvider;
 use Playground\Test\Feature\Models\ModelCase as BaseModelCase;
 {{ use }}
 /**
  * \{{ namespace }}\{{ class }}
  */
-class {{ class }} extendsBaseModelCase
+class {{ class }} extends BaseModelCase
 {
     use DatabaseTransactions;
 
@@ -64,6 +63,8 @@ class {{ class }} extendsBaseModelCase
     {
         $app['config']->set('auth.providers.users.model', 'Playground\\Models\\User');
         $app['config']->set('playground-auth.verify', 'user');
+        $app['config']->set('auth.testing.password', 'password');
+        $app['config']->set('auth.testing.hashed', false);
 
         $app['config']->set('{{ package }}.load.migrations', true);
     }

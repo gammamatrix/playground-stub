@@ -48,7 +48,7 @@ trait BuildUses
         }
 
         if (! empty($use)) {
-            $this->searches['use'] = PHP_EOL.trim($use).PHP_EOL;
+            $this->searches['use'] = trim($use).PHP_EOL;
         }
         if (! empty($use_class)) {
             $this->searches['use_class'] = '    '.trim($use_class).PHP_EOL;
