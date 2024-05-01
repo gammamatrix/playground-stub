@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-05-01 02:35:18</timestamp>
+  <timestamp>2024-05-01 07:31:35</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>648</methodCount>
     <crapMethodCount>28</crapMethodCount>
     <crapLoad>317</crapLoad>
-    <totalCrap>7394.09</totalCrap>
+    <totalCrap>7404.59</totalCrap>
     <crapMethodPercent>4.32</crapMethodPercent>
   </stats>
   <methods>
@@ -7013,9 +7013,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>12.32</crap>
-      <complexity>12</complexity>
-      <coverage>86.89</coverage>
+      <crap>14.78</crap>
+      <complexity>13</complexity>
+      <coverage>78.08</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -7024,9 +7024,9 @@
       <methodName>getConfigurationFilename</methodName>
       <methodSignature>getConfigurationFilename(): string</methodSignature>
       <fullMethod>getConfigurationFilename(): string</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>100</coverage>
+      <crap>3.02</crap>
+      <complexity>3</complexity>
+      <coverage>86.67</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -7035,9 +7035,9 @@
       <methodName>qualifyClass</methodName>
       <methodSignature>qualifyClass($name): string</methodSignature>
       <fullMethod>qualifyClass($name): string</fullMethod>
-      <crap>2.05</crap>
-      <complexity>2</complexity>
-      <coverage>76.92</coverage>
+      <crap>4.59</crap>
+      <complexity>4</complexity>
+      <coverage>66.67</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -7046,9 +7046,9 @@
       <methodName>getStub</methodName>
       <methodSignature>getStub()</methodSignature>
       <fullMethod>getStub()</fullMethod>
-      <crap>3.33</crap>
-      <complexity>3</complexity>
-      <coverage>66.67</coverage>
+      <crap>6.32</crap>
+      <complexity>5</complexity>
+      <coverage>62.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -7079,9 +7079,9 @@
       <methodName>folder</methodName>
       <methodSignature>folder(): string</methodSignature>
       <fullMethod>folder(): string</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
+      <crap>4.49</crap>
+      <complexity>4</complexity>
+      <coverage>68.75</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
