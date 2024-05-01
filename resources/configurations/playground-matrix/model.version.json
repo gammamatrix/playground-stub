@@ -12,7 +12,7 @@
     "model_plural": "Versions",
     "model_singular": "Version",
     "model_slug": "version",
-    "type": "playground-resource",
+    "type": "model",
     "table": "matrix_versions",
     "perPage": null,
     "controller": true,

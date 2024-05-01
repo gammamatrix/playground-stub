@@ -12,7 +12,7 @@
     "model_plural": "Tags",
     "model_singular": "Tag",
     "model_slug": "tag",
-    "type": "playground-resource",
+    "type": "model",
     "table": "matrix_tags",
     "perPage": null,
     "controller": true,

@@ -12,7 +12,7 @@
     "model_plural": "Sprints",
     "model_singular": "Sprint",
     "model_slug": "sprint",
-    "type": "playground-resource",
+    "type": "model",
     "table": "matrix_sprints",
     "perPage": null,
     "controller": true,
@@ -61,19 +61,19 @@
             "foreignKey": "id",
             "localKey": "matrix_id"
         },
-        "note": {
-            "comment": "The note of the sprint.",
-            "accessor": "note",
-            "related": "Note",
-            "foreignKey": "id",
-            "localKey": "note_id"
-        },
         "milestone": {
             "comment": "The milestone of the sprint.",
             "accessor": "milestone",
             "related": "Milestone",
             "foreignKey": "id",
             "localKey": "milestone_id"
+        },
+        "note": {
+            "comment": "The note of the sprint.",
+            "accessor": "note",
+            "related": "Note",
+            "foreignKey": "id",
+            "localKey": "note_id"
         },
         "project": {
             "comment": "The project of the sprint.",

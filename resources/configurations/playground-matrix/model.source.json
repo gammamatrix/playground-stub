@@ -12,7 +12,7 @@
     "model_plural": "Sources",
     "model_singular": "Source",
     "model_slug": "source",
-    "type": "playground-resource",
+    "type": "model",
     "table": "matrix_sources",
     "perPage": null,
     "controller": true,

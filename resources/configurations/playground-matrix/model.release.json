@@ -12,7 +12,7 @@
     "model_plural": "Releases",
     "model_singular": "Release",
     "model_slug": "release",
-    "type": "playground-resource",
+    "type": "model",
     "table": "matrix_releases",
     "perPage": null,
     "controller": true,

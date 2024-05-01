@@ -12,7 +12,7 @@
     "model_plural": "Matrices",
     "model_singular": "Matrix",
     "model_slug": "matrix",
-    "type": "playground-resource",
+    "type": "model",
     "table": "matrix_matrices",
     "perPage": null,
     "controller": true,

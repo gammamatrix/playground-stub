@@ -12,7 +12,7 @@
     "model_plural": "Notes",
     "model_singular": "Note",
     "model_slug": "note",
-    "type": "playground-resource",
+    "type": "model",
     "table": "matrix_notes",
     "perPage": null,
     "controller": true,

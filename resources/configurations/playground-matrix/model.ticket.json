@@ -12,7 +12,7 @@
     "model_plural": "Tickets",
     "model_singular": "Ticket",
     "model_slug": "ticket",
-    "type": "playground-resource",
+    "type": "model",
     "table": "matrix_tickets",
     "perPage": null,
     "controller": true,
@@ -43,7 +43,7 @@
         "completedBy": {
             "comment": "The completed by user of the ticket.",
             "accessor": "completedBy",
-            "related": "/App/Models/User",
+            "related": "/Playground/Models/User",
             "foreignKey": "id",
             "localKey": "completed_by_id"
         },
@@ -57,7 +57,7 @@
         "fixedBy": {
             "comment": "The fixed by user of the ticket.",
             "accessor": "fixedBy",
-            "related": "/App/Models/User",
+            "related": "/Playground/Models/User",
             "foreignKey": "id",
             "localKey": "fixed_by_id"
         },
@@ -106,7 +106,7 @@
         "reportedBy": {
             "comment": "The reported by user of the ticket.",
             "accessor": "reportedBy",
-            "related": "/App/Models/User",
+            "related": "/Playground/Models/User",
             "foreignKey": "id",
             "localKey": "reported_by_id"
         },

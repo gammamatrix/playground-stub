@@ -12,7 +12,7 @@
     "model_plural": "Projects",
     "model_singular": "Project",
     "model_slug": "project",
-    "type": "playground-resource",
+    "type": "model",
     "table": "matrix_projects",
     "perPage": null,
     "controller": true,

@@ -12,7 +12,7 @@
     "model_plural": "Roadmaps",
     "model_singular": "Roadmap",
     "model_slug": "roadmap",
-    "type": "playground-resource",
+    "type": "model",
     "table": "matrix_roadmaps",
     "perPage": null,
     "controller": true,

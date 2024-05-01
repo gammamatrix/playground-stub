@@ -12,7 +12,7 @@
     "model_plural": "Teams",
     "model_singular": "Team",
     "model_slug": "team",
-    "type": "playground-resource",
+    "type": "model",
     "table": "matrix_teams",
     "perPage": null,
     "controller": true,

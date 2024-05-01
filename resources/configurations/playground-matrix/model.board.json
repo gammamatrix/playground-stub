@@ -12,7 +12,7 @@
     "model_plural": "Backlogs",
     "model_singular": "Backlog",
     "model_slug": "board",
-    "type": "playground-resource",
+    "type": "model",
     "table": "matrix_boards",
     "perPage": null,
     "controller": true,
