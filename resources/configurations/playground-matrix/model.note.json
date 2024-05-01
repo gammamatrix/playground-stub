@@ -1,0 +1,1907 @@
+{
+    "class": "Note",
+    "config": "playground-matrix",
+    "fqdn": "Playground/Matrix/Models/Note",
+    "module": "Matrix",
+    "module_slug": "matrix",
+    "name": "Note",
+    "namespace": "Playground/Matrix",
+    "organization": "Playground",
+    "package": "playground-matrix",
+    "model": "Note",
+    "model_plural": "Notes",
+    "model_singular": "Note",
+    "model_slug": "note",
+    "type": "model",
+    "table": "matrix_notes",
+    "perPage": null,
+    "controller": true,
+    "factory": true,
+    "migration": true,
+    "playground": true,
+    "policy": false,
+    "requests": false,
+    "seed": true,
+    "test": true,
+    "extends": "Model",
+    "implements": [],
+    "HasOne": {
+        "matrix": {
+            "comment": "The matrix of the note.",
+            "accessor": "matrix",
+            "related": "Matrix",
+            "foreignKey": "id",
+            "localKey": "matrix_id"
+        },
+        "tag": {
+            "comment": "The tag of the note.",
+            "accessor": "tag",
+            "related": "Tag",
+            "foreignKey": "id",
+            "localKey": "tag_id"
+        }
+    },
+    "HasMany": [],
+    "scopes": {
+        "sort": {
+            "include": "minus",
+            "builder": null
+        }
+    },
+    "attributes": {
+        "created_by_id": null,
+        "modified_by_id": null,
+        "owned_by_id": null,
+        "parent_id": null,
+        "note_type": null,
+        "matrix_id": null,
+        "tag_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "deleted_at": null,
+        "gids": 0,
+        "po": 0,
+        "pg": 0,
+        "pw": 0,
+        "only_admin": false,
+        "only_user": false,
+        "only_guest": false,
+        "allow_public": false,
+        "status": 0,
+        "rank": 0,
+        "size": 0,
+        "matrix": "{}",
+        "x": null,
+        "y": null,
+        "z": null,
+        "r": null,
+        "theta": null,
+        "rho": null,
+        "phi": null,
+        "elevation": null,
+        "latitude": null,
+        "longitude": null,
+        "active": true,
+        "canceled": false,
+        "closed": false,
+        "completed": false,
+        "flagged": false,
+        "internal": false,
+        "locked": false,
+        "pending": false,
+        "planned": false,
+        "problem": false,
+        "unknown": false,
+        "label": "",
+        "title": "",
+        "byline": "",
+        "slug": null,
+        "url": "",
+        "description": "",
+        "introduction": "",
+        "content": null,
+        "summary": null,
+        "icon": "",
+        "image": "",
+        "avatar": "",
+        "ui": "{}",
+        "assets": "{}",
+        "meta": "{}",
+        "notes": "[]",
+        "options": "{}",
+        "sources": "{}"
+    },
+    "casts": {
+        "note_type": "string",
+        "created_at": "datetime",
+        "updated_at": "datetime",
+        "deleted_at": "datetime",
+        "gids": "integer",
+        "po": "integer",
+        "pg": "integer",
+        "pw": "integer",
+        "only_admin": "boolean",
+        "only_user": "boolean",
+        "only_guest": "boolean",
+        "allow_public": "boolean",
+        "status": "integer",
+        "rank": "integer",
+        "size": "integer",
+        "matrix": "array",
+        "x": "integer",
+        "y": "integer",
+        "z": "integer",
+        "r": "float",
+        "theta": "float",
+        "rho": "float",
+        "phi": "float",
+        "elevation": "float",
+        "latitude": "float",
+        "longitude": "float",
+        "active": "boolean",
+        "canceled": "boolean",
+        "closed": "boolean",
+        "completed": "boolean",
+        "flagged": "boolean",
+        "internal": "boolean",
+        "locked": "boolean",
+        "pending": "boolean",
+        "planned": "boolean",
+        "problem": "boolean",
+        "unknown": "boolean",
+        "label": "string",
+        "title": "string",
+        "byline": "string",
+        "slug": "string",
+        "url": "string",
+        "description": "string",
+        "introduction": "string",
+        "content": "string",
+        "summary": "string",
+        "icon": "string",
+        "image": "string",
+        "avatar": "string",
+        "ui": "array",
+        "assets": "array",
+        "meta": "array",
+        "notes": "array",
+        "options": "array",
+        "sources": "array"
+    },
+    "fillable": [
+        "owned_by_id",
+        "parent_id",
+        "note_type",
+        "matrix_id",
+        "tag_id",
+        "gids",
+        "po",
+        "pg",
+        "pw",
+        "only_admin",
+        "only_user",
+        "only_guest",
+        "allow_public",
+        "status",
+        "rank",
+        "size",
+        "matrix",
+        "x",
+        "y",
+        "z",
+        "r",
+        "theta",
+        "rho",
+        "phi",
+        "elevation",
+        "latitude",
+        "longitude",
+        "active",
+        "canceled",
+        "closed",
+        "completed",
+        "flagged",
+        "internal",
+        "locked",
+        "pending",
+        "planned",
+        "problem",
+        "unknown",
+        "label",
+        "title",
+        "byline",
+        "slug",
+        "url",
+        "description",
+        "introduction",
+        "content",
+        "summary",
+        "icon",
+        "image",
+        "avatar",
+        "ui",
+        "assets",
+        "meta",
+        "options",
+        "sources"
+    ],
+    "filters": {
+        "builder": null,
+        "ids": [
+            {
+                "column": "created_by_id",
+                "label": "Created by id",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "uuid"
+            },
+            {
+                "column": "modified_by_id",
+                "label": "Modified by id",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "uuid"
+            },
+            {
+                "column": "parent_id",
+                "label": "Parent id",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "uuid"
+            },
+            {
+                "column": "note_type",
+                "label": "Note type",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "owned_by_id",
+                "label": "Owned by id",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "uuid"
+            },
+            {
+                "column": "matrix_id",
+                "label": "Matrix id",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "uuid"
+            },
+            {
+                "column": "tag_id",
+                "label": "Tag id",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "uuid"
+            }
+        ],
+        "dates": [
+            {
+                "column": "created_at",
+                "label": "Created at",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "datetime"
+            },
+            {
+                "column": "deleted_at",
+                "label": "Deleted at",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "datetime"
+            },
+            {
+                "column": "updated_at",
+                "label": "Updated at",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "datetime"
+            }
+        ],
+        "flags": [
+            {
+                "column": "active",
+                "label": "Active",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "canceled",
+                "label": "Canceled",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "closed",
+                "label": "Closed",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "completed",
+                "label": "Completed",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "flagged",
+                "label": "Flagged",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "internal",
+                "label": "Internal",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "locked",
+                "label": "Locked",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "pending",
+                "label": "Pending",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "planned",
+                "label": "Planned",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "problem",
+                "label": "Problem",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "unknown",
+                "label": "Unknown",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            }
+        ],
+        "trash": {
+            "hide": true,
+            "only": true,
+            "with": true
+        },
+        "columns": [
+            {
+                "column": "label",
+                "label": "Label",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "title",
+                "label": "Title",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "byline",
+                "label": "Byline",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "slug",
+                "label": "Slug",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "url",
+                "label": "Url",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "description",
+                "label": "Description",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "introduction",
+                "label": "Introduction",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "content",
+                "label": "Content",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "mediumText"
+            },
+            {
+                "column": "summary",
+                "label": "Summary",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "mediumText"
+            }
+        ],
+        "permissions": [
+            {
+                "column": "gids",
+                "label": "Gids",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "bigInteger"
+            },
+            {
+                "column": "po",
+                "label": "Po",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "tinyInteger"
+            },
+            {
+                "column": "pg",
+                "label": "Pg",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "tinyInteger"
+            },
+            {
+                "column": "pw",
+                "label": "Pw",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "tinyInteger"
+            },
+            {
+                "column": "only_admin",
+                "label": "Only admin",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "only_user",
+                "label": "Only user",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "only_guest",
+                "label": "Only guest",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "allow_public",
+                "label": "Allow public",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            }
+        ],
+        "status": [
+            {
+                "column": "status",
+                "label": "Status",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "bigInteger"
+            },
+            {
+                "column": "rank",
+                "label": "Rank",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "bigInteger"
+            },
+            {
+                "column": "size",
+                "label": "Size",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "bigInteger"
+            }
+        ],
+        "matrix": [
+            {
+                "column": "matrix",
+                "label": "Matrix",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "JSON_OBJECT"
+            },
+            {
+                "column": "x",
+                "label": "x",
+                "icon": "",
+                "nullable": true,
+                "unsigned": false,
+                "type": "integer"
+            },
+            {
+                "column": "y",
+                "label": "y",
+                "icon": "",
+                "nullable": true,
+                "unsigned": false,
+                "type": "integer"
+            },
+            {
+                "column": "z",
+                "label": "z",
+                "icon": "",
+                "nullable": true,
+                "unsigned": false,
+                "type": "integer"
+            },
+            {
+                "column": "r",
+                "label": "r",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            },
+            {
+                "column": "theta",
+                "label": "\u03b8",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            },
+            {
+                "column": "rho",
+                "label": "\u03c1",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            },
+            {
+                "column": "phi",
+                "label": "\u03c6",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            },
+            {
+                "column": "elevation",
+                "label": "Elevation",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            },
+            {
+                "column": "latitude",
+                "label": "Latitude",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            },
+            {
+                "column": "longitude",
+                "label": "Longitude",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            }
+        ],
+        "ui": [
+            {
+                "column": "icon",
+                "label": "Icon",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "image",
+                "label": "Image",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "avatar",
+                "label": "Avatar",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "ui",
+                "label": "Ui",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "JSON_OBJECT"
+            }
+        ],
+        "json": [
+            {
+                "column": "assets",
+                "label": "Assets",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "JSON_OBJECT"
+            },
+            {
+                "column": "meta",
+                "label": "Meta",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "JSON_OBJECT"
+            },
+            {
+                "column": "notes",
+                "label": "Notes",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "JSON_ARRAY"
+            },
+            {
+                "column": "options",
+                "label": "Options",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "JSON_OBJECT"
+            },
+            {
+                "column": "sources",
+                "label": "Sources",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "JSON_OBJECT"
+            }
+        ]
+    },
+    "models": {
+        "Note": "resources/configurations/playground-matrix/model.note.json"
+    },
+    "sortable": [
+        {
+            "column": "created_by_id",
+            "label": "Created by id",
+            "icon": "",
+            "nullable": false,
+            "type": "uuid"
+        },
+        {
+            "column": "modified_by_id",
+            "label": "Modified by id",
+            "icon": "",
+            "nullable": false,
+            "type": "uuid"
+        },
+        {
+            "column": "owned_by_id",
+            "label": "Owned by id",
+            "icon": "",
+            "nullable": false,
+            "type": "uuid"
+        },
+        {
+            "column": "parent_id",
+            "label": "Parent id",
+            "icon": "",
+            "nullable": false,
+            "type": "uuid"
+        },
+        {
+            "column": "note_type",
+            "label": "Note type",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "matrix_id",
+            "label": "Matrix id",
+            "icon": "",
+            "nullable": false,
+            "type": "uuid"
+        },
+        {
+            "column": "tag_id",
+            "label": "Tag id",
+            "icon": "",
+            "nullable": false,
+            "type": "uuid"
+        },
+        {
+            "column": "created_at",
+            "label": "Created At",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "updated_at",
+            "label": "Updated At",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "deleted_at",
+            "label": "Deleted At",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "gids",
+            "label": "Gids",
+            "icon": "",
+            "nullable": false,
+            "type": "bigInteger"
+        },
+        {
+            "column": "po",
+            "label": "Po",
+            "icon": "",
+            "nullable": false,
+            "type": "tinyInteger"
+        },
+        {
+            "column": "pg",
+            "label": "Pg",
+            "icon": "",
+            "nullable": false,
+            "type": "tinyInteger"
+        },
+        {
+            "column": "pw",
+            "label": "Pw",
+            "icon": "",
+            "nullable": false,
+            "type": "tinyInteger"
+        },
+        {
+            "column": "only_admin",
+            "label": "Only admin",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "only_user",
+            "label": "Only user",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "only_guest",
+            "label": "Only guest",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "allow_public",
+            "label": "Allow public",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "status",
+            "label": "Status",
+            "icon": "",
+            "nullable": false,
+            "type": "bigInteger"
+        },
+        {
+            "column": "rank",
+            "label": "Rank",
+            "icon": "",
+            "nullable": false,
+            "type": "bigInteger"
+        },
+        {
+            "column": "size",
+            "label": "Size",
+            "icon": "",
+            "nullable": false,
+            "type": "bigInteger"
+        },
+        {
+            "column": "matrix",
+            "label": "Matrix",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_OBJECT"
+        },
+        {
+            "column": "x",
+            "label": "X",
+            "icon": "",
+            "nullable": false,
+            "type": "bigInteger"
+        },
+        {
+            "column": "y",
+            "label": "Y",
+            "icon": "",
+            "nullable": false,
+            "type": "bigInteger"
+        },
+        {
+            "column": "z",
+            "label": "Z",
+            "icon": "",
+            "nullable": false,
+            "type": "bigInteger"
+        },
+        {
+            "column": "r",
+            "label": "R",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "theta",
+            "label": "Theta",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "rho",
+            "label": "Rho",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "phi",
+            "label": "Phi",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "elevation",
+            "label": "Elevation",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "latitude",
+            "label": "Latitude",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "longitude",
+            "label": "Longitude",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "active",
+            "label": "Active",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "canceled",
+            "label": "Canceled",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "closed",
+            "label": "Closed",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "completed",
+            "label": "Completed",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "flagged",
+            "label": "Flagged",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "internal",
+            "label": "Internal",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "locked",
+            "label": "Locked",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "pending",
+            "label": "Pending",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "planned",
+            "label": "Planned",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "problem",
+            "label": "Problem",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "unknown",
+            "label": "Unknown",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "label",
+            "label": "Label",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "title",
+            "label": "Title",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "byline",
+            "label": "Byline",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "slug",
+            "label": "Slug",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "url",
+            "label": "Url",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "description",
+            "label": "Description",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "introduction",
+            "label": "Introduction",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "content",
+            "label": "Content",
+            "icon": "",
+            "nullable": false,
+            "type": "mediumText"
+        },
+        {
+            "column": "summary",
+            "label": "Summary",
+            "icon": "",
+            "nullable": false,
+            "type": "mediumText"
+        },
+        {
+            "column": "icon",
+            "label": "Icon",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "image",
+            "label": "Image",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "avatar",
+            "label": "Avatar",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "ui",
+            "label": "Ui",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_OBJECT"
+        },
+        {
+            "column": "assets",
+            "label": "Assets",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_OBJECT"
+        },
+        {
+            "column": "meta",
+            "label": "Meta",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_OBJECT"
+        },
+        {
+            "column": "notes",
+            "label": "Notes",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_ARRAY"
+        },
+        {
+            "column": "options",
+            "label": "Options",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_OBJECT"
+        },
+        {
+            "column": "sources",
+            "label": "Sources",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_OBJECT"
+        }
+    ],
+    "create": {
+        "migration": "2020_01_02_100001_create_matrix_notes_table",
+        "primary": "uuid",
+        "timestamps": true,
+        "softDeletes": true,
+        "trash": {
+            "hide": false,
+            "only": false,
+            "with": false
+        },
+        "ids": {
+            "created_by_id": {
+                "column": "created_by_id",
+                "label": "",
+                "description": "",
+                "foreign": {
+                    "references": "id",
+                    "on": "users"
+                },
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": true,
+                "unsigned": false,
+                "type": "uuid"
+            },
+            "modified_by_id": {
+                "column": "modified_by_id",
+                "label": "",
+                "description": "",
+                "foreign": {
+                    "references": "id",
+                    "on": "users"
+                },
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": true,
+                "unsigned": false,
+                "type": "uuid"
+            },
+            "owned_by_id": {
+                "column": "owned_by_id",
+                "label": "",
+                "description": "",
+                "foreign": {
+                    "references": "id",
+                    "on": "users"
+                },
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": false,
+                "unsigned": false,
+                "type": "uuid"
+            },
+            "parent_id": {
+                "column": "parent_id",
+                "label": "",
+                "description": "",
+                "foreign": null,
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": false,
+                "unsigned": false,
+                "type": "uuid"
+            },
+            "note_type": {
+                "column": "note_type",
+                "label": "",
+                "description": "",
+                "foreign": null,
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": false,
+                "unsigned": false,
+                "type": "string"
+            },
+            "matrix_id": {
+                "column": "matrix_id",
+                "label": "",
+                "description": "",
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_matrices"
+                },
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": false,
+                "unsigned": false,
+                "type": "uuid"
+            },
+            "tag_id": {
+                "column": "tag_id",
+                "label": "",
+                "description": "",
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_tags"
+                },
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": false,
+                "unsigned": false,
+                "type": "uuid"
+            }
+        },
+        "unique": [
+            {
+                "keys": [
+                    "slug",
+                    "parent_id"
+                ]
+            }
+        ],
+        "dates": [],
+        "flags": {
+            "active": {
+                "column": "active",
+                "label": "Active",
+                "description": "",
+                "icon": "fa-solid fa-person-running",
+                "default": true,
+                "index": true,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "canceled": {
+                "column": "canceled",
+                "label": "Canceled",
+                "description": "",
+                "icon": "fa-solid fa-ban text-warning",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "closed": {
+                "column": "closed",
+                "label": "Closed",
+                "description": "",
+                "icon": "fa-solid fa-xmark",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "completed": {
+                "column": "completed",
+                "label": "Completed",
+                "description": "",
+                "icon": "fa-solid fa-check",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "flagged": {
+                "column": "flagged",
+                "label": "Flagged",
+                "description": "",
+                "icon": "fa-solid fa-flag",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "internal": {
+                "column": "internal",
+                "label": "Internal",
+                "description": "",
+                "icon": "fa-solid fa-server",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "locked": {
+                "column": "locked",
+                "label": "Locked",
+                "description": "",
+                "icon": "fa-solid fa-lock text-warning",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "pending": {
+                "column": "pending",
+                "label": "Pending",
+                "description": "",
+                "icon": "fa-solid fa-circle-pause text-warning",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "planned": {
+                "column": "planned",
+                "label": "Planned",
+                "description": "",
+                "icon": "fa-solid fa-circle-pause text-success",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "problem": {
+                "column": "problem",
+                "label": "Problem",
+                "description": "",
+                "icon": "fa-solid fa-triangle-exclamation text-danger",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "unknown": {
+                "column": "unknown",
+                "label": "Unknown",
+                "description": "",
+                "icon": "fa-solid fa-question text-warning",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            }
+        },
+        "columns": {
+            "label": {
+                "column": "label",
+                "label": "Label",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "string",
+                "size": 128,
+                "default": ""
+            },
+            "title": {
+                "column": "title",
+                "label": "Title",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "string",
+                "size": 255,
+                "default": ""
+            },
+            "byline": {
+                "column": "byline",
+                "label": "Byline",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "string",
+                "size": 255,
+                "default": ""
+            },
+            "slug": {
+                "column": "slug",
+                "label": "Slug",
+                "description": "",
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": false,
+                "type": "string",
+                "size": 128,
+                "default": null
+            },
+            "url": {
+                "column": "url",
+                "label": "Url",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "string",
+                "size": 512,
+                "default": ""
+            },
+            "description": {
+                "column": "description",
+                "label": "Description",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "string",
+                "size": 512,
+                "default": ""
+            },
+            "introduction": {
+                "column": "introduction",
+                "label": "Introduction",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "string",
+                "size": 512,
+                "default": ""
+            },
+            "content": {
+                "column": "content",
+                "label": "Content",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "mediumText"
+            },
+            "summary": {
+                "column": "summary",
+                "label": "Summary",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "mediumText"
+            }
+        },
+        "permissions": {
+            "gids": {
+                "column": "gids",
+                "label": "Gids",
+                "description": "",
+                "icon": "fa-solid fa-people-group",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "bigInteger",
+                "unsigned": true,
+                "default": 0
+            },
+            "po": {
+                "column": "po",
+                "label": "Po",
+                "description": "",
+                "icon": "fa-solid fa-house-user",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "tinyInteger",
+                "unsigned": true,
+                "default": 0
+            },
+            "pg": {
+                "column": "pg",
+                "label": "Pg",
+                "description": "",
+                "icon": "fa-solid fa-people-roof",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "tinyInteger",
+                "unsigned": true,
+                "default": 0
+            },
+            "pw": {
+                "column": "pw",
+                "label": "Pw",
+                "description": "",
+                "icon": "fa-solid fa-globe",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "tinyInteger",
+                "unsigned": true,
+                "default": 0
+            },
+            "only_admin": {
+                "column": "only_admin",
+                "label": "Only admin",
+                "description": "",
+                "icon": "fa-solid fa-user-gear",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean",
+                "default": false
+            },
+            "only_user": {
+                "column": "only_user",
+                "label": "Only user",
+                "description": "",
+                "icon": "fa-solid fa-user",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean",
+                "default": false
+            },
+            "only_guest": {
+                "column": "only_guest",
+                "label": "Only guest",
+                "description": "",
+                "icon": "fa-solid fa-person-rays",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean",
+                "default": false
+            },
+            "allow_public": {
+                "column": "allow_public",
+                "label": "Allow public",
+                "description": "",
+                "icon": "fa-solid fa-users-line",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean",
+                "default": false
+            }
+        },
+        "status": {
+            "status": {
+                "column": "status",
+                "label": "Status",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "bigInteger",
+                "unsigned": true,
+                "default": 0
+            },
+            "rank": {
+                "column": "rank",
+                "label": "Rank",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "bigInteger",
+                "unsigned": false,
+                "default": 0
+            },
+            "size": {
+                "column": "size",
+                "label": "Size",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "bigInteger",
+                "unsigned": false,
+                "default": 0
+            }
+        },
+        "matrix": {
+            "matrix": {
+                "column": "matrix",
+                "label": "Matrix",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "JSON_OBJECT",
+                "default": "{}"
+            },
+            "x": {
+                "column": "x",
+                "label": "X",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "bigInteger",
+                "unsigned": false,
+                "default": null
+            },
+            "y": {
+                "column": "y",
+                "label": "Y",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "bigInteger",
+                "unsigned": false,
+                "default": null
+            },
+            "z": {
+                "column": "z",
+                "label": "Z",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "bigInteger",
+                "unsigned": false,
+                "default": null
+            },
+            "r": {
+                "column": "r",
+                "label": "R",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "decimal",
+                "precision": 65,
+                "scale": 10,
+                "default": null
+            },
+            "theta": {
+                "column": "theta",
+                "label": "Theta",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "decimal",
+                "precision": 10,
+                "scale": 6,
+                "default": null
+            },
+            "rho": {
+                "column": "rho",
+                "label": "Rho",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "decimal",
+                "precision": 10,
+                "scale": 6,
+                "default": null
+            },
+            "phi": {
+                "column": "phi",
+                "label": "Phi",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "decimal",
+                "precision": 10,
+                "scale": 6,
+                "default": null
+            },
+            "elevation": {
+                "column": "elevation",
+                "label": "Elevation",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "decimal",
+                "precision": 65,
+                "scale": 10,
+                "default": null
+            },
+            "latitude": {
+                "column": "latitude",
+                "label": "Latitude",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "decimal",
+                "precision": 8,
+                "scale": 6,
+                "default": null
+            },
+            "longitude": {
+                "column": "longitude",
+                "label": "Longitude",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "decimal",
+                "precision": 9,
+                "scale": 6,
+                "default": null
+            }
+        },
+        "ui": {
+            "icon": {
+                "column": "icon",
+                "label": "Icon",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "string",
+                "size": 128,
+                "default": ""
+            },
+            "image": {
+                "column": "image",
+                "label": "Image",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "string",
+                "size": 512,
+                "default": ""
+            },
+            "avatar": {
+                "column": "avatar",
+                "label": "Avatar",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "string",
+                "size": 512,
+                "default": ""
+            },
+            "ui": {
+                "column": "ui",
+                "label": "Ui",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "JSON_OBJECT",
+                "default": "{}"
+            }
+        },
+        "json": {
+            "assets": {
+                "column": "assets",
+                "label": "Assets",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "JSON_OBJECT",
+                "default": "{}"
+            },
+            "meta": {
+                "column": "meta",
+                "label": "Meta",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "JSON_OBJECT",
+                "default": "{}"
+            },
+            "notes": {
+                "column": "notes",
+                "label": "Notes",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": true,
+                "type": "JSON_ARRAY",
+                "comment": "Array of note objects",
+                "default": "[]"
+            },
+            "options": {
+                "column": "options",
+                "label": "Options",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "JSON_OBJECT",
+                "default": "{}"
+            },
+            "sources": {
+                "column": "sources",
+                "label": "Sources",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "JSON_OBJECT",
+                "default": "{}"
+            }
+        }
+    },
+    "uses": [
+        "Illuminate/Database/Eloquent/Relations/HasOne",
+        "Playground/Models/Model"
+    ]
+}

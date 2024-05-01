@@ -1,0 +1,30 @@
+{
+    "class": "ProjectController",
+    "module": "Matrix",
+    "module_slug": "matrix",
+    "name": "ProjectController",
+    "namespace": "Playground/Matrix/Resource",
+    "model": "Project",
+    "organization": "Playground",
+    "package": "playground-matrix-resource",
+    "type": "playground-resource",
+    "playground": true,
+    "models": {
+        "Project": "resources/configurations/playground-matrix/model.project.json"
+    },
+    "policies": [],
+    "requests": [],
+    "resources": [],
+    "templates": [],
+    "transformers": [],
+    "extends": "Controller",
+    "extends_use": "",
+    "slug": "",
+    "slug_plural": "",
+    "model_route": "playground.matrix.resource.projects",
+    "module_route": "playground.matrix.resource",
+    "privilege": "playground-matrix-resource:project",
+    "route": "playground.matrix.resource.projects",
+    "view": "playground-matrix-resource::project",
+    "uses": []
+}

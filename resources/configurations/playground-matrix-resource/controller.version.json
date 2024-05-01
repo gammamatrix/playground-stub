@@ -1,0 +1,30 @@
+{
+    "class": "VersionController",
+    "module": "Matrix",
+    "module_slug": "matrix",
+    "name": "VersionController",
+    "namespace": "Playground/Matrix/Resource",
+    "model": "Version",
+    "organization": "Playground",
+    "package": "playground-matrix-resource",
+    "type": "playground-resource",
+    "playground": true,
+    "models": {
+        "Version": "resources/configurations/playground-matrix/model.version.json"
+    },
+    "policies": [],
+    "requests": [],
+    "resources": [],
+    "templates": [],
+    "transformers": [],
+    "extends": "Controller",
+    "extends_use": "",
+    "slug": "",
+    "slug_plural": "",
+    "model_route": "playground.matrix.resource.versions",
+    "module_route": "playground.matrix.resource",
+    "privilege": "playground-matrix-resource:version",
+    "route": "playground.matrix.resource.versions",
+    "view": "playground-matrix-resource::version",
+    "uses": []
+}

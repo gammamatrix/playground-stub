@@ -1,0 +1,39 @@
+{
+    "package": "playground-cms",
+    "module": "Cms",
+    "module_slug": "cms",
+    "name": "AbstractModel",
+    "namespace": "Playground\\Cms",
+    "modelspace": "Playground\\Cms\\Models",
+    "organization": "Playground",
+    "type": "abstract",
+    "class": "AbstractModel",
+    "table": "",
+    "extends": "UuidModel",
+    "implements": {
+        "WithChildrenInterface": "Playground\\Models\\Interfaces\\WithChildrenInterface",
+        "WithCreatorInterface": "Playground\\Models\\Interfaces\\WithCreatorInterface",
+        "WithModifierInterface": "Playground\\Models\\Interfaces\\WithModifierInterface",
+        "WithOwnerInterface": "Playground\\Models\\Interfaces\\WithOwnerInterface",
+        "WithParentInterface": "Playground\\Models\\Interfaces\\WithParentInterface",
+        "WithSpecInterface": "\\Playground\\Models\\Interfaces\\WithSpecInterface"
+    },
+    "HasMany": [],
+    "factory": false,
+    "migration": false,
+    "policy": false,
+    "seed": false,
+    "create": [],
+    "extends_use": "Playground\\Models\\UuidModel",
+    "uses": {
+        "HasFactory": "Illuminate\\Database\\Eloquent\\Factories\\HasFactory",
+        "SoftDeletes": "Illuminate\\Database\\Eloquent\\SoftDeletes",
+        "WithChildren": "\\Playground\\Models\\Traits\\WithChildren",
+        "WithCreator": "Playground\\Models\\Traits\\WithCreator",
+        "WithModifier": "Playground\\Models\\Traits\\WithModifier",
+        "WithOwner": "Playground\\Models\\Traits\\WithOwner",
+        "WithParent": "Playground\\Models\\Traits\\WithParent",
+        "WithSpec": "Playground\\Models\\Traits\\WithSpec"
+    },
+    "perPage": 25
+}

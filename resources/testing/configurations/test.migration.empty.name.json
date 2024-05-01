@@ -1,0 +1,25 @@
+{
+    "organization": "Playground",
+    "package": "playground-crm",
+    "module": "Crm",
+    "module_slug": "crm",
+    "fqdn": "",
+    "namespace": "Playground/Crm",
+    "model": "Contact",
+    "model_fqdn": "Playground/Crm/Models/Contact",
+    "model_column": "",
+    "model_label": "",
+    "name": "",
+    "folder": "",
+    "class": "",
+    "type": "playground-model",
+    "table": "crm_contacts",
+    "extends": "",
+    "implements": [],
+    "properties": [],
+    "setup": [],
+    "tests": [],
+    "models": {
+        "Contact": "resources/testing/configurations/test.model.crm.contact.json"
+    }
+}

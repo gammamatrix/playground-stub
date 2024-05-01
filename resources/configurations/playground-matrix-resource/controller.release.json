@@ -1,0 +1,30 @@
+{
+    "class": "ReleaseController",
+    "module": "Matrix",
+    "module_slug": "matrix",
+    "name": "ReleaseController",
+    "namespace": "Playground/Matrix/Resource",
+    "model": "Release",
+    "organization": "Playground",
+    "package": "playground-matrix-resource",
+    "type": "playground-resource",
+    "playground": true,
+    "models": {
+        "Release": "resources/configurations/playground-matrix/model.release.json"
+    },
+    "policies": [],
+    "requests": [],
+    "resources": [],
+    "templates": [],
+    "transformers": [],
+    "extends": "Controller",
+    "extends_use": "",
+    "slug": "",
+    "slug_plural": "",
+    "model_route": "playground.matrix.resource.releases",
+    "module_route": "playground.matrix.resource",
+    "privilege": "playground-matrix-resource:release",
+    "route": "playground.matrix.resource.releases",
+    "view": "playground-matrix-resource::release",
+    "uses": []
+}

@@ -1,0 +1,2326 @@
+{
+    "class": "Flow",
+    "config": "playground-matrix",
+    "fqdn": "Playground/Matrix/Models/Flow",
+    "module": "Matrix",
+    "module_slug": "matrix",
+    "name": "Flow",
+    "namespace": "Playground/Matrix",
+    "organization": "Playground",
+    "package": "playground-matrix",
+    "model": "Flow",
+    "model_plural": "Flows",
+    "model_singular": "Flow",
+    "model_slug": "flow",
+    "type": "model",
+    "table": "matrix_flows",
+    "perPage": null,
+    "controller": true,
+    "factory": true,
+    "migration": true,
+    "playground": true,
+    "policy": false,
+    "requests": false,
+    "seed": true,
+    "test": true,
+    "extends": "Model",
+    "implements": [],
+    "HasOne": {
+        "matrix": {
+            "comment": "The matrix of the flow.",
+            "accessor": "matrix",
+            "related": "Matrix",
+            "foreignKey": "id",
+            "localKey": "matrix_id"
+        },
+        "note": {
+            "comment": "The note of the flow.",
+            "accessor": "note",
+            "related": "Note",
+            "foreignKey": "id",
+            "localKey": "note_id"
+        },
+        "tag": {
+            "comment": "The tag of the flow.",
+            "accessor": "tag",
+            "related": "Tag",
+            "foreignKey": "id",
+            "localKey": "tag_id"
+        },
+        "team": {
+            "comment": "The team of the flow.",
+            "accessor": "team",
+            "related": "Team",
+            "foreignKey": "id",
+            "localKey": "team_id"
+        }
+    },
+    "HasMany": [],
+    "scopes": {
+        "sort": {
+            "include": "minus",
+            "builder": null
+        }
+    },
+    "attributes": {
+        "created_by_id": null,
+        "modified_by_id": null,
+        "owned_by_id": null,
+        "parent_id": null,
+        "flow_type": null,
+        "matrix_id": null,
+        "note_id": null,
+        "tag_id": null,
+        "team_id": null,
+        "created_at": null,
+        "updated_at": null,
+        "deleted_at": null,
+        "start_at": null,
+        "planned_start_at": null,
+        "end_at": null,
+        "planned_end_at": null,
+        "embargo_at": null,
+        "postponed_at": null,
+        "resumed_at": null,
+        "suspended_at": null,
+        "gids": 0,
+        "po": 0,
+        "pg": 0,
+        "pw": 0,
+        "only_admin": false,
+        "only_user": false,
+        "only_guest": false,
+        "allow_public": false,
+        "status": 0,
+        "rank": 0,
+        "size": 0,
+        "matrix": "{}",
+        "x": null,
+        "y": null,
+        "z": null,
+        "r": null,
+        "theta": null,
+        "rho": null,
+        "phi": null,
+        "elevation": null,
+        "latitude": null,
+        "longitude": null,
+        "active": true,
+        "cron": false,
+        "flagged": false,
+        "internal": false,
+        "locked": false,
+        "pending": false,
+        "planned": false,
+        "problem": false,
+        "retired": false,
+        "suspended": false,
+        "unknown": false,
+        "label": "",
+        "title": "",
+        "byline": "",
+        "slug": null,
+        "url": "",
+        "description": "",
+        "introduction": "",
+        "content": null,
+        "summary": null,
+        "icon": "",
+        "image": "",
+        "avatar": "",
+        "ui": "{}",
+        "assets": "{}",
+        "backlog": "{}",
+        "board": "{}",
+        "flow": "{}",
+        "meta": "{}",
+        "notes": "[]",
+        "options": "{}",
+        "roadmap": "{}",
+        "sources": "{}"
+    },
+    "casts": {
+        "flow_type": "string",
+        "created_at": "datetime",
+        "updated_at": "datetime",
+        "deleted_at": "datetime",
+        "start_at": "datetime",
+        "planned_start_at": "datetime",
+        "end_at": "datetime",
+        "planned_end_at": "datetime",
+        "embargo_at": "datetime",
+        "postponed_at": "datetime",
+        "resumed_at": "datetime",
+        "suspended_at": "datetime",
+        "gids": "integer",
+        "po": "integer",
+        "pg": "integer",
+        "pw": "integer",
+        "only_admin": "boolean",
+        "only_user": "boolean",
+        "only_guest": "boolean",
+        "allow_public": "boolean",
+        "status": "integer",
+        "rank": "integer",
+        "size": "integer",
+        "matrix": "array",
+        "x": "integer",
+        "y": "integer",
+        "z": "integer",
+        "r": "float",
+        "theta": "float",
+        "rho": "float",
+        "phi": "float",
+        "elevation": "float",
+        "latitude": "float",
+        "longitude": "float",
+        "active": "boolean",
+        "cron": "boolean",
+        "flagged": "boolean",
+        "internal": "boolean",
+        "locked": "boolean",
+        "pending": "boolean",
+        "planned": "boolean",
+        "problem": "boolean",
+        "retired": "boolean",
+        "suspended": "boolean",
+        "unknown": "boolean",
+        "label": "string",
+        "title": "string",
+        "byline": "string",
+        "slug": "string",
+        "url": "string",
+        "description": "string",
+        "introduction": "string",
+        "content": "string",
+        "summary": "string",
+        "icon": "string",
+        "image": "string",
+        "avatar": "string",
+        "ui": "array",
+        "assets": "array",
+        "backlog": "array",
+        "board": "array",
+        "flow": "array",
+        "meta": "array",
+        "notes": "array",
+        "options": "array",
+        "roadmap": "array",
+        "sources": "array"
+    },
+    "fillable": [
+        "owned_by_id",
+        "parent_id",
+        "flow_type",
+        "matrix_id",
+        "note_id",
+        "tag_id",
+        "team_id",
+        "start_at",
+        "planned_start_at",
+        "end_at",
+        "planned_end_at",
+        "embargo_at",
+        "postponed_at",
+        "resumed_at",
+        "suspended_at",
+        "gids",
+        "po",
+        "pg",
+        "pw",
+        "only_admin",
+        "only_user",
+        "only_guest",
+        "allow_public",
+        "status",
+        "rank",
+        "size",
+        "matrix",
+        "x",
+        "y",
+        "z",
+        "r",
+        "theta",
+        "rho",
+        "phi",
+        "elevation",
+        "latitude",
+        "longitude",
+        "active",
+        "cron",
+        "flagged",
+        "internal",
+        "locked",
+        "pending",
+        "planned",
+        "problem",
+        "retired",
+        "suspended",
+        "unknown",
+        "label",
+        "title",
+        "byline",
+        "slug",
+        "url",
+        "description",
+        "introduction",
+        "content",
+        "summary",
+        "icon",
+        "image",
+        "avatar",
+        "ui",
+        "assets",
+        "backlog",
+        "board",
+        "flow",
+        "meta",
+        "options",
+        "roadmap",
+        "sources"
+    ],
+    "filters": {
+        "builder": null,
+        "ids": [
+            {
+                "column": "created_by_id",
+                "label": "Created by id",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "uuid"
+            },
+            {
+                "column": "modified_by_id",
+                "label": "Modified by id",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "uuid"
+            },
+            {
+                "column": "parent_id",
+                "label": "Parent id",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "uuid"
+            },
+            {
+                "column": "flow_type",
+                "label": "Flow type",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "owned_by_id",
+                "label": "Owned by id",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "uuid"
+            },
+            {
+                "column": "matrix_id",
+                "label": "Matrix id",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "uuid"
+            },
+            {
+                "column": "note_id",
+                "label": "Note id",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "uuid"
+            },
+            {
+                "column": "tag_id",
+                "label": "Tag id",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "uuid"
+            },
+            {
+                "column": "team_id",
+                "label": "Team id",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "uuid"
+            }
+        ],
+        "dates": [
+            {
+                "column": "created_at",
+                "label": "Created at",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "datetime"
+            },
+            {
+                "column": "deleted_at",
+                "label": "Deleted at",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "datetime"
+            },
+            {
+                "column": "updated_at",
+                "label": "Updated at",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "datetime"
+            },
+            {
+                "column": "start_at",
+                "label": "",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "datetime"
+            },
+            {
+                "column": "planned_start_at",
+                "label": "",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "datetime"
+            },
+            {
+                "column": "end_at",
+                "label": "",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "datetime"
+            },
+            {
+                "column": "planned_end_at",
+                "label": "",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "datetime"
+            },
+            {
+                "column": "embargo_at",
+                "label": "",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "datetime"
+            },
+            {
+                "column": "postponed_at",
+                "label": "",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "datetime"
+            },
+            {
+                "column": "resumed_at",
+                "label": "",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "datetime"
+            },
+            {
+                "column": "suspended_at",
+                "label": "",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "datetime"
+            }
+        ],
+        "flags": [
+            {
+                "column": "active",
+                "label": "Active",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "cron",
+                "label": "Cron",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "flagged",
+                "label": "Flagged",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "internal",
+                "label": "Internal",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "locked",
+                "label": "Locked",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "pending",
+                "label": "Pending",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "planned",
+                "label": "Planned",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "problem",
+                "label": "Problem",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "retired",
+                "label": "Retired",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "suspended",
+                "label": "Suspended",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "unknown",
+                "label": "Unknown",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            }
+        ],
+        "trash": {
+            "hide": true,
+            "only": true,
+            "with": true
+        },
+        "columns": [
+            {
+                "column": "label",
+                "label": "Label",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "title",
+                "label": "Title",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "byline",
+                "label": "Byline",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "slug",
+                "label": "Slug",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "url",
+                "label": "Url",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "description",
+                "label": "Description",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "introduction",
+                "label": "Introduction",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "content",
+                "label": "Content",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "mediumText"
+            },
+            {
+                "column": "summary",
+                "label": "Summary",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "mediumText"
+            }
+        ],
+        "permissions": [
+            {
+                "column": "gids",
+                "label": "Gids",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "bigInteger"
+            },
+            {
+                "column": "po",
+                "label": "Po",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "tinyInteger"
+            },
+            {
+                "column": "pg",
+                "label": "Pg",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "tinyInteger"
+            },
+            {
+                "column": "pw",
+                "label": "Pw",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "tinyInteger"
+            },
+            {
+                "column": "only_admin",
+                "label": "Only admin",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "only_user",
+                "label": "Only user",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "only_guest",
+                "label": "Only guest",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            },
+            {
+                "column": "allow_public",
+                "label": "Allow public",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "boolean"
+            }
+        ],
+        "status": [
+            {
+                "column": "status",
+                "label": "Status",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "bigInteger"
+            },
+            {
+                "column": "rank",
+                "label": "Rank",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "bigInteger"
+            },
+            {
+                "column": "size",
+                "label": "Size",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "bigInteger"
+            }
+        ],
+        "matrix": [
+            {
+                "column": "matrix",
+                "label": "Matrix",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "JSON_OBJECT"
+            },
+            {
+                "column": "x",
+                "label": "x",
+                "icon": "",
+                "nullable": true,
+                "unsigned": false,
+                "type": "integer"
+            },
+            {
+                "column": "y",
+                "label": "y",
+                "icon": "",
+                "nullable": true,
+                "unsigned": false,
+                "type": "integer"
+            },
+            {
+                "column": "z",
+                "label": "z",
+                "icon": "",
+                "nullable": true,
+                "unsigned": false,
+                "type": "integer"
+            },
+            {
+                "column": "r",
+                "label": "r",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            },
+            {
+                "column": "theta",
+                "label": "\u03b8",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            },
+            {
+                "column": "rho",
+                "label": "\u03c1",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            },
+            {
+                "column": "phi",
+                "label": "\u03c6",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            },
+            {
+                "column": "elevation",
+                "label": "Elevation",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            },
+            {
+                "column": "latitude",
+                "label": "Latitude",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            },
+            {
+                "column": "longitude",
+                "label": "Longitude",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "float"
+            }
+        ],
+        "ui": [
+            {
+                "column": "icon",
+                "label": "Icon",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "image",
+                "label": "Image",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "avatar",
+                "label": "Avatar",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "string"
+            },
+            {
+                "column": "ui",
+                "label": "Ui",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "JSON_OBJECT"
+            }
+        ],
+        "json": [
+            {
+                "column": "assets",
+                "label": "Assets",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "JSON_OBJECT"
+            },
+            {
+                "column": "backlog",
+                "label": "Backlog",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "JSON_OBJECT"
+            },
+            {
+                "column": "board",
+                "label": "Board",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "JSON_OBJECT"
+            },
+            {
+                "column": "flow",
+                "label": "Flow",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "JSON_OBJECT"
+            },
+            {
+                "column": "meta",
+                "label": "Meta",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "JSON_OBJECT"
+            },
+            {
+                "column": "notes",
+                "label": "Notes",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "JSON_ARRAY"
+            },
+            {
+                "column": "options",
+                "label": "Options",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "JSON_OBJECT"
+            },
+            {
+                "column": "roadmap",
+                "label": "Roadmap",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "JSON_OBJECT"
+            },
+            {
+                "column": "sources",
+                "label": "Sources",
+                "icon": "",
+                "nullable": true,
+                "unsigned": true,
+                "type": "JSON_OBJECT"
+            }
+        ]
+    },
+    "models": {
+        "Flow": "resources/configurations/playground-matrix/model.flow.json"
+    },
+    "sortable": [
+        {
+            "column": "created_by_id",
+            "label": "Created by id",
+            "icon": "",
+            "nullable": false,
+            "type": "uuid"
+        },
+        {
+            "column": "modified_by_id",
+            "label": "Modified by id",
+            "icon": "",
+            "nullable": false,
+            "type": "uuid"
+        },
+        {
+            "column": "owned_by_id",
+            "label": "Owned by id",
+            "icon": "",
+            "nullable": false,
+            "type": "uuid"
+        },
+        {
+            "column": "parent_id",
+            "label": "Parent id",
+            "icon": "",
+            "nullable": false,
+            "type": "uuid"
+        },
+        {
+            "column": "flow_type",
+            "label": "Flow type",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "matrix_id",
+            "label": "Matrix id",
+            "icon": "",
+            "nullable": false,
+            "type": "uuid"
+        },
+        {
+            "column": "note_id",
+            "label": "Note id",
+            "icon": "",
+            "nullable": false,
+            "type": "uuid"
+        },
+        {
+            "column": "tag_id",
+            "label": "Tag id",
+            "icon": "",
+            "nullable": false,
+            "type": "uuid"
+        },
+        {
+            "column": "team_id",
+            "label": "Team id",
+            "icon": "",
+            "nullable": false,
+            "type": "uuid"
+        },
+        {
+            "column": "created_at",
+            "label": "Created At",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "updated_at",
+            "label": "Updated At",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "deleted_at",
+            "label": "Deleted At",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "start_at",
+            "label": "Start at",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "planned_start_at",
+            "label": "Planned start at",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "end_at",
+            "label": "End at",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "planned_end_at",
+            "label": "Planned end at",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "embargo_at",
+            "label": "Embargo at",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "postponed_at",
+            "label": "Postponed at",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "resumed_at",
+            "label": "Resumed at",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "suspended_at",
+            "label": "Suspended at",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "gids",
+            "label": "Gids",
+            "icon": "",
+            "nullable": false,
+            "type": "bigInteger"
+        },
+        {
+            "column": "po",
+            "label": "Po",
+            "icon": "",
+            "nullable": false,
+            "type": "tinyInteger"
+        },
+        {
+            "column": "pg",
+            "label": "Pg",
+            "icon": "",
+            "nullable": false,
+            "type": "tinyInteger"
+        },
+        {
+            "column": "pw",
+            "label": "Pw",
+            "icon": "",
+            "nullable": false,
+            "type": "tinyInteger"
+        },
+        {
+            "column": "only_admin",
+            "label": "Only admin",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "only_user",
+            "label": "Only user",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "only_guest",
+            "label": "Only guest",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "allow_public",
+            "label": "Allow public",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "status",
+            "label": "Status",
+            "icon": "",
+            "nullable": false,
+            "type": "bigInteger"
+        },
+        {
+            "column": "rank",
+            "label": "Rank",
+            "icon": "",
+            "nullable": false,
+            "type": "bigInteger"
+        },
+        {
+            "column": "size",
+            "label": "Size",
+            "icon": "",
+            "nullable": false,
+            "type": "bigInteger"
+        },
+        {
+            "column": "matrix",
+            "label": "Matrix",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_OBJECT"
+        },
+        {
+            "column": "x",
+            "label": "X",
+            "icon": "",
+            "nullable": false,
+            "type": "bigInteger"
+        },
+        {
+            "column": "y",
+            "label": "Y",
+            "icon": "",
+            "nullable": false,
+            "type": "bigInteger"
+        },
+        {
+            "column": "z",
+            "label": "Z",
+            "icon": "",
+            "nullable": false,
+            "type": "bigInteger"
+        },
+        {
+            "column": "r",
+            "label": "R",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "theta",
+            "label": "Theta",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "rho",
+            "label": "Rho",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "phi",
+            "label": "Phi",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "elevation",
+            "label": "Elevation",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "latitude",
+            "label": "Latitude",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "longitude",
+            "label": "Longitude",
+            "icon": "",
+            "nullable": false,
+            "type": "float"
+        },
+        {
+            "column": "active",
+            "label": "Active",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "cron",
+            "label": "Cron",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "flagged",
+            "label": "Flagged",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "internal",
+            "label": "Internal",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "locked",
+            "label": "Locked",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "pending",
+            "label": "Pending",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "planned",
+            "label": "Planned",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "problem",
+            "label": "Problem",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "retired",
+            "label": "Retired",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "suspended",
+            "label": "Suspended",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "unknown",
+            "label": "Unknown",
+            "icon": "",
+            "nullable": false,
+            "type": "boolean"
+        },
+        {
+            "column": "label",
+            "label": "Label",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "title",
+            "label": "Title",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "byline",
+            "label": "Byline",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "slug",
+            "label": "Slug",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "url",
+            "label": "Url",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "description",
+            "label": "Description",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "introduction",
+            "label": "Introduction",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "content",
+            "label": "Content",
+            "icon": "",
+            "nullable": false,
+            "type": "mediumText"
+        },
+        {
+            "column": "summary",
+            "label": "Summary",
+            "icon": "",
+            "nullable": false,
+            "type": "mediumText"
+        },
+        {
+            "column": "icon",
+            "label": "Icon",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "image",
+            "label": "Image",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "avatar",
+            "label": "Avatar",
+            "icon": "",
+            "nullable": false,
+            "type": "string"
+        },
+        {
+            "column": "ui",
+            "label": "Ui",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_OBJECT"
+        },
+        {
+            "column": "assets",
+            "label": "Assets",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_OBJECT"
+        },
+        {
+            "column": "backlog",
+            "label": "Backlog",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_OBJECT"
+        },
+        {
+            "column": "board",
+            "label": "Board",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_OBJECT"
+        },
+        {
+            "column": "flow",
+            "label": "Flow",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_OBJECT"
+        },
+        {
+            "column": "meta",
+            "label": "Meta",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_OBJECT"
+        },
+        {
+            "column": "notes",
+            "label": "Notes",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_ARRAY"
+        },
+        {
+            "column": "options",
+            "label": "Options",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_OBJECT"
+        },
+        {
+            "column": "roadmap",
+            "label": "Roadmap",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_OBJECT"
+        },
+        {
+            "column": "sources",
+            "label": "Sources",
+            "icon": "",
+            "nullable": false,
+            "type": "JSON_OBJECT"
+        }
+    ],
+    "create": {
+        "migration": "2020_01_02_100001_create_matrix_flows_table",
+        "primary": "uuid",
+        "timestamps": true,
+        "softDeletes": true,
+        "trash": {
+            "hide": false,
+            "only": false,
+            "with": false
+        },
+        "ids": {
+            "created_by_id": {
+                "column": "created_by_id",
+                "label": "",
+                "description": "",
+                "foreign": {
+                    "references": "id",
+                    "on": "users"
+                },
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": true,
+                "unsigned": false,
+                "type": "uuid"
+            },
+            "modified_by_id": {
+                "column": "modified_by_id",
+                "label": "",
+                "description": "",
+                "foreign": {
+                    "references": "id",
+                    "on": "users"
+                },
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": true,
+                "unsigned": false,
+                "type": "uuid"
+            },
+            "owned_by_id": {
+                "column": "owned_by_id",
+                "label": "",
+                "description": "",
+                "foreign": {
+                    "references": "id",
+                    "on": "users"
+                },
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": false,
+                "unsigned": false,
+                "type": "uuid"
+            },
+            "parent_id": {
+                "column": "parent_id",
+                "label": "",
+                "description": "",
+                "foreign": null,
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": false,
+                "unsigned": false,
+                "type": "uuid"
+            },
+            "flow_type": {
+                "column": "flow_type",
+                "label": "",
+                "description": "",
+                "foreign": null,
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": false,
+                "unsigned": false,
+                "type": "string"
+            },
+            "matrix_id": {
+                "column": "matrix_id",
+                "label": "",
+                "description": "",
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_matrices"
+                },
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": false,
+                "unsigned": false,
+                "type": "uuid"
+            },
+            "note_id": {
+                "column": "note_id",
+                "label": "",
+                "description": "",
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_notes"
+                },
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": false,
+                "unsigned": false,
+                "type": "uuid"
+            },
+            "tag_id": {
+                "column": "tag_id",
+                "label": "",
+                "description": "",
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_tags"
+                },
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": false,
+                "unsigned": false,
+                "type": "uuid"
+            },
+            "team_id": {
+                "column": "team_id",
+                "label": "",
+                "description": "",
+                "foreign": {
+                    "references": "id",
+                    "on": "matrix_teams"
+                },
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": false,
+                "unsigned": false,
+                "type": "uuid"
+            }
+        },
+        "unique": [
+            {
+                "keys": [
+                    "slug",
+                    "parent_id"
+                ]
+            }
+        ],
+        "dates": {
+            "start_at": {
+                "column": "start_at",
+                "label": "Start at",
+                "description": "",
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": false,
+                "type": "dateTime"
+            },
+            "planned_start_at": {
+                "column": "planned_start_at",
+                "label": "Planned start at",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "dateTime"
+            },
+            "end_at": {
+                "column": "end_at",
+                "label": "End at",
+                "description": "",
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": false,
+                "type": "dateTime"
+            },
+            "planned_end_at": {
+                "column": "planned_end_at",
+                "label": "Planned end at",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "dateTime"
+            },
+            "embargo_at": {
+                "column": "embargo_at",
+                "label": "Embargo at",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "dateTime"
+            },
+            "postponed_at": {
+                "column": "postponed_at",
+                "label": "Postponed at",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "dateTime"
+            },
+            "resumed_at": {
+                "column": "resumed_at",
+                "label": "Resumed at",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "dateTime"
+            },
+            "suspended_at": {
+                "column": "suspended_at",
+                "label": "Suspended at",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "dateTime"
+            }
+        },
+        "flags": {
+            "active": {
+                "column": "active",
+                "label": "Active",
+                "description": "",
+                "icon": "fa-solid fa-person-running",
+                "default": true,
+                "index": true,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "cron": {
+                "column": "cron",
+                "label": "Cron",
+                "description": "",
+                "icon": "fa-regular fa-clock",
+                "default": false,
+                "index": true,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "flagged": {
+                "column": "flagged",
+                "label": "Flagged",
+                "description": "",
+                "icon": "fa-solid fa-flag",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "internal": {
+                "column": "internal",
+                "label": "Internal",
+                "description": "",
+                "icon": "fa-solid fa-server",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "locked": {
+                "column": "locked",
+                "label": "Locked",
+                "description": "",
+                "icon": "fa-solid fa-lock text-warning",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "pending": {
+                "column": "pending",
+                "label": "Pending",
+                "description": "",
+                "icon": "fa-solid fa-circle-pause text-warning",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "planned": {
+                "column": "planned",
+                "label": "Planned",
+                "description": "",
+                "icon": "fa-solid fa-circle-pause text-success",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "problem": {
+                "column": "problem",
+                "label": "Problem",
+                "description": "",
+                "icon": "fa-solid fa-triangle-exclamation text-danger",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "retired": {
+                "column": "retired",
+                "label": "Retired",
+                "description": "",
+                "icon": "fa-solid fa-chair text-success",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "suspended": {
+                "column": "suspended",
+                "label": "Suspended",
+                "description": "",
+                "icon": "fa-solid fa-hand text-danger",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            },
+            "unknown": {
+                "column": "unknown",
+                "label": "Unknown",
+                "description": "",
+                "icon": "fa-solid fa-question text-warning",
+                "default": false,
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean"
+            }
+        },
+        "columns": {
+            "label": {
+                "column": "label",
+                "label": "Label",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "string",
+                "size": 128,
+                "default": ""
+            },
+            "title": {
+                "column": "title",
+                "label": "Title",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "string",
+                "size": 255,
+                "default": ""
+            },
+            "byline": {
+                "column": "byline",
+                "label": "Byline",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "string",
+                "size": 255,
+                "default": ""
+            },
+            "slug": {
+                "column": "slug",
+                "label": "Slug",
+                "description": "",
+                "icon": "",
+                "index": true,
+                "nullable": true,
+                "readOnly": false,
+                "type": "string",
+                "size": 128,
+                "default": null
+            },
+            "url": {
+                "column": "url",
+                "label": "Url",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "string",
+                "size": 512,
+                "default": ""
+            },
+            "description": {
+                "column": "description",
+                "label": "Description",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "string",
+                "size": 512,
+                "default": ""
+            },
+            "introduction": {
+                "column": "introduction",
+                "label": "Introduction",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "string",
+                "size": 512,
+                "default": ""
+            },
+            "content": {
+                "column": "content",
+                "label": "Content",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "mediumText"
+            },
+            "summary": {
+                "column": "summary",
+                "label": "Summary",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "mediumText"
+            }
+        },
+        "permissions": {
+            "gids": {
+                "column": "gids",
+                "label": "Gids",
+                "description": "",
+                "icon": "fa-solid fa-people-group",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "bigInteger",
+                "unsigned": true,
+                "default": 0
+            },
+            "po": {
+                "column": "po",
+                "label": "Po",
+                "description": "",
+                "icon": "fa-solid fa-house-user",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "tinyInteger",
+                "unsigned": true,
+                "default": 0
+            },
+            "pg": {
+                "column": "pg",
+                "label": "Pg",
+                "description": "",
+                "icon": "fa-solid fa-people-roof",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "tinyInteger",
+                "unsigned": true,
+                "default": 0
+            },
+            "pw": {
+                "column": "pw",
+                "label": "Pw",
+                "description": "",
+                "icon": "fa-solid fa-globe",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "tinyInteger",
+                "unsigned": true,
+                "default": 0
+            },
+            "only_admin": {
+                "column": "only_admin",
+                "label": "Only admin",
+                "description": "",
+                "icon": "fa-solid fa-user-gear",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean",
+                "default": false
+            },
+            "only_user": {
+                "column": "only_user",
+                "label": "Only user",
+                "description": "",
+                "icon": "fa-solid fa-user",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean",
+                "default": false
+            },
+            "only_guest": {
+                "column": "only_guest",
+                "label": "Only guest",
+                "description": "",
+                "icon": "fa-solid fa-person-rays",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean",
+                "default": false
+            },
+            "allow_public": {
+                "column": "allow_public",
+                "label": "Allow public",
+                "description": "",
+                "icon": "fa-solid fa-users-line",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "boolean",
+                "default": false
+            }
+        },
+        "status": {
+            "status": {
+                "column": "status",
+                "label": "Status",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "bigInteger",
+                "unsigned": true,
+                "default": 0
+            },
+            "rank": {
+                "column": "rank",
+                "label": "Rank",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "bigInteger",
+                "unsigned": false,
+                "default": 0
+            },
+            "size": {
+                "column": "size",
+                "label": "Size",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "bigInteger",
+                "unsigned": false,
+                "default": 0
+            }
+        },
+        "matrix": {
+            "matrix": {
+                "column": "matrix",
+                "label": "Matrix",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "JSON_OBJECT",
+                "default": "{}"
+            },
+            "x": {
+                "column": "x",
+                "label": "X",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "bigInteger",
+                "unsigned": false,
+                "default": null
+            },
+            "y": {
+                "column": "y",
+                "label": "Y",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "bigInteger",
+                "unsigned": false,
+                "default": null
+            },
+            "z": {
+                "column": "z",
+                "label": "Z",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "bigInteger",
+                "unsigned": false,
+                "default": null
+            },
+            "r": {
+                "column": "r",
+                "label": "R",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "decimal",
+                "precision": 65,
+                "scale": 10,
+                "default": null
+            },
+            "theta": {
+                "column": "theta",
+                "label": "Theta",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "decimal",
+                "precision": 10,
+                "scale": 6,
+                "default": null
+            },
+            "rho": {
+                "column": "rho",
+                "label": "Rho",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "decimal",
+                "precision": 10,
+                "scale": 6,
+                "default": null
+            },
+            "phi": {
+                "column": "phi",
+                "label": "Phi",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "decimal",
+                "precision": 10,
+                "scale": 6,
+                "default": null
+            },
+            "elevation": {
+                "column": "elevation",
+                "label": "Elevation",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "decimal",
+                "precision": 65,
+                "scale": 10,
+                "default": null
+            },
+            "latitude": {
+                "column": "latitude",
+                "label": "Latitude",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "decimal",
+                "precision": 8,
+                "scale": 6,
+                "default": null
+            },
+            "longitude": {
+                "column": "longitude",
+                "label": "Longitude",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "decimal",
+                "precision": 9,
+                "scale": 6,
+                "default": null
+            }
+        },
+        "ui": {
+            "icon": {
+                "column": "icon",
+                "label": "Icon",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "string",
+                "size": 128,
+                "default": ""
+            },
+            "image": {
+                "column": "image",
+                "label": "Image",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "string",
+                "size": 512,
+                "default": ""
+            },
+            "avatar": {
+                "column": "avatar",
+                "label": "Avatar",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": false,
+                "readOnly": false,
+                "type": "string",
+                "size": 512,
+                "default": ""
+            },
+            "ui": {
+                "column": "ui",
+                "label": "Ui",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "JSON_OBJECT",
+                "default": "{}"
+            }
+        },
+        "json": {
+            "assets": {
+                "column": "assets",
+                "label": "Assets",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "JSON_OBJECT",
+                "default": "{}"
+            },
+            "flow": {
+                "column": "flow",
+                "label": "Flow",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "JSON_OBJECT",
+                "default": "{}"
+            },
+            "meta": {
+                "column": "meta",
+                "label": "Meta",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "JSON_OBJECT",
+                "default": "{}"
+            },
+            "notes": {
+                "column": "notes",
+                "label": "Notes",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": true,
+                "type": "JSON_ARRAY",
+                "comment": "Array of note objects",
+                "default": "[]"
+            },
+            "options": {
+                "column": "options",
+                "label": "Options",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "JSON_OBJECT",
+                "default": "{}"
+            },
+            "backlog": {
+                "column": "backlog",
+                "label": "Backlog",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "JSON_OBJECT",
+                "default": "{}"
+            },
+            "board": {
+                "column": "board",
+                "label": "Board",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "JSON_OBJECT",
+                "default": "{}"
+            },
+            "roadmap": {
+                "column": "roadmap",
+                "label": "Roadmap",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "JSON_OBJECT",
+                "default": "{}"
+            },
+            "sources": {
+                "column": "sources",
+                "label": "Sources",
+                "description": "",
+                "icon": "",
+                "index": false,
+                "nullable": true,
+                "readOnly": false,
+                "type": "JSON_OBJECT",
+                "default": "{}"
+            }
+        }
+    },
+    "uses": [
+        "Illuminate/Database/Eloquent/Relations/HasOne",
+        "Playground/Models/Model"
+    ]
+}

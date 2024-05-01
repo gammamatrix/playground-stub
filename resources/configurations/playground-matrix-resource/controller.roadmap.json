@@ -1,0 +1,30 @@
+{
+    "class": "RoadmapController",
+    "module": "Matrix",
+    "module_slug": "matrix",
+    "name": "RoadmapController",
+    "namespace": "Playground/Matrix/Resource",
+    "model": "Roadmap",
+    "organization": "Playground",
+    "package": "playground-matrix-resource",
+    "type": "playground-resource",
+    "playground": true,
+    "models": {
+        "Roadmap": "resources/configurations/playground-matrix/model.roadmap.json"
+    },
+    "policies": [],
+    "requests": [],
+    "resources": [],
+    "templates": [],
+    "transformers": [],
+    "extends": "Controller",
+    "extends_use": "",
+    "slug": "",
+    "slug_plural": "",
+    "model_route": "playground.matrix.resource.roadmaps",
+    "module_route": "playground.matrix.resource",
+    "privilege": "playground-matrix-resource:roadmap",
+    "route": "playground.matrix.resource.roadmaps",
+    "view": "playground-matrix-resource::roadmap",
+    "uses": []
+}

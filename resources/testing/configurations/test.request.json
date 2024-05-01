@@ -1,0 +1,12 @@
+{
+    "abstract": true,
+    "class": "FormRequest",
+    "name": "FormRequest",
+    "namespace": "Playground\\Matrix\\Resource",
+    "model": "Illuminate\\Database\\Eloquent\\Model",
+    "organization": "Playground",
+    "package": "playground-acme",
+    "type": "abstract",
+    "extends": "FormRequest",
+    "extends_use": "Illuminate\\Foundation\\Http\\FormRequest"
+}

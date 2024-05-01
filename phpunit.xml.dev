@@ -24,12 +24,15 @@
     displayDetailsOnTestsThatTriggerWarnings="true"
     testdox="true">
     <testsuites>
-        <!-- <testsuite name="Unit">
+        <testsuite name="Unit">
             <directory>tests/Unit</directory>
-        </testsuite> -->
+        </testsuite>
         <testsuite name="Feature">
             <directory>tests/Feature</directory>
         </testsuite>
+        <!-- <testsuite name="Acceptance">
+            <directory>tests/Acceptance</directory>
+        </testsuite> -->
     </testsuites>
     <coverage
         includeUncoveredFiles="true"

@@ -1,0 +1,30 @@
+{
+    "class": "MilestoneController",
+    "module": "Matrix",
+    "module_slug": "matrix",
+    "name": "MilestoneController",
+    "namespace": "Playground/Matrix/Resource",
+    "model": "Milestone",
+    "organization": "Playground",
+    "package": "playground-matrix-resource",
+    "type": "playground-resource",
+    "playground": true,
+    "models": {
+        "Milestone": "resources/configurations/playground-matrix/model.milestone.json"
+    },
+    "policies": [],
+    "requests": [],
+    "resources": [],
+    "templates": [],
+    "transformers": [],
+    "extends": "Controller",
+    "extends_use": "",
+    "slug": "",
+    "slug_plural": "",
+    "model_route": "playground.matrix.resource.milestones",
+    "module_route": "playground.matrix.resource",
+    "privilege": "playground-matrix-resource:milestone",
+    "route": "playground.matrix.resource.milestones",
+    "view": "playground-matrix-resource::milestone",
+    "uses": []
+}

@@ -1,0 +1,30 @@
+{
+    "class": "EpicController",
+    "module": "Matrix",
+    "module_slug": "matrix",
+    "name": "EpicController",
+    "namespace": "Playground/Matrix/Resource",
+    "model": "Epic",
+    "organization": "Playground",
+    "package": "playground-matrix-resource",
+    "type": "playground-resource",
+    "playground": true,
+    "models": {
+        "Epic": "resources/configurations/playground-matrix/model.epic.json"
+    },
+    "policies": [],
+    "requests": [],
+    "resources": [],
+    "templates": [],
+    "transformers": [],
+    "extends": "Controller",
+    "extends_use": "",
+    "slug": "",
+    "slug_plural": "",
+    "model_route": "playground.matrix.resource.epics",
+    "module_route": "playground.matrix.resource",
+    "privilege": "playground-matrix-resource:epic",
+    "route": "playground.matrix.resource.epics",
+    "view": "playground-matrix-resource::epic",
+    "uses": []
+}

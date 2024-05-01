@@ -1,0 +1,30 @@
+{
+    "class": "BoardController",
+    "module": "Matrix",
+    "module_slug": "matrix",
+    "name": "BoardController",
+    "namespace": "Playground/Matrix/Resource",
+    "model": "Board",
+    "organization": "Playground",
+    "package": "playground-matrix-resource",
+    "type": "playground-resource",
+    "playground": true,
+    "models": {
+        "Board": "resources/configurations/playground-matrix/model.board.json"
+    },
+    "policies": [],
+    "requests": [],
+    "resources": [],
+    "templates": [],
+    "transformers": [],
+    "extends": "Controller",
+    "extends_use": "",
+    "slug": "",
+    "slug_plural": "",
+    "model_route": "playground.matrix.resource.boards",
+    "module_route": "playground.matrix.resource",
+    "privilege": "playground-matrix-resource:board",
+    "route": "playground.matrix.resource.boards",
+    "view": "playground-matrix-resource::board",
+    "uses": []
+}

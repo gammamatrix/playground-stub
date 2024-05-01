@@ -1,0 +1,30 @@
+{
+    "class": "TicketController",
+    "module": "Matrix",
+    "module_slug": "matrix",
+    "name": "TicketController",
+    "namespace": "Playground/Matrix/Resource",
+    "model": "Ticket",
+    "organization": "Playground",
+    "package": "playground-matrix-resource",
+    "type": "playground-resource",
+    "playground": true,
+    "models": {
+        "Ticket": "resources/configurations/playground-matrix/model.ticket.json"
+    },
+    "policies": [],
+    "requests": [],
+    "resources": [],
+    "templates": [],
+    "transformers": [],
+    "extends": "Controller",
+    "extends_use": "",
+    "slug": "",
+    "slug_plural": "",
+    "model_route": "playground.matrix.resource.tickets",
+    "module_route": "playground.matrix.resource",
+    "privilege": "playground-matrix-resource:ticket",
+    "route": "playground.matrix.resource.tickets",
+    "view": "playground-matrix-resource::ticket",
+    "uses": []
+}

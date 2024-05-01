@@ -15,6 +15,8 @@ use Playground\Test\OrchestraTestCase;
  */
 class TestCase extends OrchestraTestCase
 {
+    use FileTrait;
+
     protected function getPackageProviders($app)
     {
         return [
