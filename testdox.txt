@@ -358,7 +358,7 @@ Model (Tests\Feature\Playground\Stub\Console\Commands\TestMakeCommand\Model)
  [x] Command make playground model resource with force
 
 Options (Tests\Feature\Playground\Stub\Console\Commands\ModelMakeCommand\Options)
- [x] Command make model with all of the option flags
+ [x] Command make model with all of the option flags except test
  [x] Command make model with pivot type
  [x] Command make model with pivot option
  [x] Command make model with morph pivot type

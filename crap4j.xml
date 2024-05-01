@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-30 19:49:12</timestamp>
+  <timestamp>2024-05-01 00:55:30</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>648</methodCount>
-    <crapMethodCount>27</crapMethodCount>
-    <crapLoad>306</crapLoad>
-    <totalCrap>7286.68</totalCrap>
-    <crapMethodPercent>4.17</crapMethodPercent>
+    <crapMethodCount>28</crapMethodCount>
+    <crapLoad>317</crapLoad>
+    <totalCrap>7394.09</totalCrap>
+    <crapMethodPercent>4.32</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -688,8 +688,8 @@
       <methodName>createFactory</methodName>
       <methodSignature>createFactory(): void</methodSignature>
       <fullMethod>createFactory(): void</fullMethod>
-      <crap>6.01</crap>
-      <complexity>6</complexity>
+      <crap>7.01</crap>
+      <complexity>7</complexity>
       <coverage>94.44</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -699,8 +699,8 @@
       <methodName>createMigration</methodName>
       <methodSignature>createMigration(): void</methodSignature>
       <fullMethod>createMigration(): void</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
+      <crap>5</crap>
+      <complexity>5</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -710,8 +710,8 @@
       <methodName>createController</methodName>
       <methodSignature>createController(): void</methodSignature>
       <fullMethod>createController(): void</fullMethod>
-      <crap>16.93</crap>
-      <complexity>16</complexity>
+      <crap>18.05</crap>
+      <complexity>17</complexity>
       <coverage>84.62</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -721,8 +721,8 @@
       <methodName>createPolicy</methodName>
       <methodSignature>createPolicy(): void</methodSignature>
       <fullMethod>createPolicy(): void</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
+      <crap>5</crap>
+      <complexity>5</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -732,8 +732,8 @@
       <methodName>createSeeder</methodName>
       <methodSignature>createSeeder(): void</methodSignature>
       <fullMethod>createSeeder(): void</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
+      <crap>5</crap>
+      <complexity>5</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -743,9 +743,9 @@
       <methodName>createTest</methodName>
       <methodSignature>createTest()</methodSignature>
       <fullMethod>createTest()</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
-      <coverage>100</coverage>
+      <crap>7.02</crap>
+      <complexity>7</complexity>
+      <coverage>92.31</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -1484,6 +1484,28 @@
       <complexity>2</complexity>
       <coverage>68.42</coverage>
       <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Test</package>
+      <className>Playground\Stub\Building\Test\BuildModelRelationships</className>
+      <methodName>buildClass_hasMany</methodName>
+      <methodSignature>buildClass_hasMany(string $type, string $suite): void</methodSignature>
+      <fullMethod>buildClass_hasMany(string $type, string $suite): void</fullMethod>
+      <crap>95.98</crap>
+      <complexity>11</complexity>
+      <coverage>11.11</coverage>
+      <crapLoad>10</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Stub\Building\Test</package>
+      <className>Playground\Stub\Building\Test\BuildModelRelationships</className>
+      <methodName>buildClass_hasOne</methodName>
+      <methodSignature>buildClass_hasOne(string $type, string $suite): void</methodSignature>
+      <fullMethod>buildClass_hasOne(string $type, string $suite): void</fullMethod>
+      <crap>388.66</crap>
+      <complexity>21</complexity>
+      <coverage>5.88</coverage>
+      <crapLoad>20</crapLoad>
     </method>
     <method>
       <package>Playground\Stub\Configuration\Concerns</package>
@@ -5968,9 +5990,9 @@
       <methodName>resetModelFile</methodName>
       <methodSignature>resetModelFile(): void</methodSignature>
       <fullMethod>resetModelFile(): void</fullMethod>
-      <crap>34.49</crap>
+      <crap>28.62</crap>
       <complexity>27</complexity>
-      <coverage>78.26</coverage>
+      <coverage>86.96</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -6081,28 +6103,6 @@
       <crap>2</crap>
       <complexity>2</complexity>
       <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands\Concerns</package>
-      <className>Playground\Stub\Console\Commands\Concerns\Tests</className>
-      <methodName>buildClass_hasOne</methodName>
-      <methodSignature>buildClass_hasOne(string $type, string $suite): void</methodSignature>
-      <fullMethod>buildClass_hasOne(string $type, string $suite): void</fullMethod>
-      <crap>377.68</crap>
-      <complexity>20</complexity>
-      <coverage>3.66</coverage>
-      <crapLoad>20</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Stub\Console\Commands\Concerns</package>
-      <className>Playground\Stub\Console\Commands\Concerns\Tests</className>
-      <methodName>buildClass_hasMany</methodName>
-      <methodSignature>buildClass_hasMany(string $type, string $suite): void</methodSignature>
-      <fullMethod>buildClass_hasMany(string $type, string $suite): void</fullMethod>
-      <crap>11.76</crap>
-      <complexity>4</complexity>
-      <coverage>21.43</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -6256,7 +6256,7 @@
       <fullMethod>handle()</fullMethod>
       <crap>14</crap>
       <complexity>14</complexity>
-      <coverage>100</coverage>
+      <coverage>97.62</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -6397,9 +6397,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>36.8</crap>
+      <crap>38.95</crap>
       <complexity>35</complexity>
-      <coverage>88.64</coverage>
+      <coverage>85.23</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -6463,9 +6463,9 @@
       <methodName>handleTestCreation</methodName>
       <methodSignature>handleTestCreation($path)</methodSignature>
       <fullMethod>handleTestCreation($path)</fullMethod>
-      <crap>4</crap>
+      <crap>6</crap>
       <complexity>4</complexity>
-      <coverage>100</coverage>
+      <coverage>50</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -6837,8 +6837,8 @@
       <methodName>getPath</methodName>
       <methodSignature>getPath($name): string</methodSignature>
       <fullMethod>getPath($name): string</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
+      <crap>2</crap>
+      <complexity>2</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -7013,9 +7013,9 @@
       <methodName>prepareOptions</methodName>
       <methodSignature>prepareOptions(): void</methodSignature>
       <fullMethod>prepareOptions(): void</fullMethod>
-      <crap>10</crap>
-      <complexity>10</complexity>
-      <coverage>100</coverage>
+      <crap>12.32</crap>
+      <complexity>12</complexity>
+      <coverage>86.89</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -7035,9 +7035,9 @@
       <methodName>qualifyClass</methodName>
       <methodSignature>qualifyClass($name): string</methodSignature>
       <fullMethod>qualifyClass($name): string</fullMethod>
-      <crap>2</crap>
+      <crap>2.05</crap>
       <complexity>2</complexity>
-      <coverage>100</coverage>
+      <coverage>76.92</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -7046,9 +7046,9 @@
       <methodName>getStub</methodName>
       <methodSignature>getStub()</methodSignature>
       <fullMethod>getStub()</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
+      <crap>3.33</crap>
+      <complexity>3</complexity>
+      <coverage>66.67</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -7057,9 +7057,9 @@
       <methodName>getDefaultNamespace</methodName>
       <methodSignature>getDefaultNamespace($rootNamespace): string</methodSignature>
       <fullMethod>getDefaultNamespace($rootNamespace): string</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
-      <coverage>100</coverage>
+      <crap>5.09</crap>
+      <complexity>5</complexity>
+      <coverage>84.62</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
